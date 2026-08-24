@@ -2,15 +2,15 @@
 
 - **Date:** 2026-08-24
 - **From Agent:** ox-alpha
-- **Current Task:** TASK-015 (Control Semantics Stress Test) — وثيقة صدرت، بانتظار المراجعة الثلاثية
+- **Current Task:** TASK-016 (Control Chain Stress Test) — الخيار A حسم: Composition كافية، Model v1 gate مفتوح
 
-## 0. Control Semantics Stress Test — ملخص تنفيذي (الأحدث)
-بديل Test E المجمّد بقرار صاحب المشروع: اختبار ضغط مفاهيمي (صفر كود) يحسم قابلية فصل السيطرة عن النية عبر 8 سيناريوهات.
-- **النتيجة الحاكمة: Control قابل للفصل كليًا عن Intent** — بشرطين مكتشفين بالسيناريوهين 3/4: انقسام المفردة إلى `Possession` + `ExerciseCapability`، وبثبات خاصية **bitwise immutability** للحالة البنيوية تحت تغيّر العلاقة/النية (S2/S5/S7/S8).
-- **ثلاثة قوانين معمارية مقترحة لـ Model v1**: L1 Zero-Intent-Input | L2 Pair-Indexing | L3 No-Eager-Threat.
-- **رفض مفردة HostileControl بالدليل** (S1/S5: السيطرة تعيش بلا عداء)؛ التوصية: Strategic Control + ExerciseCapability، والاسم النهائي لقرار المالك.
-- **الحكم الواقعي موثق لكل سيناريو**: أستراليا-اليابان، روسيا-ألمانيا 2022، البحر الأحمر ضد القوافل، سيبيريا قبل Power-of-Siberia، النرويج لأوروبا، الأرض النادرة/الليثيوم، حظر النفط 1973، سيناريوهات انتقال الحكومات.
-- **Evidence:** [`08-Control-Semantics-Stress-Test.md`](file:///c:/tmp/maestro%20engine/08-Control-Semantics-Stress-Test.md)
+## 0. Control Chain Stress Test — ملخص تنفيذي (الأحدث)
+حسم سؤال ASML المعلق بمعيار ثنائي صارم (A: تركيب كافٍ / B: primitive جديد بشروط).
+- **النتيجة: الخيار A.** السيناريوهات السبعة كلها اكتملت بعلاقة موزونة واحدة جديدة `Authority(A,B,degree)` — **علاقة ربط بيانات لا primitive حالة مخزن** — مع قواعد تركيب مجمدة C1–C4 (Path Product / Per-Path Indexing / Max-Not-Sum / Cycle Skip المعارة من v3).
+- **اختبار الحذف للحكم B:** فشل بالمعنى الصحيح — لا معلومة سببية جديدة ظهرت؛ النموذج **تقلص**: `Chain Composition` آلية اشتقاق رقم 4 في سلسلة Model v1.
+- **أقوى دليل:** سيناريو ASML الحقيقي — رفع درجة سلطة واشنطن (2023) غيّر بوابة الصين دون أن تمتلك آلة واحدة؛ التركيب يعيد إنتاج الحدث حرفيًا.
+- **مجهولات مؤجلة:** مصدر دقة الدرجة، تعارض المسارات المتعاكسة، أحداث تغيير الدرجات.
+- **Evidence:** [`09-Control-Chain-Stress-Test.md`](file:///c:/tmp/maestro%20engine/09-Control-Chain-Stress-Test.md)
 
 ## 1. Summary of Completed Work
 - تنفيذ Test 1 حرفيًا وفق `05-Test1-Derived-Importance-Handoff.md` بلا أي توسع: لا Personality، لا GOAP، لا Diplomacy، ولا لمسة على Kernel الـ Phase 6.
@@ -79,6 +79,7 @@
 - **قرار ما بعد Phase 9 (صاحب المشروع):** تطهير أولًا (TASK-002) قبل Derived Traits، بمطابقة Checksum صارمة وتدقيق Baseline/Post ملزم — نُفذ: **CLEAN + 5/5 + Checksum مطابق حرفيًا**.
 - **قرار ما بعد Phase 10 (صاحب المشروع):** Model Discovery قبل Derived Traits — بحث موثق بنقطة نهاية إلزامية (Pattern→Vocabulary→Rules→Computational Form→Test) بلا أي كود — نُفذ في TASK-014.
 - **تعديل المسار (صاحب المشروع):** إلغاء Test E بصيغته واستبداله بـ Control Semantics Stress Test — حسم قابلية فصل Control عن Intent قبل دخوله Model v1، مع الحكم الواقعي لكل سيناريو كمساهمة أساسية من المنفذ — نُفذ في TASK-015: قابل للفصل كليًا (بشرط الانقسام + القوانين الثلاثة).
+- **قرار ما بعد 08 (صاحب المشروع):** تأجيل Model v1 وحسم سؤال ASML أولًا بـ Control Chain Stress Test قصير بمعيار A/B صارم — نُفذ في TASK-016: **الخيار A (Composition sufficient)**، وModel v1 gate مفتوح.
 
 ## 6. Next Recommended Actions
-- (إجرائي فقط) مراجعة الثلاثية لوثيقتَي `07` و`08`: (المالك) كفاية/بساطة النموذج، (المراجع) واقعية السلوك، (المنفذ) قابلية التمثيل فوق الـ Kernel — ثم Strategic Relevance Model v1.
+- (إجرائي فقط) عند إشارة المالك: كتابة Strategic Relevance Model v1 كسلسلة World Facts → Primitive Derived State → Chain Composition → Relevance، مستوعبًا بند سلاسل السيطرة أولًا.

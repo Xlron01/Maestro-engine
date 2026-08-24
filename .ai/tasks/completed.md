@@ -4,6 +4,24 @@
 
 ---
 
+### [TASK-016] Control Chain Stress Test — Composition vs New Primitive
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-015
+- **Objective:** حسم سؤال Model v1 المعلق (ASML): هل السيطرة متعددة الطبقات مجرد Composition لعلاقات موجودة أم تحتاج primitive جديد؟ — وثيقة قصيرة بمعيار حسم ثنائي (A/B) و7 سيناريوهات بتسجيل مسبق.
+- **Acceptance Criteria:**
+  - [x] السيناريوهات السبعة المطلوبة كلها (مباشر/وسيط/مكسور/جزئي/متعدد/نية/ASML) بأعمدة ثابت-يتغير-ممنوع لكل واحد.
+  - [x] الحكم: **الخيار A** — التركيب كافٍ؛ يُضاف عائلة علاقة موزونة واحدة `Authority(A,B,degree)` كبيانات ربط (ليست primitive حالة) + قواعد تركيب C1–C4 (Path Product / Per-Path / Max-Not-Sum / Cycle Skip).
+  - [x] اختبار الحذف للحكم B فشل بالمعنى الصحيح: لا معلومة سببية جديدة ظهرت — النموذج **تقلص** لا تكبر (لا ChainControl مخزن).
+  - [x] الحكم الواقعي لكل سيناريو (بريكست، حق النقض المزدوج، ASML 2023، حصص جزئية...).
+  - [x] بوابة Model v1 مفتوحة رسميًا كسلسلة Facts→Primitives→Composition→Relevance.
+- **Validation Method:**
+  مراجعة صاحب المشروع والمراجع للوثيقة
+- **Evidence:** [`09-Control-Chain-Stress-Test.md`](file:///c:/tmp/maestro%20engine/09-Control-Chain-Stress-Test.md)
+
+---
+
 ### [TASK-015] Control Semantics Stress Test — Separability of Control from Intent
 
 - **Status:** COMPLETE
