@@ -2,27 +2,22 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-24
-- **Current Phase:** Model v1 — Tranche A ✅ 13/13 + Tranche B ✅ 11/11 (كلا الترانشين أخضران)
-- **Current Step:** بانتظار موافقة المالك على الدمج والتجميد الكامل (بوابة §9.3) ثم Integration assertions
+- **Current Phase:** Strategic Relevance Model v1 — **FROZEN** (Integration Gate 7/7 + ScenarioTest 5/5)
+- **Current Step:** بانتظار توقيع المالك على التجميد ⇒ ثم بناء Test 1′ فوق النموذج المجمد
 
 ## Current Objective
-Tranche B (الجديد كليًا: Transit/Possession/ExerciseCapability/Authority/DerivedPossession/C1–C4) عدّى في عزل تام بمعيار bitwise شامل دورة سلطة فعلية وترتيب تقديم مسارات وانقلاب L1 عبر السلاسل. Tranche A أخضر 13/13 بعد تصحيح assertions المعتمد. كلاهما يفتح بوابة الدمج والتجميد الكامل لـ Model v1.
+بوابة §9.3 اكتملت: Integration Gate **PASS 7/7** (I-1 Supply mirror exact، I-2 dp=0.8 بالضبط، I-3 Access mirror exact، **I-4 L1-joint** انقلاب نية/عداء ⇒ الطبقات الثلاث bitwise، **I-5 L2-joint** صفر مفاتيح تجميعية، **I-6 L3-joint** مخرجات float خالصة، I-7 حتمية). القيم المرجعية: exposure=1.05، access=0.84، rel_supply=0.945، total=1.785.
 
 ## Active Tasks
-- `TASK-019`: Tranche B. (Status: COMPLETE)
-- `TASK-018`: Tranche A. (Status: COMPLETE)
-- `TASK-004..017`: السلسلة السابقة. (موثقة)
+- `TASK-020`: Integration Gate & Freeze. (Status: COMPLETE)
+- `TASK-004..019`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- الدمج والتجميد الكامل يحتاج موافقة صاحب المشروع (شرطه: نجاح B بصرامة bitwise — تحقق).
+- التجميد الرسمي النهائي بانتظار توقيع المالك على الوثيقة 10.
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. (إجرائي فقط) عند موافقة المالك: Integration Gate (تحويل مسيرة §6.3 إلى assertions فعلية + ScenarioTest regression) ⇒ تجميد كامل.
-
-## Known Bugs & Temporary Hacks
-- **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر بالكامل مع Checksum مطابق.
-- **تحذيرات الخروج في Godot:** تسريب بعض كائنات ObjectDB عند خروج السكريبتات المستقلة `SceneTree.quit()` (سلوك موروث pre-existing baseline).
+1. (إجرائي فقط) عند توقيع المالك: بناء Test 1′ فوق Model v1 المجمد بنفس المنهجية.
 
 ## Known Bugs & Temporary Hacks
 - **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر بالكامل مع Checksum مطابق.

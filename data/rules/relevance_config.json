@@ -10,5 +10,13 @@
 		"default": 1.0,
 		"civilian": 1.0,
 		"defense": 1.5
+	},
+	"projection_table": {
+		"default": 0.0,
+		"partial": 0.5,
+		"full": 1.0
+	},
+	"gates_guard": {
+		"EUV_gate": ["EUV_flow"]
 	}
 }

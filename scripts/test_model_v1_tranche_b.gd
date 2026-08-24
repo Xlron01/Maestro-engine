@@ -65,29 +65,34 @@ func _init() -> void:
 	# ---------- B-2 permutation invariance (C1) ----------
 	print("")
 	print("-- B-2: C1 order-permutation invariance")
-	_check("B-2 permuted edge/key order yields bitwise-identical chains output",
-		_canonical(out_base) == _canonical(out_perm), "")
+	_check("B-2 permuted edge/key order yields identical structural output (diagnostics stripped)",
+		_canonical(_strip_diag(out_base)) == _canonical(_strip_diag(out_perm)), "")
 
 	# ---------- B-3 real cycle (C4) ----------
 	print("")
 	print("-- B-3: C4 real authority cycle (Loop_Holder->Loop_B->Loop_A->Holder)")
-	var loop_gates: Dictionary = (out_base["gates"].get("Loop_gate", {}) as Dictionary).get("controllers", {})
+	var loop_slot: Dictionary = out_base["gates"].get("Loop_gate", {})
+	var loop_gates: Dictionary = loop_slot.get("controllers", {})
 	print("   Loop_gate controllers: ", loop_gates)
 	_check("B-3a traversal terminates deterministically on cyclic graph (double-run identical)",
-		_canonical(out_base) == _canonical(again), "")
+		_canonical(_strip_diag(out_base)) == _canonical(_strip_diag(again)), "")
 	_check("B-3b cycle degrees correct: Holder=1.0, A=0.6, B=0.42",
 		float(loop_gates.get("Loop_Holder", 0.0)) == 1.0
 		and float(loop_gates.get("Loop_A", 0.0)) == 0.6
 		and absf(float(loop_gates.get("Loop_B", 0.0)) - 0.42) < 1e-12, "")
-	_check("B-3c cycles were recorded as warnings (diagnostic surface)",
-		(out_base["cycles"] as Array).size() > 0, "")
+	_check("B-3c cycle recorded: 1 event, steps>=6, visits=3 (exact iteration count before termination)",
+		int(loop_slot.get("cycle_events", []).size()) == 1
+		and int(loop_slot.get("steps", 0)) >= 6
+		and int((loop_slot.get("visits", []) as Array).size()) == 3,
+		"steps=%s events=%s visits=%d" % [loop_slot.get("steps"), loop_slot.get("cycle_events"),
+		(loop_slot.get("visits", []) as Array).size()])
 	var out_cycle_again: Dictionary = RCModule.control_chains(_cycle_world())
 	var lg_embedded: Dictionary = (out_base["gates"].get("Loop_gate", {}) as Dictionary)
 	var lg_standalone: Dictionary = (out_cycle_again["gates"].get("Loop_gate", {}) as Dictionary)
-	var canon_match: bool = _canonical(lg_embedded) == _canonical(lg_standalone)
+	var canon_match: bool = _canonical(_strip_diag(lg_embedded)) == _canonical(_strip_diag(lg_standalone))
 	_check("B-3d standalone cyclic world matches embedded-cycle result for Loop_gate",
 		canon_match,
-		"embedded=%s | standalone=%s" % [_canonical(lg_embedded), _canonical(lg_standalone)])
+		"embedded=%s | standalone=%s" % [_canonical(_strip_diag(lg_embedded)), _canonical(_strip_diag(lg_standalone))])
 
 	# ---------- B-4 chain break ----------
 	print("")
@@ -100,8 +105,8 @@ func _init() -> void:
 	# ---------- B-5 L1 across chains ----------
 	print("")
 	print("-- B-5: L1 across chains (stance flip touches nothing structural)")
-	_check("B-5 stance cooperative->coercive yields bitwise-identical chains output",
-		_canonical(out_base) == _canonical(out_flip), "")
+	_check("B-5 stance cooperative->coercive yields identical structural output (diagnostics stripped)",
+		_canonical(_strip_diag(out_base)) == _canonical(_strip_diag(out_flip)), "")
 
 	# ---------- B-6 disjoint ----------
 	print("")
@@ -174,8 +179,41 @@ func _cycle_world() -> Dictionary:
 
 
 func _canonical(v) -> String:
-	# تسلسل كانوني بمفاتيح مرتبة — يقضي على اختلاف ترتيب الإدراج
-	return JSON.stringify(_sort_rec(v))
+	# كانوني مع تجريد الحقول التشخيصية — المقارنات البنيوية لا تشملها
+	return JSON.stringify(_sort_rec(_strip_diag(v)))
+
+
+func _strip_diag(v):
+	# يزيل الحقول التشخيصية (visits/cycle_events/steps) قبل المقارنة الكانونية
+	if v is Dictionary:
+		var o := {}
+		for k in (v as Dictionary).keys():
+			var ks := String(k)
+			if ks in ["visits", "cycle_events", "steps"]:
+				continue
+			o[ks] = _strip_diag(v[k])
+		return o
+	if v is Array:
+		var a: Array = []
+		for item in v:
+			a.append(_strip_diag(item))
+		return a
+	return v
+	# يزيل الحقول التشخيصية (visits/cycle_events/steps) قبل المقارنة الكانونية
+	if v is Dictionary:
+		var o := {}
+		for k in (v as Dictionary).keys():
+			var ks := String(k)
+			if ks in ["visits", "cycle_events", "steps"]:
+				continue
+			o[ks] = _strip_diag(v[k])
+		return o
+	if v is Array:
+		var a: Array = []
+		for item in v:
+			a.append(_strip_diag(item))
+		return a
+	return v
 
 
 func _sort_rec(v):

@@ -1,0 +1,30 @@
+{
+	"world_id": "model_v1_integration",
+	"description": "Model v1 Integration - both channels + all three laws jointly on one pipeline. ASML-pattern: Washington (authority 0.8 over NL-Policy, projection full) -> NL_Policy (possesses EUV_gate, produces EUV_flow) <- China (depends on EUV_flow, defense sector, 90d reserves). Source: 10-Strategic-Relevance-Model-v1.md section 9.3",
+	"capabilities_declared": ["EUV_flow", "EUV_gate"],
+	"enables": {},
+	"entities": {
+		"Washington": {
+			"role": "chain_controller",
+			"projection_class": "full",
+			"stance": "cooperative",
+			"authority": [
+				{ "to": "NL_Policy", "degree": 0.8 }
+			]
+		},
+		"NL_Policy": {
+			"role": "gate_holder",
+			"possession": { "EUV_gate": 1.0 },
+			"produces": { "EUV_flow": 1.0 }
+		},
+		"China": {
+			"role": "exposed_observer",
+			"depends_on": { "EUV_flow": 0.70 },
+			"sectors": { "EUV_flow": "defense" },
+			"reserves_days": { "EUV_flow": 90 }
+		},
+		"Bystander": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}

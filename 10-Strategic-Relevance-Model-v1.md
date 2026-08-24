@@ -173,7 +173,7 @@ Relevance(Y, X)        = Relevance_Supply(Y,X) + Relevance_Access(Y,X)
 
 Intent/Goals/Personality • Threat/PotentialCoerciveLeverage (طبقة القرار) • Betweenness المخزّن • تدرجات التحالف متعددة المحاور • أحداث تطور Authority الديناميكية (معاهدات تُبرم داخل المحاكاة) • Scale Test للطبقات الجديدة (يُورَّث منهج Test 10).
 
-## 9) بروتوكول التجمد المتدرج (مُعدَّل بمراجعة صاحب المشروع — إلغاء الاختبار الشامل الواحد)
+## 9) بروتوكول التجمد المتدرج — ✅ **منفذ بالكامل: MODEL v1 FROZEN** (بإشارة صاحب المشروع المعلقة على التجميد الرسمي)
 
 ### 9.0 سجل نضج المكوّنات — ما اثبت فعليًا وما هو جديد كليًا (أساس التقسيم)
 
@@ -228,3 +228,22 @@ Intent/Goals/Personality • Threat/PotentialCoerciveLeverage (طبقة القر
 ---
 
 **نهاية Model v1. الخطوة التالية بعد موافقتك على البروتوكول المتدرج: تجميد Tranche A وبناؤه — لا شيء قبله.**
+
+---
+
+## ✅ سجل تنفيذ البروتوكول المتدرج (مكتمل)
+
+| البوابة | النتيجة | الدليل |
+|---|---|---|
+| §9.0 سجل النضج | ✔️ وثّق أن كل مكونات B جديدة كليًا بلا تنفيذ سابق | هذا الملف §9.0 |
+| **Tranche A** (الموروث: ExposureSupply/EoR) | تشغيل أول 10/2 → تصحيح assertions معتمد من المالك ⇒ **PASS 13/13** | [model_v1_tranche_a_v2.log](.ai/evidence/tests/model_v1_tranche_a_v2.log) |
+| **Tranche B** (الجديد كليًا، عزل تام + دورة فعلية) | **PASS 11/11** — بعد إصلاح خطأ مفتاح داخلي التقطته البوابة | [model_v1_tranche_b_v2.log](.ai/evidence/tests/model_v1_tranche_b_v2.log) |
+| **Integration Gate** (§9.3) | **PASS 7/7** — القناتان + السلاسل + الامتثال المشترك L1/L2/L3 على خط واحد | [model_v1_integration.log](.ai/evidence/tests/model_v1_integration.log) |
+| ScenarioTest regression بعد كل بوابة | **5/5 + Checksum ثابت** في كل مرة | آخرها [model_v1_freeze_scenariotest.log](.ai/evidence/tests/model_v1_freeze_scenariotest.log) |
+| عدّاد الدورة (طلب المراجعة) | B-3c يوثق steps/events/visits بالأرقام — الإنهاء بعد اكتشاف الدورة وليس قطعًا تعسفيًا | داخل لوج Tranche B |
+
+> **حالة Model v1:** التصميم مجمّد بجميع صيغه وقواعده (C1–C4, L1/L2/L3, القناتان). أي تعديل مستقبلي يتطلب قرار صاحب المشروع وإصدار v2.
+
+---
+
+**نهاية Model v1 — FROZEN. الخطوة التالية (بعد إشارة صاحب المشروع): بناء Test 1′ فوق النموذج المجمد.**

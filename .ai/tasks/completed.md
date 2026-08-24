@@ -115,6 +115,24 @@
 
 ---
 
+### [TASK-020] Model v1 Integration Gate & Freeze
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-019
+- **Objective:** تنفيذ §9.3: بوابة الدمج — القناتان (Supply/Access) + السلاسل على عالم موحد، والقوانين الثلاثة L1/L2/L3 تُختبر **معًا** على خط الإنتاج الكامل، ثم ScenarioTest regression وإعلان التجميد.
+- **Acceptance Criteria:**
+  - [x] `scripts/test_model_v1_integration.gd` + `data/worlds/model_v1/integration.json` (ASML-pattern: Washington authority 0.8 → NL_Policy possesses EUV_gate + produces EUV_flow ← China defense/90d).
+  - [x] **PASS 7/7**: I-1 Supply mirror exact | I-2 dp==0.8 بالضبط | I-3 Access channel mirror exact | **I-4 L1-joint** (انقلاب stance + إضافة hostile_relation ⇒ الطبقات الثلاث bitwise) | **I-5 L2-joint** (صفر مفاتيح تجميعية) | **I-6 L3-joint** (كل مخرج float خالص) | I-7 حتمية مزدوجة.
+  - [x] قيم مرجعية: exposure=1.05، dp=0.8، access=0.84، rel_supply=0.945، total=1.785.
+  - [x] ScenarioTest regression: **5/5 + Checksum ثابت** بعد كل شيء.
+  - [x] الوثيقة 10 محدثة: MODEL v1 **FROZEN** بجدول البوابات كاملًا.
+- **Validation Method:**
+  `Godot_console --headless --script scripts/test_model_v1_integration.gd` + `ScenarioTest.gd`
+- **Evidence:** [model_v1_integration.log](file:///.ai/evidence/tests/model_v1_integration.log) | [model_v1_freeze_scenariotest.log](file:///.ai/evidence/tests/model_v1_freeze_scenariotest.log)
+
+---
+
 ### [TASK-019] Model v1 Tranche B — Strategic Control & Chain Composition
 
 - **Status:** COMPLETE
