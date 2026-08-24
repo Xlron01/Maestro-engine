@@ -98,23 +98,37 @@
 
 ### [TASK-018] Model v1 Tranche A — Supply Channel (ExposureSupply + EaseOfReplacement)
 
-- **Status:** REVIEW — FAIL موثق بانتظار حكم صاحب المشروع (بوابة إلزامية قبل Tranche B)
+- **Status:** COMPLETE (بعد تصحيح الـassertions المعتمد من المالك — **PASS 13/13**)
 - **Owner:** ox-alpha
 - **Dependencies:** TASK-017
 - **Objective:** بناء وتشغيل الترانش الأول وفق §9.1: قناة الإمداد الموروثة (ExposureSupply + EaseOfReplacement بصيغ مجمّدة وعامل ReplacementFactor = 1 − EoR).
 - **Acceptance Criteria:**
   - [x] الكود: `scripts/relevance_supply.gd` (primitives) + `data/rules/relevance_config.json` (أوزان/حرجة/leadtime كمحتوى) + عالم `data/worlds/model_v1/tranche_a.json` بحقول reserves/sectors + عدّاء `scripts/test_model_v1_tranche_a.gd`.
-  - [x] النتيجة: **10 PASS / 2 FAIL** — الفشلان A-3c/A-4b تشخيصهما بالأرقام: خطأ في تصميم assertions لا في النموذج (انظر أدناه)، لكن الالتزام بتعليمات "أي مفاجأة = توقف واسأل قبل B" منفذ.
-  - [x] مجس تشخيصي وثّق الخلايا المتغيرة بالضبط ثم حُذف؛ لوجاه محفوظان.
+  - [x] تشغيل أول: 10 PASS / 2 FAIL (A-3c/A-4b) — شخّص بمجس مؤقت: قيدا ثبات أضيق من دلالة النموذج (مرآة درس Run 1)؛ رُفع للمالك وفق تعليمات التوقف الصريحة.
+  - [x] المالك اعتمد التصحيح مع شرط توثيقي: توضيح سبب كفاية المعيار الاتجاهي في A-3c′ (نسبة الحركة = سوقي موحد × استجابة RF خاصة بالمستهلك عبر slack — ليست قاعدة عامة للتطابق bitwise بين المعتمدين) + تأكيد A-3d كخاصية مؤكدة لحساسية المخزون (نسب متفاوتة فعليًا: .5952 مقابل .6053).
+  - [x] إعادة التشغيل بعد التصحيح (العدّاء فقط، النموذج لم يُلمس): **PASS 13/13**.
 - **Validation Method:**
   `Godot_console --headless --script scripts/test_model_v1_tranche_a.gd`
-- **Evidence:** [model_v1_tranche_a.log](file:///.ai/evidence/tests/model_v1_tranche_a.log) | [model_v1_tranche_a_diag.log](file:///.ai/evidence/tests/model_v1_tranche_a_diag.log) — Exit Code: 1
+- **Evidence:** [model_v1_tranche_a.log](file:///.ai/evidence/tests/model_v1_tranche_a.log) | [model_v1_tranche_a_diag.log](file:///.ai/evidence/tests/model_v1_tranche_a_diag.log) | [model_v1_tranche_a_v2.log](file:///.ai/evidence/tests/model_v1_tranche_a_v2.log)
 
-> **الفشلان بالأرقام (من لوج التشخيص):**
-> - **A-3c** طالب بثبات باقي المراقبين عند دخول منتج ثالث — لكن كل معتمدي Comp_X تحركوا (Heavy .6048→.36، Light .1008→.06، Covered .1652→.10) **بمعامل واحد متطابق (.5952)** = آلية الاستبدال تعمل كما صُممت؛ الثابت الصحيح الوحيد هو zero-dep anchor (A-6 PASS). تصحيح المرآة لدرس Run 1: لا يُطالب مرتبط بسوق مشتركة بالثبات عند تغير تلك السوق.
-> - **A-4b** طالب بأن احتياطي Heavy يؤثر فقط نحو Prime — لكنه يحمي من انقطاع **أي** مورد لنفس القدرة: صفه كله نحو موردَي Comp_X تحرك بمعامل واحد (.6759) وباقي العالم bitwise سليم ✓. سلوك النموذج صحيح؛ القيد كان أضيق من الدلالة.
->
-> **اقتراح التصحيح المعلق لموافقتك:** A-3c′ (الثبات حصرًا لـ Anchor_Null + اتجاهية حركة المعتمدين) / A-4b′ (صف الحائز كاملًا يتغير، وكل صف آخر bitwise) — دون أي تعديل على النموذج.
+> **الفشلان بالأرقام (سجل Run الأول):** A-3c طالب بثبات مراقبين مرتبطين فعليًا بسوق مشتركة عند دخول منتج (تحركوا جميعًا بمعامل موحد بين من يتشابه احتياطه)؛ A-4b طالب بأن احتياطي الحائز يؤثر نحو مورد واحد فقط (وهو يحمي من كل موردِي القدرة). كلاهما قيد أضيق من الدلالة المجمدة.
+
+---
+
+### [TASK-019] Model v1 Tranche B — Strategic Control & Chain Composition
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-018
+- **Objective:** تنفيذ §9.2: اختبار آلية Strategic Control وChain Composition الجديدتين كليًا في عزل تام بمعيار bitwise (C-T3/B-T2 grade) — بما فيها دورة سلطة فعلية لـ C4.
+- **Acceptance Criteria:**
+  - [x] `scripts/relevance_control.gd` (Possession/Authority/DFS بقواعد C1–C4) + عالم `data/worlds/model_v1/tranche_b.json` يشمل سلسلة ASML نمطية + **دورة سلطة فعلية** + مراقب disjoint.
+  - [x] **النتيجة: PASS 11/11** — أبرزها: Washington يظهر متحكمًا سلسليًا لبوابة EUV_flow بدرجة 0.8 بالضبط (S4)، درجات الدورة 1.0/0.6/0.42 مع تسجيل الدورة تشخيصيًا (C4 على رسم دوري حقيقي)، ترتيب تقديم الأسهم/المفاتيح لا يؤثر bitwise (C1/C2)، كسر الحافة يسقط المتحكم المشتق ويبقي الحائز، وانقلاب stance لا يحرك شيئًا (L1 عبر السلاسل).
+  - [x] Bystander لم يظهر متحكمًا في أي بوابة (L2/L3).
+  - [x] خلال التنفيذ اكتُشف وأُصلح خطأ مفتاح داخلي (`deg` مقابل `degree`) كان يجعل كل درجات السلطة تُقرأ 0.0 — بوابة الصرامة التقطته قبل الاعتماد.
+- **Validation Method:**
+  `Godot_console --headless --script scripts/test_model_v1_tranche_b.gd`
+- **Evidence:** [model_v1_tranche_b_v2.log](file:///.ai/evidence/tests/model_v1_tranche_b_v2.log) — Exit Code: 0
 
 ---
 

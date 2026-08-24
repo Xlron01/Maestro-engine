@@ -1,0 +1,44 @@
+{
+	"world_id": "model_v1_tranche_b",
+	"description": "Model v1 / Tranche B - Strategic Control & Chain Composition in isolation. Includes a REAL authority cycle (Loop subgraph) for C4, an ASML-pattern chain (Washington->NL-Policy->EUV gate), partial degree (S4), and disjoint bystander. Source: 10-Strategic-Relevance-Model-v1.md section 9.2",
+	"capabilities_declared": ["EUV_flow", "Loop_gate"],
+	"authority_note": "edges live on the SOURCE entity pointing to the TARGET it holds authority over",
+	"entities": {
+		"Washington": {
+			"role": "chain_controller",
+			"stance": "cooperative",
+			"authority": [
+				{ "to": "NL_Policy", "degree": 0.8 }
+			]
+		},
+		"NL_Policy": {
+			"role": "gate_holder",
+			"possession": { "EUV_flow": 1.0 }
+		},
+		"China": {
+			"role": "exposed_observer"
+		},
+		"Bystander": {
+			"role": "zero_dependency_anchor"
+		},
+		"Loop_Holder": {
+			"role": "gate_holder",
+			"possession": { "Loop_gate": 1.0 },
+			"authority": [
+				{ "to": "Loop_B", "degree": 0.4 }
+			]
+		},
+		"Loop_A": {
+			"role": "chain_controller",
+			"authority": [
+				{ "to": "Loop_Holder", "degree": 0.6 }
+			]
+		},
+		"Loop_B": {
+			"role": "chain_controller",
+			"authority": [
+				{ "to": "Loop_A", "degree": 0.7 }
+			]
+		}
+	}
+}

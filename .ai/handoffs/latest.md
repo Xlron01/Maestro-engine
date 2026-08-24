@@ -2,17 +2,14 @@
 
 - **Date:** 2026-08-24
 - **From Agent:** ox-alpha
-- **Current Task:** TASK-017 (Strategic Relevance Model v1) — وثيقة التصميم صدرت، بانتظار مراجعة المالك
+- **Current Task:** Model v1 Tranches A+B — **كلاهما أخضر** (13/13 + 11/11)، بوابة الدمج والتجميد مفتوحة
 
-## 0. Strategic Relevance Model v1 — ملخص تنفيذي (الأحدث)
-وثيقة التصميم المرجعية `10-Strategic-Relevance-Model-v1.md`: تجمع مفردات السلسلة كلها في خط رباعي **World Facts → Primitive Derived State → Chain Composition → Relevance**.
-- **World Facts**: عشرة أسراب حقول منها ثلاث بنى جديدة (TransitDependency / Possession / Authority الموزونة).
-- **Primitives**: Exposure بقناتيه (Supply/Transit) + EaseOfReplacement المشروطة بفقدان X + Strategic Control منقسمًا Possession/ExerciseCapability.
-- **Chain Composition**: آلية رقم 4 بقواعد C1–C4 المجمدة (من وثيقة 09).
-- **Relevance**: قناتان بنيويتان (Supply/Access) بصيغ مرجعية رتيبة، وأوزانها محتوى politics.json، وتجميدها النهائي لحظة بدء Test 1′.
-- **§6 الامتثال المشترك (محور الفحص المطلوب)**: خريطة خنادق القوانين الثلاثة (مدخلات/فهرسة/مخرجات) + مسيرة ASML موحدة عبر الطبقات الأربع تتحقق من L1/L2/L3 في كل تسليم + الإغراءات الثلاثة المقابلة للقوانين + تفاعلات الزوجي: الامتثال المتزامن نتيجة هيكلية لتفريق الأسطح.
-- **حدود مصرّحة**: الامتثال مثبت على مستوى التصميم؛ التحقق التنفيذي بassertions bitwise عند Test 1′.
-- **Evidence:** [`10-Strategic-Relevance-Model-v1.md`](file:///c:/tmp/maestro%20engine/10-Strategic-Relevance-Model-v1.md)
+## 0. Tranches A+B — ملخص تنفيذي (الأحدث)
+تنفيذ بروتوكول §9 المتدرج المعتمد:
+- **Tranche A (الموروث)**: ExposureSupply/EoR بصيغ مجمّدة — تشغيل أول كشف قيدَي ثبات أضيق من الدلالة (مرآة درس Run 1)؛ المالك اعتمد التصحيح التوثيقي + إضافة A-3d (حساسية المخزون خاصية مؤكدة بنسب متفاوتة .5952/.6053) ⇒ **PASS 13/13**.
+- **Tranche B (الجديد كليًا، عزل تام)**: Transit/Possession/ExerciseCapability/Authority/DerivedPossession/C1–C4 — **PASS 11/11** شامل دورة سلطة فعلية (C4)، ترتيب تقديم مسارات بلا أثر bitwise (C1/C2)، كسر حافة يسقط المتحكم المشتق ويبقي الحائز، وانقلاب L1 عبر السلاسل. اكتُشف وأصلح خطأ مفتاح داخلي (`deg`/`degree`) التقطته البوابة الصارمة قبل الاعتماد.
+- **Evidence:** [model_v1_tranche_a_v2.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/model_v1_tranche_a_v2.log) | [model_v1_tranche_b_v2.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/model_v1_tranche_b_v2.log)
+- **التالي:** موافقة المالك على §9.3 (دمج + تجميد كامل + Integration assertions من مسيرة §6.3).
 
 ## 1. Summary of Completed Work
 - تنفيذ Test 1 حرفيًا وفق `05-Test1-Derived-Importance-Handoff.md` بلا أي توسع: لا Personality، لا GOAP، لا Diplomacy، ولا لمسة على Kernel الـ Phase 6.
@@ -82,8 +79,8 @@
 - **قرار ما بعد Phase 10 (صاحب المشروع):** Model Discovery قبل Derived Traits — بحث موثق بنقطة نهاية إلزامية (Pattern→Vocabulary→Rules→Computational Form→Test) بلا أي كود — نُفذ في TASK-014.
 - **تعديل المسار (صاحب المشروع):** إلغاء Test E بصيغته واستبداله بـ Control Semantics Stress Test — حسم قابلية فصل Control عن Intent قبل دخوله Model v1، مع الحكم الواقعي لكل سيناريو كمساهمة أساسية من المنفذ — نُفذ في TASK-015: قابل للفصل كليًا (بشرط الانقسام + القوانين الثلاثة).
 - **قرار ما بعد 08 (صاحب المشروع):** تأجيل Model v1 وحسم سؤال ASML أولًا بـ Control Chain Stress Test قصير بمعيار A/B صارم — نُفذ في TASK-016: **الخيار A (Composition sufficient)**، وModel v1 gate مفتوح.
-- **إشارة الكتابة (صاحب المشروع):** اعتماد Model v1 مع شرط الفحص الإلزامي: **الامتثال المشترك للقوانين الثلاثة على التجميع الكامل** — نُفذ في TASK-017 (§6: خنادق + مسيرة موحدة + إغراءات + تفاعلات زوجية).
-- **مراجعة النضج (صاحب المشروع — "مراجع الأقلية"):** اعتماد المنطق العام + رفض "الاختبار الشامل الواحد" (رجوع لنمط مرفوض) ⇒ §9 حُوّل لبروتوكول تيرانشين A/B بسجل نضج صريح يفصل المُختبر bitwise عن الجديد كليًا. Tranche B يشمل دورة فعلية لـ C4 وترتيب تقديم مسارات بمعيار C-T3.
+- **قرار ما بعد 08 (صاحب المشروع):** تأجيل Model v1 وحسم سؤال ASML أولًا بـ Control Chain Stress Test قصير بمعيار A/B صارم — نُفذ في TASK-016: **الخيار A (Composition sufficient)**، وModel v1 gate مفتوح.
+- **إشارة الكتابة + مراجعة النضج (صاحب المشروع):** اعتماد Model v1 بشرط الفحص المشترك للقوانين (§6 نُفذ)، ثم رفض الاختبار الشامل الواحد وتقسيمه تيرانشين A/B — **كلاهما أخضر** (A: 13/13 بعد تصحيح assertions معتمد؛ B: 11/11 عزل تام شامل دورة فعلية).
 
 ## 6. Next Recommended Actions
-- (إجرائي فقط) انتظار موافقة المالك على بروتوكول الترانشين ⇒ تجميد وبناء Tranche A بنفس منهجية Test 1/8/9.
+- (إجرائي فقط) عند موافقة المالك على §9.3: Integration Gate (assertions مسيرة §6.3 فعليًا + ScenarioTest regression) ⇒ تجميد Model v1 كاملًا.
