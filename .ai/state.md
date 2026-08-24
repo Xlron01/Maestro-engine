@@ -2,22 +2,22 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-24
-- **Current Phase:** Control Chain Stress Test — وثيقة `09-Control-Chain-Stress-Test.md` صدرت (بلا كود)
-- **Current Step:** بانتظار إشارة صاحب المشروع لكتابة Strategic Relevance Model v1
+- **Current Phase:** Strategic Relevance Model v1 — وثيقة التصميم صدرت (بلا كود)
+- **Current Step:** مراجعة المالك ⇒ ثم تجميد الصيغ وبناء Test 1′
 
 ## Current Objective
-حسم سؤال ASML المعلق: **الخيار A — Composition is sufficient**. السيطرة متعددة الطبقات تُشتق من علاقة موزونة واحدة `Authority(A,B,degree)` + قواعد تركيب C1–C4، بلا أي primitive مخزن جديد (لا ChainControl). النموذج تقلص: Chain Composition أصبح آلية اشتقاق رقم 4 في سلسلة v1 (Facts→Primitives→Composition→Relevance) — كتابتها تنتظر إشارة فقط.
+Model v1 صدر كسلسلة رباعية (World Facts → Primitive Derived State → Chain Composition → Relevance) بقناتين بنيويتين (Supply/Access) وصيغ مرجعية رتيبة، ومحوره الإلزامي: §6 الامتثال المشترك — القوانين L1/L2/L3 تعمل معًا على خط واحد بتفريق أسطح (مدخلات/فهرسة/مخرجات) يجعل الامتثال المتزامن هيكليًا.
 
 ## Active Tasks
-- `TASK-016`: Control Chain Stress Test. (Status: COMPLETE)
-- `TASK-004..015`: السلسلة السابقة. (موثقة)
+- `TASK-017`: Strategic Relevance Model v1. (Status: REVIEW)
+- `TASK-004..016`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- لا يوجد معوقات. كتابة Strategic Relevance Model v1 تنتظر إشارة صاحب المشروع.
+- مراجعة المالك للوثيقة 10 هي البوابة؛ بعدها تجميد الصيغ وبناء Test 1′.
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. (إجرائي فقط) عند الإشارة: صياغة Strategic Relevance Model v1 (World Facts → Primitive Derived State → Chain Composition → Relevance).
+1. (إجرائي فقط) انتظار مراجعة صاحب المشروع لوثيقة Model v1.
 
 ## Known Bugs & Temporary Hacks
 - **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر بالكامل مع Checksum مطابق.

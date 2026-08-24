@@ -2,15 +2,17 @@
 
 - **Date:** 2026-08-24
 - **From Agent:** ox-alpha
-- **Current Task:** TASK-016 (Control Chain Stress Test) — الخيار A حسم: Composition كافية، Model v1 gate مفتوح
+- **Current Task:** TASK-017 (Strategic Relevance Model v1) — وثيقة التصميم صدرت، بانتظار مراجعة المالك
 
-## 0. Control Chain Stress Test — ملخص تنفيذي (الأحدث)
-حسم سؤال ASML المعلق بمعيار ثنائي صارم (A: تركيب كافٍ / B: primitive جديد بشروط).
-- **النتيجة: الخيار A.** السيناريوهات السبعة كلها اكتملت بعلاقة موزونة واحدة جديدة `Authority(A,B,degree)` — **علاقة ربط بيانات لا primitive حالة مخزن** — مع قواعد تركيب مجمدة C1–C4 (Path Product / Per-Path Indexing / Max-Not-Sum / Cycle Skip المعارة من v3).
-- **اختبار الحذف للحكم B:** فشل بالمعنى الصحيح — لا معلومة سببية جديدة ظهرت؛ النموذج **تقلص**: `Chain Composition` آلية اشتقاق رقم 4 في سلسلة Model v1.
-- **أقوى دليل:** سيناريو ASML الحقيقي — رفع درجة سلطة واشنطن (2023) غيّر بوابة الصين دون أن تمتلك آلة واحدة؛ التركيب يعيد إنتاج الحدث حرفيًا.
-- **مجهولات مؤجلة:** مصدر دقة الدرجة، تعارض المسارات المتعاكسة، أحداث تغيير الدرجات.
-- **Evidence:** [`09-Control-Chain-Stress-Test.md`](file:///c:/tmp/maestro%20engine/09-Control-Chain-Stress-Test.md)
+## 0. Strategic Relevance Model v1 — ملخص تنفيذي (الأحدث)
+وثيقة التصميم المرجعية `10-Strategic-Relevance-Model-v1.md`: تجمع مفردات السلسلة كلها في خط رباعي **World Facts → Primitive Derived State → Chain Composition → Relevance**.
+- **World Facts**: عشرة أسراب حقول منها ثلاث بنى جديدة (TransitDependency / Possession / Authority الموزونة).
+- **Primitives**: Exposure بقناتيه (Supply/Transit) + EaseOfReplacement المشروطة بفقدان X + Strategic Control منقسمًا Possession/ExerciseCapability.
+- **Chain Composition**: آلية رقم 4 بقواعد C1–C4 المجمدة (من وثيقة 09).
+- **Relevance**: قناتان بنيويتان (Supply/Access) بصيغ مرجعية رتيبة، وأوزانها محتوى politics.json، وتجميدها النهائي لحظة بدء Test 1′.
+- **§6 الامتثال المشترك (محور الفحص المطلوب)**: خريطة خنادق القوانين الثلاثة (مدخلات/فهرسة/مخرجات) + مسيرة ASML موحدة عبر الطبقات الأربع تتحقق من L1/L2/L3 في كل تسليم + الإغراءات الثلاثة المقابلة للقوانين + تفاعلات الزوجي: الامتثال المتزامن نتيجة هيكلية لتفريق الأسطح.
+- **حدود مصرّحة**: الامتثال مثبت على مستوى التصميم؛ التحقق التنفيذي بassertions bitwise عند Test 1′.
+- **Evidence:** [`10-Strategic-Relevance-Model-v1.md`](file:///c:/tmp/maestro%20engine/10-Strategic-Relevance-Model-v1.md)
 
 ## 1. Summary of Completed Work
 - تنفيذ Test 1 حرفيًا وفق `05-Test1-Derived-Importance-Handoff.md` بلا أي توسع: لا Personality، لا GOAP، لا Diplomacy، ولا لمسة على Kernel الـ Phase 6.
@@ -80,6 +82,7 @@
 - **قرار ما بعد Phase 10 (صاحب المشروع):** Model Discovery قبل Derived Traits — بحث موثق بنقطة نهاية إلزامية (Pattern→Vocabulary→Rules→Computational Form→Test) بلا أي كود — نُفذ في TASK-014.
 - **تعديل المسار (صاحب المشروع):** إلغاء Test E بصيغته واستبداله بـ Control Semantics Stress Test — حسم قابلية فصل Control عن Intent قبل دخوله Model v1، مع الحكم الواقعي لكل سيناريو كمساهمة أساسية من المنفذ — نُفذ في TASK-015: قابل للفصل كليًا (بشرط الانقسام + القوانين الثلاثة).
 - **قرار ما بعد 08 (صاحب المشروع):** تأجيل Model v1 وحسم سؤال ASML أولًا بـ Control Chain Stress Test قصير بمعيار A/B صارم — نُفذ في TASK-016: **الخيار A (Composition sufficient)**، وModel v1 gate مفتوح.
+- **إشارة الكتابة (صاحب المشروع):** اعتماد Model v1 مع شرط الفحص الإلزامي: **الامتثال المشترك للقوانين الثلاثة على التجميع الكامل** — نُفذ في TASK-017 (§6: خنادق + مسيرة موحدة + إغراءات + تفاعلات زوجية).
 
 ## 6. Next Recommended Actions
-- (إجرائي فقط) عند إشارة المالك: كتابة Strategic Relevance Model v1 كسلسلة World Facts → Primitive Derived State → Chain Composition → Relevance، مستوعبًا بند سلاسل السيطرة أولًا.
+- (إجرائي فقط) انتظار مراجعة المالك لوثيقة `10-Strategic-Relevance-Model-v1.md`؛ بعدها تجميد الصيغ وبناء Test 1′.

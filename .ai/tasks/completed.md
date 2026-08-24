@@ -4,6 +4,25 @@
 
 ---
 
+### [TASK-017] Strategic Relevance Model v1 — Design Document
+
+- **Status:** REVIEW
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-016
+- **Objective:** كتابة وثيقة التصميم المرجعية التي تجمع مفردات السلسلة كلها في نموذج واحد بأربع طبقات (World Facts → Primitive Derived State → Chain Composition → Relevance)، مع محور فحص إلزامي: **الامتثال المشترك للقوانين L1/L2/L3 على التجميع الكامل** لا كل قانون منفردًا.
+- **Acceptance Criteria:**
+  - [x] جرد World Facts الكامل (بما فيه البنى الجديدة: TransitDependency / Possession / Authority).
+  - [x] سجل قيم مشتقة كامل بفهرس/محفز/تحديث تدريجي لكل قيمة + مرساة أسوأ حالة من Test 10 v2.
+  - [x] Relevance بقناتين بنيويتين (Supply / Access) بصيغ مرجعية رتيبة محدودة، وأوزانها محتوى politics.json.
+  - [x] **§6 الامتثال المشترك**: خريطة خنادق القوانين + مسيرة ASML موحدة عبر الطبقات الأربعة تتحقق من L1/L2/L3 في كل تسليم + الإغراءات الثلاثة + تفاعلات الزوجي (الامتثال المتزامن نتيجة هيكلية).
+  - [x] حدود الامتثال مصرّحة (تصميمي الآن؛ تنفيذي عند Test 1′ بassertions bitwise).
+  - [x] المؤجل صراحة (Intent/Threat/Personality/Betweenness...) + بروتوكول التجمد + Test 1′ المقترح الوحيد.
+- **Validation Method:**
+  مراجعة صاحب المشروع والمراجع؛ ثم تجميد الصيغ وبناء Test 1′ عند الإشارة
+- **Evidence:** [`10-Strategic-Relevance-Model-v1.md`](file:///c:/tmp/maestro%20engine/10-Strategic-Relevance-Model-v1.md)
+
+---
+
 ### [TASK-016] Control Chain Stress Test — Composition vs New Primitive
 
 - **Status:** COMPLETE
