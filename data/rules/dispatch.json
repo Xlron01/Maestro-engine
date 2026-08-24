@@ -1,0 +1,29 @@
+{
+	"handlers_script": "res://scripts/game_event_handlers.gd",
+
+	"event_handlers": {
+		"Minister_Died": "evt_minister_died",
+		"Railway_Damaged": "evt_railway_damaged",
+		"Election": "evt_election",
+		"War_Started": "evt_war_started",
+		"Military_Spending_Increase": "evt_noop",
+		"Economic_Investment": "evt_noop",
+		"Coup_Attempt": "evt_coup_attempt",
+		"Agent_Exposed": "evt_agent_exposed"
+	},
+
+	"job_handlers": {
+		"population_update": { "fn": "job_population_update" },
+		"gdp_update": { "fn": "job_gdp_update" },
+		"military_readiness": { "fn": "job_military_readiness" },
+		"coup_risk_check": { "fn": "job_coup_risk_check" },
+		"agent_operation_check": { "fn": "job_agent_operation", "one_shot": true }
+	},
+
+	"default_country_jobs": {
+		"population_update": { "every": 30 },
+		"gdp_update": { "every": 90 },
+		"military_readiness": { "every": 30 },
+		"coup_risk_check": { "every": 30 }
+	}
+}

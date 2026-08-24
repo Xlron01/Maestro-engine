@@ -1,0 +1,8 @@
+﻿{
+    "id": "agent_007",
+    "name": "James Bond",
+    "type": "agent",
+    "agency_id": "cia",
+    "xp": 100,
+    "status": "idle"
+}

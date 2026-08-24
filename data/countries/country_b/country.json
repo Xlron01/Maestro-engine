@@ -1,0 +1,11 @@
+{
+    "id": "country_b",
+    "name": "Country_B",
+    "population": 8000000,
+    "gdp": 1800.0,
+    "military_power": 25.0,
+    "stability": 0.5,
+    "government": "Monarchy",
+    "growth": 0.02,
+    "relations": ["egypt", "country_c"]
+}

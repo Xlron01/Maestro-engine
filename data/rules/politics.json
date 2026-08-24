@@ -1,0 +1,39 @@
+{
+    "decision_threshold": 0.0,
+    "sec_weight_threat": 1.0,
+    "sec_weight_border": 1.0,
+    "prosp_weight_stability": 1.0,
+    "prosp_weight_growth": 1.0,
+    "military_spending_gdp_cost": 0.01,
+    "prosperity_gdp_gain": 0.015,
+    "military_power_gain": 1.0,
+    "population_growth_rate": 0.0008,
+    "election_stability_swing": 0.05,
+    "minister_death_stability_loss": 0.05,
+    "railway_stability_loss": 0.02,
+    "war_threat_increase": 5.0,
+
+    "coup_check_stability_threshold": 0.6,
+    "coup_threshold": 0.6,
+    "coup_weight_war_exhaustion": 0.3,
+    "coup_weight_ideology_support": 0.4,
+    "coup_weight_current_ideology": -0.2,
+    "coup_weight_party_popularity": 0.25,
+    "coup_weight_stability": -0.5,
+    "coup_weight_foreign_support": 0.15,
+    "coup_weight_urban_mismatch": 0.2,
+    "coup_weight_literacy": -0.1,
+    "coup_weight_war_generation": 0.15,
+
+    "operation_weight_agent_xp": 0.05,
+    "operation_weight_agency_budget": 0.0001,
+    "operation_success_threshold": 5.0,
+    "operation_xp_gain_success": 25,
+    "operation_xp_gain_failure": 5,
+
+    "agent_exposure_stability_penalty": 0.03,
+
+    "railway_damage_amount": 0.4,
+    "railway_supply_loss": 0.3,
+    "coup_attempt_stability_loss": 0.2
+}

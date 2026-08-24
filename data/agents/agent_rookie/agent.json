@@ -1,0 +1,8 @@
+﻿{
+    "id": "agent_rookie",
+    "name": "Johnny English",
+    "type": "agent",
+    "agency_id": "cia",
+    "xp": 20,
+    "status": "idle"
+}

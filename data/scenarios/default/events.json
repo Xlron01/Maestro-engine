@@ -1,0 +1,24 @@
+[
+    {
+        "time": 12,
+        "type": "Minister_Died",
+        "source": "egypt"
+    },
+    {
+        "time": 18,
+        "type": "Railway_Damaged",
+        "source": "country_b",
+        "payload": {"province": "Alexandria"}
+    },
+    {
+        "time": 30,
+        "type": "Election",
+        "source": "egypt"
+    },
+    {
+        "time": 45,
+        "type": "War_Started",
+        "source": "country_b",
+        "payload": {"attacker": "country_b", "defender": "egypt"}
+    }
+]

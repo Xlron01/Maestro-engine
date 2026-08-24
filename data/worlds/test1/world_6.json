@@ -1,0 +1,21 @@
+{
+	"world_id": "world_6",
+	"description": "Structural Blind Test B — mutual/competitive dependency. Delta domestic-capacity change is applied by the test harness as an isolated single-variable run; Epsilon must remain bitwise identical. Source: 05-Test1-Derived-Importance-Handoff.md",
+	"capabilities_declared": ["Resource_Z"],
+	"enables": {},
+	"entities": {
+		"Nation_Delta": {
+			"produces": {},
+			"depends_on": { "Resource_Z": 0.60 },
+			"domestic_capacity": {}
+		},
+		"Nation_Epsilon": {
+			"produces": {},
+			"depends_on": { "Resource_Z": 0.60 }
+		},
+		"Nation_Zeta": {
+			"produces": { "Resource_Z": 0.90 },
+			"depends_on": {}
+		}
+	}
+}

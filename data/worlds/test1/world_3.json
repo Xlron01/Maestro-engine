@@ -1,0 +1,32 @@
+{
+	"world_id": "world_3",
+	"description": "Alternative source collapses (same as world_2 with the competitor's production at zero). Source: 05-Test1-Derived-Importance-Handoff.md",
+	"capabilities_declared": ["semiconductors", "shipping_route", "military_power"],
+	"enables": {},
+	"entities": {
+		"China": {
+			"produces": {},
+			"depends_on": { "semiconductors": 0.70 }
+		},
+		"USA": {
+			"produces": { "semiconductors": 0.15 },
+			"depends_on": { "semiconductors": 0.20 }
+		},
+		"Taiwan": {
+			"produces": { "semiconductors": 0.80 },
+			"depends_on": {}
+		},
+		"Egypt": {
+			"produces": { "shipping_route": 1.0 },
+			"depends_on": { "semiconductors": 0.02 }
+		},
+		"Turkey": {
+			"produces": {},
+			"depends_on": { "semiconductors": 0.05 }
+		},
+		"SouthKorea": {
+			"produces": { "semiconductors": 0.0 },
+			"depends_on": {}
+		}
+	}
+}

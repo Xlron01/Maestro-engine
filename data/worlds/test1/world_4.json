@@ -1,0 +1,24 @@
+{
+	"world_id": "world_4",
+	"description": "Multi-step dependency chain (chain of enables). domestic_semiconductor_capacity change is applied by the test harness as an isolated single-variable run. Source: 05-Test1-Derived-Importance-Handoff.md",
+	"capabilities_declared": ["semiconductors", "AI_capability", "military_capability_modern"],
+	"enables": {
+		"semiconductors": ["AI_capability"],
+		"AI_capability": ["military_capability_modern"]
+	},
+	"entities": {
+		"China": {
+			"produces": {},
+			"depends_on": { "semiconductors": 0.70, "AI_capability": 0.65 },
+			"domestic_capacity": {}
+		},
+		"USA": {
+			"produces": { "semiconductors": 0.15 },
+			"depends_on": {}
+		},
+		"Taiwan": {
+			"produces": { "semiconductors": 0.80 },
+			"depends_on": {}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/DebugUI.gd" id="1"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="StepDayButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "Step 1 Day"
+
+[node name="StepMonthButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "Step 1 Month"
+
+[node name="Run100Button" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "Run 100 Days"
+
+[node name="DeterminismTestButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "Run Determinism Test"
+
+[node name="GotoWarDayButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "Goto War Day (t=45)"
+
+[node name="ShowActivationLogButton" type="Button" parent="VBox/Buttons"]
+layout_mode = 2
+text = "Toggle Activation Log"
+
+[node name="Output" type="RichTextLabel" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true

@@ -1,0 +1,46 @@
+{
+	"world_id": "testc_w",
+	"description": "Phase 9 / Test C - Structural Emergence. One fixed world, varied structural positions. Behavior follows STRUCTURE not NAME (C-T2 clone, C-T3 name-swap). Source: 00-خطة-الطريق.md Phase 9",
+	"capabilities_declared": ["Res_S", "Cap_D", "Res_T"],
+	"enables": {
+		"Res_S": ["Cap_D"]
+	},
+	"entities": {
+		"Maker_Prime": {
+			"role": "producer_subject",
+			"produces": { "Res_S": 0.70 }
+		},
+		"Maker_Second": {
+			"role": "producer_subject",
+			"produces": { "Res_S": 0.30 }
+		},
+		"Heavy_Dep": {
+			"role": "affected_heavy",
+			"depends_on": { "Res_S": 0.80 }
+		},
+		"Light_Dep": {
+			"role": "affected_light",
+			"depends_on": { "Res_S": 0.20 }
+		},
+		"Covered_Dep": {
+			"role": "affected_covered",
+			"depends_on": { "Res_S": 0.60 },
+			"domestic_capacity": { "Res_S": 0.50 }
+		},
+		"Chain_Buyer": {
+			"role": "affected_indirect",
+			"depends_on": { "Cap_D": 0.50 }
+		},
+		"Side_Buyer_C": {
+			"role": "invariant_disjoint",
+			"depends_on": { "Res_T": 0.40 }
+		},
+		"Provider_T": {
+			"role": "invariant_disjoint",
+			"produces": { "Res_T": 0.50 }
+		},
+		"Anchor_Null": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"world_id": "testb_b1",
+	"description": "Test B / Scenario B1 - direct market substitution. Side_Buyer is the disjoint-graph invariance subject (Comp_Y market has zero contact with the Comp_X closure). Source: 00-خطة-الطريق.md Phase 8",
+	"capabilities_declared": ["Comp_X", "Comp_Y"],
+	"enables": {},
+	"entities": {
+		"Maker_A": {
+			"role": "producer_subject",
+			"produces": { "Comp_X": 0.80 }
+		},
+		"Maker_B": {
+			"role": "producer_subject",
+			"produces": { "Comp_X": 0.15 }
+		},
+		"Maker_C": {
+			"role": "producer_subject",
+			"produces": {}
+		},
+		"Buyer_1": {
+			"role": "affected_direct",
+			"depends_on": { "Comp_X": 0.70 }
+		},
+		"Buyer_2": {
+			"role": "affected_direct_weak",
+			"depends_on": { "Comp_X": 0.02 }
+		},
+		"Provider_Y": {
+			"role": "invariant_disjoint",
+			"produces": { "Comp_Y": 0.60 }
+		},
+		"Side_Buyer": {
+			"role": "invariant_disjoint",
+			"depends_on": { "Comp_Y": 0.50 }
+		},
+		"Outsider": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}

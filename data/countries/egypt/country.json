@@ -1,0 +1,11 @@
+{
+    "id": "egypt",
+    "name": "Egypt",
+    "population": 25000000,
+    "gdp": 5000.0,
+    "military_power": 40.0,
+    "stability": 0.7,
+    "government": "Republic",
+    "growth": 0.02,
+    "relations": ["country_b"]
+}

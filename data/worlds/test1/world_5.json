@@ -1,0 +1,20 @@
+{
+	"world_id": "world_5",
+	"description": "Structural Blind Test A — abstract names. Source: 05-Test1-Derived-Importance-Handoff.md",
+	"capabilities_declared": ["Resource_X", "Resource_Y"],
+	"enables": {},
+	"entities": {
+		"Nation_Alpha": {
+			"produces": {},
+			"depends_on": { "Resource_X": 0.75 }
+		},
+		"Nation_Beta": {
+			"produces": { "Resource_X": 0.85, "Resource_Y": 0.0 },
+			"depends_on": {}
+		},
+		"Nation_Gamma": {
+			"produces": {},
+			"depends_on": { "Resource_X": 0.01 }
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"world_id": "testb_b2",
+	"description": "Test B / Scenario B2 - indirect propagation through an enables chain. Chain_Side_Buyer is the disjoint-graph invariance subject (Comp_Z is fully independent of the Comp_X closure). Source: 00-خطة-الطريق.md Phase 8",
+	"capabilities_declared": ["Comp_X", "Trade_Flow", "Comp_Z"],
+	"enables": {
+		"Comp_X": ["Trade_Flow"]
+	},
+	"entities": {
+		"Maker_A": {
+			"role": "producer_subject",
+			"produces": { "Comp_X": 0.80 }
+		},
+		"Maker_B": {
+			"role": "producer_subject",
+			"produces": { "Comp_X": 0.15 }
+		},
+		"Maker_C": {
+			"role": "producer_subject",
+			"produces": {}
+		},
+		"Route_Buyer": {
+			"role": "affected_indirect",
+			"depends_on": { "Trade_Flow": 0.65 }
+		},
+		"Z_Provider": {
+			"role": "invariant_disjoint",
+			"produces": { "Comp_Z": 0.60 }
+		},
+		"Chain_Side_Buyer": {
+			"role": "invariant_disjoint",
+			"depends_on": { "Comp_Z": 0.45 }
+		},
+		"Watcher": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}
