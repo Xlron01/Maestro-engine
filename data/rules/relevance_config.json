@@ -1,0 +1,14 @@
+{
+	"weights": {
+		"w_alternatives": 0.6,
+		"w_slack": 0.4
+	},
+	"relevance_eor_weight": 1.0,
+	"leadtime_months_standard": 12,
+	"default_reserve_days": 0,
+	"criticality": {
+		"default": 1.0,
+		"civilian": 1.0,
+		"defense": 1.5
+	}
+}

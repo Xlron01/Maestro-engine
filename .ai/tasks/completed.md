@@ -96,6 +96,28 @@
 
 ---
 
+### [TASK-018] Model v1 Tranche A — Supply Channel (ExposureSupply + EaseOfReplacement)
+
+- **Status:** REVIEW — FAIL موثق بانتظار حكم صاحب المشروع (بوابة إلزامية قبل Tranche B)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-017
+- **Objective:** بناء وتشغيل الترانش الأول وفق §9.1: قناة الإمداد الموروثة (ExposureSupply + EaseOfReplacement بصيغ مجمّدة وعامل ReplacementFactor = 1 − EoR).
+- **Acceptance Criteria:**
+  - [x] الكود: `scripts/relevance_supply.gd` (primitives) + `data/rules/relevance_config.json` (أوزان/حرجة/leadtime كمحتوى) + عالم `data/worlds/model_v1/tranche_a.json` بحقول reserves/sectors + عدّاء `scripts/test_model_v1_tranche_a.gd`.
+  - [x] النتيجة: **10 PASS / 2 FAIL** — الفشلان A-3c/A-4b تشخيصهما بالأرقام: خطأ في تصميم assertions لا في النموذج (انظر أدناه)، لكن الالتزام بتعليمات "أي مفاجأة = توقف واسأل قبل B" منفذ.
+  - [x] مجس تشخيصي وثّق الخلايا المتغيرة بالضبط ثم حُذف؛ لوجاه محفوظان.
+- **Validation Method:**
+  `Godot_console --headless --script scripts/test_model_v1_tranche_a.gd`
+- **Evidence:** [model_v1_tranche_a.log](file:///.ai/evidence/tests/model_v1_tranche_a.log) | [model_v1_tranche_a_diag.log](file:///.ai/evidence/tests/model_v1_tranche_a_diag.log) — Exit Code: 1
+
+> **الفشلان بالأرقام (من لوج التشخيص):**
+> - **A-3c** طالب بثبات باقي المراقبين عند دخول منتج ثالث — لكن كل معتمدي Comp_X تحركوا (Heavy .6048→.36، Light .1008→.06، Covered .1652→.10) **بمعامل واحد متطابق (.5952)** = آلية الاستبدال تعمل كما صُممت؛ الثابت الصحيح الوحيد هو zero-dep anchor (A-6 PASS). تصحيح المرآة لدرس Run 1: لا يُطالب مرتبط بسوق مشتركة بالثبات عند تغير تلك السوق.
+> - **A-4b** طالب بأن احتياطي Heavy يؤثر فقط نحو Prime — لكنه يحمي من انقطاع **أي** مورد لنفس القدرة: صفه كله نحو موردَي Comp_X تحرك بمعامل واحد (.6759) وباقي العالم bitwise سليم ✓. سلوك النموذج صحيح؛ القيد كان أضيق من الدلالة.
+>
+> **اقتراح التصحيح المعلق لموافقتك:** A-3c′ (الثبات حصرًا لـ Anchor_Null + اتجاهية حركة المعتمدين) / A-4b′ (صف الحائز كاملًا يتغير، وكل صف آخر bitwise) — دون أي تعديل على النموذج.
+
+---
+
 ### [TASK-002] Decouple Domain Coupling in Simulation.gd (Phase 10 — Purification)
 
 - **Status:** COMPLETE

@@ -1,0 +1,38 @@
+{
+	"world_id": "model_v1_tranche_a",
+	"description": "Model v1 / Tranche A - supply channel only (no routes/gates/authority). Lineage of Test 1 worlds plus reserves/sector facts. Source: 10-Strategic-Relevance-Model-v1.md section 9.1",
+	"capabilities_declared": ["Comp_X"],
+	"enables": {},
+	"entities": {
+		"Maker_Prime": {
+			"role": "producer_subject",
+			"produces": { "Comp_X": 0.70 }
+		},
+		"Maker_Second": {
+			"role": "producer_subject",
+			"produces": { "Comp_X": 0.30 }
+		},
+		"Heavy_Dep": {
+			"role": "affected_heavy",
+			"depends_on": { "Comp_X": 0.80 },
+			"sectors": { "Comp_X": "defense" },
+			"reserves_days": { "Comp_X": 90 }
+		},
+		"Light_Dep": {
+			"role": "affected_light",
+			"depends_on": { "Comp_X": 0.20 },
+			"sectors": { "Comp_X": "civilian" },
+			"reserves_days": { "Comp_X": 90 }
+		},
+		"Covered_Dep": {
+			"role": "affected_covered",
+			"depends_on": { "Comp_X": 0.60 },
+			"domestic_capacity": { "Comp_X": 0.50 },
+			"sectors": { "Comp_X": "civilian" },
+			"reserves_days": { "Comp_X": 30 }
+		},
+		"Anchor_Null": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}
