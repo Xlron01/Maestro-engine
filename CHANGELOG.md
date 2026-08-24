@@ -29,6 +29,7 @@
 - تنفيذ Phase 9 وفق التعريف المجمد (Structural Emergence): عالم `data/worlds/testc/w.json` وعدّاء `scripts/test_phase9_testc.gd` — إثبات عمى الوحدة عن الهوية (Name-Swap/Clone bitwise) مع توثيق تأجيل Derived Traits في خارج النطاق.
 - تنفيذ Phase 10 (Purification / TASK-002) بقرار صاحب المشروع: Dispatch Registry من `data/rules/dispatch.json` + طبقة محتوى `scripts/game_event_handlers.gd` + تطهير Magic Numbers إلى politics.json + إعادة توليد `audit_report.md` — بتدقيق Baseline/Post ملزم ومطابقة Checksum صارمة، مع فك تحالف `Simulation.gd` نهائيًا.
 - **Model Discovery (بلا كود — قرار صاحب المشروع):** وثيقة `07-Strategic-Relevance-Model-Discovery.md` — 6 حالات واقعية متنوعة + Evidence Matrix (✓/؟/✗) + تقليم بالاختبار الحذفي ⇒ نموذج أدنى من 3 مفاهيم (Exposure / EaseOfReplacement / HostileControl) بصيغة دمج متروكة عمدًا لوثيقة Strategic Relevance Model v1 بعد المراجعة الثلاثية، شكل حسابي محصور بالجوار بمرساة Test 10، 8 مجهولات موثقة، واقتراح Test E وحيد غير منفذ.
+- **Control Semantics Stress Test (بلا كود — قرار صاحب المشروع، بديل Test E المجمّد):** وثيقة `08-Control-Semantics-Stress-Test.md` — 8 سيناريوهات بتوقعات مسجلة (ثابت/يتغير/ممنوع الاستنتاج) + حكم واقعي لكل سيناريو ⇒ الحكم: Control قابل للفصل كليًا عن Intent بشرط انقسام Possession/ExerciseCapability وتثبيت القوانين L1/L2/L3؛ رفض مفردة HostileControl بالدليل والتوصية المؤقتة بـ Strategic Control.
 
 ### Changed
 - نقل وتبسيط `state.md` ليقتصر فقط على الحالة الفورية للـ Engine بدون تاريخ متراكم.

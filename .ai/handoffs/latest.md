@@ -2,16 +2,15 @@
 
 - **Date:** 2026-08-24
 - **From Agent:** ox-alpha
-- **Current Task:** TASK-014 (Model Discovery) — وثيقة بحثية صدرت، بانتظار المراجعة الثلاثية
+- **Current Task:** TASK-015 (Control Semantics Stress Test) — وثيقة صدرت، بانتظار المراجعة الثلاثية
 
-## 0. Model Discovery — ملخص تنفيذي (الأحدث)
-بلا أي كود: وثيقة `07-Strategic-Relevance-Model-Discovery.md` وفق المواصفة الحرفية لصاحب المشروع.
-- **6 حالات واقعية**: رقائق تايوان، ASML EUV، هرمز (اليابان مقابل أمريكا — حالة "ظاهريًا مهم/ليس كذلك")، سويس 2024 (بديل مكلف)، غاز ألمانيا 2021↔2024 (تكيف زمني)، قمح أوكرانيا (مصر مقابل البرازيل).
-- **Evidence Matrix** بعلامات ✓/؟/✗ ثم تقليم بالاختبار الحذفي: دمج Substitutability+Adaptation+Buffers ⇒ **EaseOfReplacement**؛ اندماج Access في Exposure+Control؛ سقوط Network-position (حسابي) وPower-asymmetry (مؤجل).
-- **النموذج الأدنى = 3 مفاهيم**: Exposure / EaseOfReplacement / HostileControl — بصيغة دمج متروكة عمدًا لوثيقة Strategic Relevance Model v1 بعد المراجعة الثلاثية.
-- **شكل حسابي**: triggers + incremental + neighborhood-bounded، بمرساة أسوأ حالة من Test 10 (4.04s مسح كامل / 141ms مستهدف).
-- **8 مجهولات صريحة** + اقتراح Test E وحيد (Access & Leverage) غير منفذ + توقف تام عند التقرير.
-- **Evidence:** [`07-Strategic-Relevance-Model-Discovery.md`](file:///c:/tmp/maestro%20engine/07-Strategic-Relevance-Model-Discovery.md)
+## 0. Control Semantics Stress Test — ملخص تنفيذي (الأحدث)
+بديل Test E المجمّد بقرار صاحب المشروع: اختبار ضغط مفاهيمي (صفر كود) يحسم قابلية فصل السيطرة عن النية عبر 8 سيناريوهات.
+- **النتيجة الحاكمة: Control قابل للفصل كليًا عن Intent** — بشرطين مكتشفين بالسيناريوهين 3/4: انقسام المفردة إلى `Possession` + `ExerciseCapability`، وبثبات خاصية **bitwise immutability** للحالة البنيوية تحت تغيّر العلاقة/النية (S2/S5/S7/S8).
+- **ثلاثة قوانين معمارية مقترحة لـ Model v1**: L1 Zero-Intent-Input | L2 Pair-Indexing | L3 No-Eager-Threat.
+- **رفض مفردة HostileControl بالدليل** (S1/S5: السيطرة تعيش بلا عداء)؛ التوصية: Strategic Control + ExerciseCapability، والاسم النهائي لقرار المالك.
+- **الحكم الواقعي موثق لكل سيناريو**: أستراليا-اليابان، روسيا-ألمانيا 2022، البحر الأحمر ضد القوافل، سيبيريا قبل Power-of-Siberia، النرويج لأوروبا، الأرض النادرة/الليثيوم، حظر النفط 1973، سيناريوهات انتقال الحكومات.
+- **Evidence:** [`08-Control-Semantics-Stress-Test.md`](file:///c:/tmp/maestro%20engine/08-Control-Semantics-Stress-Test.md)
 
 ## 1. Summary of Completed Work
 - تنفيذ Test 1 حرفيًا وفق `05-Test1-Derived-Importance-Handoff.md` بلا أي توسع: لا Personality، لا GOAP، لا Diplomacy، ولا لمسة على Kernel الـ Phase 6.
@@ -79,6 +78,7 @@
 - **قرارات Phase 9 (صاحب المشروع):** اعتماد Structural Emergence (خيار A) + Importance-Profile كوكيل سلوك، مع إلزامية جملة توضيح النطاق في خطة الطريق — نُفذ ثم أذن بالتنفيذ: **PASS 14/14**.
 - **قرار ما بعد Phase 9 (صاحب المشروع):** تطهير أولًا (TASK-002) قبل Derived Traits، بمطابقة Checksum صارمة وتدقيق Baseline/Post ملزم — نُفذ: **CLEAN + 5/5 + Checksum مطابق حرفيًا**.
 - **قرار ما بعد Phase 10 (صاحب المشروع):** Model Discovery قبل Derived Traits — بحث موثق بنقطة نهاية إلزامية (Pattern→Vocabulary→Rules→Computational Form→Test) بلا أي كود — نُفذ في TASK-014.
+- **تعديل المسار (صاحب المشروع):** إلغاء Test E بصيغته واستبداله بـ Control Semantics Stress Test — حسم قابلية فصل Control عن Intent قبل دخوله Model v1، مع الحكم الواقعي لكل سيناريو كمساهمة أساسية من المنفذ — نُفذ في TASK-015: قابل للفصل كليًا (بشرط الانقسام + القوانين الثلاثة).
 
 ## 6. Next Recommended Actions
-- (إجرائي فقط) مراجعة الثلاثية لوثيقة `07-Strategic-Relevance-Model-Discovery.md`: (المالك) كفاية النموذج، (المراجع) واقعية السلوك، (المنفذ) قابلية التمثيل فوق الـ Kernel — ثم وثيقة Strategic Relevance Model v1.
+- (إجرائي فقط) مراجعة الثلاثية لوثيقتَي `07` و`08`: (المالك) كفاية/بساطة النموذج، (المراجع) واقعية السلوك، (المنفذ) قابلية التمثيل فوق الـ Kernel — ثم Strategic Relevance Model v1.

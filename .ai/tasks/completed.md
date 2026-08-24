@@ -4,6 +4,24 @@
 
 ---
 
+### [TASK-015] Control Semantics Stress Test — Separability of Control from Intent
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-014
+- **Objective:** بديل Test E المجمّد بقرار صاحب المشروع: اختبار ضغط مفاهيمي (صفر كود) يحسم هل يمكن تمثيل السيطرة الاستراتيجية كحالة مشتقة بنيوية مستقلة عن النية — عبر 8 سيناريوهات بتوقعات مسجلة مسبقًا + حكم واقعي لكل سيناريو.
+- **Acceptance Criteria:**
+  - [x] تعريف مرشح مجمد قبل التحليل + قانون Zero-Intent-Input الحاكم.
+  - [x] جداول ما يثبت/يتغير/يُمنع استنتاجُه لكل سيناريو من الثمانية.
+  - [x] حكم واقعي بدولة/حالة حقيقية لكل سيناريو (أستراليا-اليابان، روسيا-ألمانيا 2022، البحر الأحمر، سيبيريا قبل خط الأنابيب، النرويج، الأرض النادرة مقابل الليثيوم، حظر 1973).
+  - [x] النتيجة: **قابل للفصل كليًا** — بشرطين مكتشفين: انقسام Possession/ExerciseCapability (S3+S4) وتثبيت قوانين L1/L2/L3.
+  - [x] رفض مفردة HostileControl بالدليل (S1/S5) + توصية Strategic Control مؤجلة الاعتماد لـ Model v1.
+- **Validation Method:**
+  مراجعة صاحب المشروع والمراجع للوثيقة
+- **Evidence:** [`08-Control-Semantics-Stress-Test.md`](file:///c:/tmp/maestro%20engine/08-Control-Semantics-Stress-Test.md)
+
+---
+
 ### [TASK-014] Model Discovery — Strategic Relevance Research Document
 
 - **Status:** COMPLETE
