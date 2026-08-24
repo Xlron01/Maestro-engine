@@ -7,8 +7,16 @@ extends SceneTree
 # التوقعات المسجلة قبل التشغيل:
 #   A-1 اتجاهية: relevance(HD→Prime) > relevance(LD→Prime) > 0
 #   A-2 رتابة اعتماد: HD 0.80→0.90 ⇒ relevance↑ حصريًا لصفه
-#   A-3 بدائل↑: Third(0.40) ⇒ relevance(HD→Prime)↓ حصريًا، وظهور HD→Third>0
-#   A-4 احتياطي↑: HD reserves 90→300 ⇒ relevance(HD→Prime)↓، وباقي الصفوف bitwise
+#   A-3 بدائل↑: Third(0.40) ⇒ انخفاض صارم لدى كل معتمدي Comp_X نحو
+#       الموردين القدامى + ظهور HD→Third>0.
+#       ⚠️ لماذا اتجاهية لا bitwise-between-dependents (توثيق المراجعة):
+#          نسبة الحركة = T/(T+m) × (RF'/RF)؛ المكوّن الأول موحد سوقيًا،
+#          لكن RF'/RF يعتمد على slack المستهلك نفسه (احتياطيه) — فالتطابق
+#          الكامل يحدث فقط بين متساويي الاحتياطي وليس قاعدة عامة. لذلك
+#          المعيار الصح: اتجاه صارم للجميع + اختلاف الاستجابة بين من يختلف
+#          احتياطه هو خاصية تُؤكد (A-3d) لا تُخفى.
+#   A-4 احتياطي↑: HD reserves 90→300 ⇒ صف HD كاملًا نحو موردي Comp_X ينخفض،
+#       وباقي العالم bitwise (الاحتياطي حقfact خاص بالحائز فقط).
 #   A-5 Criticality: تحويل Light إلى defense بنفس الوزن ⇒ ارتفاع قيمته فقط
 #   A-6 عزل: Anchor_Null ≡ 0.0 bitwise في كل الحالات
 #   A-7 حتمية: تشغيل مزدوج لنفس الحالة ⇒ مصفوفة متطابقة تمامًا
@@ -183,30 +191,44 @@ func _a2_monotone(states: Dictionary, world: Dictionary) -> void:
 
 func _a3_alternatives(states: Dictionary, world: Dictionary) -> void:
 	print("-- A-3: Alternatives emergence lowers dominant-supplier relevance")
-	var base := _v("base", states, "Heavy_Dep", "Maker_Prime")
-	var after := _v("alt_add", states, "Heavy_Dep", "Maker_Prime")
+	# A-3c′ (المعتمد): الاتجاه الصارم هو المعيار — التطابق bitwise بين
+	# المعتمدين ليس معيارًا لأن استجابة RF تعتمد على slack كل مستهلك (§ header).
+	var dependents := ["Heavy_Dep", "Light_Dep", "Covered_Dep"]
+	var all_incumbents_drop := true
+	for dep in dependents:
+		for supplier in ["Maker_Prime", "Maker_Second"]:
+			if _v("base", states, dep, supplier) <= _v("alt_add", states, dep, supplier):
+				all_incumbents_drop = false
+				print("   [VIOLATION] %s->%s did not drop" % [dep, supplier])
+	_check("A-3c-prime every Comp_X dependent strictly drops toward BOTH incumbents",
+		all_incumbents_drop, "")
 	var new_target := _v("alt_add", states, "Heavy_Dep", "Maker_Third")
-	print("   Prime: %.10f -> %.10f | Third emerges: %.10f" % [base, after, new_target])
-	_check("A-3a relevance(HD->Prime) drops when third producer appears", after < base, "")
-	_check("A-3b relevance(HD->Third) > 0 after emergence", new_target > 0.0, "")
-	var others_untouched := _whole_equal(states["base"], states["alt_add"], ["Heavy_Dep"])
-	_check("A-3c other observers bitwise untouched by alternatives entry",
-		others_untouched, "")
+	_check("A-3b relevance(HD->Third) > 0 after emergence", new_target > 0.0,
+		"%.10f" % new_target)
+
+	# A-3d (توثيق حساسية المخزون كخاصية مؤكدة): اختلاف نسبة الاستجابة بين
+	# من يختلف احتياطيه — Heavy(90d) مقابل Covered(30d).
+	var r_hd := _v("alt_add", states, "Heavy_Dep", "Maker_Prime") / _v("base", states, "Heavy_Dep", "Maker_Prime")
+	var r_cov := _v("alt_add", states, "Covered_Dep", "Maker_Prime") / _v("base", states, "Covered_Dep", "Maker_Prime")
+	print("   response ratio HD=%.6f Covered=%.6f (consumer-specific via slack)" % [r_hd, r_cov])
+	_check("A-3d response ratio is consumer-specific (slack 90d != 30d)",
+		r_hd != r_cov, "")
 
 
 func _a4_reserves(states: Dictionary, world: Dictionary) -> void:
-	print("-- A-4: Reserve depth lowers supplier criticality for the holder only")
-	var base_row_ok := true
-	var hd_base := _v("base", states, "Heavy_Dep", "Maker_Prime")
-	var hd_up := _v("res_up", states, "Heavy_Dep", "Maker_Prime")
-	print("   HD->Prime: 90d=%.10f -> 300d=%.10f" % [hd_base, hd_up])
-	_check("A-4a deeper reserves lower relevance toward Prime", hd_up < hd_base, "")
-	for t in states["base"]["Heavy_Dep"].keys():
-		if t != "Maker_Prime" and _v("res_up", states, "Heavy_Dep", t) != _v("base", states, "Heavy_Dep", t):
-			base_row_ok = false
-	var rest_untouched := _whole_equal(states["base"], states["res_up"], ["Heavy_Dep"])
-	_check("A-4b only the reserve-holder's row moved (others bitwise identical)",
-		base_row_ok and rest_untouched, "")
+	print("-- A-4: Reserve depth lowers the holder's whole row toward cap suppliers only")
+	var hd_prime_base := _v("base", states, "Heavy_Dep", "Maker_Prime")
+	var hd_prime_up := _v("res_up", states, "Heavy_Dep", "Maker_Prime")
+	var hd_second_base := _v("base", states, "Heavy_Dep", "Maker_Second")
+	var hd_second_up := _v("res_up", states, "Heavy_Dep", "Maker_Second")
+	print("   HD->Prime %.10f -> %.10f | HD->Second %.10f -> %.10f"
+		% [hd_prime_base, hd_prime_up, hd_second_base, hd_second_up])
+	_check("A-4a deeper reserves lower relevance toward Prime", hd_prime_up < hd_prime_base, "")
+	_check("A-4a2 deeper reserves lower relevance toward Second equally-sourced",
+		hd_second_up < hd_second_base, "")
+	var others_untouched := _whole_equal(states["base"], states["res_up"], ["Heavy_Dep"])
+	_check("A-4b every OTHER observer row bitwise identical (reserves are holder-private)",
+		others_untouched, "")
 
 
 func _a5_criticality(states: Dictionary, world: Dictionary) -> void:
