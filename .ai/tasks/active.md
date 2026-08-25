@@ -4,20 +4,22 @@
 
 ---
 
-### [TASK-027] Decision Layer Design Gate
+### [TASK-028] D1 — Decision Boundary Test
 
 - **Status:** IN_PROGRESS
 - **Owner:** ox-alpha
-- **Dependencies:** TASK-024 (Content Ontology CLOSED), TASK-020 (Model v1 FROZEN), TASK-023 (Gate 2 CLOSED)
-- **Objective:** تصميم حدود Decision Layer: Action ontology بدون domain types، مصدر Candidate Actions، مصدر Preference/Utility، وحدود Decision مقابل Simulation/Relevance/Content.
+- **Dependencies:** TASK-027 (Gate 15 CLOSED بعد تصحيحَي المالك), TASK-024 (Ontology), TASK-020 (Model v1 FROZEN)
+- **Objective:** إثبات أن طبقة القرار تحترم حدود Decision Semantics (حدود/مدخلات/مخرجات) عبر 7 خصائص مجمدة — **بلا أي ادعاء بصحة معادلة تقييم** (ذلك D2 لاحقًا).
 - **Acceptance Criteria:**
-  - [ ] §2: تسجيل مسبق مجمد (Action Ontology + Candidate Sources + Preference Source + Counterexamples).
-  - [ ] كل نتيجة مصنفة إلزاميًا: Confirmed / Rejected / Open.
-  - [ ] فصل تام بين Definition / Runtime State / Historical Change.
-  - [ ] صفر كود قبل إغلاق الـ Gate.
-- **Validation Method:** مراجعة صاحب المشروع لوثيقة الحسم `15-Decision-Layer-Design-Gate.md`
-- **Evidence:** [`15-Decision-Layer-Design-Gate.md`](file:///c:/tmp/maestro%20engine/15-Decision-Layer-Design-Gate.md)
+  - [ ] تسجيل مسبق مجمد في `16-Decision-Boundary-Test.md` قبل التشغيل.
+  - [ ] P1..P7: Goal/Relevance Dependence، Capability Constraint، Option Sensitivity، Identity Blindness، Read-only bitwise، Determinism.
+  - [ ] شروط FAIL الستة مغطاة كنفي مباشر للخصائص.
+  - [ ] Action Registry = fixture بيانات فقط؛ سؤال أنطولوجيا مصدر الأفعال Open Question مسجل ولا يُفتح.
+  - [ ] صفر Kernel code — decide() داخل العدّاء حصرًا reference-only.
+  - [ ] deg/degree: أي bug ⇒ إعادة كل الفحوصات من الصفر.
+- **Validation Method:** تشغيل headless واحد + raw log في `.ai/evidence/tests/d1_decision_boundary.log` + مراجعة المالك.
+- **Evidence:** [`16-Decision-Boundary-Test.md`](file:///c:/tmp/maestro%20engine/16-Decision-Boundary-Test.md)
 
 ---
 
-> ✅ TASK-024 (Content Ontology Gate) أُغلق — 4/5 Confirmed + 1 Open temporal carve-out. التفاصيل في completed.md.
+> ✅ TASK-027 (Decision Layer Design Gate) أُغلق نهائيًا بعد تصحيحين بتوجيه المالك: إعادة صياغة §3.11 كمبدأ بلا معادلة (التزامًا بالبند 7)، وإضافة ربط Goal↔Channel بأسماء doc 10 الحرفية (`exposure`/`access`/`rel_supply`). التفاصيل في completed.md وسجل مراجعة doc 15 §4.

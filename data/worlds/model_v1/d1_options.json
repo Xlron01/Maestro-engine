@@ -1,0 +1,30 @@
+{
+	"options_id": "d1_options",
+	"description": "D1 test-fixture options ONLY - not an Action Framework. Channels use canonical doc-10 names. opt_dominant is dormant (available_by_default=false) and is activated solely by the v_option_add variant (P4).",
+	"options": [
+		{
+			"option_id": "opt_secure",
+			"channels": ["rel_supply"],
+			"target_ref": "Maker_Prime",
+			"available_by_default": true
+		},
+		{
+			"option_id": "opt_disengage",
+			"channels": [],
+			"available_by_default": true
+		},
+		{
+			"option_id": "opt_gate_play",
+			"channels": ["access"],
+			"target_ref": "Washington",
+			"requires": { "projection_class": "full" },
+			"available_by_default": true
+		},
+		{
+			"option_id": "opt_dominant",
+			"channels": ["rel_supply", "access"],
+			"target_ref": "Maker_Prime",
+			"available_by_default": false
+		}
+	]
+}

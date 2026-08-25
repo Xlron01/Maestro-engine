@@ -1,0 +1,57 @@
+{
+	"world_id": "d1_base",
+	"description": "D1 Decision Boundary Test base world. Derived from test2_base. Decision_Actor carries projection_class=limited (P3 capability gate) and the ratified Gate-15 goal_table schema {channels:[...], weight} with canonical doc-10 channel names.",
+	"capabilities_declared": ["EUV_flow", "EUV_gate"],
+	"enables": {},
+	"entities": {
+		"Maker_Prime": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.70 }
+		},
+		"Fab_Secondary": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.30 }
+		},
+		"Gate_Holder": {
+			"role": "gate_holder",
+			"possession": { "EUV_gate": 1.0 }
+		},
+		"Washington": {
+			"role": "chain_controller",
+			"projection_class": "full",
+			"stance": "neutral",
+			"relations": {},
+			"authority": [
+				{ "to": "Gate_Holder", "degree": 0.8 }
+			]
+		},
+		"Decision_Actor": {
+			"role": "deciding_entity",
+			"projection_class": "limited",
+			"depends_on": { "EUV_flow": 0.70 },
+			"sectors": { "EUV_flow": "defense" },
+			"reserves_days": { "EUV_flow": 90 },
+			"goal_table": {
+				"resource_security": { "channels": ["rel_supply"], "weight": 0.8 },
+				"prestige": { "channels": [], "weight": 0.2 }
+			},
+			"stance": "neutral",
+			"relations": {}
+		},
+		"Second_Actor": {
+			"role": "second_deciding_entity",
+			"depends_on": { "EUV_flow": 0.20 },
+			"sectors": { "EUV_flow": "civilian" },
+			"reserves_days": { "EUV_flow": 30 },
+			"goal_table": {
+				"resource_security": { "channels": ["rel_supply"], "weight": 0.2 },
+				"prestige": { "channels": [], "weight": 0.8 }
+			},
+			"stance": "neutral",
+			"relations": {}
+		},
+		"Anchor_Null": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}
