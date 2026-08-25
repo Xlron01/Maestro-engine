@@ -1,0 +1,31 @@
+{
+	"world_id": "test1p_w2",
+	"description": "Test 1-prime W2 - Hormuz-style transit gate over an oil flow: importer with heavy transit-gated dependency vs a net exporter for whom the same gate is structurally irrelevant. Source: Strategic Relevance Model v1 (doc 10) - Test 1-prime",
+	"capabilities_declared": ["Crude_Oil", "Oil_Route"],
+	"enables": {},
+	"entities": {
+		"Gulf_Provider": {
+			"role": "producer_subject",
+			"produces": { "Crude_Oil": 1.00 }
+		},
+		"Strait_Authority": {
+			"role": "gate_holder",
+			"projection_class": "full",
+			"possession": { "Oil_Route": 1.0 }
+		},
+		"Importer_J": {
+			"role": "exposed_observer",
+			"depends_on": { "Crude_Oil": 0.90 },
+			"sectors": { "Crude_Oil": "energy" },
+			"reserves_days": { "Crude_Oil": 120 },
+			"transit_dependency": { "Oil_Route": { "Crude_Oil": 0.90 } }
+		},
+		"Net_Exporter": {
+			"role": "net_exporter_control_case",
+			"produces": { "Crude_Oil": 1.20 }
+		},
+		"Bystander_W2": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}

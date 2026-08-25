@@ -1,0 +1,34 @@
+{
+	"world_id": "test1p_w1",
+	"description": "Test 1-prime W1 - ASML-pattern: chain control over an export gate guarding a produced flow, plus a secondary producer for substitution dynamics. Source: Strategic Relevance Model v1 (doc 10) - Test 1-prime",
+	"capabilities_declared": ["EUV_flow", "EUV_gate"],
+	"enables": {},
+	"entities": {
+		"Washington": {
+			"role": "chain_controller",
+			"projection_class": "full",
+			"stance": "cooperative",
+			"authority": [
+				{ "to": "NL_Entity", "degree": 0.8 }
+			]
+		},
+		"NL_Entity": {
+			"role": "gate_holder_producer",
+			"possession": { "EUV_gate": 1.0 },
+			"produces": { "EUV_flow": 0.70 }
+		},
+		"Fab_Secondary": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.30 }
+		},
+		"China_Entity": {
+			"role": "exposed_observer",
+			"depends_on": { "EUV_flow": 0.70 },
+			"sectors": { "EUV_flow": "defense" },
+			"reserves_days": { "EUV_flow": 90 }
+		},
+		"Bystander_W1": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}

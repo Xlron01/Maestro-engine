@@ -92,9 +92,23 @@ static func exercise_capability(projection_class: String, projection_table: Dict
 
 const RS := preload("res://scripts/relevance_supply.gd")
 
-# Relevance_Access(Y ⇐ X): قناة الوصول (§5) — تعرض Y خلف بوابات تحت سيطرة X
-# مركّبة من: DerivedPossession(X,gate) × ExerciseCapability(X,gate) × ExposureSupply(Y⇐Holder, guarded_cap)
-# تبسيط v1 موثق: كل بوابة تُحرسها قدرة واحدة ويحوز حائزًا واحدًا (عوالم Test الحالية).
+# §3.2 من الوثيقة 10 (مجمدة حرفيًا): تعرض العبور عبر ممر لقدرة محددة
+static func exposure_transit(world: Dictionary, cfg: Dictionary, y: String, route_gate: String) -> float:
+	var entities: Dictionary = world["entities"]
+	var consumer: Dictionary = entities.get(y, {})
+	var transit: Dictionary = (consumer.get("transit_dependency", {}) as Dictionary).get(route_gate, {})
+	var criticality: Dictionary = cfg.get("criticality", {})
+	var total := 0.0
+	for cap_key in transit.keys():
+		var dep := clampf(float(transit[cap_key]), 0.0, 1.0)
+		var crit := RS.sector_criticality(consumer, String(cap_key), criticality)
+		total += dep * crit
+	return total
+
+
+# Relevance_Access(Y ⇐ X): قناة الوصول (§5) — مجموع حدين لكل بوابة تحت سيطرة X:
+#   حد العبور : DP(X,gate) × ExCap(X,gate) × ExposureTransit(Y ⇐ gate)
+#   حد الإمداد خلف البوابة: DP × ExCap × Σ ExposureSupply(Y⇐holder, guarded_cap)
 static func relevance_access(world: Dictionary, chains: Dictionary, cfg: Dictionary,
 		y: String, x: String) -> Dictionary:
 	var entities: Dictionary = world["entities"]
@@ -111,6 +125,13 @@ static func relevance_access(world: Dictionary, chains: Dictionary, cfg: Diction
 		var dp := float((gd["controllers"] as Dictionary).get(x, 0.0))
 		if dp <= 0.0 or ex_cap <= 0.0:
 			continue
+
+		# حد العبور (§3.2): ممر يمرر قدرات يعتمد عليها Y
+		var transit_expo := exposure_transit(world, cfg, y, gate)
+		if transit_expo > 0.0:
+			total += dp * ex_cap * transit_expo
+
+		# حد الإمداد خلف البوابة: الحائز ينتج قدرة مُحراسة (نمط ترخيص ASML)
 		for guarded in (gates_guard.get(gate, []) as Array):
 			var gcap := String(guarded)
 			for holder in (gd["holders"] as Dictionary).keys():

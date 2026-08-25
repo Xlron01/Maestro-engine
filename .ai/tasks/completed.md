@@ -115,6 +115,23 @@
 
 ---
 
+### [TASK-021] Test 1′ — Relevance Pipeline Test over FROZEN Model v1
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-020
+- **Objective:** إعادة بناء روح Test 1 فوق Model v1 المجمد بالكامل: عالمان (ASML-pattern سلسلة سلطة + هرمز-style ممر عبور مع net-exporter) يختبران القناتين والقوانين الثلاثة تنفيذيًا، مع خاصيتين جديدتين: ظهور Relevance عبر قناة الوصول بلا إنتاج/اعتماد مباشر، وجمود البنية تحت انقلاب نية خارجي.
+- **Acceptance Criteria:**
+  - [x] عوالم `data/worlds/model_v1/test1p_w1.json` / `test1p_w2.json` + عدّاء `scripts/test_model_v1_test1prime.gd` بتوقعات مسجلة في الهيدر.
+  - [x] **إكمال فجوة تنفيذ موثقة**: `ExposureTransit` (§3.2 المجمدة حرفيًا) لم تكن مبنية — بُنيت كما نصّت الوثيقة وأُضيف حد العبور إلى relevance_access (تنفيذ تصميم لا تعديله؛ موثق في هيدر الكود).
+  - [x] **النتيجة النهائية: PASS 20/20** — أبرزها: T2 ظهور وصول عبر السلسلة فقط، T5a إغلاق البوابة ⇒ 0.0 بالضبط مع ثبات الإمداد bitwise، T6 كسر السلطة نفس النمط، T9 رافعة عبور للمستورد (1.125 عبر energy-crit)، T10 الـ net-exporter صفر كليًا (الحالة "يبدو مهمًا وليس كذلك" منفذة).
+  - [x] شفافية انحرافات التشغيل موثقة: خطأ مفتاح طباعة، تعليقان سببهما نسيان `--script` في الأمر (بيئي)، وخطأ runtime أجهض `_init` تاركًا الشجرة حية — كلها شُخصت من اللوجات وحُلّت دون أي تعديل على الصيغ المجمدة.
+- **Validation Method:**
+  `Godot_console --headless --script scripts/test_model_v1_test1prime.gd`
+- **Evidence:** [model_v1_test1prime_v2.log](file:///.ai/evidence/tests/model_v1_test1prime_v2.log) (+ لوجات المحاولات السابقة محفوظة بنفس المجلد) — Exit Code: 0
+
+---
+
 ### [TASK-020] Model v1 Integration Gate & Freeze
 
 - **Status:** COMPLETE

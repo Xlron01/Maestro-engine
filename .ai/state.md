@@ -2,22 +2,22 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-24
-- **Current Phase:** Strategic Relevance Model v1 — **FROZEN** (Integration Gate 7/7 + ScenarioTest 5/5)
-- **Current Step:** بانتظار توقيع المالك على التجميد ⇒ ثم بناء Test 1′ فوق النموذج المجمد
+- **Current Phase:** Test 1′ — Relevance Pipeline over FROZEN Model v1 — **PASS 20/20**
+- **Current Step:** بانتظار توجيه المالك (Test 2 / طبقة القرار / غيرهما)
 
 ## Current Objective
-بوابة §9.3 اكتملت: Integration Gate **PASS 7/7** (I-1 Supply mirror exact، I-2 dp=0.8 بالضبط، I-3 Access mirror exact، **I-4 L1-joint** انقلاب نية/عداء ⇒ الطبقات الثلاث bitwise، **I-5 L2-joint** صفر مفاتيح تجميعية، **I-6 L3-joint** مخرجات float خالصة، I-7 حتمية). القيم المرجعية: exposure=1.05، access=0.84، rel_supply=0.945، total=1.785.
+Test 1′ أعاد بناء روح Test 1 فوق Model v1 المجمد بالكامل: **PASS 20/20** — القناتان تعملان (Supply + Access عبر سلاسل السلطة وممرات العبور)، L1-joint bitwise تحت انقلاب نية، net-exporter صفر كليًا (حالة "يبدو مهمًا وليس كذلك" منفذة)، وعزل الأنكورز سليم. فجوة تنفيذ `ExposureTransit` (§3.2 المجمدة) اكتملت كجزء من التنفيذ الموثق.
 
 ## Active Tasks
-- `TASK-020`: Integration Gate & Freeze. (Status: COMPLETE)
-- `TASK-004..019`: السلسلة السابقة. (موثقة)
+- `TASK-021`: Test 1′. (Status: COMPLETE)
+- `TASK-004..020`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- التجميد الرسمي النهائي بانتظار توقيع المالك على الوثيقة 10.
+- لا يوجد معوقات. الخطوة التالية (Test 2 / طبقة القرار التي ستستهلك Relevance وتختبر متانة القوانين عليها) قرار المالك.
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. (إجرائي فقط) عند توقيع المالك: بناء Test 1′ فوق Model v1 المجمد بنفس المنهجية.
+1. (إجرائي فقط) انتظار توجيه المالك.
 
 ## Known Bugs & Temporary Hacks
 - **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر بالكامل مع Checksum مطابق.
