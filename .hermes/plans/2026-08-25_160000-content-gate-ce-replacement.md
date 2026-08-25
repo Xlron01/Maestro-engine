@@ -1,49 +1,36 @@
-# 12 — Content Ontology Gate: ما أقل Ontology لمخطط المحتوى؟
+# TASK-024 — استبدال قائمة الـ Counterexamples في Content Ontology Gate
 
-> **وثيقة حسم — صفر كود، صفر Kernel.**
-> تتبع مباشرة لـ Decision Semantics Gate 2 (وثيقة 11 — CLOSED: Confirmed Principle) وStrategic Relevance Model v1 (وثيقة 10 — FROZEN).
->
-> **الحالة الحالية: ⏸️ PROPOSED — التسجيل المسبق بانتظار تجميد المالك قبل أي تحليل تطبيقي.**
+> **For Hermes:** تنفيذي — لكن هذه النوبة تخطيط فقط (plan mode). لا تعديل ملفات المشروع إلا عند التفعيل.
 
----
+**Goal:** استبدال §2 من وثيقة `12-Content-Ontology-Gate.md` بقائمة CEs جديدة تضغط على سؤال الـ Ontology نفسه (ما أقل مجموعة Primitives؟) لا على قدرات الـ Kernel المُثبتة، مع تسجيل مسبق مجمد لكل توقع قابل للكسر — دون بدء التحليل.
 
-## 0) Boundary Rule الحاكمة (قرار صاحب المشروع — مجمد)
+**Architecture:** نفس بروتوكول Gates 08/09/11: Observation من العالم → تسجيل توقع قابل للكسر → تحليل اختزال → Confirmed / Rejected / Open. الـ Kernel يعتبر Evidence مؤكدًا (Phase 6)، وليس موضوع الاختبار.
 
-**CE-5 (الزمن) له قاعدة حدود خاصة:**
-
-> إذا أظهر التحليل أن التمثيل الزمني يحتاج Primitive مستقل:
-> - ❌ لا يُفتح هذا السؤال داخل Gate الـ Content.
-> - ❌ لا تصميم Temporal Primitive ولا حسم Semantics الزمن هنا.
-> - ✅ يُسجل النتيجة فقط كـ **Open Question**: «Content Schema requires unresolved temporal semantics».
-> - ✅ يُغلق Gate الـ Content بما ثبت حتى تلك النقطة.
-> - ✅ تصميم الـ Temporal Semantics يصبح موضوع **Gate مستقل لاحقًا**.
-
-**السبب:** هدف Gate الحالي هو تحديد **أقل Ontology للـ Content**، وليس حل Temporal Model بالكامل — وإلا سنعيد مشكلة الـ 12 فرضية التي تجنبناها في Decision Semantics.
-
-### الشكل المتوقع للمخرج النهائي
-
-```
-Content Ontology
-      ↓
-Confirmed
-      │
-      ├── Temporal Semantics → Open → Gate مستقل (إن لزم)
-      │
-      └── Decision Semantics → لاحقًا
-```
-
-## 1) القواعد الإلزامية (مجمدة في `.ai/tasks/active.md` — TASK-024)
-
-1. التسجيل المسبق للتوقعات (hypotheses قابلة للكسر).
-2. 5 Counterexamples فقط.
-3. لا Primitive جديد لمجرد الراحة.
-4. Definition / Runtime State / Historical Change تبقى مفصولة.
-5. Confirmed / Rejected / Open إلزامية — بلا خليط.
-6. أي CE يكسر التوقع ⇒ إيقاف التوسع والتسجيل فورًا.
-7. لا كود قبل إغلاق الـ Gate.
+**Owner decision مسجل (المالك، 2026-08-25):**
+- رفض القائمة السابقة لأن CE-1→CE-4 كانت اختبارات Kernel (Entity/Mutable State, Scheduling, Propagation, Save/Load) لا ضغط ontological.
+- القائمة الجديدة أدناه معتمدة من المالك نصًا.
+- CE-5 تبقى Boundary Case تحت الـ Boundary Rule المجمدة: حاجة Temporal Primitive ⇒ Open Question فقط («Content Schema requires unresolved temporal semantics») وإغلاق Gate الـ Content عند هذا الحد.
+- **ممنوع بدء التحليل (§3) في نفس نوبة الاستبدال.**
 
 ---
 
+## السياق الحالي
+
+| الملف | الحالة |
+|---|---|
+| `12-Content-Ontology-Gate.md` | §0 Boundary Rule + §1 قواعد + §2 قائمة قديمة (PROPOSED) — القائمة القديمة تُستبدل كاملة |
+| `.ai/tasks/active.md` | TASK-024 IN_PROGRESS — يحتاج تحذير «القائمة غير مسجلة» يُستبدل بإشارة «القائمة الجديدة مجمدة من المالك» |
+| `scripts/validate_memory.py` | يجب أن يمر بعد التعديل |
+
+---
+
+## الخطوات
+
+### Step 1: استبدال §2 كاملًا في `12-Content-Ontology-Gate.md`
+
+استبدل القسم §2 بالكامل بهذا المحتوى:
+
+```markdown
 ## 2) التسجيل المسبق — القائمة المعتمدة من المالك (2026-08-25 — مجمدة)
 
 > ملاحظة المالك على القائمة الأولى: كانت في معظمها اختبارات قدرات Kernel مُثبتة
@@ -82,9 +69,31 @@ Confirmed
 
 قاعدة عامة إضافية (مجمدة): أي اقتراح Primitive جديد في التحليل يجب أن يمر اختبار
 «لا Primitive لمجرد الراحة» — يثبت فشل البديل الأضيق أولًا.
+```
+
+### Step 2: تحديث `.ai/tasks/active.md`
+
+- عدّل معيار القبول الأول ليقرأ: «تسجيل مسبق مجمد للقائمة الخمسة **المعتمدة من المالك** (Ontology-focused: Entity/Relationship/Event/Derived-Fact/Temporal)».
+- احذف الفقرة الأخيرة (تحذير «القائمة غير مسجلة») واستبدلها بـ: «§2 مجمد بتوقيع المالك 2026-08-25 — القائمة الجديدة Ontology-focused، والقائمة القديمة مرفوضة كاختبارات Kernel مكررة».
+
+### Step 3: تحقق
+
+Run: `python scripts/validate_memory.py`
+Expected: `0 Errors` (التحذير الموروث في `00-خطة-الطريق.md` مقبول baseline).
+
+### Step 4: Commit ذاتي (وفق الدستور §3-5)
+
+```bash
+git add -A && git commit -m "TASK-024: replace CE list with owner-ratified ontology-focused set; freeze pre-registration"
+```
+
+### Step 5: توقف
+
+⛔ لا كتابة §3 (التحليل التطبيقي) في هذه النوبة — بدء التحليل نوبة مستقلة بعد تأكيد المالك.
 
 ---
 
-## 3) التحليل التطبيقي
+## Risks / Open
 
-⏸️ **محجوب حتى تجميد المالك للتسجيل المسبق أعلاه (§2).**
+- **خطر:** الانزلاق في التحليل لاحقًا نحو اختبار Kernel من جديد — يعالجه سطر «الدرس الحاكم» المثبت في §2.
+- **Open:** هل يحتاج CE-4 تعريف كمي لحد الفرق بين fact أولية ومشتقة (متى التركيب مكلف جدًا بحيث يبرر تخزين)؟ — يُحسم داخل تحليل CE-4 نفسه، لا الآن.
