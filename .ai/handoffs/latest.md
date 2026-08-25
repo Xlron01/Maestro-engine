@@ -1,20 +1,13 @@
-- **Current Task:** TASK-023 (Decision Semantics Gate 2) — **CLOSED: Confirmed Principle**، توقف تام
+- **Current Task:** TASK-024 (Content Ontology Gate) — **CLOSED: 4/5 Confirmed، 1 Open temporal carve-out**، توقف تام
 
-## 0) Gate 2 — ملخص تنفيذي (الأحدث)
-وثيقة تحليلية `11-Decision-Semantics-Gate2.md` (صفر كود): هل يحتاج المسار/Trajectory قيمة مستقلة؟
-- **الحكم: Confirmed Principle** — Outcome-State Preference + R1–R3 (قدرات تمثيلية مسموحة: تاريخ دائم، حالة مؤقتة مؤرخة، سجل التزامات) يفسّر الحالات الخمس counterexamples كاملة دون primitive مسار ودون معلومة سببية جديدة.
-- **CE-E الزخم (المرشح للفشل) اختزل بالكامل**: Initiative = Derived State من سجل نتائج + عدادات استنزاف؛ أي residual معنوي = متغير حالة حدثي لا primitive مسار.
-- **Rejected Interpretations**: 4 موثقة (زخم/مصداقية/ترتيب خسائر/HostileControl).
-- **Open Questions غير مانعة**: عبء تصميم العدادات، Doctrine constraints لطبقة القرار، سلاسل عميقة، تفاعل الاستنزاف×الزخم القراري.
-- **Evidence:** [`11-Decision-Semantics-Gate2.md`](file:///c:/tmp/maestro%20engine/11-Decision-Semantics-Gate2.md)
+## 0. Content Ontology Gate — ملخص تنفيذي (الأحدث)
+وثيقة تحليلية `12-Content-Ontology-Gate.md` (صفر كود): ما أقل Ontology للمحتوى؟
+- **النتيجة: 4/5 Confirmed** — Entity قاموسي عام يكفي (CE-1)، Edge موزون + سجل مؤرخ يكفي للعلاقات (CE-2)، Change Log + propagation يكفي للأحداث (CE-3)، المعلومات المركبة مشتقة حسابيًا لا مخزنة (CE-4).
+- **CE-5 Temporal: Open carve-out** — لا Temporal Primitive ضروري حاليًا؛ إن ظهر ⇒ Gate مستقل.
+- **الحد الأدنى الناتج:** Entity قاموسي عام + depends_on/produces + possession/authority + reserves/sectors/criticality + enables graph.
+- **Evidence:** [`12-Content-Ontology-Gate.md`](file:///c:/tmp/maestro%20engine/12-Content-Ontology-Gate.md)
 
-## 0.5) Test 2 — Relevance Boundary (السابق مباشرة) — PASS 23/23
-- **A-BOUNDARY ×5**: stance/relations/no-intent/goal_swap/goal_zero_rel ⇒ supply+access+chains **bitwise == base**.
-- **PC**: تغيير fact يحرك القيم (حساسية مثبتة).
-- **B-D1**: نفس Relevance + تبديل goal_tables ⇒ قراران مختلفان (مرجع binary argmax بالعدّاء حصرًا).
-- **B-D2**: حساب القرارات يترك world/relevance bitwise كما هما (لا تلويث عكسي).
-- **B-D3**: relevance=0 + أقصى هدف ⇒ secure score = 0.0 بالضبط.
-- **Evidence:** [model_v1_test2_boundary.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/model_v1_test2_boundary.log)
+
 
 ## 0.5) Strategic Relevance Model v1 = FROZEN
 
