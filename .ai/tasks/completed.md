@@ -117,6 +117,24 @@
 
 ---
 
+### [TASK-023] Decision Semantics Gate 2 — Trajectory Necessity
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-022, TASK-017 (Model v1 FROZEN)
+- **Objective:** وثيقة تحليلية بلا كود: حسم هل يحتاج المسار/Trajectory قيمة مستقلة في Derived State أم يختزل بالكامل إلى Outcome-State Preference مع القدرات التمثيلية R1–R3 — عبر 5 عدادات مسجلة مسبقًا بصيغ hypotheses قابلة للكسر.
+- **Acceptance Criteria:**
+  - [x] الحالات الخمس المجمدة بصيغة صاحب المشروع المعدلة: A Likely-reducible، B/C Test-reducibility دون افتراض آلية/حل، D Likely-via-facts مع فحص المقنّع، E adversarial بلا توقع حاسم.
+  - [x] R1–R3 مصاغة كقدرات تمثيلية مسموحة لا نتائج مثبتة مسبقًا.
+  - [x] التحليل تطبيقيًا لكل حالة + مرساة واقعية (فيينا 1683، الأطلسي 1941-43، الربيع 1918، خرق التزامات موثقة، المارن الثانية).
+  - [x] أقسام مصنفة: Confirmed Principle / Rejected Interpretations / Open Questions.
+  - [x] **النتيجة: Gate 2 CLOSED — Confirmed Principle** (الاختزال نجح في الخمسة دون primitive مسار) + تسجيل ملاحظة صاحب المشروع: Relevance نصف الطريق، طبقة القرار هي الاختبار الحقيقي للقوانين.
+- **Validation Method:**
+  مراجعة صاحب المشروع والمراجع للوثيقة
+- **Evidence:** [`11-Decision-Semantics-Gate2.md`](file:///c:/tmp/maestro%20engine/11-Decision-Semantics-Gate2.md)
+
+---
+
 ### [TASK-022] Test 2 — Relevance Boundary / Decision Non-Equivalence
 
 - **Status:** COMPLETE

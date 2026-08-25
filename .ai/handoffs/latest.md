@@ -1,6 +1,14 @@
-- **Current Task:** TASK-022 (Test 2 — Relevance Boundary) — **PASS 23/23**، التصنيف الثلاثي مثبت تنفيذيًا
+- **Current Task:** TASK-023 (Decision Semantics Gate 2) — **CLOSED: Confirmed Principle**، توقف تام
 
-## 0) Test 2 — ملخص تنفيذي (الأحدث)
+## 0) Gate 2 — ملخص تنفيذي (الأحدث)
+وثيقة تحليلية `11-Decision-Semantics-Gate2.md` (صفر كود): هل يحتاج المسار/Trajectory قيمة مستقلة؟
+- **الحكم: Confirmed Principle** — Outcome-State Preference + R1–R3 (قدرات تمثيلية مسموحة: تاريخ دائم، حالة مؤقتة مؤرخة، سجل التزامات) يفسّر الحالات الخمس counterexamples كاملة دون primitive مسار ودون معلومة سببية جديدة.
+- **CE-E الزخم (المرشح للفشل) اختزل بالكامل**: Initiative = Derived State من سجل نتائج + عدادات استنزاف؛ أي residual معنوي = متغير حالة حدثي لا primitive مسار.
+- **Rejected Interpretations**: 4 موثقة (زخم/مصداقية/ترتيب خسائر/HostileControl).
+- **Open Questions غير مانعة**: عبء تصميم العدادات، Doctrine constraints لطبقة القرار، سلاسل عميقة، تفاعل الاستنزاف×الزخم القراري.
+- **Evidence:** [`11-Decision-Semantics-Gate2.md`](file:///c:/tmp/maestro%20engine/11-Decision-Semantics-Gate2.md)
+
+## 0.5) Test 2 — Relevance Boundary (السابق مباشرة) — PASS 23/23
 - **A-BOUNDARY ×5**: stance/relations/no-intent/goal_swap/goal_zero_rel ⇒ supply+access+chains **bitwise == base**.
 - **PC**: تغيير fact يحرك القيم (حساسية مثبتة).
 - **B-D1**: نفس Relevance + تبديل goal_tables ⇒ قراران مختلفان (مرجع binary argmax بالعدّاء حصرًا).

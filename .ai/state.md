@@ -2,18 +2,18 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-24
-- **Current Phase:** Test 2 — Relevance Boundary / Decision Non-Equivalence — **PASS 23/23**
-- **Current Step:** بانتظار توجيه المالك (Decision Model / Test 3 / غيرهما)
+- **Current Phase:** Decision Semantics Gate 2 — **CLOSED (Confirmed Principle)** — وثيقة `11-Decision-Semantics-Gate2.md`
+- **Current Step:** بانتظار توجيه المالك (لا Gate 3 مفتوحة)
 
 ## Current Objective
-Test 2 أثبت الحدود تنفيذيًا: الحالات غير المادية الخمس ⇒ supply+access+chains bitwise == base؛ نفس Relevance + تبديل goals ⇒ قراران مختلفان (مرجع binary argmax بالعدّاء حصرًا)؛ حساب القرارات بلا تلويث عكسي؛ relevance=0 + أقصى هدف ⇒ لا فعل موردًّي. TASK-013 أُقفل بالإيصالات (Gate=0/Inv=0 + Checksum).
+Gate 2 أُغلق بـ**Confirmed Principle**: Outcome-State Preference + R1–R3 (قدرات تمثيلية مسموحة: تاريخ دائم، حالة مؤقتة مؤرخة، سجل التزامات) يفسّر الحالات الخمس counterexamples كاملة دون primitive مسار مستقل. CE-E (الزخم) اختزل إلى Derived State من سجل تاريخي. Rejected: 4 تفسيرات موثقة. Open Questions: 4 غير مانعة (تصميم العدادات، Doctrine constraints، سلاسل عميقة، تفاعل الاستنزاف×الزخم في طبقة القرار).
 
 ## Active Tasks
-- `TASK-022`: Test 2 Boundary. (Status: COMPLETE)
-- `TASK-004..021`: السلسلة السابقة. (موثقة)
+- `TASK-023`: Decision Semantics Gate 2. (Status: COMPLETE)
+- `TASK-004..022`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- لا يوجد معوقات. الخطوة التالية (Decision Model / Threat / غيرهما) قرار المالك حصرًا.
+- لا يوجد معوقات. الخطوة التالية (Decision Model / Test 2′ / غيرهما) قرار المالك حصرًا.
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
