@@ -228,6 +228,117 @@ Entity (قاموس عام + kind سمة)
 - فحوص: حذف أي عائلة ⇒ فشل تفسير حالة واقعية من الحالات المتراكمة
 - **Exit:** نجاح = Ontology كافية؛ فشل = إعادة فتح السؤال
 
+---
+
+## §9) Deletion Test لكل عائلة حقائق — التحليل الفردي الكامل
+
+> **هذا القسم يسد الفجوة التي رصدها صاحب المشروع:** الوثيقة كانت تقدم تحليلًا عبر 5 CEs مجردة دون Deletion Test فردي لكل عائلة من العائلات الثمانية المعتمدة. أدناه الاختبار الفردي الكامل بأدلة من Tranches A/B وIntegration Gate.
+
+### منهجية الاختبار لكل عائلة
+
+لكل عائلة:
+1. **من يستهلكها؟** (أي صيغة مجمدة تعتمد عليها)
+2. **اختبار الحذف:** أي حالة واقعية تفشل بدونها؟
+3. **هل يمكن استبدالها؟** (بديل أضيق أو اشتقاق)
+4. **النتيجة:** Confirmed (ضرورية) / Rejected (زائدة)
+
+---
+
+### F1 — Produces / FlowShare
+
+**المستهلك:** ExposureSupply (§3.1) — `Share(X,cap) = P(X,cap) / ΣP(*,cap)`
+**Deletion:** بدون إنتاج لا يوجد مورد يُقيَّم — Test 1 كامل (Phase 7) مبني على هذه العائلة. حالة تايوان/الرقائق تفسر بالكامل بها.
+**البديل الأضيق:** تخزين "أهمية المورد" مباشرة = hardcoding مرفوض (L1).
+**الحكم:** ✅ **Confirmed ضروري**
+
+---
+
+### F2 — DependsOn + DomesticCapacity
+
+**المستهلك:** EffDep (§3.1) — `DependsOn × (1 − DomesticCapacity)`
+**Deletion:** بدون اعتماد لا يوجد تعرّض — Tranche A أثبت أن الاعتماد هو المحرك الأساسي (A-1: HD=0.60 > LD=0.10).
+**DomesticCapacity:** يمثل الاستقلال الذاتي الجزئي (سيبيريا قبل خط الأنابيب = possession بلا access). حذفه يعني عدم القدرة على تمثيل "إنتاج ذاتي جزئي" — حالة واقعية (الولايات المتحدة بعد 2019: مصدر صافٍ لكن ليس معزولًا تمامًا).
+**البديل الأضيق:** تخزين "أهمية" مباشرة = L1 violation.
+**الحكم:** ✅ **Confirmed ضروري**
+
+---
+
+### F3 — TransitDependency
+
+**المستهلك:** ExposureTransit (§3.2) — تعرض العبور عبر ممر
+**Deletion:** هرمز/السويس/قناة باناما — ممرات عبور بلا إنتاج. بدون TransitDependency لا يمكن تمثيل اعتماد اليابان على نفط يعبر مضيقًا لا تملكه ولا تنتجه.
+**⚠️ فحص زمني:** هل يحتاج Temporal Primitive؟ التعرض لحظة بلحظة عبر الممر = قيمة ثابتة تتغير عند أحداث (فتح/إغلاق/تدهور). لا يحتاج زمنًا مستمرًا — يحتاج تحديث عند حدث فقط. ✅ لا فجوة.
+**البديل الأضيق:** تخزين "خطر الممر" مباشرة = L1 violation.
+**الحكم:** ✅ **Confirmed ضروري** — ⏱️ temporal check passed (event-driven, not continuous).
+
+---
+
+### F4 — Possession (gates)
+
+**المستهلك:** DerivedPossession via Chain Composition (§3.4) — من يمسك البوابة
+**Deletion:** ASML pattern — هولندا تمسك بوابة EUV. بدون Possession لا يمكن تمثيل "مَن يملك مفتاح الوصول".
+**البديل الأضيق:** استنتاج السيطرة من الإنتاج وحده — لكن هذا يفشل: مصر تمسك السويس بدون أن تنتج البضائع العابرة. Possession مستقل عن Production بالضرورة.
+**الحكم:** ✅ **Confirmed ضروري**
+
+---
+
+### F5 — Authority(A,B,degree)
+
+**المستهلك:** Chain Composition (§4) — DerivedPossession عبر سلسلة سلطة
+**Deletion:** ASML pattern — واشنطن لا تملك الآلات لكنها تملك سلطة على من يمسكها. بدون Authority لا يمكن تمثيل الرافعة عبر الطرف الثالث.
+**⚠️ فحص زمني:** درجة السلطة تتغير بمعاهدات/قرارات = أحداث منفصلة تحدّث قيمة. لا يحتاج زمنًا مستمرًا — تحديث عند حدث فقط. ✅ لا فجوة.
+**البديل الأضيق:** تخزين "نفوذ" مباشرة = L1 violation.
+**الحكم:** ✅ **Confirmed ضروري**
+
+---
+
+### F6 — ReservesDays + LeadTimeTable
+
+**المستهلك:** EaseOfReplacement (§3.3) — `ReserveDays / (LeadMonths × 30)` + AlternativesShare
+**Deletion:** Tranche A أثبت أن الاحتياطي يؤثر على أهمية المورد تجاه الحائز فقط (T7b: باقي الصفوف bitwise سليمة). بدون ReservesDays لا يمكن تمثيل "اليابان عندها 120 يوم احتياطي نفط" كعامل مخفف للأهمية.
+**LeadTimeTable:** زمن بناء البديل (fab=سنوات، LNG=شهور) — بدون هذا الجدول EoR لا تفرق بين بدائل سريعة وبطيئة.
+**⚠️ فحص زمني:** ReserveDays عداد تراكمي يتغير بالاستهلاك والإنتاج (R1). LeadTimeTable قيم ثابتة كمحتوى (config). لا يحتاج زمنًا مستمرًا — تحديث عند حدث فقط. ✅ لا فجوة.
+**البديل الأضيق:** تجاهل الاحتياطي = فقدان دلالة واقعية مهمة.
+**الحكم:** ✅ **Confirmed ضروري** — ⏱️ temporal check passed (event-driven counters, config constants).
+
+---
+
+### F7 — SectorCriticality
+
+**المستهلك:** ExposureSupply (§3.1) — `× Criticality(sector)` — وزن القطاعات الحرجة
+**Deletion:** Tranche A أثبت (A-5) أن defense-sector exposure أعلى من civilian بنفس الاعتماد. بدون SectorCriticality لا يمكن تمثيل "الأرض النادرة للدفاع أهم من الأرض النادرة للحلي".
+**البديل الأضيق:** تخزين "أهمية القطاع" مباشرة = جدول config بسيط (نفس الشيء باسم مختلف).
+**⚠️ Open Question مصاحب:** مَن يصون جدول القطاعات عبر التوسع؟ هذا بذرة مشكلة Content Authoring/Modding (سطح مستقل حدده الشات الثاني في Production Audit) — **يُسجل بوضوح كOpen Question يغذي Gate مستقبلي عن Content Authoring**، وليس كملاحظة هامشية.
+**الحكم:** ✅ **Confirmed ضروري** — Open Question مصاحب موثق بوضوح.
+
+---
+
+### F8 — ProjectionClass
+
+**المستهلك:** ExerciseCapability (§3.4) — تصنيف قدرة تنفيذ السيطرة
+**Deletion:** بدون ProjectionClass لا يمكن تمثيل "دولة تملك حقًا قانونيًا لكن لا تستطيع تنفيذه عسكريًا" (S3/S4 من وثيقة 08). Tranche B أثبت أن ExerciseCapability تعمل كمعامل ضرب مستقل.
+**البديل الأضيق:** دمج ExCap داخل Possession = خلط امتلاك وقدرة تنفيذ — انكسر S3/S4.
+**الحكم:** ✅ **Confirmed ضروري**
+
+---
+
+### ملخص الـDeletion Tests
+
+| # | العائلة | الحكم | الدليل الرئيسي | Temporal Check |
+|---|---|---|---|---|
+| F1 | Produces/FlowShare | ✅ Confirmed | Test 1 كامل | N/A |
+| F2 | DependsOn+DomCap | ✅ Confirmed | Tranche A (A-1) | N/A |
+| F3 | TransitDependency | ✅ Confirmed | Integration T9 | ✅ event-driven |
+| F4 | Possession | ✅ Confirmed | Phase 6 + Integration | N/A |
+| F5 | Authority(degree) | ✅ Confirmed | Tranche B + Chains | ✅ event-driven |
+| F6 | ReservesDays+LeadTime | ✅ Confirmed | Tranche A (A-4) | ✅ event-driven counters |
+| F7 | SectorCriticality | ✅ Confirmed | Tranche A (A-5) | N/A (config) |
+| F8 | ProjectionClass | ✅ Confirmed | Doc 08 S3/S4 | N/A (config) |
+
+> ⚠️ **F3 وF5 وF6 تحمل علامة فحص زمني** — لا تُعتبر Confirmed نهائيًا إلا بعد تأكيد أن التمثيل event-driven (وليس continuous-time simulation) يكفي عبر التوسع. هذا مسجل كـ**Open Question يغذي Gate مستقبلي عن Temporal Semantics** — ليس كهامش.
+
+---
+
 ## 8) حالة البوابة
 
 ✅ **Gate CLOSED — Content Ontology Confirmed** (4/5 Confirmed، 1 Open carve-out زمني).
