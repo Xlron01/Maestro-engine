@@ -117,6 +117,24 @@
 
 ---
 
+### [TASK-025] Ontology Sufficiency Gate — Coverage Gap Analysis
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-024, TASK-020 (Model v1 FROZEN)
+- **Objective:** اختبار هل العائلات الثماني المؤكدة كافية للعبة Grand Strategy كاملة أم فقط لـRelevance Model v1 — عبر 5 counterexamples من أنظمة خارج Relevance.
+- **Acceptance Criteria:**
+  - [x] OS-1 جغرافيا/مسافة: ❌ Gap (لا موقع جغرافي في الـschema)
+  - [x] OS-2 رؤية غير متماثلة: ❌ Gap (نسخة واحدة من الحقائق للجميع)
+  - [x] OS-3 تحالف ثلاثي: ⚠️ Partial lossy (تفكيك زوجي يفقد الشرط الجماعي)
+  - [x] OS-4 ملكية جزئية 40%: ✅ Expressible (degree field)
+  - [x] OS-5 دورة موسمية: ⚪ Open carve-out (Temporal Semantics Gate مستقل)
+- **Validation Method:**
+  مراجعة صاحب المشروع والمراجع للوثيقة
+- **Evidence:** [`13-Ontology-Sufficiency-Gate.md`](file:///c:/tmp/maestro%20engine/13-Ontology-Sufficiency-Gate.md)
+
+---
+
 ### [TASK-023] Decision Semantics Gate 2 — Trajectory Necessity
 
 - **Status:** COMPLETE

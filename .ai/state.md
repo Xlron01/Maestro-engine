@@ -2,22 +2,22 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-25
-- **Current Phase:** Content Ontology Gate — **CLOSED (4/5 Confirmed، 1 Open temporal carve-out)**
-- **Current Step:** بانتظار توجيه المالك (Decision Model / Test O / غيرهما)
+- **Current Phase:** Ontology Sufficiency Gate — **COMPLETE** (2 Gaps + 1 Partial + 1 Expressible + 1 Open)
+- **Current Step:** بانتظار توجيه المالك (أولوية معالجة الفجوات / Decision Model / غيرهما)
 
 ## Current Objective
-Content Ontology Gate أُغلق: أقل Ontology للمحتوى محددة — Entity قاموسي عام + علاقات موزونة + حقائق عبور/حيازة/احتياطيات/قطاعات. CE-5 الزمني Open carve-out لGate مستقل. 4/5 Confirmed بلا primitive مسار أو زمني.
+Ontology Sufficiency Gate اكتمل: العائلات الثماني كافية لـRelevance Model v1 المجمد حصرًا. فجوتان حقيقيتان (جغرافيا/موقع + رؤية غير متماثلة)، تحالف ثلاثي partially lossy، دورة موسمية Open temporal carve-out.
 
 ## Active Tasks
-- `TASK-024`: Content Ontology Gate. (Status: COMPLETE)
-- `TASK-004..023`: السلسلة السابقة. (موثقة)
+- `TASK-025`: Ontology Sufficiency Gate. (Status: COMPLETE)
+- `TASK-004..024`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- لا يوجد معوقات. الخطوة التالية قرار المالك حصرًا.
+- لا يوجد معوقات. أولوية معالجة الفجوات (Geographic > Visibility > Multi-party > Temporal) قرار المالك.
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. (إجرائي فقط) انتظار توجيه المالك.
+1. (إجرائي فقط) انتظار توجيه المالك بشأن أولوية معالجة الفجوات.
 
 ## Known Bugs & Temporary Hacks
 - **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر بالكامل مع Checksum مطابق.

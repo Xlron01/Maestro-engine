@@ -1,9 +1,9 @@
-# 12 — Content Ontology Gate: ما أقل Ontology لمخطط المحتوى؟
+# 12 — Content Ontology Gate: Minimal Ontology for FROZEN Relevance Model v1
 
 > **وثيقة حسم — صفر كود، صفر Kernel.**
 > تتبع مباشرة لـ Decision Semantics Gate 2 (وثيقة 11 — CLOSED: Confirmed Principle) وStrategic Relevance Model v1 (وثيقة 10 — FROZEN).
 >
-> **الحالة الحالية: ⏸️ PROPOSED — التسجيل المسبق بانتظار تجميد المالك قبل أي تحليل تطبيقي.**
+> **⚠️ نطاق الحكم:** هذه الوثيقة تثبت أن العائلات الثمانية **كافية لتشغيل Relevance Model v1 المجمد حصرًا** — وليست ادعاءً بأنها كافية لمحرك Grand Strategy كامل. فجوات النطاق الأوسع موثقة في [13-Ontology-Sufficiency-Gate.md](13-Ontology-Sufficiency-Gate.md).
 
 ---
 
@@ -341,10 +341,11 @@ Entity (قاموس عام + kind سمة)
 
 ## 8) حالة البوابة
 
-✅ **Gate CLOSED — Content Ontology Confirmed** (4/5 Confirmed، 1 Open carve-out زمني).
-❌ لا سؤال فرعي مفتوح من الإغلاق نفسه.
-⛔ **توقف تام** — لا Gate 3، لا Decision Layer، لا كود.
+✅ **Gate CLOSED — Minimal Ontology for FROZEN Relevance Model v1** (8/8 Confirmed ضرورية للنموذج المجمد حصرًا).
+⚠️ **ليست ادعاءً بكفاية المحرك الكامل** — فجوات النطاق الأوسع في [13-Ontology-Sufficiency-Gate.md](13-Ontology-Sufficiency-Gate.md).
+❌ لا سؤال فرعي مفتوح من الإغلاق نفسه (Temporal = Gate مستقل).
+⛔ **توقف تام بعد الإغلاق** — لا Gate 3، لا Decision Layer، لا كود.
 
 ---
 
-**Evidence trail:** الوثيقتان 08/09/10/11 + هذا الملف.
+**Evidence trail:** الوثيقتان 08/09/10/11/12 + [13-Ontology-Sufficiency-Gate.md](13-Ontology-Sufficiency-Gate.md).

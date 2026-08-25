@@ -7,6 +7,7 @@
 ## [2026-08-24]
 
 ### Added
+- **Ontology Sufficiency Gate (بلا كود — قرار صاحب المشروع):** وثيقة `13-Ontology-Sufficiency-Gate.md` — اختبار هل العائلات الثماني كافية للعبة GS كاملة أم فقط لـRelevance Model v1. النتيجة: 2 Gaps حقيقيان (جغرافيا + رؤية غير متماثلة) + 1 Partial (تحالف ثلاثي) + 1 Expressible (ملكية جزئية degree) + 1 Open temporal carve-out.
 - **Decision Semantics Gate 2 — CLOSED (Confirmed Principle):** وثيقة `11-Decision-Semantics-Gate2.md` (بلا كود) — هل يحتاج المسار/Trajectory قيمة مستقلة؟ الحكم: **لا** — Outcome-State Preference + R1–R3 (قدرات تمثيلية مسموحة: تاريخ دائم، حالة مؤقتة مؤرخة، سجل التزامات) يفسّر 5 counterexamples كاملة؛ CE-E الزخم اختزل لـDerived State من سجل تاريخي؛ 4 Rejected Interpretations موثقة + Open Questions غير مانعة.
 - تنفيذ Phase 7 / Test 1 (Derived Importance) وفق تسليم `05-Test1-Derived-Importance-Handoff.md`:
   - العوالم الستة كملفات بيانات منفصلة `data/worlds/test1/world_1..6.json`.
