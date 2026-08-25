@@ -105,18 +105,20 @@
 
 ## 4) الخلاصة
 
-> **الـOntology الحالية (8 عائلات): كافية لتشغيل Relevance Model v1 المجمد حصرًا.**
+> **الـOntology الحالية (8 عائلات): كافية لتشغيل Relevance Model v1 المجمد حصرًا — نطاق Engine-Layer.**
 >
-> **غير كافية لعبة GS كاملة بسبب 2 Gaps حقيقيان (جغرافيا + رؤية) و1 Partial (تحالف ثلاثي) و1 Open (temporal).**
+> **غير كافية لعبة GS كاملة بسبب 2 Gaps + 1 Partial + 1 Open — نطاق Game-Layer، مؤجلة لحد فتح مرحلة بناء اللعبة.**
 
-### الخطوة التالية المقترحة (بترتيب الأولوية)
+### أولوية معالجة الفجوات (قرار صاحب المشروع المحدث)
 
-| الأولوية | الإجراء | الأسباب |
+| الأولوية | الإجراء | التصنيف الجديد |
 |---|---|---|
-| 1 | تصميم Geographic fact family | Military/Access بدون جغرافيا ناقصان هيكليًا |
-| 2 | تصميم Per-Observer Visibility | Intelligence بلا معرفة منفصلة = بلا معنى |
-| 3 | Multi-party Agreement | Diplomacy تحتاج تجميع غير زوجي |
-| 4 | Temporal Semantics | Gate مستقل (مؤجل) |
+| **1** | **Temporal Semantics Gate** | ⬆️ مرفوعة من "مؤجلة" إلى **الأولوية الأولى** — مكوّن ناقص في طريق Decision/AI (Gate 2 أثبت أن القرارات المتسلسلة محتاجة حالة زمنية) |
+| 2 | Geographic fact family | Open — Deferred to Game-Layer scope |
+| 3 | Per-Observer Visibility | Open — Deferred to Game-Layer scope |
+| 4 | Multi-party Agreement | Open — Deferred to Game-Layer scope |
+
+> **التصنيف الجديد للفجوات الثلاث:** Open — Deferred to **Game-Layer scope**، بلا Gate، لحد فتح مرحلة بناء اللعبة.
 
 ## 5) ما الذي لا يتغير
 
