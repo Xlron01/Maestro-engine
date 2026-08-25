@@ -158,9 +158,10 @@
 - **Status:** COMPLETE
 - **Owner:** ox-alpha
 - **Dependencies:** TASK-024
-- **Objective:** فحص سريع لقواعد الشرطية الثلاثة (compound/meta/lifetime) لحسم CE-4، ثم تسجيل Temporal Semantics Gate (doc 14) بالسؤال الأنطولوجي والسيناريوهات الخمسة.
+- **Objective:** فحص سريع لقواعد الشرطية الثلاثة (compound/meta/lifetime) لحسم CE-4، ثم تسجيل Temporal Semantics Gate (doc 14).
 - **Acceptance Criteria:**
-  - [x] **CE-4 CONFIRMED**: قواعد الشرطية تمثل كـconfig خالص — compound condition من JSON ✓، meta-rule تعدل base rule ✓، limited-lifetime window صحيح ✓.
+  - [x] **CE-4 CONFIRMED**: قواعد الشرطية تمثل كـconfig خالص — P1 Compound condition من JSON ✓، P2 meta-rule تعدل base rule ✓، P3 limited-lifetime window صحيح ⚠️ **Confirmed provisionally — pending Temporal Gate outcome** (النافذة الزمنية تفترض timestamps كscalar fields؛ لو Temporal Gate قرر Primitive مستقل، P3 يعاد اختباره).
+  - [x] Temporal Semantics Gate مسجل: السؤال الأنطولوجي المجمد + 5 counterexamples (TS-1..5) في `14-Temporal-Semantics-Gate.md` بلا تحليل تطبيقي (بانتظار إشارة).
   - [x] Temporal Semantics Gate مسجل: السؤال الأنطولوجي المجمد + 5 counterexamples (TS-1..5) في `14-Temporal-Semantics-Gate.md` بلا تحليل تطبيقي (بانتظار إشارة).
 - **Validation Method:**
   تشغيل probe مباشر + مراجعة الوثيقة
