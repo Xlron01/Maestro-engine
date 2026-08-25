@@ -1,8 +1,20 @@
-# Handoff
+- **Current Task:** TASK-022 (Test 2 — Relevance Boundary) — **PASS 23/23**، التصنيف الثلاثي مثبت تنفيذيًا
 
-- **Date:** 2026-08-24
-- **From Agent:** ox-alpha
-- **Current Task:** TASK-020 (Integration Gate & Freeze) — **Strategic Relevance Model v1 = FROZEN** بانتظار توقيع المالك
+## 0) Test 2 — ملخص تنفيذي (الأحدث)
+- **A-BOUNDARY ×5**: stance/relations/no-intent/goal_swap/goal_zero_rel ⇒ supply+access+chains **bitwise == base**.
+- **PC**: تغيير fact يحرك القيم (حساسية مثبتة).
+- **B-D1**: نفس Relevance + تبديل goal_tables ⇒ قراران مختلفان (مرجع binary argmax بالعدّاء حصرًا).
+- **B-D2**: حساب القرارات يترك world/relevance bitwise كما هما (لا تلويث عكسي).
+- **B-D3**: relevance=0 + أقصى هدف ⇒ secure score = 0.0 بالضبط.
+- **Evidence:** [model_v1_test2_boundary.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/model_v1_test2_boundary.log)
+
+## 0.5) Strategic Relevance Model v1 = FROZEN
+
+النموذج مجمّد بالكامل بعد بروتوكول §9 المتدرج وفق سلسلة:
+```
+World Facts → Primitive Derived State → Chain Composition → Relevance
+```
+قناتان مثبتتان: Supply + Access. التفاصيل والبوابات أدناه.
 
 ## 0) الحالة الحالية — Strategic Relevance Model v1
 
