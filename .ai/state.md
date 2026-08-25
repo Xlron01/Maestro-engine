@@ -2,18 +2,18 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-24
-- **Current Phase:** Test 1′ — Relevance Pipeline over FROZEN Model v1 — **PASS 20/20**
-- **Current Step:** بانتظار توجيه المالك (Test 2 / طبقة القرار / غيرهما)
+- **Current Phase:** Test 2 — Relevance Boundary / Decision Non-Equivalence — **PASS 23/23**
+- **Current Step:** بانتظار توجيه المالك (Decision Model / Test 3 / غيرهما)
 
 ## Current Objective
-Test 1′ أعاد بناء روح Test 1 فوق Model v1 المجمد بالكامل: **PASS 20/20** — القناتان تعملان (Supply + Access عبر سلاسل السلطة وممرات العبور)، L1-joint bitwise تحت انقلاب نية، net-exporter صفر كليًا (حالة "يبدو مهمًا وليس كذلك" منفذة)، وعزل الأنكورز سليم. فجوة تنفيذ `ExposureTransit` (§3.2 المجمدة) اكتملت كجزء من التنفيذ الموثق.
+Test 2 أثبت الحدود تنفيذيًا: الحالات غير المادية الخمس ⇒ supply+access+chains bitwise == base؛ نفس Relevance + تبديل goals ⇒ قراران مختلفان (مرجع binary argmax بالعدّاء حصرًا)؛ حساب القرارات بلا تلويث عكسي؛ relevance=0 + أقصى هدف ⇒ لا فعل موردًّي. TASK-013 أُقفل بالإيصالات (Gate=0/Inv=0 + Checksum).
 
 ## Active Tasks
-- `TASK-021`: Test 1′. (Status: COMPLETE)
-- `TASK-004..020`: السلسلة السابقة. (موثقة)
+- `TASK-022`: Test 2 Boundary. (Status: COMPLETE)
+- `TASK-004..021`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- لا يوجد معوقات. الخطوة التالية (Test 2 / طبقة القرار التي ستستهلك Relevance وتختبر متانة القوانين عليها) قرار المالك.
+- لا يوجد معوقات. الخطوة التالية (Decision Model / Threat / غيرهما) قرار المالك حصرًا.
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions

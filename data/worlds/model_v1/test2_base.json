@@ -1,0 +1,50 @@
+{
+	"world_id": "test2_base",
+	"description": "Test 2 - Relevance Boundary / Decision Non-Equivalence. Non-structural fields (stance/relations/goal_table) exist on entities from the start and ONLY their values vary across harness states - proving the FACT/DERIVED/DECISION boundary. Source: Strategic Relevance Model v1 (doc 10) - Test 2",
+	"capabilities_declared": ["EUV_flow", "EUV_gate"],
+	"enables": {},
+	"entities": {
+		"Maker_Prime": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.70 }
+		},
+		"Fab_Secondary": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.30 }
+		},
+		"Gate_Holder": {
+			"role": "gate_holder",
+			"possession": { "EUV_gate": 1.0 }
+		},
+		"Washington": {
+			"role": "chain_controller",
+			"projection_class": "full",
+			"stance": "neutral",
+			"relations": { "China_Entity": "neutral" },
+			"authority": [
+				{ "to": "Gate_Holder", "degree": 0.8 }
+			]
+		},
+		"Consumer_Alpha": {
+			"role": "exposed_observer",
+			"depends_on": { "EUV_flow": 0.70 },
+			"sectors": { "EUV_flow": "defense" },
+			"reserves_days": { "EUV_flow": 90 },
+			"goal_table": { "resource_security": 0.8, "prestige": 0.2 },
+			"stance": "neutral",
+			"relations": {}
+		},
+		"Consumer_Beta": {
+			"role": "exposed_observer",
+			"depends_on": { "EUV_flow": 0.20 },
+			"sectors": { "EUV_flow": "civilian" },
+			"reserves_days": { "EUV_flow": 30 },
+			"goal_table": { "resource_security": 0.2, "prestige": 0.8 },
+			"stance": "neutral",
+			"relations": {}
+		},
+		"Anchor_Null": {
+			"role": "zero_dependency_anchor"
+		}
+	}
+}

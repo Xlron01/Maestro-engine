@@ -1,0 +1,42 @@
+[362] START
+[363] cfg loading
+[364] cfg loaded, empty=false
+[365] building base
+[366] layers computing base
+[368] layers done base
+[368] building v_friendly
+[369] layers computing v_friendly
+[371] layers done v_friendly
+[371] building v_hostile
+[372] layers computing v_hostile
+[374] layers done v_hostile
+[374] building v_no_intent
+[375] layers computing v_no_intent
+[377] layers done v_no_intent
+[377] building v_goal_swap
+[378] layers computing v_goal_swap
+[380] layers done v_goal_swap
+[380] building v_goal_zero_rel
+[381] layers computing v_goal_zero_rel
+[383] layers done v_goal_zero_rel
+[383] building pc_fact
+[384] layers computing pc_fact
+[386] layers done pc_fact
+[387] RAW begin
+[440] RAW end
+[442] boundary done v_friendly
+[449] boundary done v_hostile
+[450] boundary done v_no_intent
+[451] boundary done v_goal_swap
+[453] boundary done v_goal_zero_rel
+[454] B begin
+[455] B done
+[455] J begin
+[457] laws done base
+[457] laws done v_friendly
+[458] laws done v_hostile
+[458] laws done v_no_intent
+[459] laws done v_goal_swap
+[460] laws done v_goal_zero_rel
+[460] laws done pc_fact
+[461] REACHED QUIT

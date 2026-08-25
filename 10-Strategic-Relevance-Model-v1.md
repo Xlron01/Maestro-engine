@@ -247,4 +247,30 @@ Intent/Goals/Personality • Threat/PotentialCoerciveLeverage (طبقة القر
 
 ---
 
+## ✅ Test 2 — حدود Relevance / Decision Non-Equivalence (منفذ — PASS 23/23)
+
+**السؤال:** هل Relevance تتحول تلقائيًا إلى Decision؟ **الجواب المنفذ: لا.**
+
+### التصنيف الثلاثي المثبت تنفيذيًا
+```
+FACT           — ما هو موجود في العالم (يقرأه النموذج حصرًا)
+DERIVED STATE  — ما تعنيه البنية ميكانيكيًا (Relevance المجمدة)
+DECISION       — ماذا تفعل بهذه الحقيقة (خارج النموذج؛ مرجع تجريبي بالعدّاء فقط)
+```
+
+### النتائج (عالم test2_base بسبع حالات)
+| الفحص | النتيجة |
+|---|---|
+| A-BOUNDARY ×5 | stance/relations/goal_swap/goal_zero_rel ⇒ supply+access+chains **bitwise == base** |
+| PC | تغيير fact يحرك القيم (حساسية مثبتة) |
+| B-D1 | نفس Relevance + تبديل goals ⇒ قراران مختلفان (Non-Equivalence) |
+| B-D2 | حساب القرارات يترك world/relevance bitwise كما هما |
+| B-D3 | relevance=0 + أقصى هدف ⇒ secure score = 0.0 بالضبط |
+
+**Evidence:** [model_v1_test2_boundary.log](.ai/evidence/tests/model_v1_test2_boundary.log)
+
+**ملاحظة صاحب المشروع المطبقة:** Relevance المجمدة **نصف الطريق** — طبقة القرار هي الاختبار الحقيقي لمتانة القوانين الثلاثة عليها، ولا يُفترض أن تجميد Relevance يحسم سؤالها.
+
+---
+
 **نهاية Model v1 — FROZEN. الخطوة التالية (بعد إشارة صاحب المشروع): بناء Test 1′ فوق النموذج المجمد.**

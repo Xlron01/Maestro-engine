@@ -1,0 +1,41 @@
+[158] START
+[159] cfg loaded, empty=false
+[159] building base
+[160] layers computing base
+[161] layers done base
+[161] building v_friendly
+[161] layers computing v_friendly
+[162] layers done v_friendly
+[162] building v_hostile
+[163] layers computing v_hostile
+[164] layers done v_hostile
+[164] building v_no_intent
+[164] layers computing v_no_intent
+[165] layers done v_no_intent
+[165] building v_goal_swap
+[166] layers computing v_goal_swap
+[166] layers done v_goal_swap
+[167] building v_goal_zero_rel
+[167] layers computing v_goal_zero_rel
+[168] layers done v_goal_zero_rel
+[168] building pc_fact
+[168] layers computing pc_fact
+[169] layers done pc_fact
+[169] RAW begin
+[170] raw base
+[170] raw v_friendly
+[170] raw v_hostile
+[177] raw v_no_intent
+[177] raw v_goal_swap
+[178] raw v_goal_zero_rel
+[178] raw pc_fact
+[178] RAW end
+[178] VERDICTS begin
+[178] laws done base
+[179] laws done v_friendly
+[179] laws done v_hostile
+[179] laws done v_no_intent
+[179] laws done v_goal_swap
+[180] laws done v_goal_zero_rel
+[180] laws done pc_fact
+[180] ALL DONE - no hang in phases; hang must be elsewhere/none

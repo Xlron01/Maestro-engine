@@ -1,4 +1,4 @@
-# Completed Tasks
+﻿# Completed Tasks
 
 قائمة المهام المكتملة والمغلقة بنجاح في المشروع.
 
@@ -94,6 +94,8 @@
   `test_phase10_purification_audit.gd` + `ScenarioTest.gd`
 - **Evidence:** [task013_audit_post.log](file:///.ai/evidence/tests/task013_audit_post.log) | [task013_scenariotest.log](file:///.ai/evidence/tests/task013_scenariotest.log)
 
+> **إقفال بالإيصالات (قرار المالك بعد تأكيد الأدلة):** `Inventory complete = Debt resolved` — الإصلاحات نُفذت فعلًا وثبتها: [task013_audit_post.log](file:///.ai/evidence/tests/task013_audit_post.log) (**Gate=0 / Inventory=0**) + [task013_scenariotest.log](file:///.ai/evidence/tests/task013_scenariotest.log) (**5/5 + Checksum مطابق حرفيًا**) ⇒ الدين مغلق نهائيًا لا معلق.
+
 ---
 
 ### [TASK-018] Model v1 Tranche A — Supply Channel (ExposureSupply + EaseOfReplacement)
@@ -112,6 +114,26 @@
 - **Evidence:** [model_v1_tranche_a.log](file:///.ai/evidence/tests/model_v1_tranche_a.log) | [model_v1_tranche_a_diag.log](file:///.ai/evidence/tests/model_v1_tranche_a_diag.log) | [model_v1_tranche_a_v2.log](file:///.ai/evidence/tests/model_v1_tranche_a_v2.log)
 
 > **الفشلان بالأرقام (سجل Run الأول):** A-3c طالب بثبات مراقبين مرتبطين فعليًا بسوق مشتركة عند دخول منتج (تحركوا جميعًا بمعامل موحد بين من يتشابه احتياطه)؛ A-4b طالب بأن احتياطي الحائز يؤثر نحو مورد واحد فقط (وهو يحمي من كل موردِي القدرة). كلاهما قيد أضيق من الدلالة المجمدة.
+
+---
+
+### [TASK-022] Test 2 — Relevance Boundary / Decision Non-Equivalence
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-021, TASK-013 closure receipts
+- **Objective:** إثبات أن Relevance لا تتحول تلقائيًا إلى Decision: الحالات غير المادية (stance/relations/goal_tables) تترك المخرجات bitwise، بينما الأهداف وحدها تكفي لقلب القرار عند نفس الـRelevance (Non-Equivalence معماريًا ودلاليًا).
+- **Acceptance Criteria:**
+  - [x] عالم `data/worlds/model_v1/test2_base.json` يجمع القناتين + حقول غير بنيوية موجودة من البداية (stance/relations/goal_table على الكيانات) وتتبدل قيمها فقط عبر 7 حالات.
+  - [x] **A-BOUNDARY**: الحالات الخمس غير المادية ⇒ supply+access+chains **bitwise == base** (صفر فروق، شامل طبقة السلاسل).
+  - [x] **PC**: تغيير fact حقيقي يحرك القيم (إثبات حساسية الهارنس ضد النجاح الفارغ).
+  - [x] **B-D1**: نفس Relevance + تبديل goal_tables ⇒ قراران مختلفان (binary argmax مرجعي داخل العدّاء حصرًا).
+  - [x] **B-D2**: حساب القرارات يترك world object وrelevance bitwise كما هما (لا تلويث عكسي).
+  - [x] **B-D3**: relevance=0 + أقصى هدف ⇒ secure score = 0.0 بالضبط (الأهداف لا تولّد قدرة من عدم).
+  - [x] **J-L1/L2/L3** أعيدت على كل حالة من السبع.
+- **Validation Method:**
+  `Godot_console --headless --script scripts/test_model_v1_test2_boundary.gd`
+- **Evidence:** [model_v1_test2_boundary.log](file:///.ai/evidence/tests/model_v1_test2_boundary.log) — Exit Code: 0
 
 ---
 
