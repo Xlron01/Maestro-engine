@@ -29,6 +29,7 @@
 			"role": "deciding_entity",
 			"projection_class": "limited",
 			"depends_on": { "EUV_flow": 0.70 },
+			"transit_dependency": { "EUV_gate": { "EUV_flow": 0.5 } },
 			"sectors": { "EUV_flow": "defense" },
 			"reserves_days": { "EUV_flow": 90 },
 			"goal_table": {

@@ -4,6 +4,48 @@
 
 ---
 
+### [TASK-028] D1 — Decision Boundary Test
+
+- **Status:** COMPLETE (PASS 28/28)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-027
+- **Objective:** إثبات أن طبقة القرار تحترم حدود Decision Semantics عبر 7 خصائص مجمدة من المالك — بلا أي ادعاء بصحة معادلة تقييم (ذلك D2).
+- **Acceptance Criteria:**
+  - [x] تسجيل مسبق مجمد `16-Decision-Boundary-Test.md` قبل التشغيل.
+  - [x] P1 Goal Dependence: أهداف مبادلة ⇒ opt_secure ↔ opt_disengage فوق نفس المصفوفات bitwise.
+  - [x] P2 Relevance Dependence: fact حقيقي يُنزل rel_supply قطعيًا (0.5292→0.02215) ويعبر حد الأفضلية ⇒ انقلاب القرار (هوامش 0.223/0.182).
+  - [x] P3 Capability Constraint: خيار gate_play محجوب عن limited رغم هدف وزنه 1.0؛ الضابط السالب full يختاره — القيد هو الحاجب الوحيد.
+  - [x] P4 Option Sensitivity: opt_dominant المضاف يلتقط القرار (تعادل final حُسم بترتيب المعرفات المجمد — موثق بلا تجميل).
+  - [x] P5 Identity Blindness: إعادة تسمية شاملة ⇒ قرارات ومصفوفات مطابقة bitwise بعد عكس الخريطة.
+  - [x] P6 Read-only: world+relevance قبل/بعد decide ⇒ bitwise (كائنًا وإعادة حساب).
+  - [x] P7 Determinism: تحميل مستقل ⇒ bitwise كامل.
+  - [x] deg/degree منفذة حرفيًا: تشغيل rev.1 فشل 3/28 ⇒ توقف كامل ⇒ rev.2 (عقد `+boost_empty` + transit_dependency في الـfixture) ⇒ إعادة تشغيل كل الفحوصات من الصفر ⇒ PASS 28/28.
+  - [x] صفر Kernel code — decide() داخل العدّاء reference-only؛ Model v1 وKernel لم يُمَسا.
+- **Validation Method:**
+  Godot headless run واحد + raw log
+- **Evidence:**
+  [`16-Decision-Boundary-Test.md`](file:///c:/tmp/maestro%20engine/16-Decision-Boundary-Test.md)
+  [.ai/evidence/tests/d1_decision_boundary.log](file:///.ai/evidence/tests/d1_decision_boundary.log)
+
+---
+
+### [TASK-027] Decision Layer Design Gate
+
+- **Status:** COMPLETE (CLOSED بعد تصحيحَي مراجعة المالك)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-024, TASK-023, TASK-020
+- **Objective:** تصميم حدود Decision Layer: Action ontology، مصدر Candidate Actions، مصدر Preference، حدود Decision مقابل Simulation/Relevance/Content.
+- **Acceptance Criteria:**
+  - [x] §2 تسجيل مسبق مجود + §3 تحليل البنود الـ11 (11/11 Confirmed + 2 Open مؤجلة: Planning/tie-break).
+  - [x] **تصحيح المالك 1**: §3.11 أعيد صياغته كمبدأ بلا معادلة — الصيغة `goal_weight × relevance_channel → argmax` كانت خالفًا للبند 7 (سبق TS-3: وجود metric ≠ معادلة جديدة).
+  - [x] **تصحيح المالك 2**: ربط Goal↔Channel صريح في §3.3 بأسماء doc 10 الحرفية (`exposure`/`access`/`rel_supply`) — goal_table = `{channels:[...], weight}`، لا fallback ضمني إلى total.
+  - [x] سجل مراجعة في §4 يوثق دورة PENDING→CLOSED كاملة.
+- **Validation Method:**
+  مراجعة المالك + validator
+- **Evidence:** [`15-Decision-Layer-Design-Gate.md`](file:///c:/tmp/maestro%20engine/15-Decision-Layer-Design-Gate.md)
+
+---
+
 ### [TASK-017] Strategic Relevance Model v1 — Design Document
 
 - **Status:** REVIEW

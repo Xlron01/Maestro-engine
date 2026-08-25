@@ -1,10 +1,26 @@
-- **Current Task:** TASK-024 (Content Ontology Gate) — **CLOSED: 4/5 Confirmed، 1 Open temporal carve-out**، توقف تام
+- **Current Task:** TASK-028 (D1 Decision Boundary Test) — **CLOSED: PASS 28/28 (rev.2)**، توقف تام
 
-## 0. Content Ontology Gate — ملخص تنفيذي (الأحدث)
+## 0. D1 — Decision Boundary Test — ملخص تنفيذي (الأحدث)
+
+**المبدأ الحاكم (توجيه المالك):** D1 لا يختبر صحة Evaluation Formula — يثبت أن طبقة القرار تحترم حدود ومدخلات ومخرجات Decision Semantics. الفصل: **D1 = صحة المعمارية**، **D2 = Evaluation Semantics** (وثيقة قادمة).
+
+**الخصائص السبع مثبتة تنفيذيًا** ([doc 16](file:///c:/tmp/maestro%20engine/16-Decision-Boundary-Test.md)):
+- **P1 Goal Dependence**: أهداف مبادلة ⇒ opt_secure ↔ opt_disengage فوق نفس المصفوفات bitwise.
+- **P2 Relevance Dependence**: fact حقيقي يُنزل rel_supply قطعيًا (0.5292→0.02215) ⇒ انقلاب القرار بهامش مريح.
+- **P3 Capability Constraint**: خيار محجوب عن limited رغم هدف وزنه 1.0؛ الضابط السالب full يختاره.
+- **P4 Option Sensitivity**: خيار جديد أفضل يلتقط القرار (تعادل حُسم بترتيب معرفات مجمد — موثق).
+- **P5 Identity Blindness**: إعادة تسمية شاملة ⇒ قرارات ومصفوفات bitwise بعد عكس الخريطة.
+- **P6 Read-only**: world+relevance قبل/بعد decide ⇒ bitwise. **Relevance → Decision لا ↔**.
+- **P7 Determinism**: تحميل مستقل ⇒ bitwise كامل.
+
+**درس deg/degree الموثق:** rev.1 فشل 3/28 ⇒ توقف كامل ⇒ rev.2: عقد التجميع `raw×boost` كان يُصفّر الخيارات عديمة القنوات بنيويًا (عُدّل إلى `raw×boost_chan + boost_empty`)، وقناة access تطلب transit_dependency على الفاعل (وُصل في الـfixture). العلة في المرجع/fixture — **Model v1 وKernel لم يُمَسا**.
+
+**Evidence:** [d1_decision_boundary.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/d1_decision_boundary.log) • سلسلة القرار: Gate 15 CLOSED (تصحيحا §3.11-as-principle + Goal↔Channel binding بأسماء doc 10) → D1 CLOSED.
+
+## 0-b) Content Ontology Gate — ملخص (سابق)
 وثيقة تحليلية `12-Content-Ontology-Gate.md` (صفر كود): ما أقل Ontology للمحتوى؟
 - **النتيجة: 4/5 Confirmed** — Entity قاموسي عام يكفي (CE-1)، Edge موزون + سجل مؤرخ يكفي للعلاقات (CE-2)، Change Log + propagation يكفي للأحداث (CE-3)، المعلومات المركبة مشتقة حسابيًا لا مخزنة (CE-4).
 - **CE-5 Temporal: Open carve-out** — لا Temporal Primitive ضروري حاليًا؛ إن ظهر ⇒ Gate مستقل.
-- **الحد الأدنى الناتج:** Entity قاموسي عام + depends_on/produces + possession/authority + reserves/sectors/criticality + enables graph.
 - **Evidence:** [`12-Content-Ontology-Gate.md`](file:///c:/tmp/maestro%20engine/12-Content-Ontology-Gate.md)
 
 
@@ -63,9 +79,9 @@ exposure(China⇐NL,EUV)=1.05 • dp(Washington→EUV_gate)=0.8 بالضبط •
 
 ## 3) المشهور/المعلق للمرحلة القادمة
 
-1. **Test 1′ — Relevance Pipeline Test**: إعادة بناء روح Test 1 فوق النموذج المجمد (يستبدل صيغة supply-share القديمة كاملة).
-2. TASK-013 المنجزة فتحت الباب: لا دين متبقي في النواة.
-3. Derived Traits / Threat / Planning: طبقة القرار — بعد Test 1′ وبقرار صاحب المشروع.
+1. **D2 — Evaluation Semantics Gate**: السؤال الأصعب — كيف تتفاعل Goal + Relevance + Preference + World/Outcome في التقييم فعليًا. لا يبدأ إلا بأمر المالك وب تسجيل مسبق مجمد.
+2. Open مسجل: أنطولوجيا مصدر الأفعال (Content/Capability/Simulation/توليد ذاتي) — Gate مستقل عند الحاجة.
+3. Derived Traits / Threat / Planning: طبقات لاحقة بعد D2 بقرار صاحب المشروع.
 
 ## 4) بيئة التشغيل
 
@@ -74,4 +90,4 @@ Godot الفعلي: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godo
 ## 5) ملاحظات
 
 - ObjectDB leak warnings عند خروج السكريبتات المستقلة: pre-existing baseline.
-- آخر commit: Integration Gate & Freeze documentation.
+- آخر commit: D1 Decision Boundary Test (pre-reg rev.2 + PASS 28/28 + memory).

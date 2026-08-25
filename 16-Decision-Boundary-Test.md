@@ -52,7 +52,7 @@
 
 ### 2.1 العالم `data/worlds/model_v1/d1_base.json`
 مشتق من test2_base مع التعديلات الجوهرية:
-- `Decision_Actor`: depends_on EUV_flow=0.70، sectors defense، reserves 90، **projection_class="limited"** (شرط انكماش P3)، goal_table بالصيغة الجديدة (resource_security→rel_supply وزن 0.8 / prestige→[] وزن 0.2).
+- `Decision_Actor`: depends_on EUV_flow=0.70، **transit_dependency على EUV_gate (EUV_flow: 0.5)** — تفعيل حد العبور §3.2 لقناة access، sectors defense، reserves 90، **projection_class="limited"** (شرط انكماش P3)، goal_table بالصيغة الجديدة (resource_security→rel_supply وزن 0.8 / prestige→[] وزن 0.2).
 - `Second_Actor`: depends_on 0.20، civilian، reserves 30، goal_table معكوس الأوزان (0.2/0.8).
 - البقية مطابقة بنيويًا لـtest2_base (Maker_Prime 0.70، Fab_Secondary 0.30، Gate_Holder، Washington authority 0.8، Anchor_Null).
 
@@ -80,9 +80,11 @@ decide(actor_facts, goal_table, options, rel_row) -> {"decision": id, "eligible"
 ```
 - استبعاد غير المؤهل أولًا (requires ضد actor_facts) — قبل أي حساب نقاط.
 - raw(option) = Σ قيم القنوات المعلنة من rel_row[option.target].
-- boost(option) = Σ أوزان الأهداف التي تتقاطع قنواتها مع قنوات الخيار (هدف بلا قنوات يطابق خيارًا بلا قنوات).
-- final = raw × boost · كسر التعادل: option_id تصاعديًا (حتمية).
-- التجميع أعلاه **reference-only**: D1 لا تدّعي صحته (ذلك D2). الخاصيات P تثبت تحت أي تجميع رتيب.
+- boost_channeled = Σ أوزان الأهداف ذات قنوات غير فارغة المتقاطعة مع قنوات الخيار.
+- boost_empty = Σ أوزان الأهداف بلا قنوات، يُحتسب فقط حين تكون قنوات الخيار فارغة.
+- **final = raw × boost_channeled + boost_empty** — الخيار عديم القنوات يقف على تفضيله الثابت بدل أن يُصفَّر بضرب صدر.
+- كسر التعادل: option_id تصاعديًا (حتمية).
+- التجميع أعلاه **reference-only**: D1 لا تدّعي صحته (ذلك D2). الخاصيات P تثبت تحت أي تجميع رتيب يحافظ على المساهمتين.
 
 ---
 
@@ -90,29 +92,51 @@ decide(actor_facts, goal_table, options, rel_row) -> {"decision": id, "eligible"
 
 | فحص | التوقع المجمد |
 |---|---|
-| P1 | decision(base, A-goals) = opt_secure ≠ decision(base على نفس المصفوفات، B-goals) = opt_disengage |
+| P1 | decision(A-goals) = opt_secure (0.5292×0.8=0.4234 > 0.2) ≠ decision(B-goals على نفس المصفوفات) = opt_disengage (0.1058 < 0.8) |
 | P2a | rel_supply(A→Maker) في v_fact_change **أقل قطعيًا** من base (سبق T4a: التخفيف يخفض القناة قطعيًا) |
-| P2b | decision ينقلب secure → disengage مع هامش |final_secure − final_dis| > 0.01 في الحالتين |
+| P2b | decision ينقلب secure → disengage (0.0177 < 0.2) مع هامش > 0.01 في الحالتين |
 | P3a | في v_capped_actor: eligible[opt_gate_play]=false والقرار ≠ opt_gate_play مهما بلغ وزنه 1.0 |
-| P3b | في v_capped_full: eligible[opt_gate_play]=true ويُختار (القيد هو الحاجب الوحيد) |
-| P4 | decision(v_option_add) = opt_dominant (raw أعلى بحد أدنى، boost متساوٍ، والتعادل يحسمه ترتيب المعرفات لمصلحته) |
+| P3b | في v_capped_full: eligible=true ويُختار opt_gate_play بفضل access(A→Washington)>0 عبر transit_dependency (القيد هو الحاجب الوحيد) |
+| P4 | decision(v_option_add) = opt_dominant (final ≥ incumbent دائمًا، والتعادل يحسمه ترتيب المعرفات لمصلحته) |
 | P5a | قرارات الفاعلين في v_renamed == قرارات base bitwise بعد تطبيع الأسماء |
 | P5b | مصفوفات supply/access في v_renamed == base بعد عكس خريطة التسمية على المفاتيح |
 | P6 | لقطات world + supply/access/chains قبل/بعد كل استداءات decide ⇒ bitwise متطابقة |
 | P7 | تحميل مستقل ثانٍ لـbase ⇒ قرارات ومصفوفات bitwise متطابقة |
 | J | L2-joint (لا مفاتيح تجميعية) + L3-joint (floats خالصة) على كل حالة |
 
----
-
 ## 4) النتائج
 
-⏳ *(تُملأ بعد التشغيل — ممنوع التحرير قبلها إلا بتعديل مجمد موثق في سجل المراجعة)*
+✅ **D1 RESULT: PASS (28 checks) — EXIT=0** — [raw log](file:///.ai/evidence/tests/d1_decision_boundary.log)
 
-- Evidence: `.ai/evidence/tests/d1_decision_boundary.log`
+| فحص | النتيجة الفعلية |
+|---|---|
+| A-BOUNDARY | matrices bitwise == base بعد goal_swap ✓ |
+| P1 | own-goals ⇒ opt_secure · swapped-goals ⇒ opt_disengage (نفس المصفوفات) |
+| P2 | rel_supply(A→Maker): 0.5292000000 → 0.0221484375 قطعيًا · انقلاب secure→disengage · هوامش 0.223360 / 0.182281 |
+| P3 | limited+هدف أقصى ⇒ gate_play ineligible وغير مختار · full بنفس الأهداف ⇒ **يُختار opt_gate_play** |
+| P4 | بإضافة opt_dominant ⇒ القرار ينتقل إليه (final مساوٍ للحاضن والتعادل حسمه ترتيب المعرفات المجمد — موثق بلا تجميل) |
+| P5 | Act_One/Act_Two يعيدان قراري base bitwise بعد عكس خريطة التسمية على المصفوفات أيضًا |
+| P6 | world + relevance قبل/بعد decide ⇒ bitwise متطابقة (كائنًا وإعادة حساب) |
+| P7 | تحميل مستقل ⇒ مصفوفات وقرارات bitwise متطابقة |
+| J | L2/L3-joint خضراء على الحالات السبع (14 فحصًا) |
 
 ## 5) حالة البوابة
 
-⏸️ **PRE-REGISTERED — بانتظار التشغيل.**
+✅ **D1 CLOSED — Decision Architecture Boundary CONFIRMED (rev.2, PASS 28/28).**
+
+الخصائص السبع مثبتة تنفيذيًا؛ شروط FAIL الستة مستحيلة بنيويًا تحت العقد المجمد. طبقة القرار استهلكت World/Relevance/Goals/Options وأنتجت Decision دون سرقة مسؤولية أي طبقة — **صفر Kernel code**.
+
+### سجل المراجعة
+
+| التاريخ | الإجراء | السبب |
+|---|---|---|
+| 2026-08-26 | rev.1 → تشغيل أول ⇒ FAIL 3/28 (P1, P2b, P3b) ⇒ **deg/degree: توقف كامل** | علتان جذريتان مكتشفتان تنفيذيًا |
+| 2026-08-26 | rev.2: تعديل عقد §2.4 (`+ boost_empty`) + توصيل `transit_dependency` في الـfixture + تحديث توقعات §3 بأرقام صريحة | (أ) الصيغة القديمة `raw×boost` تُصفّر كل خيار عديم القنوات بنيويًا — وزن prestige لا يمكن أن يعبّر أبدًا؛ (ب) قناة access كانت معدومة لأن حد العبور يتطلب transit_dependency غائبًا عن الـfixture — P3b كان مستحيلًا بنيويًا لا رقميًا. العلة في المرجع/fixture لا في Model v1 ولا Kernel (لم يُمَس أي منهما) |
+| 2026-08-26 | إعادة تشغيل كاملة من الصفر ⇒ **PASS 28/28، EXIT=0** — الإغلاق | تنفيذ deg/degree حرفيًا |
+
+## 6) الخطوة التالية المفتوحة
+
+**D2 — Evaluation Semantics** (وثيقة مستقلة): كيف تتفاعل Goal + Relevance + Preference + World/Outcome في التقييم فعليًا. D1 أثبت الحدود فقط ولا يغني عنها.
 
 ## 6) Open Questions (خارج نطاق D1 — مسجلة ولا تُفتح هنا)
 

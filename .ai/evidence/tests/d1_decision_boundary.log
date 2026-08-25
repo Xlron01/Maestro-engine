@@ -1,0 +1,150 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TEST D1 - DECISION BOUNDARY (architecture, not formula)
+  Frozen Model v1 | decide() harness-local reference-only
+============================================================
+
+---------------- RAW RELEVANCE (base) ----------------
+  supply(Maker_Prime -> Fab_Secondary) = 0.0000000000
+  supply(Maker_Prime -> Gate_Holder) = 0.0000000000
+  supply(Maker_Prime -> Washington) = 0.0000000000
+  supply(Maker_Prime -> Decision_Actor) = 0.0000000000
+  supply(Maker_Prime -> Second_Actor) = 0.0000000000
+  supply(Maker_Prime -> Anchor_Null) = 0.0000000000
+  supply(Fab_Secondary -> Maker_Prime) = 0.0000000000
+  supply(Fab_Secondary -> Gate_Holder) = 0.0000000000
+  supply(Fab_Secondary -> Washington) = 0.0000000000
+  supply(Fab_Secondary -> Decision_Actor) = 0.0000000000
+  supply(Fab_Secondary -> Second_Actor) = 0.0000000000
+  supply(Fab_Secondary -> Anchor_Null) = 0.0000000000
+  supply(Gate_Holder -> Maker_Prime) = 0.0000000000
+  supply(Gate_Holder -> Fab_Secondary) = 0.0000000000
+  supply(Gate_Holder -> Washington) = 0.0000000000
+  supply(Gate_Holder -> Decision_Actor) = 0.0000000000
+  supply(Gate_Holder -> Second_Actor) = 0.0000000000
+  supply(Gate_Holder -> Anchor_Null) = 0.0000000000
+  supply(Washington -> Maker_Prime) = 0.0000000000
+  supply(Washington -> Fab_Secondary) = 0.0000000000
+  supply(Washington -> Gate_Holder) = 0.0000000000
+  supply(Washington -> Decision_Actor) = 0.0000000000
+  supply(Washington -> Second_Actor) = 0.0000000000
+  supply(Washington -> Anchor_Null) = 0.0000000000
+  supply(Decision_Actor -> Maker_Prime) = 0.5292000000
+  supply(Decision_Actor -> Fab_Secondary) = 0.1512000000
+  supply(Decision_Actor -> Gate_Holder) = 0.0000000000
+  supply(Decision_Actor -> Washington) = 0.0000000000
+  supply(Decision_Actor -> Second_Actor) = 0.0000000000
+  supply(Decision_Actor -> Anchor_Null) = 0.0000000000
+  supply(Second_Actor -> Maker_Prime) = 0.1101333333
+  supply(Second_Actor -> Fab_Secondary) = 0.0328000000
+  supply(Second_Actor -> Gate_Holder) = 0.0000000000
+  supply(Second_Actor -> Washington) = 0.0000000000
+  supply(Second_Actor -> Decision_Actor) = 0.0000000000
+  supply(Second_Actor -> Anchor_Null) = 0.0000000000
+  supply(Anchor_Null -> Maker_Prime) = 0.0000000000
+  supply(Anchor_Null -> Fab_Secondary) = 0.0000000000
+  supply(Anchor_Null -> Gate_Holder) = 0.0000000000
+  supply(Anchor_Null -> Washington) = 0.0000000000
+  supply(Anchor_Null -> Decision_Actor) = 0.0000000000
+  supply(Anchor_Null -> Second_Actor) = 0.0000000000
+  access(Maker_Prime -> Fab_Secondary) = 0.0000000000
+  access(Maker_Prime -> Gate_Holder) = 0.0000000000
+  access(Maker_Prime -> Washington) = 0.0000000000
+  access(Maker_Prime -> Decision_Actor) = 0.0000000000
+  access(Maker_Prime -> Second_Actor) = 0.0000000000
+  access(Maker_Prime -> Anchor_Null) = 0.0000000000
+  access(Fab_Secondary -> Maker_Prime) = 0.0000000000
+  access(Fab_Secondary -> Gate_Holder) = 0.0000000000
+  access(Fab_Secondary -> Washington) = 0.0000000000
+  access(Fab_Secondary -> Decision_Actor) = 0.0000000000
+  access(Fab_Secondary -> Second_Actor) = 0.0000000000
+  access(Fab_Secondary -> Anchor_Null) = 0.0000000000
+  access(Gate_Holder -> Maker_Prime) = 0.0000000000
+  access(Gate_Holder -> Fab_Secondary) = 0.0000000000
+  access(Gate_Holder -> Washington) = 0.0000000000
+  access(Gate_Holder -> Decision_Actor) = 0.0000000000
+  access(Gate_Holder -> Second_Actor) = 0.0000000000
+  access(Gate_Holder -> Anchor_Null) = 0.0000000000
+  access(Washington -> Maker_Prime) = 0.0000000000
+  access(Washington -> Fab_Secondary) = 0.0000000000
+  access(Washington -> Gate_Holder) = 0.0000000000
+  access(Washington -> Decision_Actor) = 0.0000000000
+  access(Washington -> Second_Actor) = 0.0000000000
+  access(Washington -> Anchor_Null) = 0.0000000000
+  access(Decision_Actor -> Maker_Prime) = 0.0000000000
+  access(Decision_Actor -> Fab_Secondary) = 0.0000000000
+  access(Decision_Actor -> Gate_Holder) = 0.0000000000
+  access(Decision_Actor -> Washington) = 0.6000000000
+  access(Decision_Actor -> Second_Actor) = 0.0000000000
+  access(Decision_Actor -> Anchor_Null) = 0.0000000000
+  access(Second_Actor -> Maker_Prime) = 0.0000000000
+  access(Second_Actor -> Fab_Secondary) = 0.0000000000
+  access(Second_Actor -> Gate_Holder) = 0.0000000000
+  access(Second_Actor -> Washington) = 0.0000000000
+  access(Second_Actor -> Decision_Actor) = 0.0000000000
+  access(Second_Actor -> Anchor_Null) = 0.0000000000
+  access(Anchor_Null -> Maker_Prime) = 0.0000000000
+  access(Anchor_Null -> Fab_Secondary) = 0.0000000000
+  access(Anchor_Null -> Gate_Holder) = 0.0000000000
+  access(Anchor_Null -> Washington) = 0.0000000000
+  access(Anchor_Null -> Decision_Actor) = 0.0000000000
+  access(Anchor_Null -> Second_Actor) = 0.0000000000
+----------------------------------------------
+[PASS] A-BOUNDARY goal_swap: matrices bitwise == base (relevance untouched by goals)
+
+-- P1: Goal Dependence (same world/relevance/options)
+   own-goals => opt_secure | swapped-goals => opt_disengage
+[PASS] P1 same inputs + swapped goals => different decision
+
+-- P2: Relevance Dependence (fact change crosses preference boundary)
+   rel_supply(A->Maker) base=0.5292000000 fact=0.0221484375
+[PASS] P2a fact change drops rel_supply STRICTLY
+   base => opt_secure (margin 0.223360) | fact => opt_disengage (margin 0.182281)
+[PASS] P2b decision flips secure->disengage on fact change
+[PASS] P2c preference margin > 0.01 in BOTH states
+
+-- P3: Capability Constraint (goal cannot conjure capability)
+   limited-actor + max gate goal => opt_disengage (gate_play eligible=false)
+[PASS] P3a gated option ineligible + never chosen despite maximal pull
+   full-actor + same goals => opt_gate_play (eligible=true)
+[PASS] P3b negative-control: capability is the ONLY blocker (full class may choose it)
+
+-- P4: Option Sensitivity (new better option captures decision)
+   with opt_dominant => opt_dominant (dominant=0.4233600000 secure=0.4233600000)
+[PASS] P4a decision moves to newly added superior option
+[PASS] P4b added option never worse than incumbent
+
+-- P5: Identity Blindness (rename everything semantic-preserving)
+   renamed roles => Act_One:opt_secure Act_Two:opt_disengage (base: opt_secure / opt_disengage)
+[PASS] P5a renamed entities yield identical role decisions
+[PASS] P5b renamed relevance matrices == base after inverse key mapping
+
+-- P6: Read-only Inputs (world + relevance untouched bitwise)
+[PASS] P6a world object bitwise unchanged by decision computation
+[PASS] P6b freshly recomputed relevance bitwise identical after decisions
+
+-- P7: Determinism (independent reload, same inputs)
+[PASS] P7 independent reload => bitwise matrices + identical decisions
+
+-- J: Laws per state
+[PASS] base L2-joint: no aggregate keys in derived output
+[PASS] base L3-joint: all emitted derived values bare floats
+[PASS] v_goal_swap L2-joint: no aggregate keys in derived output
+[PASS] v_goal_swap L3-joint: all emitted derived values bare floats
+[PASS] v_fact_change L2-joint: no aggregate keys in derived output
+[PASS] v_fact_change L3-joint: all emitted derived values bare floats
+[PASS] v_capped_actor L2-joint: no aggregate keys in derived output
+[PASS] v_capped_actor L3-joint: all emitted derived values bare floats
+[PASS] v_capped_full L2-joint: no aggregate keys in derived output
+[PASS] v_capped_full L3-joint: all emitted derived values bare floats
+[PASS] v_option_add L2-joint: no aggregate keys in derived output
+[PASS] v_option_add L3-joint: all emitted derived values bare floats
+[PASS] v_renamed L2-joint: no aggregate keys in derived output
+[PASS] v_renamed L3-joint: all emitted derived values bare floats
+
+============================================================
+  D1 RESULT: PASS (28 checks)
+============================================================
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers

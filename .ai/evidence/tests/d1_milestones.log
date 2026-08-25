@@ -1,0 +1,16 @@
+[234] START
+[235] building base
+[237] layers done base
+[237] building v_goal_swap
+[238] layers done v_goal_swap
+[239] building v_fact_change
+[240] layers done v_fact_change
+[240] building v_capped_actor
+[242] layers done v_capped_actor
+[242] building v_capped_full
+[243] layers done v_capped_full
+[243] building v_option_add
+[245] layers done v_option_add
+[245] building v_renamed
+[246] layers done v_renamed
+[263] REACHED QUIT
