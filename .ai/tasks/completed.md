@@ -153,6 +153,21 @@
 
 ---
 
+### [TASK-025] CE-4 Stress Test + Temporal Semantics Gate Registration
+
+- **Status:** COMPLETE
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-024
+- **Objective:** فحص سريع لقواعد الشرطية الثلاثة (compound/meta/lifetime) لحسم CE-4، ثم تسجيل Temporal Semantics Gate (doc 14) بالسؤال الأنطولوجي والسيناريوهات الخمسة.
+- **Acceptance Criteria:**
+  - [x] **CE-4 CONFIRMED**: قواعد الشرطية تمثل كـconfig خالص — compound condition من JSON ✓، meta-rule تعدل base rule ✓، limited-lifetime window صحيح ✓.
+  - [x] Temporal Semantics Gate مسجل: السؤال الأنطولوجي المجمد + 5 counterexamples (TS-1..5) في `14-Temporal-Semantics-Gate.md` بلا تحليل تطبيقي (بانتظار إشارة).
+- **Validation Method:**
+  تشغيل probe مباشر + مراجعة الوثيقة
+- **Evidence:** [model_v1_test2_boundary.log](file:///.ai/evidence/tests/model_v1_test2_boundary.log) (يشمل نتائج البروبات)
+
+---
+
 ### [TASK-022] Test 2 — Relevance Boundary / Decision Non-Equivalence
 
 - **Status:** COMPLETE
