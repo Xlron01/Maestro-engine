@@ -2,7 +2,7 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-26
-- **Current Phase:** D2 Evaluation Semantics Gate — **CLOSED CONFIRMED (5/5 CEs، صفر primitive نوع-Goal، Open واحد)**
+- **Current Phase:** D2 Evaluation Semantics Gate — **CLOSED CONFIRMED (5/5 CEs، صفر primitive نوع-Goal؛ OQ-D2-1 محسومة اصطلاحيًا §7)**
 - **Current Step:** انتظار أمر المالك لكتابة Evaluation Specification v0.1
 
 ## Current Objective
@@ -13,11 +13,11 @@
 - `TASK-004..028`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
-- لا يوجد معوقات. Open مسجل: OQ-D2-1 (اتفاقية الامتداد الحتمي عند تعذر باريتو) + أنطولوجيا مصدر الأفعال (موروث doc 16).
+- لا يوجد معوقات. Open الوحيد المتبقي: أنطولوجيا مصدر الأفعال (موروث doc 16). OQ-D2-1 حُسمت بملحق doc 17 §7 كقرار اصطلاحي (option_id تصاعدي، بثلاثة حدود استخدام ملزمة).
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. كتابة **Evaluation Specification v0.1** (أنواع الواصفات + F1–F5 بصيغ JSON + اتفاقية OQ-D2-1 + شرط قبول CE-5 الآلي) — بأمر المالك فقط.
+1. كتابة **Evaluation Specification v0.1** (أنواع الواصفات + F1–F5 بصيغ JSON + تطبيق اتفاقية §7 + شرط قبول CE-5 الآلي؛ المساران الأساسيان F4-lex/F4-weighted) — بأمر المالك فقط.
 
 ## Known Bugs & Temporary Hacks
 - **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر؛ D1/D2 لم يلمسا Kernel إطلاقًا.
