@@ -153,7 +153,7 @@
 
 ---
 
-### [TASK-025] CE-4 Stress Test + Temporal Semantics Gate Registration
+### [TASK-026] CE-4 Stress Test + Temporal Semantics Gate Registration
 
 - **Status:** COMPLETE
 - **Owner:** ox-alpha
