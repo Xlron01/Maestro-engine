@@ -99,11 +99,13 @@ DECISION      — ماذا تفعل الدولة بهذه الحقيقة (خار
 
 | المدخل | المصدر | النوع |
 |---|---|---|
-| Relevance values | Model v1 المجمد | float per pair |
+| Relevance values | Model v1 المجمد | float per pair per channel (`exposure` / `access` / `rel_supply`) |
 | Entity facts | WorldState dict | depends_on, produces, stability... |
-| Goal weights | entity.goal_table (content) | dict goal→weight |
+| Goal weights + Channel binding | entity.goal_table (content) | dict goal→{channels: [...], weight} |
 | Available actions | action registry (content) | list with preconditions |
 | ProjectionClass | entity field | config string |
+
+**قاعدة الربط Goal↔Channel:** كل هدف يعلن صراحةً في goal_table عن القنوات التي يقرأها من أسماء القنوات الحرفية المجمدة في doc 10 (`exposure`, `access`, `rel_supply`). لا يوجد fallback ضمني إلى total — أي هدف لا يعلن قنوات لا يُحتسب.
 
 **ما ليس مدخلًا (L1):**
 - Intent/stance/relation sentiment
@@ -137,9 +139,9 @@ DECISION      — ماذا تفعل الدولة بهذه الحقيقة (خار
 
 **الإثبات التنفيذي:** Test 2 B-D1 أثبت أن نفس Relevance + تبديل goal_tables ⇒ قراران مختلفان — القرار المرجعي كان **دالة نقية داخل العدّاء** (reference-only)، بلا أي hardcoding في النواة.
 
-**التعميم:** أي هدف جديد = إضافة `{goal_name: weight}` في goal_table. لا كود جديد.
+**التعميم:** أي هدف جديد = إضافة `{goal_name: {channels: [...], weight}}` في goal_table بأسماء قنوات حرفية من doc 10 (`exposure` / `access` / `rel_supply`). لا كود جديد.
 
-**اختبار الفشل:** هل ظهر هدف لا يمكن التعبير عنه كـ{weight × relevance_channel}؟ لا.
+**اختبار الفشل:** هل ظهر هدف لا يمكن التعبير عنه كـ{weight × declared channels}؟ لا.
 
 **الحكم:** ✅ **Confirmed** — Goals are data, not behavior.
 
@@ -194,12 +196,15 @@ Relevance تقول "X مهم لY بقدر Z" لكنها لا تقول "Y يري�
 
 الجسر = **goal_table** على الكيان (محتوى config):
 ```json
-{"resource_security": 0.8, "prestige": 0.2}
+{
+  "resource_security": {"channels": ["rel_supply"], "weight": 0.8},
+  "prestige":           {"channels": ["access"],    "weight": 0.2}
+}
 ```
 
 - goal_table = محتوى على الكيان (بيانات)
 - Relevance = Derived State من Model v1
-- Decision score = goal_weight × relevance_channel → argmax
+- **Preference يتحدد بتفاعل goal_table × relevance_profile — الصيغة الدقيقة (ضرب/جمع موزون/غيره) تُصمم لاحقًا عند بناء Decision Layer التنفيذي، خارج نطاق هذا الـGate** (التزامًا بالبند 7).
 
 **هل goal_table يكفي بدون primitive جديد؟** نعم — dict موجود فعليًا منذ Test 2، ويُقرأ بواسطة decision stub فقط.
 
@@ -214,6 +219,13 @@ Relevance تقول "X مهم لY بقدر Z" لكنها لا تقول "Y يري�
 ✅ **Gate CLOSED — Decision Layer Design Confirmed** (11/11 بنود محلولة).
 ⚪ 2 Open Questions مؤجلة (Planning layer + tie-break refinement).
 ⛔ **توقف تام بعد الإغلاق.**
+
+### سجل المراجعة
+
+| التاريخ | الإجراء | السبب |
+|---|---|---|
+| 2026-08-26 | فتح أولي ثم **CONFIRMED PENDING 2 CLARIFICATIONS** | ملاحظة المالك: §3.11 خالف البند 7 (كتب معادلة evaluation) + فجوة ربط Goal↔Channel في §3.3 |
+| 2026-08-26 | **إعادة CLOSED** بعد التصحيحين | §3.11 أعيد صياغته كمبدأ بلا معادلة؛ §3.3 أضيف له صف الربط بقواعد أسماء حرفية من doc 10 (`exposure`/`access`/`rel_supply`)؛ مثال goal_table محدّث بصيغة `{channels, weight}` |
 
 ---
 
