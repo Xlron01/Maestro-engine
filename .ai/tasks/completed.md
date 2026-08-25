@@ -4,6 +4,25 @@
 
 ---
 
+### [TASK-029] D2 — Evaluation Semantics Gate
+
+- **Status:** COMPLETE (CLOSED Confirmed — 5/5 CEs، صفر primitive نوع-Goal، Open واحد)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-028 (D1 CLOSED), TASK-027 (Gate 15), TASK-023 (Gate 2)
+- **Objective:** حسم السؤال الأنطولوجي الأعمق بصياغة المالك: هل توجد دلالة Evaluation عامة على Goal + Candidate Outcome + Preference تكفي كل أنواع الأهداف، أم تحتاج بعض الأهداف Primitive دلالية خاصة؟ — سابقًا لأي حديث عن شكل معادلة.
+- **Acceptance Criteria:**
+  - [x] قاعدة عدم امتياز D1 مجمدة نصًا (§0.2) — نجاح `goal × channel` بلا أي دلالة.
+  - [x] الإطار العام المجمد + **مفردات واصف Outcome مغلقة** (Model v1 + schema + R1–R3) + منع هوية الفعل في الواصف (ضاد التهريب).
+  - [x] عائلة أشكال Preference F1–F5 مجمدة، عضوية كل شكل بdeletion test.
+  - [x] تصنيفات متوقعة مجمّدة قبل التحليل — **طابقت النتيجة 5/5 بلا كسر واحد**.
+  - [x] CE-1: المقياس الفتري إعلان محتوى مرئي لا افتراض مدفون · CE-2: الكينك شكل عام والزمن carve-out · CE-3: الحصة primitive مجمدة سابقًا (supply_share) · CE-4: المعجمي يكسب عضويته + ⚪ OQ-D2-1 وحيد · CE-5: امتثال Gate 2 بنيوي + شرط قبول آلي مسجل.
+  - [x] صفر كود — Specification v0.1 مؤجلة بأمر المالك صراحة.
+- **Validation Method:**
+  مراجعة المالك للوثيقة التحليلية (بوابة بلا تشغيل)
+- **Evidence:** [`17-Evaluation-Semantics-Gate.md`](file:///c:/tmp/maestro%20engine/17-Evaluation-Semantics-Gate.md)
+
+---
+
 ### [TASK-028] D1 — Decision Boundary Test
 
 - **Status:** COMPLETE (PASS 28/28)

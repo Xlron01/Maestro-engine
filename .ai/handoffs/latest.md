@@ -1,21 +1,23 @@
-- **Current Task:** TASK-028 (D1 Decision Boundary Test) — **CLOSED: PASS 28/28 (rev.2)**، توقف تام
+- **Current Task:** TASK-029 (D2 Evaluation Semantics Gate) — **CLOSED: CONFIRMED 5/5 CEs**، توقف تام
 
-## 0. D1 — Decision Boundary Test — ملخص تنفيذي (الأحدث)
+## 0. D2 — Evaluation Semantics Gate — ملخص تنفيذي (الأحدث)
 
-**المبدأ الحاكم (توجيه المالك):** D1 لا يختبر صحة Evaluation Formula — يثبت أن طبقة القرار تحترم حدود ومدخلات ومخرجات Decision Semantics. الفصل: **D1 = صحة المعمارية**، **D2 = Evaluation Semantics** (وثيقة قادمة).
+**السؤال المجمد (صياغة المالك):** هل توجد دلالة Evaluation عامة على Goal + Candidate Outcome + Preference تكفي كل أنواع الأهداف، أم تحتاج بعض الأهداف Primitive دلالية خاصة؟ — سابقًا لسؤال "معادلة واحدة أم متعددة".
 
-**الخصائص السبع مثبتة تنفيذيًا** ([doc 16](file:///c:/tmp/maestro%20engine/16-Decision-Boundary-Test.md)):
-- **P1 Goal Dependence**: أهداف مبادلة ⇒ opt_secure ↔ opt_disengage فوق نفس المصفوفات bitwise.
-- **P2 Relevance Dependence**: fact حقيقي يُنزل rel_supply قطعيًا (0.5292→0.02215) ⇒ انقلاب القرار بهامش مريح.
-- **P3 Capability Constraint**: خيار محجوب عن limited رغم هدف وزنه 1.0؛ الضابط السالب full يختاره.
-- **P4 Option Sensitivity**: خيار جديد أفضل يلتقط القرار (تعادل حُسم بترتيب معرفات مجمد — موثق).
-- **P5 Identity Blindness**: إعادة تسمية شاملة ⇒ قرارات ومصفوفات bitwise بعد عكس الخريطة.
-- **P6 Read-only**: world+relevance قبل/بعد decide ⇒ bitwise. **Relevance → Decision لا ↔**.
-- **P7 Determinism**: تحميل مستقل ⇒ bitwise كامل.
+**النتيجة: ✅ CONFIRMED 5/5 — صفر primitive نوع-Goal، Open واحد.**
 
-**درس deg/degree الموثق:** rev.1 فشل 3/28 ⇒ توقف كامل ⇒ rev.2: عقد التجميع `raw×boost` كان يُصفّر الخيارات عديمة القنوات بنيويًا (عُدّل إلى `raw×boost_chan + boost_empty`)، وقناة access تطلب transit_dependency على الفاعل (وُصل في الـfixture). العلة في المرجع/fixture — **Model v1 وKernel لم يُمَسا**.
+- **قاعدة عدم امتياز D1 مجمدة نصًا:** نجاح `goal × channel` في D1 لا يعطيه أي دلالة؛ doc16 مرجع حدود فقط.
+- **مفردات واصف Outcome مغلقة:** Model v1 + content schema + R1–R3 حصرًا — أي حساب جديد داخل "الوصف" = evaluator مقنّع. **هوية الفعل ممنوعة في الواصف** (ضاد تهريب المسار).
+- **عائلة الأشكال المجمدة F1–F5** بdeletion tests موثقة: خطي-فتري (المقياس **إعلان محتوى مرئي**) · إشباعي-معتبي · نسبي (`supply_share` مجمد سابقًا) · متعدد-أبعاد (الأوزان أو المعجمي أو باريتو+امتداد حتمي — المعجمي كسب عضويته بdeletion test) · محايد للمسار (تساوي الواصف ⇒ تساوي التقييم بنيويًا).
+- **⚪ OQ-D2-1:** اتفاقية الامتداد الحتمي عند تعذر باريتو الجزئي — مسجل فقط.
+- **CE-5 يصبح شرط قبول آلي مستقبليًا:** فعلان بواصف متطابق ⇒ score bitwise متطابق.
+- **الخلاصة المؤسسة:** `Σ(weight×channel)` مثيل واحد من F1 تحت إعلان مقياس فتري — لا "المعادلة".
+- **Evidence:** [`17-Evaluation-Semantics-Gate.md`](file:///c:/tmp/maestro%20engine/17-Evaluation-Semantics-Gate.md) — بوابة تحليلية بحتة (صفر تشغيل).
 
-**Evidence:** [d1_decision_boundary.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/d1_decision_boundary.log) • سلسلة القرار: Gate 15 CLOSED (تصحيحا §3.11-as-principle + Goal↔Channel binding بأسماء doc 10) → D1 CLOSED.
+## 0-b) D1 — Decision Boundary Test — ملخص (سابق)
+
+**المبدأ الحاكم:** D1 أثبت حدود المعمارية لا صحة أي formula. الخصائص السبع PASS 28/28 (rev.2 بعد deg/degree): Goal/Relevance Dependence، Capability Constraint (+ضابط سالب)، Option Sensitivity، Identity Blindness bitwise، Read-only bitwise، Determinism. درس rev.1→rev.2 موثق في سجل doc 16 (عقد `+boost_empty` + transit_dependency). Model v1 وKernel لم يُمَسا.
+**Evidence:** [doc 16](file:///c:/tmp/maestro%20engine/16-Decision-Boundary-Test.md) • [d1_decision_boundary.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/d1_decision_boundary.log)
 
 ## 0-b) Content Ontology Gate — ملخص (سابق)
 وثيقة تحليلية `12-Content-Ontology-Gate.md` (صفر كود): ما أقل Ontology للمحتوى؟
@@ -79,9 +81,9 @@ exposure(China⇐NL,EUV)=1.05 • dp(Washington→EUV_gate)=0.8 بالضبط •
 
 ## 3) المشهور/المعلق للمرحلة القادمة
 
-1. **D2 — Evaluation Semantics Gate**: السؤال الأصعب — كيف تتفاعل Goal + Relevance + Preference + World/Outcome في التقييم فعليًا. لا يبدأ إلا بأمر المالك وب تسجيل مسبق مجمد.
-2. Open مسجل: أنطولوجيا مصدر الأفعال (Content/Capability/Simulation/توليد ذاتي) — Gate مستقل عند الحاجة.
-3. Derived Traits / Threat / Planning: طبقات لاحقة بعد D2 بقرار صاحب المشروع.
+1. **Evaluation Specification v0.1**: أول مواصفة تنفيذية — أنواع الواصفات، F1–F5 بصيغ content JSON، اتفاقية OQ-D2-1، شرط قبول CE-5 كاختبار آلي. **بأمر المالك فقط.**
+2. ⚪ OQ-D2-1 + Open موروث doc 16 (أنطولوجيا مصدر الأفعال) — مسجلة لا مصممة.
+3. Derived Traits / Threat / Planning: طبقات لاحقة بعد Specification بقرار صاحب المشروع.
 
 ## 4) بيئة التشغيل
 
@@ -90,4 +92,4 @@ Godot الفعلي: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godo
 ## 5) ملاحظات
 
 - ObjectDB leak warnings عند خروج السكريبتات المستقلة: pre-existing baseline.
-- آخر commit: D1 Decision Boundary Test (pre-reg rev.2 + PASS 28/28 + memory).
+- آخر commit: D2 Evaluation Semantics Gate (Confirmed 5/5 + memory cycle).
