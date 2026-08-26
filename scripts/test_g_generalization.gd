@@ -122,17 +122,26 @@ func fx6() -> Dictionary:
 	return f
 
 
-func fx7() -> Dictionary:
+func fx7a() -> Dictionary:
 	return {
-		"id": "F7", "world": {"countries": {"B": {"stability": 0.52}}, "provinces": {"P1": {"owner": "B", "damage": 0.0, "supply": 1.0}}, "agents": {}},
+		"id": "F7A", "world": {"countries": {"B": {"stability": 0.50}},
+			"provinces": {"P1": {"owner": "B", "damage": 0.0, "supply": 1.0}}, "agents": {}},
 		"actions": [
 			{"action_id": "RAIL", "event": "Railway_Damaged", "source": "",
 				"payload": {"province": "P1"}, "cost": 1.0,
 				"preconds": [{"field": "provinces.P1.damage", "op": "<=", "value": 0.8}]}
 		],
 		"goal": [{"field": "countries.B.stability", "op": "==", "value": 0.48}],
-		"forbidden": [], "expect": "PLAN"
+		"forbidden": [], "expect": "PLAN", "world_twin": true, "min_depth": 1
 	}
+
+
+func fx7b() -> Dictionary:
+	var f := fx7a()
+	f["id"] = "F7B"
+	f["world"]["countries"]["B"]["stability"] = 0.52
+	f["min_depth"] = 2
+	return f
 
 
 func fx8() -> Dictionary:
@@ -388,6 +397,18 @@ func replay_validate(fixture: Dictionary, chain_ids: Array) -> Dictionary:
 		"view": view, "cost": total}
 
 
+func base_world_variant(stab: float) -> WorldStub:
+	var w := WorldStub.new()
+	w.countries = {"B": {"stability": stab}}
+	w.provinces = {"P1": {"owner": "B", "damage": 0.0, "supply": 1.0}}
+	w.agents = {}
+	return w
+
+
+func act_rail_plain() -> Dictionary:
+	return {"action_id": "RAIL_PLAIN_COUPLE", "event": "Railway_Damaged",
+		"source": "", "payload": {"province": "P1"}, "cost": 0.0}
+
 func canon(v) -> String:
 	return JSON.stringify(sort_rec(v))
 
@@ -437,7 +458,8 @@ func _init() -> void:
 		quit(1)
 		return
 
-	var fixtures := [fx1(), fx2(), fx3(), fx4(), fx5(), fx6(), fx7(), fx8(), fx9()]
+	var fixtures := [fx1(), fx2(), fx3(), fx4(), fx5(), fx6(), fx7a(), fx7b(), fx8(), fx9()]
+	var label_map := {"F1": "G1", "F2": "G2", "F3": "G3", "F4": "G4", "F5": "G5", "F6": "G6", "F7A": "G7a", "F7B": "G7b", "F8": "G8"}
 
 	var results := {}
 	var worlds_snapshot_pre := []
@@ -450,7 +472,6 @@ func _init() -> void:
 	# ---------- G1..G8 ----------
 	print("")
 	print("-- G1..G8: per-fixture behavioral validity")
-	var idx := 1
 	for fx in fixtures:
 		var fxd: Dictionary = fx
 		var fid := String(fxd["id"])
@@ -464,9 +485,7 @@ func _init() -> void:
 			var rv := replay_validate(fxd, res["chain"])
 			ok = bool(rv["ok"])
 			detail += " replay=" + str(rv["ok"])
-		_check("G%d %s returns a valid minimal-cost plan for structurally-distinct problem" % [idx, fid],
-			ok, detail)
-		idx += 1
+		_check("%s %s returns a valid minimal-cost plan for structurally-distinct problem" % [label_map[fid], fid], ok, detail)
 
 	# ---------- G9 ----------
 	print("")
@@ -542,6 +561,29 @@ func _init() -> void:
 		str(r6.get("cost")))
 
 	# ---------- G-prune ----------
+	print("")
+	print("-- G7-twins/coupling: world sensitivity proven comparatively")
+	var ra1 := plan(fx7a(), 1)
+	var rb1 := plan(fx7b(), 1)
+	var rafull := plan(fx7a())
+	var rbfull := plan(fx7b())
+	var la := int((rafull["chain"] as Array).size())
+	var lb := int((rbfull["chain"] as Array).size())
+	_check("G7-twins same frozen goal across two worlds requires different minimal depth (1 vs 2)",
+		ra1["status"] == "PLAN" and rb1["status"] == "NO-PLAN"
+		and rafull["status"] == "PLAN" and rbfull["status"] == "PLAN"
+		and la == 1 and lb == 2,
+		"a:d1=%s len=%d | b:d1=%s len=%d" % [ra1["status"], la, rb1["status"], lb])
+
+	var wcouple_a := base_world_variant(0.5)
+	var wcouple_b := base_world_variant(0.9)
+	var pa := step_predict(wcouple_a, act_rail_plain())
+	var pb := step_predict(wcouple_b, act_rail_plain())
+	_check("G7-coupling predicted damage path is independent of initial stability (no hidden relation)",
+		canon(pa.provinces) == canon(pb.provinces)
+		and float(pa.countries["B"]["stability"]) != float(pb.countries["B"]["stability"]),
+		"")
+
 	print("")
 	print("-- G-prune: active constraint separates equal-cost satisfiers (F4)")
 	var r4: Dictionary = results["F4"]

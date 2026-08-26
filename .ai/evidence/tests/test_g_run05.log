@@ -1,0 +1,53 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TEST G - PLANNING GENERALIZATION / BEHAVIORAL VALIDATION
+  Reference planner harness-local | doc22 rev.3 frozen
+============================================================
+
+-- G1..G8: per-fixture behavioral validity
+[PASS] G1 F1 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G2 F2 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G3 F3 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G4 F4 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G5 F5 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G6 F6 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G7a F7A returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G7b F7B returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G8 F8 returns a valid minimal-cost plan for structurally-distinct problem
+
+-- G9: unsolvable honesty
+[PASS] G9 honestly reports NO-PLAN on unsolvable problem
+[PASS] G-det planner is bitwise-deterministic across runs
+[PASS] G-pure planning never mutates the real world
+
+-- G-audit: solution absence
+[PASS] G-audit fixtures contain no solutions and planner contains no fixture-specific ids
+
+-- G-greedy: lookahead differential on trap F3
+[PASS] G-greedy depth-1 fails where depth-3 succeeds - lookahead value proven
+
+-- G-cost: minimum declared cost among satisfiers (F6)
+[PASS] G-cost chooses minimum total declared cost among satisfiers
+
+-- G7-twins/coupling: world sensitivity proven comparatively
+[PASS] G7-twins same frozen goal across two worlds requires different minimal depth (1 vs 2)
+[PASS] G7-coupling predicted damage path is independent of initial stability (no hidden relation)
+
+-- G-prune: active constraint separates equal-cost satisfiers (F4)
+[PASS] G-prune forbidden-constraint alone separates two equal-cost goal-satisfiers
+
+============================================================
+  TEST G RESULT: PASS (18 checks)
+============================================================
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 962 ObjectDB instances were leaked at exit (run with `--verbose` for 
+details).
+At line:1 char:114
++ ... og" -Force; & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 962 Ob...` for details).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: cleanup (core/object/object.cpp:2536)

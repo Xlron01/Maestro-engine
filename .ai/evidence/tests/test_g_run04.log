@@ -1,0 +1,26 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Godot_v4.7.2-stable_win64_console.exe : SCRIPT ERROR: Parse Error: Function "act_rail()" not found in base self.
+At line:1 char:75
++ ... r_rev5.py"; & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (SCRIPT ERROR: P...d in base self.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: GDScript::reload (res://scripts/test_g_generalization.gd:409)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "r" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/test_g_generalization.gd:409)
+SCRIPT ERROR: Parse Error: Invalid argument for "step_predict()" function: argument 1 should be "WorldStub" but is 
+"Dictionary".
+   at: GDScript::reload (res://scripts/test_g_generalization.gd:581)
+SCRIPT ERROR: Parse Error: Invalid argument for "step_predict()" function: argument 2 should be "Dictionary" but is 
+"WorldStub".
+   at: GDScript::reload (res://scripts/test_g_generalization.gd:581)
+SCRIPT ERROR: Parse Error: Invalid argument for "step_predict()" function: argument 1 should be "WorldStub" but is 
+"Dictionary".
+   at: GDScript::reload (res://scripts/test_g_generalization.gd:582)
+SCRIPT ERROR: Parse Error: Invalid argument for "step_predict()" function: argument 2 should be "Dictionary" but is 
+"WorldStub".
+   at: GDScript::reload (res://scripts/test_g_generalization.gd:582)
+ERROR: Failed to load script "res://scripts/test_g_generalization.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

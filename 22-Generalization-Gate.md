@@ -34,7 +34,7 @@ plan(w, goal, forbidden, actions):
 **التبرير مقابل rule-11:** بدون تعداد يصبحان الأطيفان 4 و6 غير قابلين للاختبار أصلًا — الضرورة مثبتة بالطيف المجمد نفسه؛ **صفر مفردات دلالية جديدة** (التعداد آلية استكشاف، والتكلفة بيانات مقارنة).
 
 ### A2 — تكلفة معلنة
-حقل `cost` اختياري (عدد ≥0) على نسخة الفعل في المحتوى؛ `total_cost = Σ`؛ توظفها **حصرًا كسر تعادل بين المُحقِّقات** — لا تدخل الواصفات ولا الدلالة.
+حقل `cost` اختياري (عدد ≥0) على نسخة الفعل في المحتوى؛ `total_cost = Σ`؛ معيار الاختيار الأساسي المرتّب بين المُحقِّقات (**الأدنى تكلفة أولًا**)، و§7 لكسر التعادل التام — لا تدخل الواصفات ولا الدلالة. *(موحّد مع الخوارزمية وG-cost بمراجعة rev.5)*
 
 ## 2) مسند الهدف والممنوعات (IF-form)
 
@@ -57,7 +57,8 @@ satisfies(view, goal_list, forbidden_list):
 | F4 | **بطّاع مجاني التكلفة تُستبعده الممنوعات وحدها** + قيد نشط | B{0.5}·P1{dmg0} · RAIL_F4{event Railway_Damaged(P1)، precond dmg<=0.8، cost1} · DECOY_COUP_B{Coup_Attempt(B)، cost0} · Goal `{P1.dmg==0.8}` · Forbidden `{B.stab<0.44}` | المطيع `[RAIL,RAIL]`: dmg 0→0.4→0.8 · stab 0.5→0.48→0.46 (آمنة) · cost2. الطّعم `[DECOY,RAIL,RAIL]`: dmg 0.8 **محقّق نفسه** وبنفس التكلفة 2، لكن stab 0.3→0.26 < 0.44 ⇒ ممنوع | **قيد نشط حقيًا**: الممنوعات هي الفاصل الوحيد بين محقّقتين متساويي التكلفة |
 | F5 | قيود تمنع أقصر طريق | B{0.5}·P1{dmg0}·P2{dmg0,sup1}·RAIL_P1{precond dmg<=0.4}·RAIL_P2{precond **P1.dmg>=0.4**}·Goal `{P1.dmg==0.8 AND P2.dmg==0.4}` | `[P1,P2,P1]` (0→.4؛ P2 تُفتح؛ →.8) — أي ترتيب يبدأ بP2 يُقص خطوة1 | اعتمادية تفتح البديل الوحيد |
 | F6 | خطط متعددة بتكاليف مختلفة | كما F2 لكن بإضافتين: RAIL1_cost=1 · RAIL2_cost=1 · **RAIL2X** نسخة مطابقة لRAIL2 بـcost=7 (فعلاً مكرر المفعول) · Goal `{P1.dmg==0.8}` | مُحقِّقات متعددة؛ المختار `[RAIL1,RAIL2]` cost2 (الأدنى) لا `[RAIL1,RAIL2X]` cost8 | اختبار minimality + تكرارات المفعول |
-| F7 | تغيير العالم بثبات Goal | كصف5 لكن `B.stab:0.52` ⇒ بعد ريلين 0.50/0.48 ≠ 0.46 | **NO-PLAN** (الهدف غير قابل للتحقق في هذا العالم) | حساسية العالم |
+| F7A | تغيير العالم بثبات Goal — التوأم الأساس | B{0.50}·P1 · RAIL{precond dmg<=0.8,cost1} · Goal `{B.stab==0.48}` | `[RAIL]` عمق-1 (0.50−0.02=0.48 bitwise) |
+| F7B | تغيير العالم بثبات Goal — التوأم المزحاح | نفس الأفعال/الهدف حرفيًا، الفرق الوحيد: `B.stab:0.52` | `[RAIL,RAIL]` عمق-2 ((0.52−0.02)−0.02=0.48 bitwise) |
 | F8 | تغيير Goal بثبات العالم | عالم صف2 نفسه، Goal `{P1.dmg==0.4}` فقط | `[RAIL1]` cost1 — خطة أقصر لهدف مختلف | حساسية الهدف |
 | F9 | **غير قابل للحل** | C{0.9}·COUP_C{cost1}·MIN_C{cost1}·Goal `{C.stab==0.55}` | من 0.9 ضمن عمق3: مجموعات {−0.2,−0.05} لا تصل 0.55 ⇒ **NO-PLAN صادق** | صدق الإنكار |
 
@@ -69,7 +70,10 @@ satisfies(view, goal_list, forbidden_list):
 
 | # | الفحص | الشرط التنفيذي | assertion المجمد |
 |---|---|---|---|
-| G1..G8 | لكل fixture قابل للحل (1–8) | الخطة المعادة: تمر ببواباتها عند إعادة تشغيل replay مستقل bitwise + `satisfies(view_final)` true + تكلفة مسجلة مطابقة مجموع المعلن | `"G<n> returns a valid minimal-cost plan for structurally-distinct problem"` |
+| G1..G6,G8 | لكل fixture قابل للحل عدا التوأمين | الخطة المعادة: تمر ببواتها عند إعادة تشغيل replay مستقل bitwise + `satisfies(view_final)` true + تكلفة مسجلة مطابقة مجموع المعلن | `"G<n> returns a valid minimal-cost plan for structurally-distinct problem"` |
+| G7a | F7A | خطة صالحة عمق-1 لنفس الهدف المجمد | `"G7a returns a valid minimal-depth plan (world-shifted twin base)"` |
+| G7b | F7B | خطة صالحة عمق-2 لنفس الهدف المجمد في العالم المزحاح | `"G7b same frozen goal across shifted world requires depth-2"` |
+| G7-coupling | استقلالية | اضطراب stab الابتدائية (0.5→0.9) لا يغير مسار P1.damage المتنبس bitwise مع تغير stab نفسه | `"G7-coupling predicted damage path is independent of initial stability (no hidden relation)"` |
 | G9 | F9 | الناتج `NO-PLAN` وليس سلسلة | `"G9 honestly reports NO-PLAN on unsolvable problem"` |
 | G-det | حتمية | تشغيل كامل مرتين ⇒ canonical(output) متطابق | `"G-det planner is bitwise-deterministic across runs"` |
 | G-pure | نقاء | لقطات العالم الحقيقي قبل/بعد ⇒ bitwise | `"G-pure planning never mutates the real world"` |
@@ -92,7 +96,7 @@ satisfies(view, goal_list, forbidden_list):
 | G-cost | الأدنى معلنًا (2 مقابل 8) بين المُحقِّقات |
 | **G-prune** | (a) طُعم مُحقِّق معدود ≥1 · (b) صفر مُحقِّق يحوي DECOY · (c) المختار stab_final==0.46 |
 
-**RESULT: PASS (15 checks) — EXIT=0**
+**RESULT: PASS (18 checks) — EXIT=0 (run05)**
 
 ## 5-b) البروتوكول
 
@@ -100,7 +104,7 @@ Fixtures ثوابت §3 داخل العدّاء حرفًا · **runNN.log إلز
 
 ## 6) حالة الوثيقة
 
-⏸️ **PROVISIONAL — Test G: PASS 15/15 (run03, EXIT=0)** · اللوج الخام وSHA256 الكاملة منقولة حرفيًا في §8 · بانتظار ختم المراجع (الحالة CONFIRMED بيده لا بيد الوثيقة)
+⏸️ **PROVISIONAL — Test G (rev.5): PASS 18/18 (run05, EXIT=0)** · اللوج الخام وSHA256 الكاملة منقولة حرفيًا في §8 · بانتظار ختم المراجع (الحالة CONFIRMED بيده لا بيد الوثيقة)
 
 ### سجل المراجعة
 
@@ -110,6 +114,7 @@ Fixtures ثوابت §3 داخل العدّاء حرفًا · **runNN.log إلز
 | 2026-08-26 | تجميد الثوابت التسعة بحساب يدوي مثبت (كل القيم ثنائية-الدقة) + قواعد الـaudit المضادة لتسرب الحلول | «الحل لا يسكن في الـfixture» أصبح فحصًا آليًا لا وعدًا نثريًا |
 | 2026-08-26 | **rev.3 — تصحيح حسابي لF4 بقبع المالك قبل البناء**: النسخة المجمدة ادّعت «ثلاث RAILs تلمس 0.44 بدون اختراق» وهي خاطئة — الهدف dmg==0.8 يُحقق بتطبيقين (cost2، stab0.46 بعيدة عن الحد) فيقع G-prune ديكوريًا. التصحيح: precond الريل في F4 فقط رُفع إلى <=0.8 ليسمح لطّعم DECOY(cost0) بدخول سلاسل محقّقة-للهدف بنفس التكلفة، فتكون الممنوعات <0.44 هي الفاصل الوحيد: (a)وجود طّعم-محقّق معدّود (ب)صفر محقّق-محتوٍ عليه (ج)المطيع 0.46 بلا طّعم. دور DECOY أُيضّح نصًا: طّعام مجاني التكلفة لا يفصله إلا الممنوعات — ليس مسارًا أرخص | درس المرحلة: المراجعة الحسابية للثوابت قبل البناء أمان المشروع من فجوة منطقية لا يكشفها التنفيذ بعد |
 | 2026-08-26 | **rev.4 — التنفيذ الكامل للمرحلة B**: خمس محاولات مؤرشفة بالكامل وفق rev.4d — R1 parse-abort(attempt1) · R2 تشغيل كامل انقطع داخل G-prune(attempt2_partial) · R3 أول دورة كاملة 14/15: **كل الfixtures فارغة** ⇒ DIAG أرشفت وأثبتت الجذر: عوالم fixture مسطّحة مقابل قارئ مقسّم بالأقسام ⇒ R4 بعد sectionalize: 14/15 وbait_hits=0 ⇒ اكتشاف break-مبكر يمنع عدّ الطُعم العميق ⇒ إزالته ⇒ R5 **PASS 15/15 EXIT=0** بكل نصوص assertion المجمدة، بما فيها فصل الممنوعات-وحدها بين متساويي التكلفة (F4) | deg/degree بنسخته الصارمة: كل المحاولات الخمس مؤرشفة بأسمائها رغم انحراف تسميتها عن runNN الموحد — مذكور هنا اعترافًا |
+| 2026-08-26 | **rev.5 — أحكام المالك قبل الختم**: (1) **تناقض A2 مثبت** — 'حصرًا كسر-تعادل' يخالف الخوارزمية وG-cost؛ أُوحّد النص: cost=معيار أساسي مرتّب، §7 للتعادل. (2) **F7 تناقض داخلي مثبت حسابيًا من المالك** — B.stab ليس جزءًا من هدف F5 فادّعاء NO-PLAN كان باطلًا؛ المنفذ كان مختلفًا (stab-goal) بدون توثيق ⇒ إعادة كتابة الصف توأمين F7A/B بمقابلة عمق (1 مقابل 2) لنفس الهدف المجمد + G7-coupling لإبطال أي شبهة علاقة خفية. (3) تحقيق حسابي قبل التجميد: 0.52−0.02≡0.50، (0.52−0.02)−0.02≡0.48 bitwise ⇒ **لا حاجة لA3-tolerance**. ثم deg/degree كاملة: R6 parse-abort مؤرشفة ⇒ R7 **PASS 18/18 EXIT=0 (run05)** | المراجعة الحسابية للثوابت قبل البناء أمان المشروع من فجوة منطقية لا يكشفها التنفيذ بعد |
 
 ## 7) Open / مؤجل باقٍ
 
@@ -121,7 +126,7 @@ DEFERRED-7 Coordination (لمسٌ ممنوع هنا أيضًا) · partial-obser
 
 ## 8) ملحق الأدلة التشغيلية الخام (rev.4 — قبل الختم)
 
-### 8.1 اللوج الكامل run03 (النهائي PASS) — منقول حرفيًا
+### 8.1 اللوج الكامل run05 (النهائي PASS 18/18) — منقول حرفيًا
 
 ```text
 ﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -139,7 +144,8 @@ DEFERRED-7 Coordination (لمسٌ ممنوع هنا أيضًا) · partial-obser
 [PASS] G4 F4 returns a valid minimal-cost plan for structurally-distinct problem
 [PASS] G5 F5 returns a valid minimal-cost plan for structurally-distinct problem
 [PASS] G6 F6 returns a valid minimal-cost plan for structurally-distinct problem
-[PASS] G7 F7 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G7a F7A returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G7b F7B returns a valid minimal-cost plan for structurally-distinct problem
 [PASS] G8 F8 returns a valid minimal-cost plan for structurally-distinct problem
 
 -- G9: unsolvable honesty
@@ -156,23 +162,27 @@ DEFERRED-7 Coordination (لمسٌ ممنوع هنا أيضًا) · partial-obser
 -- G-cost: minimum declared cost among satisfiers (F6)
 [PASS] G-cost chooses minimum total declared cost among satisfiers
 
+-- G7-twins/coupling: world sensitivity proven comparatively
+[PASS] G7-twins same frozen goal across two worlds requires different minimal depth (1 vs 2)
+[PASS] G7-coupling predicted damage path is independent of initial stability (no hidden relation)
+
 -- G-prune: active constraint separates equal-cost satisfiers (F4)
 [PASS] G-prune forbidden-constraint alone separates two equal-cost goal-satisfiers
 
 ============================================================
-  TEST G RESULT: PASS (15 checks)
+  TEST G RESULT: PASS (18 checks)
 ============================================================
 [Dispatch] Registry loaded: 8 event handlers, 5 job handlers
-Godot_v4.7.2-stable_win64_console.exe : WARNING: 886 ObjectDB instances were leaked at exit (run with `--verbose` for 
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 962 ObjectDB instances were leaked at exit (run with `--verbose` for 
 details).
-At line:1 char:1
-+ & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7. ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (WARNING: 886 Ob...` for details).:String) [], RemoteException
+At line:1 char:114
++ ... og" -Force; & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 962 Ob...` for details).:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
  
    at: cleanup (core/object/object.cpp:2536)
-```
+``````
 
 ### 8.2 سلسلة المحاولات المؤرشفة (قاعدة rev.4d منفذة)
 
@@ -182,17 +192,18 @@ At line:1 char:1
 | R2 | test_g_run01_attempt2_partial.log | انقطاع داخل G-prune |
 | R3 | test_g_run03_diag_rootcause.log *(النسخة المنقذة قبل استبدالها بـR5 — تشمل خطوط DIAG)* | 14/15 — كل fixtures فارغة (جذر: عوالم مسطّحة) + انقطاع G-prune |
 | R4 | test_g_run02.log | 14/15 — bait=0 بعد sectionalize (break مبكر) |
-| R5 | test_g_run03.log | **PASS 15/15 EXIT=0** |
+| R5 | test_g_run03.log | PASS 15/15 — *قبل rev.5 (على النسخة غير الموحّدة)* |
+| R6 | test_g_run04_attempt1_parsefail.log | parse-abort بعد تعديلات rev.5 (صفر فحوص) |
+| R7 | test_g_run05.log | **PASS 18/18 EXIT=0 — النسخة المعتمدة للإغلاق** |
 
 ### 8.3 SHA256 كاملة غير مقتطعة
 
-| الملف | SHA256 |
-|---|---|| scripts/test_g_generalization.gd | `c7ab7d7365563dae444c038a245056370613be1e89ab037183605a45b4ecbc9e` |
-| evidence test_g_run01_attempt1_parsefail.log | `361213ae97efce504baed03d4e21f67c3e802afb449382c9097ac2b33573d2d3` |
-| evidence test_g_run01_attempt2_partial.log | `0089de8f2f62b6bb969a1ddcae691a0e19f05e5984745d38bca6bd7b95699eba` |
-| evidence test_g_run03_diag_rootcause.log (**R3 الحقيقي المأرشف**) | `5063f2582885e9338f7021b76b9b5403d74b21c4eaa8e1864c760a69b9577197` |
-| evidence test_g_run02.log (R4: 14/15 post-sectionalize) | `75ca61d98adf376122fe9903eb479b663d83bbf7c861e429ab4b8afe2daad286` |
-| evidence test_g_run03.log (R5: FINAL PASS 15/15) | `246798058fe929418819812874079f837b4158932996d2063371c40f0763ecc8` |
+| scripts/test_g_generalization.gd | `112eb01b5cfc45ab00ff8186f1ddb43461508e3c71c852b89ea31a54b301f77e` |
+| evidence test_g_run05.log (R7 FINAL 18/18) | `36e09466297af157ff460848a83015590e0a9eabc8474a565744e25f1679fc40` |
+| evidence test_g_run04_attempt1_parsefail.log (R6) | `2fc8d5d543af5194ff9dba0a4cc59ebf19f38c8e2e2a90ceadcf02b048ec224f` |
+| evidence test_g_run03_diag_rootcause.log (R3) | `5063f2582885e9338f7021b76b9b5403d74b21c4eaa8e1864c760a69b9577197` |
+| evidence test_g_run02.log (R4) | `75ca61d98adf376122fe9903eb479b663d83bbf7c861e429ab4b8afe2daad286` |
+| evidence test_g_run01.log (=R2 duplicate, relabeled) | `0089de8f2f62b6bb969a1ddcae691a0e19f05e5984745d38bca6bd7b95699eba` |
 | data/rules/politics.json | `8ba94c6fc1aa5e3304265dab0895a55cdaa03052fa6a00e2241c62f5c058d878` |
 | data/rules/dispatch.json | `0beeb605cb96cba6dfcfea12f2a17cbb190296f5004586e9bba373f95f57e440` |
 
@@ -214,7 +225,7 @@ Warnings:
   [WARN] Broken file link in .\00-خطة-الطريق.md: c:/tmp/maestro%20engine/acceptance_report.md (Expected file: acceptance_report.md)
 
 [SUCCESS] Memory integrity validation passed successfully!
-```
+``````
 
 ### 8.5 تصريح نطاق commits
 
