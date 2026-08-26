@@ -180,7 +180,7 @@ At line:1 char:1
 |---|---|---|
 | R1 | test_g_run01_attempt1_parsefail.log | parse-abort (صفر فحص) |
 | R2 | test_g_run01_attempt2_partial.log | انقطاع داخل G-prune |
-| R3 | test_g_run01.log *(تسمية منحرفة عن runNN — معترف بها)* | 14/15 — كل fixtures فارغة (جذر: عوالم مسطّحة) |
+| R3 | test_g_run03_diag_rootcause.log *(النسخة المنقذة قبل استبدالها بـR5 — تشمل خطوط DIAG)* | 14/15 — كل fixtures فارغة (جذر: عوالم مسطّحة) + انقطاع G-prune |
 | R4 | test_g_run02.log | 14/15 — bait=0 بعد sectionalize (break مبكر) |
 | R5 | test_g_run03.log | **PASS 15/15 EXIT=0** |
 
@@ -190,7 +190,7 @@ At line:1 char:1
 |---|---|| scripts/test_g_generalization.gd | `c7ab7d7365563dae444c038a245056370613be1e89ab037183605a45b4ecbc9e` |
 | evidence test_g_run01_attempt1_parsefail.log | `361213ae97efce504baed03d4e21f67c3e802afb449382c9097ac2b33573d2d3` |
 | evidence test_g_run01_attempt2_partial.log | `0089de8f2f62b6bb969a1ddcae691a0e19f05e5984745d38bca6bd7b95699eba` |
-| evidence test_g_run01.log (R3: 14/15 bait=0) | `0089de8f2f62b6bb969a1ddcae691a0e19f05e5984745d38bca6bd7b95699eba` |
+| evidence test_g_run03_diag_rootcause.log (**R3 الحقيقي المأرشف**) | `5063f2582885e9338f7021b76b9b5403d74b21c4eaa8e1864c760a69b9577197` |
 | evidence test_g_run02.log (R4: 14/15 post-sectionalize) | `75ca61d98adf376122fe9903eb479b663d83bbf7c861e429ab4b8afe2daad286` |
 | evidence test_g_run03.log (R5: FINAL PASS 15/15) | `246798058fe929418819812874079f837b4158932996d2063371c40f0763ecc8` |
 | data/rules/politics.json | `8ba94c6fc1aa5e3304265dab0895a55cdaa03052fa6a00e2241c62f5c058d878` |
