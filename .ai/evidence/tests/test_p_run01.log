@@ -1,0 +1,63 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TEST P - PLANNING SPECIFICATION v0.1 ACCEPTANCE
+  Reference predictor: HypotheticalSim + real dispatch
+  Horizon N=3 | run01 archived
+============================================================
+
+-- L0: deterministic-event allowlist honored
+[PASS] L0 fixture contains only deterministic allowlisted events
+
+-- TP1: prediction determinism
+   views identical=true
+[PASS] TP1 prediction is bitwise-deterministic across independent clones
+
+-- TP2: thought never mutates the real world
+[PASS] TP2 thought never mutates the real world (P6 forward)
+
+-- TP3: precondition gate invalidates at exact failing step
+   status=invalid invalid_at_step=3
+[PASS] TP3 precondition gate invalidates chain at exact failing step
+
+-- TP4: emergent war cascade
+   threat=5.0 chosen=security gdp=99.0 power=11.0 queued=1
+[PASS] TP4 replay captures emergent cascade absent from any declared delta
+
+-- TP5: sequential composition bitwise-associative
+   equal=true damage=0.8 supply=0.4
+[PASS] TP5 sequential composition is bitwise-associative
+
+-- TP6: closed vocabulary scan
+[PASS] TP6 predicted descriptors stay inside the closed vocabulary - no action identity
+
+-- TP7: hard horizon precedes everything
+   status=rejected reason=horizon-exceeded
+[PASS] TP7 hard horizon precedes all other checks
+
+-- TP8: DEFERRED-7 isolation tripwire
+   |changed(WAR)|=8 |changed(RAIL)|=3 |intersection|=0
+[PASS] TP8 entities predict independently - DEFERRED-7 trigger not fired
+
+-- TP9: single-event arithmetic exacts
+   coup(C)=0.70 minister(D)=0.95
+[PASS] TP9 deterministic single-event effects match frozen arithmetic exactly
+
+-- TP10: multi-target side-effects with owner coupling
+   damage=0.4 supply=0.7 ownerStab=0.48 activations=2
+[PASS] TP10 multi-target side-effects captured exactly (owner coupling included)
+
+============================================================
+  TEST P RESULT: PASS (11 checks)
+============================================================
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 86 ObjectDB instances were leaked at exit (run with `--verbose` for 
+details).
+At line:1 char:114
++ ... og" -Force; & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 86 Obj...` for details).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: cleanup (core/object/object.cpp:2536)

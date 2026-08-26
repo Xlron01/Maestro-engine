@@ -90,13 +90,31 @@ sec(B) = 5.0×1 + 0×1 = 5.0   >   prosp(B) = 1.0×1 + 0.5×1 = 1.5 (+threshold 
 
 **شرط الإغلاق:** PASS للعشرة بنصوصها ⇒ PROVISIONAL→CONFIRMED (بختم المراجع) + transcript/SHA256 مضمّنة + سطر commit-scope.
 
+### 4.4 نتائج Test P الفعلية ([run01 raw](file:///.ai/evidence/tests/test_p_run01.log))
+
+| المجموعة | النتيجة |
+|---|---|
+| L0 | الأحداث المرخصة الحتمية فقط في الـfixture |
+| TP1 | views bitwise متطابقة عبر نسختين مستقلتين |
+| TP2 | world_real + rules لم يُلمَسا bitwise |
+| TP3 | `invalid_at_step == 3` بالضبط |
+| TP4 | threat=5.0 · at_war=[A]/[B] · chosen=security · gdp=99.0 · power=11.0 · A سليمة 1.0 · طابور=1×Military_Spending_Increase |
+| TP5 | تركيب تسلسلي bitwise-associative |
+| TP6 | صفر مفاتيح خارج المغلق، صفر هوية فعل |
+| TP7 | `horizon-exceeded` بأسبقية على فشل الشرط |
+| TP8 | تقاطع مفاتيح التغير = ∅ (الزناد لم يُطلق) |
+| TP9 | 0.7 / 0.95 بالضبط |
+| TP10 | 0.4 / 0.7 / 0.48 بالضبط + activations=2 |
+
+**RESULT: PASS (11 checks) — EXIT=0** *(محاولة سابقة علتها parse أُرشفت run01_attempt1 وفق rev.4d)*
+
 ## 5) البروتوكول التنفيذي
 
 Fixtures تُبنى داخل العدّاء مطابقةً لـ4.1 حرفًا · **أرشفة إلزامية**: كل تشغيل وسيط `runNN.log` · deg/degree على أي bug · Evidence: `.ai/evidence/tests/test_p_planning_spec_run01.log…`
 
 ## 6) حالة الوثيقة
 
-⏸️ **PRE-REGISTERED / PROVISIONAL — بانتظار مراجعة المالك قبل fixtures+عدّاء.**
+⏸️ **PROVISIONAL — Test E-P: PASS 11/11 (run01, EXIT=0)** · الأدلة التشغيلية الخام منقولة حرفيًا في §7 بانتظار ختم المراجع (الحالة CONFIRMED بيده لا بيد الوثيقة)
 
 ### سجل المراجعة
 
@@ -105,7 +123,117 @@ Fixtures تُبنى داخل العدّاء مطابقةً لـ4.1 حرفًا ·
 | 2026-08-26 | إنشاء الوثيقة بعد قرار المالك: Planning قبل D3، وبعد إجابات التأسيس الأربعة: خطي N=3 · أفعال حقيقية عبر dispatch · كتالوج الـ20 بالإحالة المرجعية · Pre-reg ثم توقف | ضبط الطبقات والأفق مسبقًا |
 | 2026-08-26 | **توقف تقني مشروع أثناء الاستكشاف** → قرارا المالك: F-1 (هدف الreplay = العالم القديم، خيار A) + حجية المفردات التوسعية بحجية doc12-CE1 — كُتبا تصريحًا في §0/§1 | اكتشاف انفصال العالمين؛ اختلاق handlers جديدة كان توسيعًا خفيًا |
 | 2026-08-26 | استبعاد `Election` من الأحداث المرخصة (استخدام rng) وتجميد أرقام §4 بعد التحقق الحسابي المباشر (0.7/0.95/0.48/0.8/99.0 كلها bitwise-true) | P7 الحتمية + معيار «الأرقام تحقق الصيغة» |
+| 2026-08-26 | **rev.2 — التنفيذ المنفذ**: HypotheticalSim stub (extends Node لقبول handlers.setup) + العدّاء عبر dispatch.json الحقيقي ⇒ محاولة R1 علها parse (setup-type + اسم دالة) **أُرشفت** run01_attempt1 ⇒ الإصلاحان ⇒ run01 كامل **PASS 11/11 EXIT=0**؛ النتيجتان العدديتان الحرستان (gdp=99.0/power=11.0) طابقتا الشلال المفروض رياضيًا في §4.2 حرفيًا | deg/degree: R1 لم يكمل أي دورة فأعيد كل شيء؛ الأرشفة بنظام runNN طبقت من أول لحظة |
 
+---
+
+---
+
+## 7) ملحق الأدلة التشغيلية الخام (rev.2 — قبل الختم)
+
+### 7.1 اللوج الكامل run01 — منقول حرفيًا
+
+```text
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TEST P - PLANNING SPECIFICATION v0.1 ACCEPTANCE
+  Reference predictor: HypotheticalSim + real dispatch
+  Horizon N=3 | run01 archived
+============================================================
+
+-- L0: deterministic-event allowlist honored
+[PASS] L0 fixture contains only deterministic allowlisted events
+
+-- TP1: prediction determinism
+   views identical=true
+[PASS] TP1 prediction is bitwise-deterministic across independent clones
+
+-- TP2: thought never mutates the real world
+[PASS] TP2 thought never mutates the real world (P6 forward)
+
+-- TP3: precondition gate invalidates at exact failing step
+   status=invalid invalid_at_step=3
+[PASS] TP3 precondition gate invalidates chain at exact failing step
+
+-- TP4: emergent war cascade
+   threat=5.0 chosen=security gdp=99.0 power=11.0 queued=1
+[PASS] TP4 replay captures emergent cascade absent from any declared delta
+
+-- TP5: sequential composition bitwise-associative
+   equal=true damage=0.8 supply=0.4
+[PASS] TP5 sequential composition is bitwise-associative
+
+-- TP6: closed vocabulary scan
+[PASS] TP6 predicted descriptors stay inside the closed vocabulary - no action identity
+
+-- TP7: hard horizon precedes everything
+   status=rejected reason=horizon-exceeded
+[PASS] TP7 hard horizon precedes all other checks
+
+-- TP8: DEFERRED-7 isolation tripwire
+   |changed(WAR)|=8 |changed(RAIL)|=3 |intersection|=0
+[PASS] TP8 entities predict independently - DEFERRED-7 trigger not fired
+
+-- TP9: single-event arithmetic exacts
+   coup(C)=0.70 minister(D)=0.95
+[PASS] TP9 deterministic single-event effects match frozen arithmetic exactly
+
+-- TP10: multi-target side-effects with owner coupling
+   damage=0.4 supply=0.7 ownerStab=0.48 activations=2
+[PASS] TP10 multi-target side-effects captured exactly (owner coupling included)
+
+============================================================
+  TEST P RESULT: PASS (11 checks)
+============================================================
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 86 ObjectDB instances were leaked at exit (run with `--verbose` for 
+details).
+At line:1 char:114
++ ... og" -Force; & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 86 Obj...` for details).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: cleanup (core/object/object.cpp:2536)
+```
+
+### 7.2 SHA256 كاملة غير مقتطعة
+
+| الملف | SHA256 |
+|---|---|| scripts/test_p_planning_spec.gd | `87634fb2322eaca723564c56f0849344c0d576162d4d46e2608af3fdfb80ea13` |
+| .ai/evidence/tests/test_p_run01.log | `8096de85840513d464a07343aa880f72df7e5490ea62b57e04cccbb60a61fe40` |
+| .ai/evidence/tests/test_p_run01_attempt1_parsefail.log | `066c4b14e40ddd96e38bae0c67a4d16cd8b02aed9abe367c215ae6e61c5183c9` |
+| data/rules/politics.json | `8ba94c6fc1aa5e3304265dab0895a55cdaa03052fa6a00e2241c62f5c058d878` |
+| data/rules/dispatch.json | `0beeb605cb96cba6dfcfea12f2a17cbb190296f5004586e9bba373f95f57e440` |
+
+### 7.3 تصريح نطاق الـcommits (نمط rev.4e)
+
+- commit التنفيذ الحالي = runner + لوجا runNN + تعديل هذه الوثيقة + دورة الذاكرة — يُذكر هاشه في رسالة التسليم.
+- لا يوجد أي commit آخر مساس بهذه الأدلة بعد `f4f1423` (التسجيل المسبق).
+
+### 7.4 محضر validator الخام (إخراج أداة الذاكرة لا لوج محاكاة)
+
+```text
+====================================================
+  Maestro Memory Validator & Linter
+====================================================
+Checking project structure...
+Checking task files...
+Checking link integrity...
+
+----------------------------------------------------
+Validation Finished: 0 Errors, 1 Warnings
+----------------------------------------------------
+
+Warnings:
+  [WARN] Broken file link in .\00-خطة-الطريق.md: c:/tmp/maestro%20engine/acceptance_report.md (Expected file: acceptance_report.md)
+
+[SUCCESS] Memory integrity validation passed successfully!
+```
+
+---
 ---
 
 **Evidence trail:** docs 11/15/16/17/18/19/20 + هذا الملف. صفر كود حتى الآن — التزامًا بإيقاع Pre-reg ثم توقف.
