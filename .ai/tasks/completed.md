@@ -4,6 +4,22 @@
 
 ---
 
+### [TASK-032] Stage 3 - Planning Coverage Mapping
+
+- **Status:** COMPLETE (تسع صفوف مصنفة — GAP-candidate وحيد مرفوع لقرار المالك، وتوقف)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-031 (Planning Gate 1)
+- **Objective:** تدقيق تغطية: هل تقع مشكلات Planning/Utility القياسية على آليات موجودة مجمدة أم تظهر أول فجوة حقيقية؟
+- **Acceptance Criteria:**
+  - [x] قالب المالك الخماسي مجمد + أحكام COVERED/COMPOSED باستشهاد حرفي.
+  - [x] 9 صفوف: COVERED=6، COMPOSED=3، BOUNDARY=1 (Hidden-Info ← doc13-gap)، **GAP-candidate=1** (Global-vs-Local Coordination — قاعدة التنازل) — مرفوع مقفول الباب لقرار المالك.
+  - [x] doc19 rev.3: تصحيح إيبيستيمي لأساس r6 (مؤشرات غير متحققة ليس ثبوتا) — §4-b لم تلمس.
+  - [x] محضر validator الخام منقول داخل doc20.
+- **Validation Method:** مراجعة المالك + حكمه على مرشح-GAP
+- **Evidence:** [-Planning-Coverage-Mapping.md\](file:///c:/tmp/maestro%20engine/20-Planning-Coverage-Mapping.md)
+
+---
+
 ### [TASK-031] Planning Semantics Gate 1
 
 - **Status:** COMPLETE (CLOSED Confirmed — 5/5 CEs، صفر primitive، صفر كسر)

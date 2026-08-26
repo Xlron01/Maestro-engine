@@ -1,4 +1,20 @@
-- **Current Task:** TASK-031 (Planning Semantics Gate 1) — **CLOSED CONFIRMED 5/5 CEs**، توقف تام
+- **Current Task:** TASK-032 (Stage 3 — Planning Coverage Mapping) — **COMPLETE: 9 صفوف؛ GAP-candidate وحيد مرفوع لقرارك**، توقف تام
+
+## 0. Stage 3 — Coverage Mapping — ملخص (الأحدث)
+
+الملك أنفذ أول 3 صفوف نموذجيًا، وأكملنا الباقي (9 إجمالًا) بأحكام مصنفة واستشهاد حرفي:
+- COVERED=6 (الأصف 1،2،3،5،6،8 + 9c R3)
+- COMPOSED=3 (التصاريف 4،9a،9b)
+- BOUNDARY=1 (Hidden-Info/Deception ← فجوة الرؤية doc13 — مؤجل مسمى)
+- **GAP-candidate=1: Global-vs-Local Coordination (قاعدة التنازل عند تصادم التوقعات)** — مرفوع مقفول الباب: Gate جديد أم إفلاس طواري عبر أحداث المحاكاة؟ **قرار المالك وحده**.
+
+كما تصحح أساس doc19-r6 إيبيستميًا (rev.3): مؤشرات بحثية غير متحققة ليس ثبوتا — §4-b لم تلمس.
+
+**Evidence:** [`20-Planning-Coverage-Mapping.md`](file:///c:/tmp/maestro%20engine/20-Planning-Coverage-Mapping.md)
+
+---
+
+- *(سابق)* **Current Task:** TASK-031 (Planning Semantics Gate 1) — CLOSED CONFIRMED 5/5
 
 ## 0. Planning Semantics Gate 1 — ملخص تنفيذي (الأحدث)
 

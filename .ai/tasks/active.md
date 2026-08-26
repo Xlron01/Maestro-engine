@@ -4,4 +4,4 @@
 
 ---
 
-*لا يوجد مهام نشطة حاليًا — TASK-031 (Planning Semantics Gate 1) أُغلق Confirmed 5/5 ونُقل إلى completed.md. البوابة أغلقت بتوقف كامل: Planning Specification v0.1 وGeneralization Gate كلاهما بأمر منفصل من المالك.*
+*لا مهام نشطة — TASK-032 (Stage 3 Coverage Mapping) أُديناك بحكمك على GAP-candidate الوحيد: Global-vs-Local Coordination (أمامك مقفول الباب). كل ما بعده بأمرك منفصل.*
