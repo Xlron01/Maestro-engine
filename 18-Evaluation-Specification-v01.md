@@ -71,7 +71,25 @@ descriptor := {
   "tie_extension": { "by": "option_id", "order": "asc" } }       // افتراضي §7 — غير قابل للتجاوز في v0.1
 ```
 
-### 2.1 قواعد الأعضاء
+### 2.1 قواعد الأعضاء + صيغ المساهمة الحرفية
+
+**الصيغ المعيارية أولًا** (هي المصدر؛ أرقام E في §5 تحقّق لها لا بديل عنها):
+
+**F2 — إشباعي-معتبي** (القيمة `value` تُقرأ من مسار `fact` في الواصف):
+
+```text
+if value < floor:    contribution = -(floor - value) * below_penalty_per_day
+if value >= floor:   contribution = 0.0                      # above_saturation = true (الوحيد المنفذ في v0.1)
+```
+
+**F3 — نسبي** (القيمة `ratio` من تركيب موجود — V5):
+
+```text
+if ratio <= ceiling: contribution = (ceiling - ratio)                 # headroom، المضاعف = 1 ثابت
+if ratio > ceiling:  contribution = -(ratio - ceiling) * violation_multiplier
+```
+
+**ثم القواعد:**
 
 - **F1** بلا `"scale": "interval"` ⇒ رفض تحميل (الافتراض يجب أن يكون معلنًا — درس CE-1).
 - **F2** فوق الأرضية: مساهمة ثابتة/مشبعة إذا `above_saturation=true`.
@@ -110,6 +128,8 @@ V5:  if block.form == "F3" and block.composite != "supply_share"
                                                      -> REJECT("composite outside existing Model v1 set")
 V6:  if block.form == "F1" and block.get("direction") not in {"maximize","minimize"}
                                                      -> REJECT("direction must be declared: maximize|minimize")
+V7:  if block.form == "F2" and block.get("above_saturation") != true
+                                                     -> REJECT("only saturated variant implemented in v0.1")
 ```
 
 ملاحظات:
@@ -163,9 +183,11 @@ E5-pair  : OPT_P1/OPT_P2 incomparable maxima   E6-twins: ACT_TWIN_X/ACT_TWIN_Y +
 
 **شرط إغلاق الوثيقة:** PASS لكل الثمانية بصيغها الحرفية أعلاه ⇒ الحالة تنتقل PROVISIONAL → **CONFIRMED**، وتصبح المرجع الدائم لتدقيق تنفيذات D3/D4.
 
+| 2026-08-26 | **rev.4 بمراجعة المالك**: أُضيفت صيغتا المساهمة الحرفيتان لـF2/F3 في §2.1 بنمط الشرط التنفيذي (IF-form) — فصارت الأرقام في §5 تحقّقًا للصيغة لا بديلًا عنها؛ وأُضيفت V7 (رفض `above_saturation != true` — الوحيد المنفذ في v0.1) | طلب المالك: «الصيغة مكتوبة حرفيًا في §2 وإلا فهي أرقام بديلة عن المعادلة لا تحقق لها» — وبعد ذلك **إذن صريح ببدء fixtures + عدّاء Test E** |
+
 ## 6) حالة الوثيقة
 
-⏸️ **PRE-REGISTERED / PROVISIONAL — بانتظار مراجعة المالك قبل كتابة عدّاء Test E.**
+⏸️ **PRE-REGISTERED / PROVISIONAL — rev.4 مكتمل؛ الإذن ببدء fixtures + عدّاء TestE صادر من المالك.**
 
 ### سجل المراجعة
 
