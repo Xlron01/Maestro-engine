@@ -1,4 +1,4 @@
-- **Current Task:** TASK-032 (Stage 3 — Planning Coverage Mapping) — **COMPLETE: 9 صفوف؛ GAP-candidate وحيد مرفوع لقرارك**، توقف تام
+- **Current Task:** TASK-032 (Stage 3) — **CLOSED CONFIRMED بأحكام المالك**: 5/6→COMPOSED · 7→**DEFERRED(خيار ii)** · توقف تام
 
 ## 0. Stage 3 — Coverage Mapping — ملخص (الأحدث)
 

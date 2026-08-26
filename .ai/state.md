@@ -2,8 +2,8 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-26
-- **Current Phase:** Stage 3 Planning Coverage Mapping — **COMPLETE (9 صفوف)** — GAP-candidate وحيد مرفوع لقرارك
-- **Current Step:** توقف كامل — حسم Global-vs-Local Coordination بإشارتك (Gate جديد أم إفلاس طواري)
+- **Current Phase:** Stage 3 Coverage Mapping — **CLOSED CONFIRMED** (بأحكام المالك: 5/6→COMPOSED، 7→DEFERRED خيار ii)
+- **Current Step:** توقف كامل — الخطوة المرشّحة التالية: Planning Specification v0.1 بأمر منفصل
 
 ## Current Objective
 سلسلة القرار مكتملة التنفيذ المرجعي: Model v1 FROZEN → Gates 11/15 → D1 (حدود 28/28) → D2 (دلالة 5/5) → **Spec v0.1 CONFIRMED بمقيّم مرجعي مجرب bitwise (Test E 16/16)**. الخلاصة المؤسسة: التقييم = ترتيب Preferences (أشكال F1–F5 مجمدة بdeletion tests) فوق واصفات نتائج مركبة من مفردات مغلقة — و`Σ(weight×channel)` مجرد مثيل من F1 تحت إعلان مقياس، بلا أي امتياز.
