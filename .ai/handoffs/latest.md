@@ -1,4 +1,4 @@
-- **Current Task:** TASK-033 (Planning Spec v0.1 + Test P) — **PASS 11/11 · PROVISIONAL بانتظار الختم**
+- **Current Task:** TASK-034 (Generalization Gate) — **PASS 18/18 · PROVISIONAL بانتظار الختم**
 
 ## 0. Stage 3 — Coverage Mapping — ملخص (الأحدث)
 

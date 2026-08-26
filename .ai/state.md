@@ -2,8 +2,8 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-26
-- **Current Phase:** Planning Specification v0.1 — **PROVISIONAL: Test P PASS 11/11** (الأدلة مضمّنة §7)
-- **Current Step:** توقف — بانتظار ختم المالك للإطلاق CONFIRMED
+- **Current Phase:** Generalization Gate (doc22 rev.5) — **PROVISIONAL: Test G PASS 18/18**
+- **Current Step:** توقف — CONFIRMED بختم المالك على §8
 
 ## Current Objective
 سلسلة القرار مكتملة التنفيذ المرجعي: Model v1 FROZEN → Gates 11/15 → D1 (حدود 28/28) → D2 (دلالة 5/5) → **Spec v0.1 CONFIRMED بمقيّم مرجعي مجرب bitwise (Test E 16/16)**. الخلاصة المؤسسة: التقييم = ترتيب Preferences (أشكال F1–F5 مجمدة بdeletion tests) فوق واصفات نتائج مركبة من مفردات مغلقة — و`Σ(weight×channel)` مجرد مثيل من F1 تحت إعلان مقياس، بلا أي امتياز.

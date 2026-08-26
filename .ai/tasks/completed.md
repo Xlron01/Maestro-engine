@@ -4,6 +4,24 @@
 
 ---
 
+### [TASK-034] Generalization / Behavioral Validation Gate + Test G
+
+- **Status:** COMPLETE (rev.5 — PASS 18/18 run05) — **PROVISIONAL بانتظار ختم المراجع**
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-033 (Spec v0.1), doc19-§6 (الالتزام)
+- **Objective:** إثبات Behavioral adequacy: خطط صالحة عبر 9 بنى مشكلية مختلفة، بلا حل داخل fixtures، بعد ترخيص A1/A2 داخل البوابة.
+- **Acceptance Criteria:**
+  - [x] rev.3: F4 arithmetic flaw fixed pre-build (بقع المالك).
+  - [x] rev.5: تناقض A2 مثبت ⇒ توحيد النص (أساسي-مرتّب + §7 ties) · F7 تناقض داخلي مثبت ⇒ توأمين F7A/B (0.50/0.52) بدلفجوة NO-PLAN المفترضة.
+  - [x] G-audit آلي: صفر مفاتيح حل في fixtures · صفر action-ids في نواة Planner.
+  - [x] deg/degree سباتية R1..R7 مأرشفة بالكامل (R3 وجد مأرشفًا diag_rootcause — تراجع عن افتراض الفقدان).
+  - [x] **PASS 18/18 (run05 EXIT=0)** بما فيها G7-twins (1 vs 2) · G7-coupling · G-greedy · G-cost(2 vs 8) · G-prune(0.46 edge).
+  - [x] transcript+SHA256 مضمّنة doc22 §8 · PROVISIONAL حتى الختام.
+- **Validation Method:** Godot headless run05 + raw logs + مراجعة المالك للختام
+- **Evidence:** [-Generalization-Gate.md\](file:///c:/tmp/maestro%20engine/22-Generalization-Gate.md) · [run05](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_g_run05.log)
+
+---
+
 ### [TASK-033] Planning Specification v0.1 + Test P
 
 - **Status:** COMPLETE (PASS 11/11 run01) — **PROVISIONAL بانتظار ختم المراجع**
