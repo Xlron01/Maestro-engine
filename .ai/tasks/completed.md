@@ -4,6 +4,23 @@
 
 ---
 
+### [TASK-033] Planning Specification v0.1 + Test P
+
+- **Status:** COMPLETE (PASS 11/11 run01) — **PROVISIONAL بانتظار ختم المراجع**
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-032, TASK-031
+- **Objective:** تنفيذ مواصفة التخطيط v0.1 آليًا: HypotheticalSim stub + GameEventHandlers الحقيقية عبر dispatch.json — صفر تعديل نواة.
+- **Acceptance Criteria:**
+  - [x] doc21 rev.1 معتمدًا حرفيًا قبل الكود (إيقاع Pre-reg ثم توقف).
+  - [x] fixtures مطابقة §4.1 + stub بواجهة تقبل handlers.setup (Node).
+  - [x] أرشفة runNN: محاولة R1 علتها parse أُرشفت attempt1؛ run01 النظيف PASS.
+  - [x] TP1..TP10 + L0 كلها PASS بنصوصها المجمدة، الأرقام الحرجة bitwise (99.0/11.0/5.0/0.7/0.95/0.48/0.8/0.4).
+  - [x] transcript validator + SHA256 الخمسة مضمّنة في doc21 §7 + سطر commit-scope.
+- **Validation Method:** Godot headless run + raw logs مؤرشفة + مراجعة المالك للإغلاق
+- **Evidence:** [`21-Planning-Specification-v01.md`](file:///c:/tmp/maestro%20engine/21-Planning-Specification-v01.md) · [run01](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_p_run01.log)
+
+---
+
 ### [TASK-032] Stage 3 - Planning Coverage Mapping
 
 - **Status:** COMPLETE (تسع صفوف مصنفة — GAP-candidate وحيد مرفوع لقرار المالك، وتوقف)

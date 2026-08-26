@@ -4,14 +4,14 @@
 
 ---
 
-### [TASK-033] Planning Specification v0.1 + Test P
+### [TASK-034] Generalization / Behavioral Validation Gate + Test G
 
-- **Status:** IN_PROGRESS — PRE-REGISTERED (doc21) بانتظار مراجعة المالك قبل fixtures+عدّاء
+- **Status:** IN_PROGRESS — PRE-REGISTERED (doc22) بانتظار مراجعة المالك قبل بناء Planner+عدّاء
 - **Owner:** ox-alpha
-- **Dependencies:** TASK-032 (Coverage Mapping CONFIRMED), TASK-031 (Planning Gate 1)
+- **Dependencies:** TASK-033 (Spec v0.1 PASS 11/11), TASK-031 (التزام doc19 §6)
 - **Acceptance Criteria:**
-  - [ ] doc21 rev.1 معتمدًا حرفيًا (§1 عقد predict · §2 N=3 خطي بلا branching/search/cost · §3 tripwire DEFERRED-7 · §4 TP1..TP10 بأرقام bitwise مثبتة حسابيًا)
-  - [ ] fixtures مطابقة لـ4.1 حرفًا + HypotheticalSim stub بلا تعديل kernel/handlers
-  - [ ] أرشفة runNN.log إلزامية لكل تشغيل وسيط
-  - [ ] PASS 10/10 ⇒ transcript+SHA256 مضمّنة + سطر commit-scope ⇒ PROVISIONAL→CONFIRMED بختم المالك
-- **Evidence:** [`21-Planning-Specification-v01.md`](file:///c:/tmp/maestro%20engine/21-Planning-Specification-v01.md)
+  - [ ] doc22 rev.1 معتمدًا: تعديلات A1 (تعداد DFS ≤3 بترتيب §7، سقف 64) + A2 (تكلفة معلنة كسر-تعادل فقط) بمبررات rule-11
+  - [ ] الـ9 fixtures بثوابتها المجمدة، **بلا أي حل داخل fixture** (G-audit آلي)
+  - [ ] G1..G9 + G-det/G-pure/G-audit/G-greedy/G-cost/G-prune كلها PASS بنصوصها المجمدة
+  - [ ] أرشفة runNN إلزامية · deg/degree · transcript+SHA256 مضمّنة عند الإغلاق · PROVISIONAL حتى ختم المالك
+- **Evidence:** [`22-Generalization-Gate.md`](file:///c:/tmp/maestro%20engine/22-Generalization-Gate.md)

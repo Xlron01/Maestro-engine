@@ -1,4 +1,4 @@
-- **Current Task:** TASK-032 (Stage 3) — **CLOSED CONFIRMED بأحكام المالك**: 5/6→COMPOSED · 7→**DEFERRED(خيار ii)** · توقف تام
+- **Current Task:** TASK-033 (Planning Spec v0.1 + Test P) — **PASS 11/11 · PROVISIONAL بانتظار الختم**
 
 ## 0. Stage 3 — Coverage Mapping — ملخص (الأحدث)
 
