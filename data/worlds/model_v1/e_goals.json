@@ -1,0 +1,52 @@
+{
+	"goals_id": "e_goals",
+	"description": "Test E evaluation blocks (doc 18 rev.4). Every block must pass loader validation V0-V7 verbatim. F3 ceiling/violation_multiplier and F2 floor/penalty match section-5 frozen constants exactly.",
+	"goals": {
+		"G_F1": {
+			"form": "F1", "channels": ["rel_supply"], "target_ref": "Maker_Prime",
+			"scale": "interval", "direction": "maximize"
+		},
+		"G_F2": {
+			"form": "F2", "fact": "reserves_days.EUV_flow", "floor": 90,
+			"below_penalty_per_day": 0.0625, "above_saturation": true
+		},
+		"G_F3": {
+			"form": "F3", "composite": "supply_share", "cap": "EUV_flow",
+			"of": "Maker_Prime", "ceiling": 0.375, "violation_multiplier": 10.0
+		},
+		"G_F4W": {
+			"form": "F4", "mode": "weighted",
+			"terms": [
+				{
+					"term": { "form": "F1", "channels": ["rel_supply"], "target_ref": "Maker_Prime",
+						"scale": "interval", "direction": "maximize" },
+					"weight": 0.75, "scale_decl": "interval"
+				},
+				{
+					"term": { "form": "F1", "channels": ["access"], "target_ref": "Washington",
+						"scale": "interval", "direction": "minimize" },
+					"weight": 0.25, "scale_decl": "interval"
+				}
+			]
+		},
+		"G_F4L": {
+			"form": "F4", "mode": "lexicographic",
+			"priority": [
+				{ "form": "F1", "channels": ["access"], "target_ref": "Washington",
+					"scale": "interval", "direction": "minimize" },
+				{ "form": "F1", "channels": ["rel_supply"], "target_ref": "Maker_Prime",
+					"scale": "interval", "direction": "maximize" }
+			]
+		},
+		"G_F4P": {
+			"form": "F4", "mode": "pareto",
+			"terms": [
+				{ "form": "F1", "channels": ["rel_supply"], "target_ref": "Maker_Prime",
+					"scale": "interval", "direction": "maximize" },
+				{ "form": "F1", "channels": ["access"], "target_ref": "Washington",
+					"scale": "interval", "direction": "minimize" }
+			],
+			"tie_extension": { "by": "option_id", "order": "asc" }
+		}
+	}
+}

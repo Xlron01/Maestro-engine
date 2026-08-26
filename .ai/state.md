@@ -2,15 +2,15 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-26
-- **Current Phase:** D2 Evaluation Semantics Gate — **CLOSED CONFIRMED (5/5 CEs، صفر primitive نوع-Goal؛ OQ-D2-1 محسومة اصطلاحيًا §7)**
-- **Current Step:** انتظار أمر المالك لكتابة Evaluation Specification v0.1
+- **Current Phase:** Evaluation Specification v0.1 — **CONFIRMED (Test E PASS 16/16)**
+- **Current Step:** بانتظار توجيه المالك للمرحلة التالية (D3 / ربط Planning-ببوابته / غيرهما)
 
 ## Current Objective
-سلسلة القرار مكتملة الدلالة: Model v1 FROZEN → Gates 11/15 → D1 (حدود معمارية PASS 28/28) → **D2 (دلالة تقييم عامة Confirmed)**. الخلاصة المؤسسة: التقييم = ترتيب Preferences (أشكال F1–F5 مجمدة بdeletion tests) فوق واصفات نتائج مركبة من مفردات مغلقة — و`Σ(weight×channel)` مجرد مثيل من F1 تحت إعلان مقياس، بلا أي امتياز.
+سلسلة القرار مكتملة التنفيذ المرجعي: Model v1 FROZEN → Gates 11/15 → D1 (حدود 28/28) → D2 (دلالة 5/5) → **Spec v0.1 CONFIRMED بمقيّم مرجعي مجرب bitwise (Test E 16/16)**. الخلاصة المؤسسة: التقييم = ترتيب Preferences (أشكال F1–F5 مجمدة بdeletion tests) فوق واصفات نتائج مركبة من مفردات مغلقة — و`Σ(weight×channel)` مجرد مثيل من F1 تحت إعلان مقياس، بلا أي امتياز.
 
 ## Active Tasks
-- `TASK-029`: D2 Evaluation Semantics Gate. (Status: COMPLETE)
-- `TASK-004..028`: السلسلة السابقة. (موثقة)
+- `TASK-030`: Evaluation Specification v0.1 + Test E. (Status: COMPLETE)
+- `TASK-004..029`: السلسلة السابقة. (موثقة)
 
 ## Blockers & Known Risks
 - لا يوجد معوقات. Open الوحيد المتبقي: أنطولوجيا مصدر الأفعال (موروث doc 16). OQ-D2-1 حُسمت بملحق doc 17 §7 كقرار اصطلاحي (option_id تصاعدي، بثلاثة حدود استخدام ملزمة).

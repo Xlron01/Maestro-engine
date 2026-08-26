@@ -68,6 +68,7 @@ descriptor := {
 { "form": "F4", "mode": "lexicographic",
   "priority": [ <condition-block>, <condition-block>, ... ] }   // الأسبق أشد
 { "form": "F4", "mode": "pareto",
+  "terms": [ <condition-block>, <condition-block>, ... ],        // شروط عارية بلا غلاف — توازي priority لا weighted
   "tie_extension": { "by": "option_id", "order": "asc" } }       // افتراضي §7 — غير قابل للتجاوز في v0.1
 ```
 
@@ -164,7 +165,8 @@ F2-probe : floor=90, below_penalty_per_day=0.0625, above_saturation=true
            probes: reserves ∈ {75, 90, 120}
 F3-probe : ceiling=0.375, violation_multiplier=10.0
            probes: share ∈ {0.75, 0.3125, 0.25}
-F4-probe : dims A(supply Δ+0.25, interval/maximize), B(exposure Δ−0.05, interval)
+F4-probe : dims A(supply Δ+0.25, interval/maximize), B(exposure worsens: access Δ+0.05
+           under direction=minimize => contribution −0.05), interval
            weighted weights {A:0.75, B:0.25}  |  lex priority [B-first(no-worsen), A]
            options OPT_TRADE (يحمل Deltas) / OPT_BASE (صفر deltas)
 E5-pair  : OPT_P1/OPT_P2 incomparable maxima   E6-twins: ACT_TWIN_X/ACT_TWIN_Y + D_TWIN واحد
@@ -185,9 +187,26 @@ E5-pair  : OPT_P1/OPT_P2 incomparable maxima   E6-twins: ACT_TWIN_X/ACT_TWIN_Y +
 
 | 2026-08-26 | **rev.4 بمراجعة المالك**: أُضيفت صيغتا المساهمة الحرفيتان لـF2/F3 في §2.1 بنمط الشرط التنفيذي (IF-form) — فصارت الأرقام في §5 تحقّقًا للصيغة لا بديلًا عنها؛ وأُضيفت V7 (رفض `above_saturation != true` — الوحيد المنفذ في v0.1) | طلب المالك: «الصيغة مكتوبة حرفيًا في §2 وإلا فهي أرقام بديلة عن المعادلة لا تحقق لها» — وبعد ذلك **إذن صريح ببدء fixtures + عدّاء Test E** |
 
+| 2026-08-26 | **rev.4b (أثناء التنفيذ المصرح به — قبل CONFIRMED)**: تشغيل TestE أول كشف علتين fixture/spec ⇒ deg/degree توقف كامل ⇒ (1) صيغة terms الباريتو لم كانت محددة في §2 — حُسمت **شروطًا عارية** توازي priority لا weighted، وكتبت في §2 صراحة؛ (2) إشارة OPT_TRADE في e_actions كانت `access Δ−0.05` بينما "التدهور" تحت direction=minimize يعني `Δ+0.05` (المساهمة −0.05 كما يجمدها صف E4 نفسه) — صح الـfixture وضبط سطر الثوابت §5؛ (3) خطأ تحميل canonical في العدّاء أصلحه قبل أي دورة | تنفيذ بروتوكول deg/degree حرفيًا داخل مرحلة التنفيذ أيضًا؛ الوثيقة لم تُغلق بعد فالتعديل المشروع قبل الإغلاق بشرط التوثيق |
+
 ## 6) حالة الوثيقة
 
-⏸️ **PRE-REGISTERED / PROVISIONAL — rev.4 مكتمل؛ الإذن ببدء fixtures + عدّاء TestE صادر من المالك.**
+✅ **CONFIRMED — Evaluation Specification v0.1 (Test E PASS 16/16، EXIT=0)**
+
+الوثيقة الآن تؤدي دورها المزدوج المجمد: سجل إغلاق **و**مرجع مراجعة دائم تُقاس عليه تنفيذات D3/D4.
+
+### نتائج Test E الفعلية ([raw log](file:///.ai/evidence/tests/test_e_evaluation_spec.log))
+
+| المجموعة | النتيجة |
+|---|---|
+| Loader L0–L7 | القوائم الست تحمّل نظيفة · الرفوض السبعة برسائلها الحرفية بالضبط (منها F5-structural وtie_extension-immutable) |
+| E1 | diff == 0.25 بالضبط |
+| E2 | −0.9375 / 0 / 0 بالضبط |
+| E3 | −3.75 / +0.0625 / +0.125 بالضبط والميل 0.0625 بلا مكافأة |
+| E4 | weighted=OPT_TRADE (net +0.175) · lex=OPT_BASE (متجه [false,true]) — مختلفان |
+| E5 | M={P1,P2} ⇒ chosen=OPT_P1 بنص assertion §7 الحرفي |
+| E6 | توأمان: descriptors وscores bitwise متطابقة والقرار حتمي |
+| E7/E8 | عمى الهوية بعد عكس الخريطة · قراءة-فقط + حتمية إعادة التشغيل |
 
 ### سجل المراجعة
 

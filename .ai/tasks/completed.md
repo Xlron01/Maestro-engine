@@ -4,6 +4,27 @@
 
 ---
 
+### [TASK-030] Evaluation Specification v0.1 + Test E
+
+- **Status:** COMPLETE (CONFIRMED — Test E PASS 16/16)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-029 (D2 Confirmed + §7 محسومة), TASK-028 (D1)
+- **Objective:** أول وثيقة تنفيذية Gate-Style: مواصفة معيارية بمفردات مغلقة وأشكال F1–F4 بصيغ JSON حرفية، تُغلق بـTest E التنفيذي وتصير مرجع مراجعة دائمًا لـD3/D4.
+- **Acceptance Criteria:**
+  - [x] rev.1→rev.3 بمراجعات المالك: نص حرفي للschema وقواعد V0–V7 (إلزامية scale/direction، رفض F5 صراحة، قفل tie_extension، حسم terms الباريتو شروطًا عارية، V7 رفض غير المشبع) — وإزالة أي تلميح Planning (إعلان فجوة صرف).
+  - [x] rev.4: صيغتا المساهمة الحرفيتان لـF2/F3 كمصدر معياري والأرقام تحقّق لهما.
+  - [x] Fixtures مجمّدة ثنائية-الدقة (e_base/e_actions/e_goals) منها توأمان CE-5.
+  - [x] Test E: L0–L7 loader حرفي · E1 diff==0.25 بالضبط · E2 −0.9375/0/0 · E3 −3.75/+0.0625/+0.125 وميل بلا مكافأة · E4 lex يرفض ما يقوله weighted · E5 بنص assertion §7 الحرفي · E6 توأمان bitwise · E7 عمى الهوية · E8 قراءة-فقط+حتمية.
+  - [x] deg/degree داخل التنفيذ: تشغيل أول علته canonical-parse (قبل أي دورة) ثم علية fixture/spec (إشارة تدهور + غموض terms الباريتو) ⇒ rev.4b موثق ⇒ إعادة كاملة ⇒ **PASS 16/16 EXIT=0**.
+  - [x] صفر Kernel code — المقيّم المرجعي harness-local حصرًا.
+- **Validation Method:**
+  Godot headless run + raw log + مراجعات المالك rev.1–rev.4
+- **Evidence:**
+  [`18-Evaluation-Specification-v01.md`](file:///c:/tmp/maestro%20engine/18-Evaluation-Specification-v01.md)
+  [.ai/evidence/tests/test_e_evaluation_spec.log](file:///.ai/evidence/tests/test_e_evaluation_spec.log)
+
+---
+
 ### [TASK-029] D2 — Evaluation Semantics Gate
 
 - **Status:** COMPLETE (CLOSED Confirmed — 5/5 CEs، صفر primitive نوع-Goal، Open واحد)

@@ -1,0 +1,49 @@
+{
+	"actions_id": "e_actions",
+	"description": "Test E fixture actions (doc 18 rev.4). Descriptors are v0.1 declared-delta outcomes over the closed vocabulary only. ACT_TWIN_X/Y carry bitwise-identical descriptors for the mandated CE-5 acceptance check (E6). All numbers binary-exact per doc 18 section 5 constants.",
+	"actions": [
+		{
+			"action_id": "ACT_D1A",
+			"descriptor": { "channels": { "rel_supply": { "Maker_Prime": 0.25 } } }
+		},
+		{
+			"action_id": "ACT_D1B",
+			"descriptor": { "channels": { "rel_supply": { "Maker_Prime": 0.5 } } }
+		},
+		{
+			"action_id": "OPT_TRADE",
+			"descriptor": {
+				"channels": {
+					"rel_supply": { "Maker_Prime": 0.25 },
+					"access": { "Washington": 0.05 }
+				}
+			}
+		},
+		{
+			"action_id": "OPT_BASE",
+			"descriptor": {}
+		},
+		{
+			"action_id": "OPT_P1",
+			"descriptor": { "channels": { "rel_supply": { "Maker_Prime": 0.25 } } }
+		},
+		{
+			"action_id": "OPT_P2",
+			"descriptor": { "channels": { "access": { "Washington": 0.25 } } }
+		},
+		{
+			"action_id": "ACT_TWIN_X",
+			"descriptor": {
+				"channels": { "rel_supply": { "Maker_Prime": 0.125 } },
+				"facts": { "reserves_days": { "EUV_flow": 100 } }
+			}
+		},
+		{
+			"action_id": "ACT_TWIN_Y",
+			"descriptor": {
+				"channels": { "rel_supply": { "Maker_Prime": 0.125 } },
+				"facts": { "reserves_days": { "EUV_flow": 100 } }
+			}
+		}
+	]
+}

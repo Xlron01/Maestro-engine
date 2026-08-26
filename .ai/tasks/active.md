@@ -4,8 +4,6 @@
 
 ---
 
-*المهمة النشطة الوحيدة: TASK-030 — Evaluation Specification v0.1 (doc 18) في مرحلة PRE-REGISTERED/PROVISIONAL بانتظار مراجعة المالك قبل كتابة عدّاء Test E. الأشكال F1–F5 وschema الواصفات وتوقعات E1–E8 مجمّدة داخل الوثيقة.*
+*لا يوجد مهام نشطة حالياً — TASK-030 (Evaluation Specification v0.1 + Test E) أُغلق CONFIRMED بـPASS 16/16 ونُقل إلى completed.md. doc 18 صار المرجع الدائم لتدقيق تنفيذات D3/D4 القادمة.*
 
-> ✅ TASK-029 (D2 Evaluation Semantics Gate) أُغلق Confirmed 5/5 — وسجل مراجعته يضم حسم OQ-D2-1 اصطلاحيًا بملحق §7 بتوجيه المالك.
-
-> ✅ TASK-027 (Decision Layer Design Gate) أُغلق نهائيًا بعد تصحيحين بتوجيه المالك: إعادة صياغة §3.11 كمبدأ بلا معادلة (التزامًا بالبند 7)، وإضافة ربط Goal↔Channel بأسماء doc 10 الحرفية (`exposure`/`access`/`rel_supply`). التفاصيل في completed.md وسجل مراجعة doc 15 §4.
+> ✅ TASK-029 (D2) أُغلق Confirmed 5/5 مع حسم OQ-D2-1 اصطلاحيًا (§7). ✅ TASK-028 (D1) PASS 28/28.

@@ -1,0 +1,22 @@
+{
+	"world_id": "e_base",
+	"description": "Test E fixture world (doc 18 rev.4). Productions are binary-exact fractions so supply_share is bitwise-exact. Washington exists only as an access-target name; Consumer_R is the acting entity.",
+	"capabilities_declared": ["EUV_flow"],
+	"enables": {},
+	"entities": {
+		"Maker_Prime": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.75 }
+		},
+		"Fab_Secondary": {
+			"role": "producer_subject",
+			"produces": { "EUV_flow": 0.25 }
+		},
+		"Washington": {
+			"role": "access_target_placeholder"
+		},
+		"Consumer_R": {
+			"role": "deciding_entity"
+		}
+	}
+}

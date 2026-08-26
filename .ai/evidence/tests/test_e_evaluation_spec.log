@@ -1,0 +1,59 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TEST E - EVALUATION SPECIFICATION v0.1 ACCEPTANCE
+  Reference evaluator harness-local | doc18 rev.4 frozen
+============================================================
+
+---------------- RAW: weighted scores ----------------
+  G_F4W OPT_TRADE => 0.1750000000 | OPT_BASE => 0.0000000000
+----------------------------------------------
+
+-- L0: all six fixture goals load clean under V0-V7
+[PASS] L0 fixture goals all pass loader validation
+
+-- L: loader rejection probes (V-rules executable)
+[PASS] L1 unknown form rejected with exact reason
+[PASS] L2 form F5 rejected as structural-not-declarable
+[PASS] L3 F1 without scale=interval rejected
+[PASS] L4 F1 direction outside closed set rejected
+[PASS] L5 tampered tie_extension rejected (immutable)
+[PASS] L6 composite outside Model v1 set rejected
+[PASS] L7 non-saturated F2 variant rejected in v0.1
+
+-- E1: F1 monotonicity (declared interval scale)
+   D1A=0.2500000000 D1B=0.5000000000 diff=0.2500000000
+[PASS] E1 monotonicity holds under declared interval scale
+
+-- E2: F2 satisficing kink (floor=90 penalty=0.0625)
+   c(75)=-0.9375000000 c(90)=0.0000000000 c(120)=0.0000000000
+[PASS] E2 satisficing kink: below-floor deficit penalized at declared rate; at/above floor contributes zero
+
+-- E3: F3 ratio ceiling (ceiling=0.375 multiplier=10)
+   shares 0.7500/0.3125/0.2500 => c=-3.7500/0.0625/0.1250
+[PASS] E3 ratio ceiling: above-ceiling share penalized by declared multiplier; headroom linear without bonus
+
+-- E4: lexicographic vs weighted divergence
+   weighted=>OPT_TRADE net_TRADE=0.1750000000 | lex=>OPT_BASE sat_VECTOR_TRADE=[false, true]
+[PASS] E4 lexicographic refuses trade-off that weighted accepts - both forms earn membership
+
+-- E5: pareto maxima + section-7 extension
+   maxima={OPT_P1, OPT_P2} chosen=OPT_P1
+[PASS] E5 selects a maximal element deterministically via option_id ascending (doc17 section 7)
+
+-- E6: CE-5 twin actions (mandated acceptance)
+   descriptors identical=true scores identical=true decisions X/Y=ACT_TWIN_X/ACT_TWIN_X
+[PASS] E6 twin actions with identical descriptors yield bitwise-identical scores (Gate-2 path-neutrality)
+
+-- E7: evaluation identity blindness
+   base==renamed(after inverse map): true
+[PASS] E7 evaluation identity-blind: scores invariant under entity renaming (inverse-mapped)
+
+-- E8: read-only + determinism
+[PASS] E8 read-only evaluation, deterministic across independent loads
+
+============================================================
+  TEST E RESULT: PASS (16 checks)
+============================================================
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers
