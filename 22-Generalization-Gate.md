@@ -184,6 +184,8 @@ At line:1 char:114
    at: cleanup (core/object/object.cpp:2536)
 ``````
 
+> **تصريح bug بانر (rev.5):** سطر البانر في العدّاء (`test_g_generalization.gd` سطر 450) يطبع `doc22 rev.3 frozen` بنص ثابت (hardcoded) لم يُحدّث عند إضافة فحوصات rev.5. الدليل على أن الملف المُنفَّذ هو نسخة rev.5 الفعلية: (1) SHA256 للسكربت يطابق §8.3 حرفيًا، (2) اللوج يحتوي G7a/G7b/G7-twins/G7-coupling (غير موجودة في rev.3)، (3) عدد الفحوصات 18 لا 15. Bug تجميلي فقط — لا تأثير على صحة النتائج.
+
 ### 8.2 سلسلة المحاولات المؤرشفة (قاعدة rev.4d منفذة)
 
 | # | الملف | النتيجة |
@@ -230,7 +232,10 @@ Warnings:
 ### 8.5 تصريح نطاق commits
 
 - commit التسجيل المسبق: `7619cce` (doc22 فقط).
-- commit التنفيذ والإغلاق: runner + خمسة لوجات مؤرشفة + تعديل هذه الوثيقة + دورة الذاكرة — هاشه في رسالة التسليم؛ لا أي commit آخر يمس هذه الأدلة.
+- commits التنفيذ rev.4: `285d497` (rev.3 arithmetic fix) → `f6266b1` (closure evidence rev.4) → `fdc9940` (archival table corrected).
+- commit تنفيذ rev.5: `7f79f9d` — runner معدّل (F7A/F7B + G7-twins/coupling + A2 توحيد) + run05.log (PASS 18/18).
+- commit دورة الذاكرة rev.5: `ffd0f27` — تحديث هذه الوثيقة + state/tasks/handoff.
+- **commit الإصلاح الحالي (أدلة خام):** هاشه في رسالة الـcommit — إصلاح §8.5 ناقص + تصريح bug بانر rev.3 + تنظيف handoff.
 
 ---
 ---
