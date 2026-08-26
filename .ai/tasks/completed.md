@@ -4,6 +4,26 @@
 
 ---
 
+### [TASK-031] Planning Semantics Gate 1
+
+- **Status:** COMPLETE (CLOSED Confirmed — 5/5 CEs، صفر primitive، صفر كسر)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-030 (Spec v0.1 CONFIRMED), TASK-029 (D2), TASK-023 (Gate 2)
+- **Objective:** حسم السؤال الانتقالي بقرار المالك (Planning قبل D3): ما أقل تمثيل تنبؤي يتيح مقارنة الأفعال بنتائج مستقبلية دون primitive مسار؟
+- **Acceptance Criteria:**
+  - [x] العقد الثلاثي المجمد: Planner يتنبأ · Evaluation يقيّم · Decision يختار — «التفكير لا يلوث المحاكاة» (رفع P6 إلى عقد أمامي).
+  - [x] سلم مرشحين مجمد حرفيًا: (أ) declared-deltas → (ب) clone-and-replay → (ج) forward-models.
+  - [x] تصنيفات متوقعة مجمدة — **طابقت النتيجة 5/5 بلا كسر**.
+  - [x] P1=(أ) محليًا · P2/P4 تُعدم (أ) بنيويًا (الاكتمال + الآثار الشبكية) · P3=تكرار(ب)+gating بلا Plan object (وراثة Gate 2) · P5=حتمية بلا حرق Open.
+  - [x] النتيجة: **clone-and-replay للقواعد الموجودة على نسخة موسومة = الحد الأدنى الكافي** — صفر مفردات جديدة؛ (ج) رُفض بdeletion test (مصدر حقيقة ثانٍ).
+  - [x] §6 يحمل التزام Generalization/Behavioral Validation المستقبلي بنصه المجمد + قاعدة fixture-بلا-حل + سلّم الطبقات الرباعي.
+  - [x] صفر كود/Planner/integration — الإغلاق يتوقف توقفًا كاملًا؛ Spec v0.1 للتخطيط بأمر منفصل.
+- **Validation Method:**
+  مراجعة المالك للوثيقة التحليلية (بوابة بلا تشغيل)
+- **Evidence:** [`19-Planning-Semantics-Gate.md`](file:///c:/tmp/maestro%20engine/19-Planning-Semantics-Gate.md)
+
+---
+
 ### [TASK-030] Evaluation Specification v0.1 + Test E
 
 - **Status:** COMPLETE (CONFIRMED — Test E PASS 16/16)

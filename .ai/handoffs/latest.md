@@ -1,3 +1,24 @@
+- **Current Task:** TASK-031 (Planning Semantics Gate 1) — **CLOSED CONFIRMED 5/5 CEs**، توقف تام
+
+## 0. Planning Semantics Gate 1 — ملخص تنفيذي (الأحدث)
+
+**القرار الانتقالي للمالك:** Planning قبل D3 — لأن السلسلة تعرف «تقييم النتائج إن وصلت» ولا تعرف «ماذا يحدث للعالم لو نفذت X».
+
+**العقد الثلاثي:** Planner يتنبأ · Evaluation يقيّم · Decision يختار — ولا كاتب في WorldState أثناء التفكير (امتداد P6).
+
+**النتيجة: ✅ CONFIRMED 5/5 مطابقة للتوقعات المجمدة — صفر كسر:**
+- P1=(أ) declared-deltas كافية محليًا للحالة الأحادية
+- P2/P4 تُعدم (أ) **بنيويًا**: الاكتمال ضروري + الآثار الشبكية تطفو من التفاعل لا من الإعلان
+- P3 = iterated-(ب) + precondition gating — بلا Plan object (وراثة Gate 2 نصًا)
+- P5 = Confirmed-deterministic بلا حرق Open (الحتمية + L1 الأمامي: التنبؤ لا يحاكي نوايا الآخرين)
+- **(ب) clone-and-replay = الحد الأدنى الكافي** صفر مفردات جديدة · (ج) رُفض بdeletion test (مصدر حقيقة ثانٍ)
+
+**§6 التزام مسجل:** Generalization / Behavioral Validation Gate (أمر منفصل بعد بناء Planner مطابق لSpec) — سؤال قابل للقياس (اختلاف **بنية** المشكلة لا القيم) + قاعدة fixture-بلا-حل + سلّم الأدعياء: Gate→Semantics / Spec→Mechanism / ImplTests→Correctness / Generalization→Behavioral adequacy.
+
+**Evidence:** [`19-Planning-Semantics-Gate.md`](file:///c:/tmp/maestro%20engine/19-Planning-Semantics-Gate.md) — بوابة تحليلية بحت، الإغلاق يتوقف توقفًا كاملًا.
+
+---
+
 - **Current Task:** TASK-030 (Evaluation Specification v0.1 + Test E) — **CONFIRMED: PASS 16/16**، توقف تام
 
 ## 0. Spec v0.1 + Test E — ملخص تنفيذي (الأحدث)
