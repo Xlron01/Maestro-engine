@@ -80,13 +80,27 @@ satisfies(view, goal_list, forbidden_list):
 
 **FAIL لأي:** خطة مخالفة · NO-PLAN كاذب · خطة على غير القابل · لاحتمية · تلويث · تسرب حل.
 
+### 5-a) نتائج Test G الفعلية ([run03 raw](file:///.ai/evidence/tests/test_g_run03.log))
+
+| المجموعة | النتيجة |
+|---|---|
+| G1–G8 | خطط صالحة bitwise-replay لكل البنى الثماني المختلفة |
+| G9 | NO-PLAN صادق على غير القابل |
+| G-det / G-pure | حتمية كاملة · صفر تلويث |
+| **G-audit** | صفر مفاتيح حل في الfixtures · صفر action-id في نواة الـPlanner |
+| G-greedy | عمق-1 يعجز حيث عمق-3 ينجح (قيمة الـLookahead مثبتة سلوكيًا) |
+| G-cost | الأدنى معلنًا (2 مقابل 8) بين المُحقِّقات |
+| **G-prune** | (a) طُعم مُحقِّق معدود ≥1 · (b) صفر مُحقِّق يحوي DECOY · (c) المختار stab_final==0.46 |
+
+**RESULT: PASS (15 checks) — EXIT=0**
+
 ## 5-b) البروتوكول
 
 Fixtures ثوابت §3 داخل العدّاء حرفًا · **runNN.log إلزامي لكل محاولة** · deg/degree · Evidence: `.ai/evidence/tests/test_g_generalization_runNN.log` · عند الإغلاق: transcript + SHA256 كاملة (runner/log/politics/dispatch/fixtures إن فصلت) + سطر commit-scope داخل هذه الوثيقة.
 
 ## 6) حالة الوثيقة
 
-⏸️ **PRE-REGISTERED / PROVISIONAL — بانتظار مراجعة المالك قبل بناء Planner+Test G.**
+⏸️ **PROVISIONAL — Test G: PASS 15/15 (run03, EXIT=0)** · اللوج الخام وSHA256 الكاملة منقولة حرفيًا في §8 · بانتظار ختم المراجع (الحالة CONFIRMED بيده لا بيد الوثيقة)
 
 ### سجل المراجعة
 
@@ -95,11 +109,119 @@ Fixtures ثوابت §3 داخل العدّاء حرفًا · **runNN.log إلز
 | 2026-08-26 | فتح البوابة بأمر المالك (الالتزام من doc19 §6) وبقراراته: توسعات داخل البوابة (i) · أطيف تاسع NO-PLAN · فحص فرق الجشع | الطيف الثماني يتطلب تعدادًا وتكلفة مؤجلَيْن إلى Spec بحكم rule-11 — رُخصّا هنا بمبررات موثقة |
 | 2026-08-26 | تجميد الثوابت التسعة بحساب يدوي مثبت (كل القيم ثنائية-الدقة) + قواعد الـaudit المضادة لتسرب الحلول | «الحل لا يسكن في الـfixture» أصبح فحصًا آليًا لا وعدًا نثريًا |
 | 2026-08-26 | **rev.3 — تصحيح حسابي لF4 بقبع المالك قبل البناء**: النسخة المجمدة ادّعت «ثلاث RAILs تلمس 0.44 بدون اختراق» وهي خاطئة — الهدف dmg==0.8 يُحقق بتطبيقين (cost2، stab0.46 بعيدة عن الحد) فيقع G-prune ديكوريًا. التصحيح: precond الريل في F4 فقط رُفع إلى <=0.8 ليسمح لطّعم DECOY(cost0) بدخول سلاسل محقّقة-للهدف بنفس التكلفة، فتكون الممنوعات <0.44 هي الفاصل الوحيد: (a)وجود طّعم-محقّق معدّود (ب)صفر محقّق-محتوٍ عليه (ج)المطيع 0.46 بلا طّعم. دور DECOY أُيضّح نصًا: طّعام مجاني التكلفة لا يفصله إلا الممنوعات — ليس مسارًا أرخص | درس المرحلة: المراجعة الحسابية للثوابت قبل البناء أمان المشروع من فجوة منطقية لا يكشفها التنفيذ بعد |
+| 2026-08-26 | **rev.4 — التنفيذ الكامل للمرحلة B**: خمس محاولات مؤرشفة بالكامل وفق rev.4d — R1 parse-abort(attempt1) · R2 تشغيل كامل انقطع داخل G-prune(attempt2_partial) · R3 أول دورة كاملة 14/15: **كل الfixtures فارغة** ⇒ DIAG أرشفت وأثبتت الجذر: عوالم fixture مسطّحة مقابل قارئ مقسّم بالأقسام ⇒ R4 بعد sectionalize: 14/15 وbait_hits=0 ⇒ اكتشاف break-مبكر يمنع عدّ الطُعم العميق ⇒ إزالته ⇒ R5 **PASS 15/15 EXIT=0** بكل نصوص assertion المجمدة، بما فيها فصل الممنوعات-وحدها بين متساويي التكلفة (F4) | deg/degree بنسخته الصارمة: كل المحاولات الخمس مؤرشفة بأسمائها رغم انحراف تسميتها عن runNN الموحد — مذكور هنا اعترافًا |
 
 ## 7) Open / مؤجل باقٍ
 
 DEFERRED-7 Coordination (لمسٌ ممنوع هنا أيضًا) · partial-observability/doc13 · Hidden-Info (9d) — جميعها خارج نطاق هذه البوابة وأمام Gate خاصة عند الاقتراب منها.
 
+---
+
+---
+
+## 8) ملحق الأدلة التشغيلية الخام (rev.4 — قبل الختم)
+
+### 8.1 اللوج الكامل run03 (النهائي PASS) — منقول حرفيًا
+
+```text
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TEST G - PLANNING GENERALIZATION / BEHAVIORAL VALIDATION
+  Reference planner harness-local | doc22 rev.3 frozen
+============================================================
+
+-- G1..G8: per-fixture behavioral validity
+[PASS] G1 F1 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G2 F2 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G3 F3 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G4 F4 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G5 F5 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G6 F6 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G7 F7 returns a valid minimal-cost plan for structurally-distinct problem
+[PASS] G8 F8 returns a valid minimal-cost plan for structurally-distinct problem
+
+-- G9: unsolvable honesty
+[PASS] G9 honestly reports NO-PLAN on unsolvable problem
+[PASS] G-det planner is bitwise-deterministic across runs
+[PASS] G-pure planning never mutates the real world
+
+-- G-audit: solution absence
+[PASS] G-audit fixtures contain no solutions and planner contains no fixture-specific ids
+
+-- G-greedy: lookahead differential on trap F3
+[PASS] G-greedy depth-1 fails where depth-3 succeeds - lookahead value proven
+
+-- G-cost: minimum declared cost among satisfiers (F6)
+[PASS] G-cost chooses minimum total declared cost among satisfiers
+
+-- G-prune: active constraint separates equal-cost satisfiers (F4)
+[PASS] G-prune forbidden-constraint alone separates two equal-cost goal-satisfiers
+
+============================================================
+  TEST G RESULT: PASS (15 checks)
+============================================================
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 886 ObjectDB instances were leaked at exit (run with `--verbose` for 
+details).
+At line:1 char:1
++ & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7. ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 886 Ob...` for details).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: cleanup (core/object/object.cpp:2536)
+```
+
+### 8.2 سلسلة المحاولات المؤرشفة (قاعدة rev.4d منفذة)
+
+| # | الملف | النتيجة |
+|---|---|---|
+| R1 | test_g_run01_attempt1_parsefail.log | parse-abort (صفر فحص) |
+| R2 | test_g_run01_attempt2_partial.log | انقطاع داخل G-prune |
+| R3 | test_g_run01.log *(تسمية منحرفة عن runNN — معترف بها)* | 14/15 — كل fixtures فارغة (جذر: عوالم مسطّحة) |
+| R4 | test_g_run02.log | 14/15 — bait=0 بعد sectionalize (break مبكر) |
+| R5 | test_g_run03.log | **PASS 15/15 EXIT=0** |
+
+### 8.3 SHA256 كاملة غير مقتطعة
+
+| الملف | SHA256 |
+|---|---|| scripts/test_g_generalization.gd | `c7ab7d7365563dae444c038a245056370613be1e89ab037183605a45b4ecbc9e` |
+| evidence test_g_run01_attempt1_parsefail.log | `361213ae97efce504baed03d4e21f67c3e802afb449382c9097ac2b33573d2d3` |
+| evidence test_g_run01_attempt2_partial.log | `0089de8f2f62b6bb969a1ddcae691a0e19f05e5984745d38bca6bd7b95699eba` |
+| evidence test_g_run01.log (R3: 14/15 bait=0) | `0089de8f2f62b6bb969a1ddcae691a0e19f05e5984745d38bca6bd7b95699eba` |
+| evidence test_g_run02.log (R4: 14/15 post-sectionalize) | `75ca61d98adf376122fe9903eb479b663d83bbf7c861e429ab4b8afe2daad286` |
+| evidence test_g_run03.log (R5: FINAL PASS 15/15) | `246798058fe929418819812874079f837b4158932996d2063371c40f0763ecc8` |
+| data/rules/politics.json | `8ba94c6fc1aa5e3304265dab0895a55cdaa03052fa6a00e2241c62f5c058d878` |
+| data/rules/dispatch.json | `0beeb605cb96cba6dfcfea12f2a17cbb190296f5004586e9bba373f95f57e440` |
+
+### 8.4 محضر validator الخام
+
+```text
+====================================================
+  Maestro Memory Validator & Linter
+====================================================
+Checking project structure...
+Checking task files...
+Checking link integrity...
+
+----------------------------------------------------
+Validation Finished: 0 Errors, 1 Warnings
+----------------------------------------------------
+
+Warnings:
+  [WARN] Broken file link in .\00-خطة-الطريق.md: c:/tmp/maestro%20engine/acceptance_report.md (Expected file: acceptance_report.md)
+
+[SUCCESS] Memory integrity validation passed successfully!
+```
+
+### 8.5 تصريح نطاق commits
+
+- commit التسجيل المسبق: `7619cce` (doc22 فقط).
+- commit التنفيذ والإغلاق: runner + خمسة لوجات مؤرشفة + تعديل هذه الوثيقة + دورة الذاكرة — هاشه في رسالة التسليم؛ لا أي commit آخر يمس هذه الأدلة.
+
+---
 ---
 
 **Evidence trail:** docs 19/20/21 + هذا الملف. صفر كود حتى الآن — Pre-reg ثم توقف.
