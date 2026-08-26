@@ -16,7 +16,8 @@
   - [x] doc19 rev.3: تصحيح إيبيستيمي لأساس r6 (مؤشرات غير متحققة ليس ثبوتا) — §4-b لم تلمس.
   - [x] محضر validator الخام منقول داخل doc20.
 - **Validation Method:** مراجعة المالك + حكمه على مرشح-GAP
-- **Evidence:** [-Planning-Coverage-Mapping.md\](file:///c:/tmp/maestro%20engine/20-Planning-Coverage-Mapping.md)
+  - [x] **أحكام المالك المنفذة (إغلاق مشروط منجز)**: صف5/6 COVERED→**COMPOSED** (استشهاد غير كافٍ واستنتاج غير مكتوب) · صف7 → **DEFERRED(خيار ii)** بلا Gate — غير محسومة كcapability مستقلة حتى تصادم فعلي خلال Spec/tests · قاعدة مجمدة: لا Gate لاحتمال نطري قبل عجز/كاونتر-إكزامبل مثبت
+- **Evidence:** [`20-Planning-Coverage-Mapping.md`](file:///c:/tmp/maestro%20engine/20-Planning-Coverage-Mapping.md)
 
 ---
 
