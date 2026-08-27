@@ -10,12 +10,21 @@ class_name GameEventHandlers
 # تستقبل مرجع المحاكاة عبر setup() وتقرأ القواعد من sim.rules —
 # ممنوع الأرقام الحرفية خارج rules.get هنا أيضاً.
 # ============================================================
+# ENGINE TOUCH #1 (T3-Phase 1): إضافة delegation للـ economy module.
+# صفر منطق دومين هنا — تمرير استدعاء فقط.
+# ============================================================
+
+# T3 delegation — economy module (pure bridge, no domain logic here)
+const EconomyHandlers = preload("res://economy/economy_event_handlers.gd")
+var _economy: EconomyHandlers
 
 var sim: Node
 
 
 func setup(p_sim: Node) -> void:
 	sim = p_sim
+	_economy = EconomyHandlers.new()
+	_economy.setup(sim)
 
 
 # ---------------- Events ----------------
@@ -164,3 +173,14 @@ func job_agent_operation(job: Dictionary, _t: int) -> void:
 		sim.activation.activate(eid, "scheduled:agent_operation_check")
 		sim.operation_evaluations_count += 1
 		DecisionSystem.evaluate_operation(agent, agency, sim.rules)
+
+
+# ---------------- Economy Delegation (ENGINE TOUCH #1 — T3-Phase 1) ----------------
+# Pure bridge — صفر منطق دومين. كل الـlogic في economy/economy_event_handlers.gd.
+
+func job_economy_tick(job: Dictionary, t: int) -> void:
+	_economy.job_economy_tick(job, t)
+
+
+func evt_trade_offer(e: Dictionary, t: int) -> void:
+	_economy.evt_trade_offer(e, t)

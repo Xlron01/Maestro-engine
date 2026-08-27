@@ -2,15 +2,16 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-27
-- **Current Phase:** T4 Instrumentation Breakdown — **PROVISIONAL (بانتظار اعتماد المراجع)**
-- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T4
+- **Current Phase:** T3-Phase 1 Economy Representability — **PROVISIONAL (بانتظار اعتماد المراجع)**
+- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T3-Phase 1
 
 ## Current Objective
-تحديد مصدر استهلاك الوقت الحقيقي داخل المسار الساخن لـ `evaluate_indexed` عند N=50K (Profile 3). النتائج القياسية مدعومة بدليل مؤرشف، وكود الإنتاج رُدَّ لأصله بالكامل مع تطابق SHA256.
+تقييم قابلية تمثيل الاقتصاد داخل المحرك (T3-Phase 1). تم اختبار كافة الـ 8 capabilities وتمريرها بنجاح كامل بوضعية C1 (delegation) بميزانية 115 LOC مع الحفاظ على عزل المحرك بالكامل.
 
 ## Active Tasks
+- `T3-Phase 1`: Economy Representability Gate. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
+- `T4`: Instrumentation Breakdown — Profile 3 @ N=50K. (Status: COMPLETE, Evidence Saved, CONFIRMED)
 - `T2`: Simulation Scale Stress Test 1K-50K. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
-- `T4`: Instrumentation Breakdown — Profile 3 @ N=50K. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `TASK-034`: Generalization Gate. (Status: COMPLETE)
 - `TASK-030`: Evaluation Specification v0.1 + Test E. (Status: COMPLETE)
 - `TASK-004..029`: السلسلة السابقة. (موثقة)

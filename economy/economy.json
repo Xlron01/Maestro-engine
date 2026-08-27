@@ -1,0 +1,26 @@
+﻿{
+	"commodities": {
+		"wheat": { "base_price": 100.0, "price_floor": 20.0,  "price_ceiling": 500.0 },
+		"iron":  { "base_price": 200.0, "price_floor": 50.0,  "price_ceiling": 800.0 }
+	},
+	"initial_stocks": {
+		"alpha": { "wheat": 500.0, "iron": 200.0 },
+		"beta":  { "wheat": 400.0, "iron": 350.0 },
+		"gamma": { "wheat": 300.0, "iron": 150.0 }
+	},
+	"production_rates": {
+		"alpha": { "wheat": 50.0, "iron": 10.0 },
+		"beta":  { "wheat": 30.0, "iron": 40.0 },
+		"gamma": { "wheat": 20.0, "iron": 30.0 }
+	},
+	"consumption_rates": {
+		"alpha": { "wheat": 40.0, "iron": 15.0 },
+		"beta":  { "wheat": 35.0, "iron": 25.0 },
+		"gamma": { "wheat": 25.0, "iron": 20.0 }
+	},
+	"trade_routes": [
+		{ "from": "alpha", "to": "beta",  "commodity": "wheat", "volume": 10.0, "every_days": 30 },
+		{ "from": "beta",  "to": "gamma", "commodity": "iron",  "volume": 15.0, "every_days": 30 }
+	],
+	"shortage_threshold": 50.0
+}

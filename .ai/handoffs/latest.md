@@ -1,6 +1,24 @@
-- **Current Task:** T4 (Instrumentation Breakdown — Profile 3 @ N=50K) — **PROVISIONAL (بانتظار اعتماد المراجع)**
+- **Current Task:** T3-Phase 1 (Economy Representability Gate) — **PROVISIONAL (بانتظار اعتماد المراجع)**
 
-## 0. T4 — Instrumentation Cost Breakdown — ملخص (الأحدث)
+## 0. T3-Phase 1 — Economy Representability Gate — ملخص (الأحدث)
+
+تم التحقق من القابلية التمثيلية للأهداف الاقتصادية وتمرير 8 capabilities بنجاح كامل ومستقل بوضعية C1:
+
+- **T3-A (Capabilities):** تمرير 8/8 بنجاح كامل كـ **`DIRECTLY`** (Production, Consumption, Stock Balance, Trade, Supply/Demand, Dynamic Price, Price Clamp, Shortages).
+- **T3-B (Engine Touches):** تم إجراء تعديلين صريحين C1 دون لمس النواة:
+  - **ENGINE TOUCH #1:** إضافة 4 أسطر delegation نقية في `game_event_handlers.gd`.
+  - **ENGINE TOUCH #2:** تسجيل job_handlers لـ `economy_tick` في `dispatch.json`.
+- **T3-C (Authoring Cost):** منطق الاقتصاد المعزول يبلغ `115` LOC (مقارنة بحد الوقف 500 سطر)، وحجم البيانات `26` سطر JSON.
+- **Collisions:** تعارض وحيد `COLLISION #1` (قصر الـ dispatch على سكربت واحد) وتم حله بالـ delegation النقي.
+- **STOP-3:** لم يتم تفعيله (لا تعديل للنواة).
+
+**Evidence:** [`24-Economy-Representability.md`](file:///c:/tmp/maestro%20engine/24-Economy-Representability.md) • السجل الخام: [`.ai/evidence/tests/test_t3_economy_phase1_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t3_economy_phase1_run01.log) • SHA256: `e3ad4aa95a291fbb29efc255e14e5c38d54e612658e6d713018722bf60f6770e`
+
+---
+
+- **Current Task:** T4 (Instrumentation Breakdown — Profile 3 @ N=50K) — **CONFIRMED**
+
+## 0. T4 — Instrumentation Cost Breakdown — ملخص (سابق)
 
 تم تحليل المسار الساخن لـ `evaluate_indexed` (Profile 3) عند N=50,000 عبر instrumentation مؤقت وإزالته بالكامل مع تطابق SHA256 لكود الإنتاج:
 

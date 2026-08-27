@@ -17,7 +17,8 @@
 		"gdp_update": { "fn": "job_gdp_update" },
 		"military_readiness": { "fn": "job_military_readiness" },
 		"coup_risk_check": { "fn": "job_coup_risk_check" },
-		"agent_operation_check": { "fn": "job_agent_operation", "one_shot": true }
+		"agent_operation_check": { "fn": "job_agent_operation", "one_shot": true },
+		"economy_tick": { "fn": "job_economy_tick" }
 	},
 
 	"default_country_jobs": {

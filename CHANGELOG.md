@@ -5,13 +5,20 @@
 ## [2026-08-27]
 
 ### Added
+- **T3-Phase 1 (Economy Representability Gate) — PROVISIONAL (بانتظار اعتماد المراجع):**
+  - تمرير 8 capabilities بنجاح كامل كـ `DIRECTLY` (Production, Consumption, Stock Balance, Trade, Supply/Demand, Dynamic Price, Price Clamp, Shortages).
+  - كتابة وتطبيق منطق الاقتصاد المعزول بالكامل في `economy/economy_event_handlers.gd` و `economy/economy.json` بميزانية `115` LOC تنفيذي و`26` سطر JSON.
+  - إجراء تعديلين هيكليين بسيطين كـ **ENGINE TOUCH (C1)**: إضافة 4 أسطر delegation في `game_event_handlers.gd` وتجنيب المحرك internal state intrusion، وتسجيل job_handlers لـ `economy_tick` في `dispatch.json`.
+  - رصد تعارض وحيد `COLLISION #1` (قصر الـ dispatch على سكربت واحد) وحله معمارياً بالـ delegation النقي.
+  - حفظ السجل الخام للأدلة: `.ai/evidence/tests/test_t3_economy_phase1_run01.log` (SHA256: `e3ad4aa...`).
+
 - **Simulation Scale Stress Test Gate (T2) — PROVISIONAL (Awaiting Independent Review):**
   - وثيقة `23-Scale-Gate.md` وثّقت منهجية ونتائج اختبار T2 بالكامل بوضعية مؤقتة بانتظار المراجعة.
   - كتابة وتطبيق سكريبت البنشمارك المعتمد `scripts/test_t2_scale_simulation.gd` مع تصحيح صيغة الـ R في الكود لقياس 4 Profiles زمنية وذاكرية مختلفة عبر 5 نقاط متدرجة لعدد الكيانات ($N \in \{1K, 5K, 10K, 25K, 50K\}$).
   - حفظ السجل الخام للأدلة الفورية في مجلد الأدلة: `.ai/evidence/tests/test_t2_scale_simulation_run01.log`.
   - تحليل سلوك منحنيات النمو (Scaling Shapes): بعد تطبيق الصيغة الحسابية الصحيحة ($R = \frac{T_2/T_1}{N_2/N_1}$)، ثبت أن جميع قيم النمو تقع بدقة في النطاق $[0.94, 1.14]$ مما يؤكد نمواً خطياً مثلياً تماماً $O(N)$ دون أي anomalies أو تحذيرات نمو حقيقية.
 
-- **T4 Instrumentation Breakdown (Profile 3 @ N=50K) — PROVISIONAL (بانتظار اعتماد المراجع):**
+- **T4 Instrumentation Breakdown (Profile 3 @ N=50K) — CONFIRMED:**
   - تحليل مصادر استهلاك الوقت داخل `evaluate_indexed` عبر instrumentation مؤقت على `DerivedImportance.gd`.
   - النتائج: `dependency_neighborhood` يستهلك **74.34%** من وقت التقييم (19.1s من أصل 25.7s داخل دالة التقييم) — عنق الزجاجة المؤكد. `_maxpath_memoized` يستهلك 11.11% فقط بفضل cache hit rate 99.998%.
   - Timer Overhead: 0.12% من الوقت الكلي (مهمل بالكامل). فجوة 26.7s vs 27.8s موثقة كتباين بيئي (4%) مع استبعاد `build_world_index` في كلا القياسين.
