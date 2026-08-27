@@ -1,0 +1,27 @@
+=== T4 INSTRUMENTATION RUN LOG ===
+RUN_TIMESTAMP: 2026-08-27T05:09:01+03:00
+EXIT_CODE: 0
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+=== T4 INSTRUMENTATION RUN START ===
+TIMING_OVERHEAD | measuring cost of 600K Time.get_ticks_usec() calls...
+TIMING_OVERHEAD | total_us=31774 | per_call_pair_us=0.1059
+REP 0 | harness_us=26584204 | inst_total_us=25593361 | neigh_us=19016903 | maxpath_us=2833913 | loop_oh_us=3742545 | calls=299994 | hits=2999880 | misses=60
+REP 1 | harness_us=26785331 | inst_total_us=25784410 | neigh_us=19155476 | maxpath_us=2855578 | loop_oh_us=3773356 | calls=299994 | hits=2999880 | misses=60
+REP 2 | harness_us=26703813 | inst_total_us=25702936 | neigh_us=19121446 | maxpath_us=2843578 | loop_oh_us=3737912 | calls=299994 | hits=2999880 | misses=60
+REP 3 | harness_us=26726213 | inst_total_us=25726798 | neigh_us=19107438 | maxpath_us=2884727 | loop_oh_us=3734633 | calls=299994 | hits=2999880 | misses=60
+REP 4 | harness_us=26659701 | inst_total_us=25658244 | neigh_us=19050686 | maxpath_us=2860322 | loop_oh_us=3747236 | calls=299994 | hits=2999880 | misses=60
+
+--- MEDIAN INSTRUMENTATION RESULTS (N=50000, 5 reps) ---
+MEDIAN | harness_us        = 26703813
+MEDIAN | inst_total_us     = 25702936 (96.25% of harness)
+MEDIAN | neighborhood_us   = 19107438 (74.34% of total_eval)
+MEDIAN | maxpath_us        = 2855578 (11.11% of total_eval)
+MEDIAN | loop_overhead_us  = 3742545 (14.56% of total_eval)
+MEDIAN | calls_count       = 299994
+MEDIAN | memo_hits         = 2999880
+MEDIAN | memo_misses       = 60
+MEDIAN | timer_overhead_us = 31774 (0.12% of harness)
+=== T4 INSTRUMENTATION RUN END ===
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers

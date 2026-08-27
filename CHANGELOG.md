@@ -11,6 +11,14 @@
   - حفظ السجل الخام للأدلة الفورية في مجلد الأدلة: `.ai/evidence/tests/test_t2_scale_simulation_run01.log`.
   - تحليل سلوك منحنيات النمو (Scaling Shapes): بعد تطبيق الصيغة الحسابية الصحيحة ($R = \frac{T_2/T_1}{N_2/N_1}$)، ثبت أن جميع قيم النمو تقع بدقة في النطاق $[0.94, 1.14]$ مما يؤكد نمواً خطياً مثلياً تماماً $O(N)$ دون أي anomalies أو تحذيرات نمو حقيقية.
 
+- **T4 Instrumentation Breakdown (Profile 3 @ N=50K) — PROVISIONAL (بانتظار اعتماد المراجع):**
+  - تحليل مصادر استهلاك الوقت داخل `evaluate_indexed` عبر instrumentation مؤقت على `DerivedImportance.gd`.
+  - النتائج: `dependency_neighborhood` يستهلك **74.34%** من وقت التقييم (19.1s من أصل 25.7s داخل دالة التقييم) — عنق الزجاجة المؤكد. `_maxpath_memoized` يستهلك 11.11% فقط بفضل cache hit rate 99.998%.
+  - Timer Overhead: 0.12% من الوقت الكلي (مهمل بالكامل). فجوة 26.7s vs 27.8s موثقة كتباين بيئي (4%) مع استبعاد `build_world_index` في كلا القياسين.
+  - إزالة كاملة للـ instrumentation مع تحقق SHA256: `968556e...` مطابق للـ baseline bit-by-bit.
+  - حفظ السجل الخام: `.ai/evidence/tests/test_t4_instrumentation_run01.log` (SHA256: `b504746f...`).
+  - **ملاحظة:** التحسين المتوقع (62%، من 27.8s إلى ~10.5s) عبر تذاكر `dependency_neighborhood` على مستوى الـ observer هو **فرضية نظرية غير مختبرة فعلياً**.
+
 ## [2026-08-24]
 
 ### Added

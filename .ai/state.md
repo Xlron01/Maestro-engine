@@ -2,14 +2,15 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-27
-- **Current Phase:** Scale Stress Test (T2) — **PROVISIONAL (Awaiting Independent Review)**
-- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T2
+- **Current Phase:** T4 Instrumentation Breakdown — **PROVISIONAL (بانتظار اعتماد المراجع)**
+- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T4
 
 ## Current Objective
-توصيف الأداء الحركي للمحرك تحت حجم الكيانات المتدرج (T2) وإغلاق البوابة رقمياً. المحرك الأساسي مستقر ويسلك سلوكاً خطياً $O(N)$ مطلقاً.
+تحديد مصدر استهلاك الوقت الحقيقي داخل المسار الساخن لـ `evaluate_indexed` عند N=50K (Profile 3). النتائج القياسية مدعومة بدليل مؤرشف، وكود الإنتاج رُدَّ لأصله بالكامل مع تطابق SHA256.
 
 ## Active Tasks
-- `T2`: Simulation Scale Stress Test 1K-50K. (Status: COMPLETE, Evidence Saved)
+- `T2`: Simulation Scale Stress Test 1K-50K. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
+- `T4`: Instrumentation Breakdown — Profile 3 @ N=50K. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `TASK-034`: Generalization Gate. (Status: COMPLETE)
 - `TASK-030`: Evaluation Specification v0.1 + Test E. (Status: COMPLETE)
 - `TASK-004..029`: السلسلة السابقة. (موثقة)

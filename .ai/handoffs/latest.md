@@ -1,6 +1,26 @@
+- **Current Task:** T4 (Instrumentation Breakdown — Profile 3 @ N=50K) — **PROVISIONAL (بانتظار اعتماد المراجع)**
+
+## 0. T4 — Instrumentation Cost Breakdown — ملخص (الأحدث)
+
+تم تحليل المسار الساخن لـ `evaluate_indexed` (Profile 3) عند N=50,000 عبر instrumentation مؤقت وإزالته بالكامل مع تطابق SHA256 لكود الإنتاج:
+
+- **Timer Overhead:** 31,774 μs لـ 300K أزواج → 0.12% (مهمل).
+- **Harness vs Eval:** `inst_total_us`=25,702,936 μs = 96.25% من زمن الـ harness الكلي (26,703,813 μs).
+- **`dependency_neighborhood`:** 19,107,438 μs ← **74.34%** من وقت التقييم — عنق الزجاجة المؤكد.
+- **`_maxpath_memoized`:** 2,855,578 μs ← 11.11% (99.998% cache hit rate على 3M استدعاء).
+- **Loop & Call Overhead:** 3,742,545 μs ← 14.56%.
+- **Calls count:** 299,994 استدعاء لـ `dependency_neighborhood` (مطابق للحساب الاحتمالي).
+- **فجوة 26.7s vs 27.8s:** كلاهما يستبعد `build_world_index`؛ الفرق (4%) يعود لتباين بيئي بين تشغيل مخصص وتشغيل كامل لكل الـ profiles.
+- **فرق القياس الطفيف:** 2,625 μs = 0.01% (تجميع أخطاء التوقيت المستقل — مقبول).
+- **التحسين المحتمل (فرضية نظرية غير مختبرة):** تذاكر `dependency_neighborhood` على مستوى الـ observer قد توفر ~62% من وقت التقييم (من 27.8s إلى ~10.5s) — **يتطلب تنفيذاً فعلياً للتحقق**.
+
+**Evidence:** [`23-Scale-Gate.md §3-b`](file:///c:/tmp/maestro%20engine/23-Scale-Gate.md) • السجل الخام: [`.ai/evidence/tests/test_t4_instrumentation_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t4_instrumentation_run01.log) • SHA256: `b504746f03c4f07644be36fe2ac2c7479bfc92bc8d1eee2845a8e214af851608` • كود الإنتاج SHA256: `968556e010ec99cdb5b718dced0e4091ca7299154265a9915e8e4b05b5c8739b` (مطابق للـ baseline).
+
+---
+
 - **Current Task:** T2 (Simulation Scale Stress Test 1K-50K) — **PROVISIONAL (Awaiting Independent Review)**
 
-## 0. Simulation Scale Stress Test (T2) — ملخص (الأحدث)
+## 0. Simulation Scale Stress Test (T2) — ملخص (سابق)
 
 تم الانتهاء بنجاح من اختبار حجم وأداء المحرك (T2) عبر 4 مستويات قياس (Profiles 0-3) وحتى حجم 50,000 كيان بوضعية مؤقتة للمراجعة:
 - **Profile 0 (Structural):** $967,247\ \mu s$ عند $N=50K$ (أداء خطي مثالي $R \le 1.10$).
