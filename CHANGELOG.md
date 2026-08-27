@@ -5,11 +5,11 @@
 ## [2026-08-27]
 
 ### Added
-- **Simulation Scale Stress Test Gate (T2) — CLOSED (Pass Characterization):**
-  - وثيقة `23-Scale-Gate.md` وثّقت منهجية ونتائج اختبار T2 بالكامل.
-  - كتابة وتطبيق سكريبت البنشمارك المعتمد `scripts/test_t2_scale_simulation.gd` لقياس 4 Profiles زمنية وذاكرية مختلفة عبر 5 نقاط متدرجة لعدد الكيانات ($N \in \{1K, 5K, 10K, 25K, 50K\}$) مع تشغيل حتمي (seed ثابت ودورتي إحماء و5 دورات قياس).
+- **Simulation Scale Stress Test Gate (T2) — PROVISIONAL (Awaiting Independent Review):**
+  - وثيقة `23-Scale-Gate.md` وثّقت منهجية ونتائج اختبار T2 بالكامل بوضعية مؤقتة بانتظار المراجعة.
+  - كتابة وتطبيق سكريبت البنشمارك المعتمد `scripts/test_t2_scale_simulation.gd` مع تصحيح صيغة الـ R في الكود لقياس 4 Profiles زمنية وذاكرية مختلفة عبر 5 نقاط متدرجة لعدد الكيانات ($N \in \{1K, 5K, 10K, 25K, 50K\}$).
   - حفظ السجل الخام للأدلة الفورية في مجلد الأدلة: `.ai/evidence/tests/test_t2_scale_simulation_run01.log`.
-  - تحليل سلوك منحنيات النمو (Scaling Shapes): إثبات أن نمو التكلفة الزمنية يسلك سلوكاً خطياً $O(N)$ مطلقاً للطبقات الأساسية الثلاث ولطبقة الاشتقاق (DerivedImportance Targeted Recompute).
+  - تحليل سلوك منحنيات النمو (Scaling Shapes): بعد تطبيق الصيغة الحسابية الصحيحة ($R = \frac{T_2/T_1}{N_2/N_1}$)، ثبت أن جميع قيم النمو تقع بدقة في النطاق $[0.94, 1.14]$ مما يؤكد نمواً خطياً مثلياً تماماً $O(N)$ دون أي anomalies أو تحذيرات نمو حقيقية.
 
 ## [2026-08-24]
 

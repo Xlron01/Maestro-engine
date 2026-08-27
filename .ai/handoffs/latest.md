@@ -1,14 +1,14 @@
-- **Current Task:** T2 (Simulation Scale Stress Test 1K-50K) — **CLOSED (Pass Characterization)**
+- **Current Task:** T2 (Simulation Scale Stress Test 1K-50K) — **PROVISIONAL (Awaiting Independent Review)**
 
 ## 0. Simulation Scale Stress Test (T2) — ملخص (الأحدث)
 
-تم الانتهاء بنجاح من اختبار حجم وأداء المحرك (T2) عبر 4 مستويات قياس (Profiles 0-3) وحتى حجم 50,000 كيان:
-- **Profile 0 (Structural):** $967,247\ \mu s$ عند $N=50K$ (نمو خطي $O(N)$ مطلق بعد $N=1K$).
-- **Profile 1 (StateUpdate):** $275,116\ \mu s$ عند $N=50K$ (تحت 0.28 ثانية).
-- **Profile 2 (Relations):** $86,166\ \mu s$ عند $N=50K$ (تحت 0.09 ثانية).
-- **Profile 3 (DI-Targeted):** $27,805,199\ \mu s$ عند $N=50K$ (يمثل عنق الزجاجة الحسابية ولكن خطي بالكامل R=2.01).
+تم الانتهاء بنجاح من اختبار حجم وأداء المحرك (T2) عبر 4 مستويات قياس (Profiles 0-3) وحتى حجم 50,000 كيان بوضعية مؤقتة للمراجعة:
+- **Profile 0 (Structural):** $967,247\ \mu s$ عند $N=50K$ (أداء خطي مثالي $R \le 1.10$).
+- **Profile 1 (StateUpdate):** $275,116\ \mu s$ عند $N=50K$ (أداء خطي مثالي $R \le 1.09$).
+- **Profile 2 (Relations):** $86,166\ \mu s$ عند $N=50K$ (أداء خطي مثالي $R \le 1.14$).
+- **Profile 3 (DI-Targeted):** $27,805,199\ \mu s$ عند $N=50K$ (يمثل عنق زجاجة DI ولكنه خطي بالكامل $R \le 1.01$).
 - **التسريب والذاكرة:** صفر بالكامل ومستقر (mem_delta $\le 216\text{ bytes}$).
-- **حكم التوقف:** لا استمرار لـ 100K+، لم يتم تجاوز الـ Hard Stop (30s) مطلقاً.
+- **حكم التوقف:** لا استمرار لـ 100K+، لم يتم تجاوز الـ Hard Stop (30s) مطلقاً، ولا توجد أي تحذيرات حقيقية للـ Scaling-shape.
 
 **Evidence:** [`23-Scale-Gate.md`](file:///c:/tmp/maestro%20engine/23-Scale-Gate.md) • السجل الخام: [`.ai/evidence/tests/test_t2_scale_simulation_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t2_scale_simulation_run01.log)
 

@@ -244,6 +244,7 @@ func _run_all() -> void:
 	for profile in 4:
 		print("\n--- PROFILE %d (%s) ---" % [profile, PROFILE_NAMES[profile]])
 		var hard_stopped := false
+		var last_n := -1
 		var last_median := -1.0
 		var shape_violations := 0
 
@@ -268,8 +269,10 @@ func _run_all() -> void:
 
 			# Shape-stop check (secondary — logged, not fatal by itself)
 			var shape_note := ""
-			if last_median > 0.0:
-				var r := med / maxf(last_median, 1.0)
+			if last_median > 0.0 and last_n > 0:
+				var scale_ratio := float(n) / float(last_n)
+				var time_ratio := med / maxf(last_median, 1.0)
+				var r := time_ratio / scale_ratio
 				if r > SHAPE_R_LIMIT:
 					shape_violations += 1
 					shape_note = " | SHAPE_WARN R=%.2f (violation #%d)" % [r, shape_violations]
@@ -287,6 +290,7 @@ func _run_all() -> void:
 			])
 
 			last_median = med
+			last_n = n
 			# Hard Stop check (priority — halts further N for this profile)
 			if med > HARD_STOP_US:
 				print("HARD_STOP | N=%d | profile=%d | failure_reason=tick_median_exceeded_30s | median_us=%.0f" % [

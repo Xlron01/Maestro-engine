@@ -2,8 +2,8 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-27
-- **Current Phase:** Scale Stress Test (T2) — **CLOSED (Pass Characterization)**
-- **Current Step:** توقف — CONFIRMED بختم المالك على §8 و T2 وثّق بالكامل
+- **Current Phase:** Scale Stress Test (T2) — **PROVISIONAL (Awaiting Independent Review)**
+- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T2
 
 ## Current Objective
 توصيف الأداء الحركي للمحرك تحت حجم الكيانات المتدرج (T2) وإغلاق البوابة رقمياً. المحرك الأساسي مستقر ويسلك سلوكاً خطياً $O(N)$ مطلقاً.
