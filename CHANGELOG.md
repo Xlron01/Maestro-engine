@@ -10,7 +10,7 @@
   - كتابة وتطبيق منطق الاقتصاد المعزول بالكامل في `economy/economy_event_handlers.gd` و `economy/economy.json` بميزانية `115` LOC تنفيذي و`26` سطر JSON.
   - إجراء تعديلين هيكليين بسيطين كـ **ENGINE TOUCH (C1)**: إضافة 4 أسطر delegation في `game_event_handlers.gd` وتجنيب المحرك internal state intrusion، وتسجيل job_handlers لـ `economy_tick` في `dispatch.json`.
   - رصد تعارض وحيد `COLLISION #1` (قصر الـ dispatch على سكربت واحد) وحله معمارياً بالـ delegation النقي.
-  - حفظ السجل الخام للأدلة: `.ai/evidence/tests/test_t3_economy_phase1_run01.log` (SHA256: `e3ad4aa...`).
+  - حفظ السجل الخام للأدلة: `.ai/evidence/tests/test_t3_economy_phase1_run01.log` (SHA256: `59757866dda161ce8edcbe37d095a9be94566b6c22ce23c617778d85850d48b9`).
 
 - **Simulation Scale Stress Test Gate (T2) — PROVISIONAL (Awaiting Independent Review):**
   - وثيقة `23-Scale-Gate.md` وثّقت منهجية ونتائج اختبار T2 بالكامل بوضعية مؤقتة بانتظار المراجعة.

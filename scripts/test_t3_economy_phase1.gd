@@ -115,6 +115,7 @@ func _init() -> void:
 	print("  STOP-3 triggered  : NO")
 	print("  Architectural verdict: NONE — evidence package for human review")
 	print("=== T3-PHASE-1 TEST END ===")
+	proxy.free()
 	quit()
 
 func _make_proxy() -> Object:

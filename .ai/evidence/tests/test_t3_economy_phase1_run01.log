@@ -1,5 +1,5 @@
 === T3-PHASE-1 ECONOMY REPRESENTABILITY TEST RUN LOG ===
-RUN_TIMESTAMP: 2026-08-27T05:59:41+03:00
+RUN_TIMESTAMP: 2026-08-27T06:04:25+03:00
 EXIT_CODE: 0
 
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
@@ -35,8 +35,3 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
   Architectural verdict: NONE — evidence package for human review
 === T3-PHASE-1 TEST END ===
 [Dispatch] Registry loaded: 8 event handlers, 6 job handlers
-Godot_v4.7.2-stable_win64_console.exe : WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for 
-details).
-   at: cleanup (core/object/object.cpp:2536)
-ERROR: 1 resources still in use at exit (run with --verbose for details).
-   at: clear (core/io/resource.cpp:822)
