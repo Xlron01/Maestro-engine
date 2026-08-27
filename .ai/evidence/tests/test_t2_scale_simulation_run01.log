@@ -1,0 +1,38 @@
+﻿=== T2 SCALE STRESS TEST RAW LOG ===
+RUN_TIMESTAMP: 2026-08-27T04:09:21+03:00
+EXIT_CODE: 0
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+=== T2 SCALE STRESS TEST START ===
+ENV | seed=20240826 | git=4af89243ab0fe0a897c2efa277ccc19d47777f19 | godot=4.7.2-stable (official) | static_mem_baseline=25334109
+
+--- PROFILE 0 (Structural) ---
+RESULT | N=1000 | profile=0 | median_us=16604 | min_us=15717 | max_us=22222 | mem_delta=216 | raw=[22222, 16604, 15911, 16873, 15717]
+RESULT | N=5000 | profile=0 | median_us=91530 | min_us=88151 | max_us=92406 | mem_delta=0 | raw=[88286, 92406, 92016, 91530, 88151] | SHAPE_WARN R=5.51 (violation #1)
+RESULT | N=10000 | profile=0 | median_us=181708 | min_us=176968 | max_us=183836 | mem_delta=0 | raw=[179849, 183836, 182639, 176968, 181708]
+RESULT | N=25000 | profile=0 | median_us=461366 | min_us=452839 | max_us=467569 | mem_delta=0 | raw=[455011, 461366, 467569, 462366, 452839]
+RESULT | N=50000 | profile=0 | median_us=967247 | min_us=905610 | max_us=1190750 | mem_delta=0 | raw=[905610, 913012, 967247, 1190750, 1062471]
+
+--- PROFILE 1 (StateUpdate) ---
+RESULT | N=1000 | profile=1 | median_us=4651 | min_us=4567 | max_us=5877 | mem_delta=152 | raw=[4643, 4899, 5877, 4567, 4651]
+RESULT | N=5000 | profile=1 | median_us=25182 | min_us=24501 | max_us=27285 | mem_delta=0 | raw=[26590, 27285, 24867, 25182, 24501] | SHAPE_WARN R=5.41 (violation #1)
+RESULT | N=10000 | profile=1 | median_us=53526 | min_us=50926 | max_us=58236 | mem_delta=0 | raw=[54530, 52176, 53526, 50926, 58236]
+RESULT | N=25000 | profile=1 | median_us=145425 | min_us=136871 | max_us=149324 | mem_delta=0 | raw=[141028, 136871, 147816, 149324, 145425]
+RESULT | N=50000 | profile=1 | median_us=275116 | min_us=274901 | max_us=283278 | mem_delta=0 | raw=[275116, 274901, 276604, 283278, 274979]
+
+--- PROFILE 2 (Relations) ---
+RESULT | N=1000 | profile=2 | median_us=1391 | min_us=1323 | max_us=1500 | mem_delta=152 | raw=[1500, 1386, 1391, 1397, 1323]
+RESULT | N=5000 | profile=2 | median_us=7909 | min_us=7502 | max_us=10624 | mem_delta=0 | raw=[7909, 7502, 10624, 9185, 7717] | SHAPE_WARN R=5.69 (violation #1)
+RESULT | N=10000 | profile=2 | median_us=16844 | min_us=16501 | max_us=17760 | mem_delta=0 | raw=[17760, 16844, 16971, 16568, 16501]
+RESULT | N=25000 | profile=2 | median_us=41498 | min_us=40283 | max_us=42658 | mem_delta=0 | raw=[41498, 41757, 40433, 42658, 40283]
+RESULT | N=50000 | profile=2 | median_us=86166 | min_us=84922 | max_us=90135 | mem_delta=0 | raw=[84922, 90135, 86166, 86535, 85146]
+
+--- PROFILE 3 (DI-Targeted) ---
+RESULT | N=1000 | profile=3 | median_us=565592 | min_us=553748 | max_us=581610 | mem_delta=152 | raw=[575603, 563723, 565592, 581610, 553748]
+RESULT | N=5000 | profile=3 | median_us=2771702 | min_us=2754230 | max_us=3026008 | mem_delta=0 | raw=[3026008, 2937340, 2771702, 2754230, 2758351] | SHAPE_WARN R=4.90 (violation #1)
+RESULT | N=10000 | profile=3 | median_us=5535711 | min_us=5506161 | max_us=5549064 | mem_delta=0 | raw=[5535711, 5527103, 5539354, 5506161, 5549064]
+RESULT | N=25000 | profile=3 | median_us=13821473 | min_us=13806483 | max_us=13872679 | mem_delta=0 | raw=[13867778, 13806483, 13872679, 13820201, 13821473]
+RESULT | N=50000 | profile=3 | median_us=27805199 | min_us=27746345 | max_us=28428964 | mem_delta=0 | raw=[27792742, 27746345, 28428964, 28299740, 27805199]
+=== T2 SCALE STRESS TEST END ===
+[Dispatch] Registry loaded: 8 event handlers, 5 job handlers
