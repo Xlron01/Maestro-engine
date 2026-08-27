@@ -1,0 +1,41 @@
+=== BASELINE SCENARIOTEST RUN LOG ===
+RUN_TIMESTAMP: 2026-08-27T06:03:15+03:00
+COMMAND: & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe" --headless --script scripts/ScenarioTest.gd
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  PHASE 2 SCENARIO TEST — Maestro Engine
+  seed=12345 | steps=90
+============================================================
+
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[PASS] TEST 1 — Baseline Determinism
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[PASS] TEST 2 — Save/Load Continuity
+[PASS] TEST 3 — Schema Version Guard
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[PASS] TEST 4 — State Checksum (Regression Anchor)
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+[PASS] TEST 5 — Coup Risk & Reusable Weighting Evaluation
+
+============================================================
+  ALL TESTS PASSED (5/5)
+============================================================
+
+[Dispatch] Registry loaded: 8 event handlers, 6 job handlers
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 74 ObjectDB instances were leaked at exit (run with `--verbose` for 
+details).
+At line:2 char:1
++ & $godot --headless --script scripts/ScenarioTest.gd 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 74 Obj...` for details).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 8 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

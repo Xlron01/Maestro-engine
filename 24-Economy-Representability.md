@@ -83,6 +83,7 @@ $$\text{Production} \to \text{Consumption} \to \text{Stock} \to \text{Trade} \to
    - النتيجة الآن: **خروج نظيف بالكامل بنسبة 100% (0 memory leaks)**.
 2. **تسريب النواة الأساسية (مشكلة موروثة معروفة):**
    - عند تشغيل سكريبتات النواة الموروثة مثل [`ScenarioTest.gd`](file:///c:/tmp/maestro%20engine/scripts/ScenarioTest.gd) يظهر تسريب موروث من الـ baseline يبلغ (74 ObjectDB leaked / 8 resources still in use) ناتج عن طريقة خروج السكريبتات المجدولة.
+   - **ملف أدلة الـ baseline مسبق الوجود:** [`.ai/evidence/tests/test_baseline_scenariotest_exit_leaks.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_baseline_scenariotest_exit_leaks.log) (SHA256: `f3251a29f577a03f949af29a0a83e0062adb1c38583de2866dc28991ccfac982`).
    - هذا يثبت أن موديول الاقتصاد المكتوب حديثاً (`economy_event_handlers.gd`) حتمي بالكامل، ويعتمد فقط على مراجع من نوع `RefCounted` وجداول بيانات تُنظف تلقائياً دون المساهمة في تسريب الذاكرة مطلقاً.
 
 ---
