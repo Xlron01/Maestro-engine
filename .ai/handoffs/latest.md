@@ -1,6 +1,22 @@
+- **Current Task:** T2 (Simulation Scale Stress Test 1K-50K) — **CLOSED (Pass Characterization)**
+
+## 0. Simulation Scale Stress Test (T2) — ملخص (الأحدث)
+
+تم الانتهاء بنجاح من اختبار حجم وأداء المحرك (T2) عبر 4 مستويات قياس (Profiles 0-3) وحتى حجم 50,000 كيان:
+- **Profile 0 (Structural):** $967,247\ \mu s$ عند $N=50K$ (نمو خطي $O(N)$ مطلق بعد $N=1K$).
+- **Profile 1 (StateUpdate):** $275,116\ \mu s$ عند $N=50K$ (تحت 0.28 ثانية).
+- **Profile 2 (Relations):** $86,166\ \mu s$ عند $N=50K$ (تحت 0.09 ثانية).
+- **Profile 3 (DI-Targeted):** $27,805,199\ \mu s$ عند $N=50K$ (يمثل عنق الزجاجة الحسابية ولكن خطي بالكامل R=2.01).
+- **التسريب والذاكرة:** صفر بالكامل ومستقر (mem_delta $\le 216\text{ bytes}$).
+- **حكم التوقف:** لا استمرار لـ 100K+، لم يتم تجاوز الـ Hard Stop (30s) مطلقاً.
+
+**Evidence:** [`23-Scale-Gate.md`](file:///c:/tmp/maestro%20engine/23-Scale-Gate.md) • السجل الخام: [`.ai/evidence/tests/test_t2_scale_simulation_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t2_scale_simulation_run01.log)
+
+---
+
 - **Current Task:** TASK-034 (Generalization Gate) — **PASS 18/18 · PROVISIONAL بانتظار الختم**
 
-## 0. Stage 3 — Coverage Mapping — ملخص (الأحدث)
+## 0. Stage 3 — Coverage Mapping — ملخص (سابق)
 
 الملك أنفذ أول 3 صفوف نموذجيًا، وأكملنا الباقي (9 إجمالًا) بأحكام مصنفة واستشهاد حرفي:
 - COVERED=6 (الأصف 1،2،3،5،6،8 + 9c R3)
