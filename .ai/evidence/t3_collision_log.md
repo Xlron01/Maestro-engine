@@ -66,3 +66,19 @@ COLLISION #2
 - **نوع التعديل:** إضافة "economy_v2_tick" في job_handlers و "Economy_Shortage_Occurred" في event_handlers.
 - **سبب الضرورة:** تسجيل الدوال المقابلة في الـ Registry لتمكين المحاكاة من عمل dispatch لها.
 
+---
+
+## COLLISION #3 — Clock Interface Integration Mismatch
+
+```
+COLLISION #3
+- Requirement: تمرير وقت التيك الحالي للحدث المرسل "Economy_Shortage_Occurred" عبر EventQueue.
+- Attempted representation: استخدام حقل `_sim.clock.current_time` داخل economy_event_handlers.gd بناءً على تعريف الـ Mock في الهارنس.
+- Result: تعطل المحاكي الشامل (ScenarioTest.gd) بسبب خطأ Invalid access لأن SimClock.gd الحقيقية لا تملك حقل current_time بل تعتمد الدالة total_days().
+- Preliminary classification: C1 (Integration Mismatch).
+- Rationale: تم تصحيح الكود بالانتقال من استخدام الحقل الموهوم (Mock field) إلى الواجهة الحقيقية المعتمدة في النواة:
+  (1) في economy_event_handlers.gd: استدعاء total_days() بدلاً من current_time.
+  (2) في الهارنس test_t3_economy_phase2.gd: إضافة دالة total_days() لكائن الـ Mock لضمان تطابق الواجهة.
+- Evidence: SimClock.gd (total_days()), economy_event_handlers.gd (_detect_shortages())
+- Final classification: C1 (PROVISIONAL — بانتظار مراجعة المراجع)
+```
