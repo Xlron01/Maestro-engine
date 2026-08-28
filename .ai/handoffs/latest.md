@@ -1,18 +1,36 @@
-- **Current Task:** T3-Phase 1 (Economy Representability Gate) — **PROVISIONAL (بانتظار اعتماد المراجع)**
+- **Current Task:** T4.5 (Scale Optimisation — Neighborhood Caching & Re-benchmarking) — **PROVISIONAL (بانتظار اعتماد المراجع)**
 
-## 0. T3-Phase 1 — Economy Representability Gate — ملخص (الأحدث)
+## 0. T4.5 — Scale Optimisation (Neighborhood Caching) — ملخص (الأحدث)
 
-تم التحقق من القابلية التمثيلية للأهداف الاقتصادية وتمرير 8 capabilities بنجاح كامل ومستقل بوضعية C1:
+تم حل مشكلة استهلاك الدالة `dependency_neighborhood` لـ 74.34% من زمن المحاكاة بنجاح عبر التخزين المؤقت (Caching) على مستوى المراقب (Observer):
+- **التحسين الفعلي المقاس:** النزول بزمن الت update لـ $N=50,000$ (Profile 3) من **28.289 ثانية** (Baseline) إلى **10.684 ثانية** (Optimized) — أي **بنسبة تحسين قدرها 62.23%**، مطابقة للتوقعات النظرية تماماً.
+- **سلامة الذاكرة:** صفر ObjectDB leaks عند الخروج بفضل التنظيف اليدوي للوكلاء.
+- **الاختبارات الرجعية:** نجاح كامل لجميع اختبارات النواة (5/5 ScenarioTest) واختبارات تكامل Relevance (7/7 Pass).
 
-- **T3-A (Capabilities):** تمرير 8/8 بنجاح كامل كـ **`DIRECTLY`** (Production, Consumption, Stock Balance, Trade, Supply/Demand, Dynamic Price, Price Clamp, Shortages).
-- **T3-B (Engine Touches):** تم إجراء تعديلين صريحين C1 دون لمس النواة:
-  - **ENGINE TOUCH #1:** إضافة 4 أسطر delegation نقية في `game_event_handlers.gd`.
-  - **ENGINE TOUCH #2:** تسجيل job_handlers لـ `economy_tick` في `dispatch.json`.
-- **T3-C (Authoring Cost):** منطق الاقتصاد المعزول يبلغ `115` LOC (مقارنة بحد الوقف 500 سطر)، وحجم البيانات `26` سطر JSON.
-- **Collisions:** تعارض وحيد `COLLISION #1` (قصر الـ dispatch على سكربت واحد) وتم حله بالـ delegation النقي.
-- **STOP-3:** لم يتم تفعيله (لا تعديل للنواة).
+**الأدلة:**
+- لوج البداية (Baseline): [`.ai/evidence/tests/test_t2_scale_simulation_run02_baseline.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t2_scale_simulation_run02_baseline.log) • SHA256: `3C97A14069090D0A51022CFA2573A3B911608831F1CA32A7F817B7328907FA38`
+- لوج النهاية (Optimized): [`.ai/evidence/tests/test_t2_scale_simulation_run02_optimized.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t2_scale_simulation_run02_optimized.log) • SHA256: `37A99C1C02CF3258FA4B37F486FAFA0CA4CC561F098B32285E53595BD5850857`
+- التقرير المعماري: [`26-Scale-Optimisation-T4.5.md`](file:///C:/Users/ahmed/.gemini/antigravity/brain/fca07997-9f76-49aa-a610-a7a015042f4f/26-Scale-Optimisation-T4.5.md)
 
-**Evidence:** [`24-Economy-Representability.md`](file:///c:/tmp/maestro%20engine/24-Economy-Representability.md) • السجل الخام: [`.ai/evidence/tests/test_t3_economy_phase1_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t3_economy_phase1_run01.log) • SHA256: `59757866dda161ce8edcbe37d095a9be94566b6c22ce23c617778d85850d48b9`
+---
+
+- **Current Task:** T3 (Economy Representability & Feedback — Phase 1 & 2) — **PROVISIONAL (بانتظار اعتماد المراجع)**
+
+## 0. T3 — Economy Domain (Phase 1 & Phase 2) — ملخص
+
+تم تمثيل دومين الاقتصاد وعزله، وربطه بالنواة رسمياً، وإضافة حلقات الـ Feedback والاستثمار المتراكم:
+- **T3-Phase 1:** تمرير 8 capabilities بنجاح كامل كـ `DIRECTLY` بميزانية 115 LOC.
+- **T3-Phase 2:** تنفيذ الاستثمار ( wheat > 600)، الـ Feedback Read (الاستقرار يؤثر على الإنتاج)، والـ Feedback Write عبر Events (حدث shortage يخفض الاستقرار بنسبة 0.05 عبر النواة لضمان الحدود المعمارية) بـ 14/14 PASS.
+- **Reusability:** تشغيل دومين مستقل تماماً للفحم (Coal v2) مع قمح v1 دون تداخل.
+- **إجمالي الـ Engine Touches:** 2 ملف فقط (`game_event_handlers.gd` و `dispatch.json`).
+- **الميزانية المطبقة:** 165 LOC فقط لـ Phase 2 (من ميزانية 500 LOC).
+
+**الأدلة:**
+- التقرير المعماري لـ Phase 1: [`24-Economy-Representability.md`](file:///C:/Users/ahmed/.gemini/antigravity/brain/fca07997-9f76-49aa-a610-a7a015042f4f/24-Economy-Representability.md)
+- التقرير المعماري لـ Phase 2: [`25-Economy-Feedback-Reusability.md`](file:///C:/Users/ahmed/.gemini/antigravity/brain/fca07997-9f76-49aa-a610-a7a015042f4f/25-Economy-Feedback-Reusability.md)
+- لوج اختبارات Phase 2: [`.ai/evidence/tests/test_t3_economy_phase2_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t3_economy_phase2_run01.log) • SHA256: `576F268F2FD27873904D9DB620FCDA4ED22DFAC533304446BA801411E11F6ED2`
+
+---
 
 ---
 

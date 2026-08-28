@@ -1,17 +1,19 @@
 # CURRENT STATE
 
 ## Metadata
-- **Last Updated:** 2026-08-27
-- **Current Phase:** T3-Phase 1 Economy Representability — **PROVISIONAL (بانتظار اعتماد المراجع)**
-- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T3-Phase 1
+- **Last Updated:** 2026-08-29
+- **Current Phase:** T4.5 (Scale Optimisation) — **PROVISIONAL (بانتظار اعتماد المراجع)**
+- **Current Step:** توقف — بانتظار مراجعة واعتماد المراجع لـ T4.5 و T3 (Phase 1 & 2)
 
 ## Current Objective
-تقييم قابلية تمثيل الاقتصاد داخل المحرك (T3-Phase 1). تم اختبار كافة الـ 8 capabilities وتمريرها بنجاح كامل بوضعية C1 (delegation) بميزانية 115 LOC مع الحفاظ على عزل المحرك بالكامل.
+تنفيذ وتحسين أداء المحاكاة تحت الضغط عند المقاييس الكبيرة (T2/T4/T4.5) مع دمج دومين الاقتصاد وعزل منطق وحلقات التغذية الراجعة بالكامل. تم إنجاز تحسين الذاكرة المخبئية للجوار (caching of dependency_neighborhood) بنسبة تحسين 62.23% عند N=50K، وتم تمرير 14/14 اختباراً للاقتصاد بنجاح.
 
 ## Active Tasks
+- `T4.5`: Scale Optimisation (Neighborhood Caching). (Status: COMPLETE, Evidence Saved, PROVISIONAL)
+- `T3-Phase 2`: Economy Feedback & Reusability. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `T3-Phase 1`: Economy Representability Gate. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
-- `T4`: Instrumentation Breakdown — Profile 3 @ N=50K. (Status: COMPLETE, Evidence Saved, CONFIRMED)
-- `T2`: Simulation Scale Stress Test 1K-50K. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
+- `T4`: Instrumentation Breakdown. (Status: COMPLETE, Evidence Saved, CONFIRMED)
+- `T2`: Simulation Scale Stress Test. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `TASK-034`: Generalization Gate. (Status: COMPLETE)
 - `TASK-030`: Evaluation Specification v0.1 + Test E. (Status: COMPLETE)
 - `TASK-004..029`: السلسلة السابقة. (موثقة)

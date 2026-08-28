@@ -212,6 +212,7 @@ static func build_world_index(world: Dictionary) -> Dictionary:
 		"enables": world.get("enables", {}),
 		"supply": supply,
 		"maxpath": {},
+		"dependency_neighborhoods": {},
 	}
 
 
@@ -251,7 +252,15 @@ static func evaluate_indexed(index: Dictionary, observer_name: String, target_na
 	var observer: Dictionary = entities.get(observer_name, {})
 	var target: Dictionary = entities.get(target_name, {})
 	var cycles: Array = []
-	var neighborhood := dependency_neighborhood(observer.get("depends_on", {}), enables)
+	if not index.has("dependency_neighborhoods"):
+		index["dependency_neighborhoods"] = {}
+	var neighborhoods_cache: Dictionary = index["dependency_neighborhoods"]
+	var neighborhood: Dictionary
+	if neighborhoods_cache.has(observer_name):
+		neighborhood = neighborhoods_cache[observer_name]
+	else:
+		neighborhood = dependency_neighborhood(observer.get("depends_on", {}), enables)
+		neighborhoods_cache[observer_name] = neighborhood
 	var depends_on: Dictionary = observer.get("depends_on", {})
 	var domestic_capacity: Dictionary = observer.get("domestic_capacity", {})
 	var memo: Dictionary = index["maxpath"]

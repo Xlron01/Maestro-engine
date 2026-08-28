@@ -9,7 +9,8 @@
 		"Military_Spending_Increase": "evt_noop",
 		"Economic_Investment": "evt_noop",
 		"Coup_Attempt": "evt_coup_attempt",
-		"Agent_Exposed": "evt_agent_exposed"
+		"Agent_Exposed": "evt_agent_exposed",
+		"Economy_Shortage_Occurred": "evt_economy_shortage_occurred"
 	},
 
 	"job_handlers": {
@@ -18,8 +19,10 @@
 		"military_readiness": { "fn": "job_military_readiness" },
 		"coup_risk_check": { "fn": "job_coup_risk_check" },
 		"agent_operation_check": { "fn": "job_agent_operation", "one_shot": true },
-		"economy_tick": { "fn": "job_economy_tick" }
+		"economy_tick": { "fn": "job_economy_tick" },
+		"economy_v2_tick": { "fn": "job_economy_v2_tick" }
 	},
+
 
 	"default_country_jobs": {
 		"population_update": { "every": 30 },

@@ -1,4 +1,4 @@
-﻿# T3-Phase 1 — Collision Log
+# T3-Phase 1 — Collision Log
 
 ## COLLISION #1 — Single-Script Dispatch
 
@@ -33,3 +33,36 @@ COLLISION #1
   أي job_name غير مسجل يُسقط صامتاً في _run_scheduled_job()
 - **المحتوى قبل:** job_handlers بـ 5 entries
 - **المحتوى بعد:** job_handlers بـ 6 entries (+ "economy_tick")
+
+---
+
+## T3-Phase 2 — Collision Log
+
+## COLLISION #2 — Core State Write-Access Boundary
+
+```
+COLLISION #2
+- Requirement: التفاعل الاقتصادي (shortage) يحتاج إلى تعديل حقل الـ stability في WorldState (Core State).
+- Attempted representation: تعديل stability للدولة المتضررة مباشرة من داخل موديول الاقتصاد (economy_event_handlers.gd).
+- Result: الكتابة المباشرة في حقول WorldState من موديول خارجي غير مسموحة معماريًا للحفاظ على عزل النواة ومنع التداخل المباشر.
+- Preliminary classification: C1 (Architectural Constraint).
+- Rationale: حُلّ التعارض بتوجيه الكتابة من خلال Event Queue:
+  (1) موديول الاقتصاد يدفع حدث "Economy_Shortage_Occurred" بالبيانات المطلوبة.
+  (2) النواة المخوّلة (game_event_handlers.gd) تلتقط الحدث وتعدّل stability للدولة المعنية.
+  هذا يحمي عزل الاقتصاد تمامًا ويبقي التعديل خاضعًا لسيطرة المحرك.
+- Evidence: economy_event_handlers.gd (_detect_shortages()), game_event_handlers.gd (evt_economy_shortage_occurred())
+- Final classification: C1 (معتمد بقرار المراجع — 2026-08-27)
+```
+
+### ENGINE TOUCH #3 — game_event_handlers.gd (Phase 2 Additions)
+- **الملف:** `scripts/game_event_handlers.gd`
+- **نوع التعديل:** إضافة delegation لـ economy_v2 + handler معالجة حدث الـ shortage.
+- **سبب الضرورة:**
+  1. تمرير `job_economy_v2_tick` للـ Coal Handler المستقل.
+  2. استقبال `Economy_Shortage_Occurred` وتعديل stability للدولة بشكل رسمي بدلاً من الكتابة المباشرة من الاقتصاد.
+
+### ENGINE TOUCH #4 — dispatch.json (Phase 2 Additions)
+- **الملف:** `data/rules/dispatch.json`
+- **نوع التعديل:** إضافة "economy_v2_tick" في job_handlers و "Economy_Shortage_Occurred" في event_handlers.
+- **سبب الضرورة:** تسجيل الدوال المقابلة في الـ Registry لتمكين المحاكاة من عمل dispatch لها.
+

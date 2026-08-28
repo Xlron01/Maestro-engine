@@ -11,12 +11,17 @@ class_name GameEventHandlers
 # ممنوع الأرقام الحرفية خارج rules.get هنا أيضاً.
 # ============================================================
 # ENGINE TOUCH #1 (T3-Phase 1): إضافة delegation للـ economy module.
+# ENGINE TOUCH #3 (T3-Phase 2): إضافة delegation لـ economy_v2 + handler للحدث Economy_Shortage_Occurred.
 # صفر منطق دومين هنا — تمرير استدعاء فقط.
 # ============================================================
 
-# T3 delegation — economy module (pure bridge, no domain logic here)
+# T3-Phase 1 delegation
 const EconomyHandlers = preload("res://economy/economy_event_handlers.gd")
 var _economy: EconomyHandlers
+
+# T3-Phase 2 delegation — economy v2 (coal, independent instance)
+const EconomyV2Handlers = preload("res://economy/economy_v2_handlers.gd")
+var _economy_v2: EconomyV2Handlers
 
 var sim: Node
 
@@ -25,6 +30,9 @@ func setup(p_sim: Node) -> void:
 	sim = p_sim
 	_economy = EconomyHandlers.new()
 	_economy.setup(sim)
+	_economy_v2 = EconomyV2Handlers.new()
+	_economy_v2.setup(sim)
+
 
 
 # ---------------- Events ----------------
@@ -184,3 +192,27 @@ func job_economy_tick(job: Dictionary, t: int) -> void:
 
 func evt_trade_offer(e: Dictionary, t: int) -> void:
 	_economy.evt_trade_offer(e, t)
+
+
+# ---------------- Economy v2 Delegation (ENGINE TOUCH #3 — T3-Phase 2) ----------------
+# Pure bridge for coal module.
+
+func job_economy_v2_tick(job: Dictionary, t: int) -> void:
+	_economy_v2.job_economy_v2_tick(job, t)
+
+
+# ---------------- Economy Feedback Handler (ENGINE TOUCH #3 — T3-Phase 2) ----------------
+# Economy_Shortage_Occurred يُدفع من economy module → يُعالَج هنا (في النواة المخوّلة)
+# → يكتب في WorldState.countries[country]["stability"].
+# هذا هو نقطة الكتابة الوحيدة المخوّلة — الاقتصاد لا يلمس WorldState مباشرة.
+
+func evt_economy_shortage_occurred(e: Dictionary, _t: int) -> void:
+	var payload: Dictionary = e.get("payload", {})
+	var country: String = String(payload.get("country", ""))
+	if country.is_empty():
+		return
+	if not sim.world.countries.has(country):
+		return
+	var current: float = float(sim.world.countries[country].get("stability", 1.0))
+	var penalty: float = float(payload.get("stability_penalty", 0.05))
+	sim.world.countries[country]["stability"] = clampf(current - penalty, 0.0, 1.0)

@@ -46,6 +46,7 @@ func job_economy_tick(_job: Dictionary, _t: int) -> void:
 	_apply_production()
 	_apply_consumption()
 	_apply_trade()
+	_apply_investment(_t)
 	_compute_prices()
 	_detect_shortages()
 
@@ -55,9 +56,12 @@ func _apply_production() -> void:
 		var ckey := String(country)
 		if not _stocks.has(ckey):
 			continue
+		var stability := 1.0
+		if _sim != null and _sim.get("world") != null and _sim.world.countries.has(ckey):
+			stability = float(_sim.world.countries[ckey].get("stability", 1.0))
 		for commodity in (rates[country] as Dictionary).keys():
 			var cmod := String(commodity)
-			_stocks[ckey][cmod] = _stocks[ckey].get(cmod, 0.0) + float(rates[country][commodity])
+			_stocks[ckey][cmod] = _stocks[ckey].get(cmod, 0.0) + float(rates[country][commodity]) * stability
 
 func _apply_consumption() -> void:
 	var rates: Dictionary = _config.get("consumption_rates", {})
@@ -107,12 +111,33 @@ func _detect_shortages() -> void:
 	var threshold := float(_config.get("shortage_threshold", 50.0))
 	for country in _stocks.keys():
 		for commodity in (_stocks[country] as Dictionary).keys():
-			if float(_stocks[country][commodity]) < threshold:
+			var stock := float(_stocks[country][commodity])
+			if stock < threshold:
 				_shortages.append({
 					"country":   country,
 					"commodity": commodity,
-					"stock":     _stocks[country][commodity]
+					"stock":     stock
 				})
+				# دفع حدث العجز للنواة لمعالجة الـ feedback كتابياً
+				if _sim != null and _sim.get("events") != null:
+					_sim.events.push_event(_sim.clock.total_days(), "Economy_Shortage_Occurred", country, {
+						"type": "Economy_Shortage_Occurred",
+						"country": country,
+						"commodity": commodity,
+						"shortage_amount": threshold - stock
+					})
+
+func _apply_investment(_t: int) -> void:
+	var prod_rates: Dictionary = _config.get("production_rates", {})
+	for country in _stocks.keys():
+		var ckey := String(country)
+		var wheat_stock := float(_stocks[ckey].get("wheat", 0.0))
+		if wheat_stock > 600.0:
+			# استهلاك كاستثمار
+			_stocks[ckey]["wheat"] -= 100.0
+			if prod_rates.has(ckey) and prod_rates[ckey].has("wheat"):
+				prod_rates[ckey]["wheat"] = float(prod_rates[ckey]["wheat"]) + 2.0
+				print("INVESTMENT | %s invested 100 wheat. New wheat prod rate: %.1f" % [ckey, prod_rates[ckey]["wheat"]])
 
 # ---- Event: Trade_Offer ----
 func evt_trade_offer(e: Dictionary, _t: int) -> void:

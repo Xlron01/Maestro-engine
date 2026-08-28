@@ -1,0 +1,21 @@
+{
+	"commodities": {
+		"coal": { "base_price": 150.0, "price_floor": 30.0, "price_ceiling": 600.0 }
+	},
+	"initial_stocks": {
+		"alpha": { "coal": 100.0 },
+		"beta":  { "coal": 100.0 },
+		"gamma": { "coal": 100.0 }
+	},
+	"production_rates": {
+		"alpha": { "coal": 10.0 },
+		"beta":  { "coal": 10.0 },
+		"gamma": { "coal": 10.0 }
+	},
+	"consumption_rates": {
+		"alpha": { "coal": 8.0 },
+		"beta":  { "coal": 12.0 },
+		"gamma": { "coal": 10.0 }
+	},
+	"shortage_threshold": 20.0
+}

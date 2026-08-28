@@ -2,6 +2,27 @@
 
 سجل زمني لجميع التعديلات الهامة التي طرأت على مشروع **Maestro Engine**.
 
+## [2026-08-29]
+
+### Added
+- **T4.5 (Scale Optimisation — Neighborhood Caching) — PROVISIONAL (بانتظار اعتماد المراجع):**
+  - معالجة عنق زجاجة `dependency_neighborhood` الذي كان يستهلك 74.34% من زمن المحاكاة عبر التخزين المؤقت (Caching) لـ `dependency_neighborhood` على مستوى الـ Observer داخل كائن الفهرس العام `index`.
+  - إعادة تشغيل اختبارات الأداء لـ T2 (`test_t2_scale_simulation.gd`) بنجاح، حيث هبط زمن المحاكاة لـ Profile 3 عند $N=50,000$ من **28.289 ثانية** إلى **10.684 ثانية**، محققاً **نسبة تحسين قدرها 62.23%** (مطابقة بالكامل للتوقعات النظرية البالغة 62%).
+  - المحافظة الكاملة على سلامة ونظافة الذاكرة عند الخروج وصفر ObjectDB Leaks.
+  - مطابقة أدلة وصحة الهارنس وسكريبت الأداء تحت بصمات الـ SHA256 المعتمدة.
+
+- **T3-Phase 2 (Economy Feedback & Reusability) — PROVISIONAL (بانتظار اعتماد المراجع):**
+  - تنفيذ حلقات الـ Feedback كاملة لدومين الاقتصاد:
+    - **Feedback Read:** الإنتاج يتأثر طردياً بـ `stability` الدولة المقروءة مباشرة من WorldState.
+    - **Feedback Write:** معالجة عجز الموارد (Shortage) وتخفيض الاستقرار بنسبة 0.05 عبر حدث `Economy_Shortage_Occurred` يُرسل لـ EventQueue وتلتقطه النواة المخوّلة في `game_event_handlers.gd` لضمان حماية حدود المحرك المعمارية.
+    - **Investment:** خصم 100 wheat وزيادة معدل الإنتاج +2 عند تراكم الفائض وتخطيه حاجز الـ 600.
+  - إثبات إعادة الاستخدام (Reusability) بنجاح عبر إدراج موديول الفحم (`coal` v2) المستقل تماماً، وتشغيله جنباً إلى جنب مع موديول القمح v1 دون تداخل.
+  - إنجاز العمل بـ 4 Engine touches فقط في ملفين، وبمجموع 165 LOC للـ Phase 2 (من ميزانية 500 LOC).
+  - نجاح كامل لـ 14/14 فحصاً وحفظ اللوج الخام: `.ai/evidence/tests/test_t3_economy_phase2_run01.log`.
+
+### Fixed
+- تصحيح واجهة استدعاء وقت الساعة في `economy_event_handlers.gd` من `_sim.clock.current_time` إلى `_sim.clock.total_days()` لتطابق واجهة النواة الفعلية `SimClock.gd` وحل مشكلة تعطل الـ ScenarioTest.
+
 ## [2026-08-27]
 
 ### Added
