@@ -11,6 +11,12 @@ var _stocks: Dictionary = {}    # country -> commodity -> float
 var _prices: Dictionary = {}    # commodity -> float
 var _shortages: Array = []      # [{country, commodity, stock}]
 
+# T5-P0 counters (additive — measurement only, zero behavioral effect)
+var activity_counters := {
+	"production_updates": 0, "consumption_updates": 0,
+	"shortage_events": 0, "investment_triggers": 0
+}
+
 # ---- Setup (called from game_event_handlers.setup via delegation) ----
 func setup(p_sim: Node) -> void:
 	_sim = p_sim
@@ -62,6 +68,7 @@ func _apply_production() -> void:
 		for commodity in (rates[country] as Dictionary).keys():
 			var cmod := String(commodity)
 			_stocks[ckey][cmod] = _stocks[ckey].get(cmod, 0.0) + float(rates[country][commodity]) * stability
+			activity_counters["production_updates"] += 1
 
 func _apply_consumption() -> void:
 	var rates: Dictionary = _config.get("consumption_rates", {})
@@ -72,6 +79,7 @@ func _apply_consumption() -> void:
 		for commodity in (rates[country] as Dictionary).keys():
 			var cmod := String(commodity)
 			_stocks[ckey][cmod] = maxf(0.0, _stocks[ckey].get(cmod, 0.0) - float(rates[country][commodity]))
+			activity_counters["consumption_updates"] += 1
 
 func _apply_trade() -> void:
 	var routes: Array = _config.get("trade_routes", [])
@@ -126,6 +134,7 @@ func _detect_shortages() -> void:
 						"commodity": commodity,
 						"shortage_amount": threshold - stock
 					})
+					activity_counters["shortage_events"] += 1
 
 func _apply_investment(_t: int) -> void:
 	var prod_rates: Dictionary = _config.get("production_rates", {})
@@ -137,6 +146,7 @@ func _apply_investment(_t: int) -> void:
 			_stocks[ckey]["wheat"] -= 100.0
 			if prod_rates.has(ckey) and prod_rates[ckey].has("wheat"):
 				prod_rates[ckey]["wheat"] = float(prod_rates[ckey]["wheat"]) + 2.0
+				activity_counters["investment_triggers"] += 1
 				print("INVESTMENT | %s invested 100 wheat. New wheat prod rate: %.1f" % [ckey, prod_rates[ckey]["wheat"]])
 
 # ---- Event: Trade_Offer ----

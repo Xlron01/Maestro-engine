@@ -10,6 +10,11 @@ var _stocks: Dictionary = {}    # country -> commodity -> float
 var _prices: Dictionary = {}    # commodity -> float
 var _shortages: Array = []      # [{country, commodity, stock}]
 
+# T5-P0 counters (additive — measurement only, zero behavioral effect)
+var activity_counters := {
+	"production_updates": 0, "consumption_updates": 0, "shortage_events": 0
+}
+
 func setup(p_sim: Node) -> void:
 	_sim = p_sim
 	_load_config()
@@ -54,6 +59,7 @@ func _apply_production() -> void:
 		for commodity in (rates[country] as Dictionary).keys():
 			var cmod := String(commodity)
 			_stocks[ckey][cmod] = _stocks[ckey].get(cmod, 0.0) + float(rates[country][commodity])
+			activity_counters["production_updates"] += 1
 
 func _apply_consumption() -> void:
 	var rates: Dictionary = _config.get("consumption_rates", {})
@@ -64,6 +70,7 @@ func _apply_consumption() -> void:
 		for commodity in (rates[country] as Dictionary).keys():
 			var cmod := String(commodity)
 			_stocks[ckey][cmod] = maxf(0.0, _stocks[ckey].get(cmod, 0.0) - float(rates[country][commodity]))
+			activity_counters["consumption_updates"] += 1
 
 func _compute_prices() -> void:
 	var commodities: Dictionary = _config.get("commodities", {})
@@ -95,6 +102,7 @@ func _detect_shortages() -> void:
 					"commodity": commodity,
 					"stock":     _stocks[country][commodity]
 				})
+				activity_counters["shortage_events"] += 1
 
 func get_stocks() -> Dictionary:
 	return _stocks

@@ -27,6 +27,11 @@ var _job_handlers: Dictionary = {}     # job_name -> {"fn": Callable, "one_shot"
 var _content_handlers = null           # instance of content-layer handlers script
 
 var seed_value: int = 12345
+
+# T5-P0 (أمر المالك 2026-08-29): جذر بيانات بديل اختياري.
+# الفارغ (= الافتراضي) ⇒ السلوك الحالي حرفيًا دون أي تغيير.
+var data_root_override: String = ""
+
 var events_processed_count: int = 0
 var coup_evaluations_count: int = 0
 var operation_evaluations_count: int = 0
@@ -64,7 +69,8 @@ func init_world(p_seed: int) -> void:
 	last_event_type = "(none)"
 
 	# ---- تحميل البيانات من ملفات خارجية ----
-	var load_result := ContentLoader.load_full()
+	var data_root := data_root_override if not data_root_override.is_empty() else ContentLoader.DATA_DIR
+	var load_result := ContentLoader.load_full(data_root)
 	if not load_result.ok:
 		push_error("Content loading failed with %d error(s):" % load_result.errors.size())
 		for e in load_result.errors:

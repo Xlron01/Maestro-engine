@@ -1,0 +1,11 @@
+{
+ "id": "c08250",
+ "name": "c08250",
+ "population": 2130250,
+ "gdp": 9250.0,
+ "military_power": 421.0,
+ "stability": 0.5,
+ "government": "Republic",
+ "growth": 0.005,
+ "relations": []
+}

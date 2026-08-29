@@ -1,0 +1,11 @@
+{
+ "id": "c09800",
+ "name": "c09800",
+ "population": 2342600,
+ "gdp": 3600.0,
+ "military_power": 1.0,
+ "stability": 0.5,
+ "government": "Republic",
+ "growth": 0.015,
+ "relations": []
+}
