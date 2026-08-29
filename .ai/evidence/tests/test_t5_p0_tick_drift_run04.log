@@ -1,0 +1,51 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+=== T5-P0 TICK-DRIFT CHARACTERIZATION START ===
+data_root=res://data/scenarios/t5_p0 | N_days=100
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+world countries=10000 | jobs_registered=40002
+day=001 t=001 tick_us=10643 prod=9 cons=9 shortage=0 invest=0 mem=-1
+day=002 t=002 tick_us=7950 prod=18 cons=18 shortage=0 invest=0 mem=-1
+day=003 t=003 tick_us=8502 prod=27 cons=27 shortage=0 invest=0 mem=-1
+day=004 t=004 tick_us=8078 prod=36 cons=36 shortage=0 invest=0 mem=-1
+day=005 t=005 tick_us=8913 prod=45 cons=45 shortage=0 invest=0 mem=-1
+day=006 t=006 tick_us=8262 prod=54 cons=54 shortage=0 invest=0 mem=-1
+day=007 t=007 tick_us=8883 prod=63 cons=63 shortage=0 invest=0 mem=-1
+day=008 t=008 tick_us=8559 prod=72 cons=72 shortage=0 invest=0 mem=-1
+day=009 t=009 tick_us=8554 prod=81 cons=81 shortage=0 invest=0 mem=-1
+day=010 t=010 tick_us=8560 prod=90 cons=90 shortage=0 invest=0 mem=87308200
+day=011 t=011 tick_us=8535 prod=99 cons=99 shortage=0 invest=0 mem=-1
+day=012 t=012 tick_us=10481 prod=108 cons=108 shortage=0 invest=0 mem=-1
+day=013 t=013 tick_us=10075 prod=117 cons=117 shortage=0 invest=0 mem=-1
+day=014 t=014 tick_us=8527 prod=126 cons=126 shortage=0 invest=0 mem=-1
+day=015 t=015 tick_us=8584 prod=135 cons=135 shortage=0 invest=0 mem=-1
+day=016 t=016 tick_us=8493 prod=144 cons=144 shortage=0 invest=0 mem=-1
+day=017 t=017 tick_us=8581 prod=153 cons=153 shortage=0 invest=0 mem=-1
+day=018 t=018 tick_us=8536 prod=162 cons=162 shortage=0 invest=0 mem=-1
+day=019 t=019 tick_us=8537 prod=171 cons=171 shortage=0 invest=0 mem=-1
+day=020 t=020 tick_us=8477 prod=180 cons=180 shortage=0 invest=0 mem=87317012
+day=021 t=021 tick_us=8673 prod=189 cons=189 shortage=0 invest=0 mem=-1
+day=022 t=022 tick_us=8691 prod=198 cons=198 shortage=0 invest=0 mem=-1
+day=023 t=023 tick_us=9145 prod=207 cons=207 shortage=0 invest=0 mem=-1
+day=024 t=024 tick_us=8760 prod=216 cons=216 shortage=0 invest=0 mem=-1
+day=025 t=025 tick_us=8392 prod=225 cons=225 shortage=0 invest=0 mem=-1
+day=026 t=026 tick_us=8701 prod=234 cons=234 shortage=0 invest=0 mem=-1
+day=027 t=027 tick_us=8481 prod=243 cons=243 shortage=0 invest=0 mem=-1
+day=028 t=028 tick_us=9056 prod=252 cons=252 shortage=0 invest=0 mem=-1
+day=029 t=029 tick_us=8386 prod=261 cons=261 shortage=0 invest=0 mem=-1
+day=030 t=030 tick_us=167920208 prod=270 cons=270 shortage=0 invest=0 mem=90923528
+[HARD_STOP] tick_us=167920208 exceeds 30000000 at day=30
+
+=== T5-P0 ANALYSIS ===
+baseline days 11-30 median_tick_us=8582.5
+Godot_v4.7.2-stable_win64_console.exe : SCRIPT ERROR: Out of bounds get index '30' (on base: 'Array')
+At line:1 char:1
++ & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7. ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (SCRIPT ERROR: O... base: 'Array'):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: _init (res://scripts/test_t5_p0_tick_drift.gd:95)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://scripts/test_t5_p0_tick_drift.gd:95)
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers

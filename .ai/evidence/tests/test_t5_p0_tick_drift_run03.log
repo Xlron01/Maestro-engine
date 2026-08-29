@@ -1,0 +1,7 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+=== T5-P0 TICK-DRIFT CHARACTERIZATION START ===
+data_root=res://data/scenarios/t5_p0 | N_days=100
+[FATAL] init_world failed or empty world
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers

@@ -1,3 +1,22 @@
+- **Current Task:** T5-P0 (Tick-Drift Characterization) — **DONE (PROVISIONAL — بانتظار المراجعة)**
+
+## 0. T5-P0 — Tick-Drift Characterization — ملخص (الأحدث)
+
+**الهدف:** استقرار production path لتية واحدة (SimClock حقيقي + run_step) عبر 100 يوم عند N=10,000.
+
+**النتيجة (characterization — لا حكم معماري مني):**
+- المسار الإنتاجي مؤكّد: 9 event / 7 job handlers من dispatch.json · 40002 jobs مسجلة (10k×4 default + economy_tick + economy_v2_tick).
+- أيام 1–29 مستقرة جدًا: tick ≈ 8.5ms منبسط بلا انجراف (baseline median 8582.5us).
+- الذاكرة مسطحة ~87–91MB (يوم 10⁄20 = 87.3MB كلاهما).
+- **HARD_STOP عند اليوم 30**: tick_us=167,920,208 (~168ث) → عاصفة واجبات متزامنة (3 × 10k دولة في نفس start_at=every). غير تراكم زمني.
+- جدول drift D للنوافذ 31–100 = غير مقاس (التوقف عند 30) — مصرّح.
+
+**Evidence (raw):** [run04 الأساسي المكتمل](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5_p0_tick_drift_run04.log) SHA256 `7c71b1e52e57fd6e6855e0133fb85bb7b98242c5c0efc0a3aaab6d5019675f03` · [run05 تأكيد 1–29](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5_p0_tick_drift_run05.log) SHA256 `5e9ff435fdb568b0fe1d12c85803b43cc33ad5e8ff7876f6dc4b3a2fdde45695` · run01/02/03 مؤرشفة (parse/fatal).
+**Scope changes (disclosed):** Simulation.gd: data_root_override · economy handlers: activity_counters additive.
+**NO CONFIRM/CLOSED ≠ قرار المالك حصريًا.**
+
+---
+
 - **Current Task:** T4.5 (Scale Optimisation — Neighborhood Caching & Re-benchmarking) — **PROVISIONAL (بانتظار اعتماد المراجع)**
 
 ## 0. T4.5 — Scale Optimisation (Neighborhood Caching) — ملخص (الأحدث)

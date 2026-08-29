@@ -4,6 +4,23 @@
 
 ---
 
+### [TASK-035] T5-P0 — Tick-Drift Characterization (Production Path)
+
+- **Status:** COMPLETE (characterization) — **PROVISIONAL — لا CONFIRM/CLOSED من طرفي (قرار المالك حصريًا)**
+- **Owner:** ox-alpha
+- **Objective:** هل يظل المسار الإنتاجي الحقيقي (SimClock فعلي عبر run_step) مستقر الأداء عبر 100 يوم عند N=10,000 بدون تراكم تكلفة؟
+- **Scope executed (per owner):** حقن data_root_override (2 سطر إضافي في Simulation.gd) · عدادات نشاط additive في economy v1/v2 · كل المسجل يشتغل كما هو بلا تصفية.
+- **Acceptance Criteria (characterization — no auto PASS/FAIL):**
+  - [x] المسار الإنتاجي مؤكد: 9 event handlers + 7 job handlers من dispatch.json · 40002 jobs مسجلة (10k×4 + economy_tick + economy_v2_tick).
+  - [x] الستقرار اليومي مثبت (الأيام 1–29): median tick ≈ 8.5ms منبسط بلا انجراف رتيب.
+  - [x] الذاكرة مسطحة (عينه 87.3MB يوم 10 و19 — بلا نمو).
+  - [x] **HARD_STOP مرصود فعليًا عند اليوم 30**: tick_us=167,920,208 (~168ث). السبب الظاهر من الأرقام: عاصفة الواجبات المتزامنة (3 واجبات × 10,000 دولة بنفس start_at=every=30) — خصيصة جدولة معلنة مسبقًا، ليس تراكمًا زمنيًا. حكم معماري ألماثيي = للمراجعة لا يتخذه أنا.
+  - [x] جدول drift D غير مقاس للنوافذ 31–100 لأن HARD_STOP عند 30 أنهى التولد — مصرح صريحًا بلا إيهام.
+- **Evidence:** [run04 الرئيسي المكتمل](file:///.ai/evidence/tests/test_t5_p0_tick_drift_run04.log) · [run05 تأكيد 1–29](file:///.ai/evidence/tests/test_t5_p0_tick_drift_run05.log) · run01/02 parse · run03 fatal-early (مؤرشفة).
+- **Files:** scripts/test_t5_p0_tick_drift.gd · scripts/t5_p0_worldgen.py · data/scenarios/t5_p0/ · economy handlers counters · Simulation.gd override.
+
+---
+
 ### [TASK-034] Generalization / Behavioral Validation Gate + Test G
 
 - **Status:** COMPLETE (rev.5 — PASS 18/18 run05) — **PROVISIONAL بانتظار ختم المراجع**
