@@ -1,3 +1,10 @@
+- **Current Task:** TASK-036 (T5-B Scheduler Benchmark) — **Bucket=FULL PASS · Heap=PARTIAL · بانتظارك**
+
+## 0-b) T5-B — المصدر (الأحث)
+Current vs Bucket vs Heap على 10k كيانات/90 يوم بعناصر واقعية. **سيمانتكس موثقة bitwise** (SEQ/SEM متطابقة). Bucket: عواصف −38…−41% + هادئ ≈77× أسرع · Heap: عواصف −18…−26%. الذاكرة +27%/+30%.
+
+---
+
 - **Current Task:** T5-P0 (Tick-Drift Characterization) — **DONE (PROVISIONAL — بانتظار المراجعة)**
 
 ## 0. T5-P0 — Tick-Drift Characterization — ملخص (الأحدث)

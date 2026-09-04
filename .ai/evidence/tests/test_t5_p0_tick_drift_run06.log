@@ -1,0 +1,55 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+=== T5-P0 TICK-DRIFT CHARACTERIZATION START ===
+data_root=res://data/scenarios/t5_p0 | N_days=30
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+world countries=10000 | jobs_registered=40002
+day=001 t=001 tick_us=8512 prod=9 cons=9 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=002 t=002 tick_us=7864 prod=18 cons=18 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=003 t=003 tick_us=7574 prod=27 cons=27 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=004 t=004 tick_us=7789 prod=36 cons=36 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=005 t=005 tick_us=7919 prod=45 cons=45 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=006 t=006 tick_us=7823 prod=54 cons=54 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=007 t=007 tick_us=7815 prod=63 cons=63 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=008 t=008 tick_us=8445 prod=72 cons=72 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=009 t=009 tick_us=8178 prod=81 cons=81 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=010 t=010 tick_us=8094 prod=90 cons=90 shortage=0 invest=0 mem=87318552 DS_calls=0 DS_us=0
+day=011 t=011 tick_us=8106 prod=99 cons=99 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=012 t=012 tick_us=8060 prod=108 cons=108 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=013 t=013 tick_us=8082 prod=117 cons=117 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=014 t=014 tick_us=7940 prod=126 cons=126 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=015 t=015 tick_us=8491 prod=135 cons=135 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=016 t=016 tick_us=8127 prod=144 cons=144 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=017 t=017 tick_us=8225 prod=153 cons=153 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=018 t=018 tick_us=8070 prod=162 cons=162 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=019 t=019 tick_us=8062 prod=171 cons=171 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=020 t=020 tick_us=7936 prod=180 cons=180 shortage=0 invest=0 mem=87327364 DS_calls=0 DS_us=0
+day=021 t=021 tick_us=8083 prod=189 cons=189 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=022 t=022 tick_us=7932 prod=198 cons=198 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=023 t=023 tick_us=8093 prod=207 cons=207 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=024 t=024 tick_us=7953 prod=216 cons=216 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=025 t=025 tick_us=8121 prod=225 cons=225 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=026 t=026 tick_us=8136 prod=234 cons=234 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=027 t=027 tick_us=8696 prod=243 cons=243 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=028 t=028 tick_us=8724 prod=252 cons=252 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=029 t=029 tick_us=8645 prod=261 cons=261 shortage=0 invest=0 mem=-1 DS_calls=0 DS_us=0
+day=030 t=030 tick_us=147447060 prod=270 cons=270 shortage=0 invest=0 mem=90933880 DS_calls=22000 DS_us=153436
+[HARD_STOP] tick_us=147447060 exceeds 30000000 at day=30
+
+=== T5-P0 ANALYSIS ===
+baseline days 11-30 median_tick_us=8099.5 (20 samples)
+
+FLAGS: NONE
+=== T5-P0 END ===
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+Godot_v4.7.2-stable_win64_console.exe : WARNING: 21 ObjectDB instances were leaked at exit (run with `--verbose` for 
+details).
+At line:1 char:1
++ & "C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7. ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: 21 Obj...` for details).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 9 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

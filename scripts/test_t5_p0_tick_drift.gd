@@ -9,7 +9,7 @@ extends SceneTree
 
 const SimScript := preload("res://scripts/Simulation.gd")
 const DATA_ROOT := "res://data/scenarios/t5_p0"
-const N_DAYS := 100
+const N_DAYS := 30
 const WARMUP := 10
 const BASELINE_START := 11
 const BASELINE_END := 30
@@ -61,6 +61,9 @@ func _init() -> void:
 		var cons = int(c1.get("consumption_updates", 0)) + int(c2.get("consumption_updates", 0))
 		var short = int(c1.get("shortage_events", 0)) + int(c2.get("shortage_events", 0))
 		var invest = int(c1.get("investment_triggers", 0))
+		var dc = sim._content_handlers.get("decision_counters").duplicate() if sim._content_handlers != null else {}
+		var dec_calls = int(dc.get("evaluate_calls", 0)) + int(dc.get("apply_calls", 0)) + int(dc.get("coup_eval_calls", 0))
+		var dec_us = int(dc.get("total_us", 0))
 
 		var mem := -1
 		if day % 10 == 9:  # نهاية نافذة 10 أيام
@@ -72,8 +75,8 @@ func _init() -> void:
 			"invest": invest, "mem": mem
 		})
 
-		print("day=%03d t=%03d tick_us=%d prod=%d cons=%d shortage=%d invest=%d mem=%d"
-			% [day + 1, sim.clock.total_days(), tick_us, prod, cons, short, invest, mem])
+		print("day=%03d t=%03d tick_us=%d prod=%d cons=%d shortage=%d invest=%d mem=%d DS_calls=%d DS_us=%d"
+			% [day + 1, sim.clock.total_days(), tick_us, prod, cons, short, invest, mem, dec_calls, dec_us])
 
 		if tick_us > HARD_STOP_US:
 			print("[HARD_STOP] tick_us=%d exceeds %d at day=%d" % [tick_us, HARD_STOP_US, day + 1])

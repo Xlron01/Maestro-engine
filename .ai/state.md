@@ -2,8 +2,8 @@
 
 ## Metadata
 - **Last Updated:** 2026-08-29
-- **Current Phase:** T5-P0 Tick-Drift Characterization — **DONE (PROVISIONAL — بانتظار مراجعتك)**
-- **Current Step:** السليم لمراجعتك — الجوهري: استقرارٌ يومي أكيد + عاصفة واجبات يوم-30 (من قرها: بدون حقي مني)
+- **Current Phase:** T5-B Scheduler Benchmark — **DONE (Bucket=FULL PASS; Heap=PARTIAL; بانتظار الختم)**
+- **Current Step:** توقف — بانتظار حكم المالك على إمكان الاعتماد (قرار منفصل)
 
 ## Current Objective
 تنفيذ وتحسين أداء المحاكاة تحت الضغط عند المقاييس الكبيرة (T2/T4/T4.5) مع دمج دومين الاقتصاد وعزل منطق وحلقات التغذية الراجعة بالكامل. تم إنجاز تحسين الذاكرة المخبئية للجوار (caching of dependency_neighborhood) بنسبة تحسين 62.23% عند N=50K، وتم تمرير 14/14 اختباراً للاقتصاد بنجاح.

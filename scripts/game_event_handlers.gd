@@ -25,6 +25,12 @@ var _economy_v2: EconomyV2Handlers
 
 var sim: Node
 
+# T5-P0 counters (additive — measurement only, zero behavioral effect)
+var decision_counters := {
+	"evaluate_calls": 0, "apply_calls": 0,
+	"coup_eval_calls": 0, "total_us": 0
+}
+
 
 func setup(p_sim: Node) -> void:
 	sim = p_sim
@@ -145,8 +151,12 @@ func job_military_readiness(job: Dictionary, t: int) -> void:
 		return
 	var country: Dictionary = sim.world.countries[eid]
 	sim.activation.activate(eid, "scheduled:" + job["job_name"])
+	var t_ds0 := Time.get_ticks_usec()
 	DecisionSystem.evaluate(country, sim.rules)
 	var outcome: Dictionary = DecisionSystem.apply_consequence(country, sim.rules)
+	decision_counters["total_us"] += Time.get_ticks_usec() - t_ds0
+	decision_counters["evaluate_calls"] += 1
+	decision_counters["apply_calls"] += 1
 	var event_type: String = "Military_Spending_Increase"
 	if outcome["path"] == "prosperity":
 		event_type = "Economic_Investment"
@@ -163,7 +173,10 @@ func job_coup_risk_check(job: Dictionary, t: int) -> void:
 	if country.get("stability", 1.0) < stab_threshold:
 		sim.activation.activate(eid, "scheduled:coup_risk_check")
 		sim.coup_evaluations_count += 1
+		var t_ds1 := Time.get_ticks_usec()
 		var risk_score: float = DecisionSystem.evaluate_coup_risk(country, sim.rules)
+		decision_counters["total_us"] += Time.get_ticks_usec() - t_ds1
+		decision_counters["coup_eval_calls"] += 1
 		# التخزين هنا (طبقة المحتوى) — Selective Activation: المستقرة لا تحصل على المفتاح
 		country["coup_risk_score"] = risk_score
 		var coup_threshold: float = float(sim.rules.get("coup_threshold", 0.6))

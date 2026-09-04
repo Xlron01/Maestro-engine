@@ -4,6 +4,24 @@
 
 ---
 
+### [TASK-036] T5-B Experimental Scheduler Benchmark
+
+- **Status:** COMPLETE (PROVISIONAL — verdicts per frozen thresholds; الاعتماد النهائي للمالك)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-035 (T5-P0)
+- **Objective:** قياس تجريبي: هل تغيير المجدول وحده يتحسن على حمل Economic الحقيقي (10K كيان، عواصف 30/60/90) بلا أي مساس بالإنتاجية أو الدلائل.
+- **Acceptance Criteria:**
+  - [x] عزل كامل: صفر تعديل إنتاجي (قائمة الملفات الملموسة فارغة الحقيقة); الحمل نفسه 40,002 jobs حقيقية.
+  - [x] بوابة الصحة أولاً: `SEQ_HASH` و`SEM_HASH` متطابقان bitwise عبر الثلاثة (الأساس/الكأس/الكومة).
+  - [x] تشخيص ترتيب مسبق مكتمل (compare_diag1–3): ترتيب التسليم عند t=1/t=30 مطابق bitwise.
+  - [x] Quiet-day: current p50=11.5ms مقابل bucket 149µs (−98.7%) وheap 202µs (−98.2%).
+  - [x] Storm (30/60/90): bucket −38/−41/−36%; heap −18/−26/−20%. الذاكرة +27%/+30%.
+  - [x] الحكمان: **Bucket = FULL PASS**, **Heap = PARTIAL PASS** (بالعتبات المجمّدة قبل التشغيل).
+- **Evidence:** [25-Experimental-Scheduler-Benchmark.md](file:///c:/tmp/maestro%20engine/25-Experimental-Scheduler-Benchmark.md) + 5 raw logs أرشيفية + 3 تشخيصات ترتيب.
+- **Validation Method:** تشغيل ثلاث متواليات archived + مقارنة hashes حرفية.
+
+---
+
 ### [TASK-035] T5-P0 — Tick-Drift Characterization (Production Path)
 
 - **Status:** COMPLETE (characterization) — **PROVISIONAL — لا CONFIRM/CLOSED من طرفي (قرار المالك حصريًا)**
