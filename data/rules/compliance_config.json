@@ -1,0 +1,15 @@
+{
+    "_non_final": "v0 placeholder thresholds ONLY — pending owner resolution formula. Not gameplay-final. No weighted sums exist in the layer; these are rule-table gate values.",
+    "conflict_weight_min": 0.3,
+    "loyal_min": 0.5,
+    "pressure_min": 0.5,
+    "partial_degree": 0.5,
+    "partial_active_degree": 0.4,
+    "passive_strength": 0.5,
+    "active_strength": 0.7,
+    "legitimacy_primitive_facts": {
+        "State": ["founding", "regime", "constitution", "succession", "election", "foreign_recognition"],
+        "Regime": ["regime", "succession"],
+        "Government": ["election", "constitution"]
+    }
+}

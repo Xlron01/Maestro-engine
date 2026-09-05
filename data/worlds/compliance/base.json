@@ -1,0 +1,23 @@
+{
+	"world_id": "compliance_base",
+	"description": "TASK-038 Compliance Runtime Layer acceptance fixtures. Model-v1 entity schema (authority/possession/goal_table) + sparse multi-channel social_relations (ONE dict per edge: loyalty/trust channels - owner clarification 0-b-1). Variants are built in-harness by deterministic field overrides.",
+	"entities": {
+		"Commander_A": {
+			"role": "order_actor",
+			"authority": [
+				{ "to": "Unit_B", "degree": 0.9 }
+			]
+		},
+		"Unit_B": {
+			"role": "order_subject",
+			"possession": { "region_gate": 1.0 },
+			"goal_table": { "autonomy": 0.9 },
+			"social_relations": {
+				"Commander_A": { "loyalty": 0.9, "trust": 0.1 }
+			}
+		},
+		"Observer_C": {
+			"role": "bystander"
+		}
+	}
+}
