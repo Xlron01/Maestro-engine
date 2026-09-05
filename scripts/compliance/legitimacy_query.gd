@@ -95,8 +95,11 @@ static func _action_assess(subject_id: String, context: Dictionary) -> Dictionar
 		for m in (sa["missing_inputs"] as Array):
 			missing.append(String(sub) + "." + String(m))
 
-	# Authority: من chains المُمرَّرة عبر InfluenceQuery — بلا إعادة حساب
-	var inf := IQ.assess(subject_id, String(context.get("target_id", "")), context)
+	# Authority: من chains المُمرَّرة عبر InfluenceQuery — بلا إعادة حساب.
+	# القياس: تأثير subject (مصدر الفعل) في الطرف المقابل للمطالبة بالامتثال
+	# (authority_counterparty_id — يحدده ComplianceQuery)، وإلا subject نفسه.
+	var inf := IQ.assess(subject_id,
+		String(context.get("authority_counterparty_id", subject_id)), context)
 	used.append("Authority")
 	if inf["structural"] != null:
 		vals.append(float(inf["structural"]))
