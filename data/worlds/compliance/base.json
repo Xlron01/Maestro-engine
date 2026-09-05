@@ -18,6 +18,12 @@
 		},
 		"Observer_C": {
 			"role": "bystander"
+		},
+		"Regime_H": {
+			"role": "legitimacy_subject",
+			"founding": 0.8,
+			"regime": 0.6,
+			"constitution": 0.4
 		}
 	}
 }
