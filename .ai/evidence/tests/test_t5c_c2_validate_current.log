@@ -1,0 +1,121 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  T5-C STORM LAB | phase=c2 scheduler=current probe=off days=90 variant=
+  args=["--script", "res://scripts/test_t5c_storm_lab.gd", "--phase=c2", "--scheduler=current", "--slice=999999999", "--days=90"]
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+SLICE runner=sliced slice_size=999999999 scheduler=current
+world=10000 jobs=40002 t0 done
+day=001 semantic_tick_us=10371 frames=1 max_frame_us=122 mean_frame_us=10371.0 due=2 events_d+0 mem=
+day=002 semantic_tick_us=8816 frames=1 max_frame_us=152 mean_frame_us=8816.0 due=2 events_d+0 mem=
+day=003 semantic_tick_us=10647 frames=1 max_frame_us=273 mean_frame_us=10647.0 due=2 events_d+0 mem=
+day=004 semantic_tick_us=9712 frames=1 max_frame_us=111 mean_frame_us=9712.0 due=2 events_d+0 mem=
+day=005 semantic_tick_us=8470 frames=1 max_frame_us=175 mean_frame_us=8470.0 due=2 events_d+0 mem=
+day=006 semantic_tick_us=12760 frames=1 max_frame_us=109 mean_frame_us=12760.0 due=2 events_d+0 mem=
+day=007 semantic_tick_us=10580 frames=1 max_frame_us=138 mean_frame_us=10580.0 due=2 events_d+0 mem=
+day=008 semantic_tick_us=8978 frames=1 max_frame_us=217 mean_frame_us=8978.0 due=2 events_d+0 mem=
+day=009 semantic_tick_us=10769 frames=1 max_frame_us=183 mean_frame_us=10769.0 due=2 events_d+0 mem=
+day=010 semantic_tick_us=10500 frames=1 max_frame_us=110 mean_frame_us=10500.0 due=2 events_d+0 mem=87718880
+day=011 semantic_tick_us=9716 frames=1 max_frame_us=110 mean_frame_us=9716.0 due=2 events_d+0 mem=
+day=012 semantic_tick_us=9797 frames=1 max_frame_us=170 mean_frame_us=9797.0 due=2 events_d+1 mem=
+day=013 semantic_tick_us=10131 frames=1 max_frame_us=121 mean_frame_us=10131.0 due=2 events_d+0 mem=
+day=014 semantic_tick_us=10698 frames=1 max_frame_us=111 mean_frame_us=10698.0 due=2 events_d+0 mem=
+day=015 semantic_tick_us=10026 frames=1 max_frame_us=138 mean_frame_us=10026.0 due=2 events_d+0 mem=
+day=016 semantic_tick_us=9258 frames=1 max_frame_us=151 mean_frame_us=9258.0 due=2 events_d+0 mem=
+day=017 semantic_tick_us=10963 frames=1 max_frame_us=109 mean_frame_us=10963.0 due=2 events_d+0 mem=
+day=018 semantic_tick_us=9810 frames=1 max_frame_us=128 mean_frame_us=9810.0 due=2 events_d+1 mem=
+day=019 semantic_tick_us=8587 frames=1 max_frame_us=184 mean_frame_us=8587.0 due=2 events_d+0 mem=
+day=020 semantic_tick_us=10142 frames=1 max_frame_us=151 mean_frame_us=10142.0 due=2 events_d+0 mem=87722212
+day=021 semantic_tick_us=11000 frames=1 max_frame_us=134 mean_frame_us=11000.0 due=2 events_d+0 mem=
+day=022 semantic_tick_us=8872 frames=1 max_frame_us=110 mean_frame_us=8872.0 due=2 events_d+0 mem=
+day=023 semantic_tick_us=9840 frames=1 max_frame_us=112 mean_frame_us=9840.0 due=2 events_d+0 mem=
+day=024 semantic_tick_us=10740 frames=1 max_frame_us=110 mean_frame_us=10740.0 due=2 events_d+0 mem=
+day=025 semantic_tick_us=10171 frames=1 max_frame_us=117 mean_frame_us=10171.0 due=2 events_d+0 mem=
+day=026 semantic_tick_us=8772 frames=1 max_frame_us=115 mean_frame_us=8772.0 due=2 events_d+0 mem=
+day=027 semantic_tick_us=9086 frames=1 max_frame_us=130 mean_frame_us=9086.0 due=2 events_d+0 mem=
+day=028 semantic_tick_us=11086 frames=1 max_frame_us=142 mean_frame_us=11086.0 due=2 events_d+0 mem=
+day=029 semantic_tick_us=9943 frames=1 max_frame_us=111 mean_frame_us=9943.0 due=2 events_d+0 mem=
+day=030 semantic_tick_us=205579884 frames=1 max_frame_us=205567138 mean_frame_us=205579884.0 due=30002 events_d+10001 mem=95266328
+STORM_FRAME day=030 semantic_tick_us=205579884 max_frame_us=205567138 budget30_pct_max_frame=685.2% frames=1
+day=031 semantic_tick_us=15824 frames=1 max_frame_us=274 mean_frame_us=15824.0 due=2 events_d+1 mem=
+day=032 semantic_tick_us=9562 frames=1 max_frame_us=149 mean_frame_us=9562.0 due=2 events_d+1 mem=
+day=033 semantic_tick_us=10604 frames=1 max_frame_us=181 mean_frame_us=10604.0 due=2 events_d+1 mem=
+day=034 semantic_tick_us=10215 frames=1 max_frame_us=145 mean_frame_us=10215.0 due=2 events_d+1 mem=
+day=035 semantic_tick_us=10718 frames=1 max_frame_us=152 mean_frame_us=10718.0 due=2 events_d+1 mem=
+day=036 semantic_tick_us=9051 frames=1 max_frame_us=145 mean_frame_us=9051.0 due=2 events_d+1 mem=
+day=037 semantic_tick_us=9825 frames=1 max_frame_us=185 mean_frame_us=9825.0 due=2 events_d+1 mem=
+day=038 semantic_tick_us=12654 frames=1 max_frame_us=147 mean_frame_us=12654.0 due=2 events_d+1 mem=
+day=039 semantic_tick_us=9165 frames=1 max_frame_us=146 mean_frame_us=9165.0 due=2 events_d+1 mem=
+day=040 semantic_tick_us=10358 frames=1 max_frame_us=214 mean_frame_us=10358.0 due=2 events_d+1 mem=88694024
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+day=041 semantic_tick_us=11260 frames=1 max_frame_us=767 mean_frame_us=11260.0 due=2 events_d+1 mem=
+day=042 semantic_tick_us=10510 frames=1 max_frame_us=143 mean_frame_us=10510.0 due=2 events_d+1 mem=
+day=043 semantic_tick_us=9715 frames=1 max_frame_us=141 mean_frame_us=9715.0 due=2 events_d+1 mem=
+day=044 semantic_tick_us=9896 frames=1 max_frame_us=149 mean_frame_us=9896.0 due=2 events_d+1 mem=
+day=045 semantic_tick_us=10158 frames=1 max_frame_us=267 mean_frame_us=10158.0 due=2 events_d+2 mem=
+day=046 semantic_tick_us=10322 frames=1 max_frame_us=152 mean_frame_us=10322.0 due=2 events_d+1 mem=
+day=047 semantic_tick_us=9573 frames=1 max_frame_us=178 mean_frame_us=9573.0 due=2 events_d+1 mem=
+day=048 semantic_tick_us=12029 frames=1 max_frame_us=457 mean_frame_us=12029.0 due=2 events_d+1 mem=
+day=049 semantic_tick_us=10468 frames=1 max_frame_us=146 mean_frame_us=10468.0 due=2 events_d+1 mem=
+day=050 semantic_tick_us=9189 frames=1 max_frame_us=181 mean_frame_us=9189.0 due=2 events_d+1 mem=88703612
+day=051 semantic_tick_us=9771 frames=1 max_frame_us=158 mean_frame_us=9771.0 due=2 events_d+2 mem=
+day=052 semantic_tick_us=9607 frames=1 max_frame_us=189 mean_frame_us=9607.0 due=2 events_d+2 mem=
+day=053 semantic_tick_us=9727 frames=1 max_frame_us=157 mean_frame_us=9727.0 due=2 events_d+2 mem=
+day=054 semantic_tick_us=9226 frames=1 max_frame_us=161 mean_frame_us=9226.0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+day=055 semantic_tick_us=10747 frames=1 max_frame_us=782 mean_frame_us=10747.0 due=2 events_d+2 mem=
+day=056 semantic_tick_us=9512 frames=1 max_frame_us=241 mean_frame_us=9512.0 due=2 events_d+2 mem=
+day=057 semantic_tick_us=9423 frames=1 max_frame_us=154 mean_frame_us=9423.0 due=2 events_d+2 mem=
+day=058 semantic_tick_us=9739 frames=1 max_frame_us=161 mean_frame_us=9739.0 due=2 events_d+2 mem=
+day=059 semantic_tick_us=9996 frames=1 max_frame_us=229 mean_frame_us=9996.0 due=2 events_d+2 mem=
+day=060 semantic_tick_us=206411885 frames=1 max_frame_us=206399237 mean_frame_us=206411885.0 due=30002 events_d+10002 mem=95537600
+STORM_FRAME day=060 semantic_tick_us=206411885 max_frame_us=206399237 budget30_pct_max_frame=688.0% frames=1
+day=061 semantic_tick_us=16316 frames=1 max_frame_us=221 mean_frame_us=16316.0 due=2 events_d+2 mem=
+day=062 semantic_tick_us=9235 frames=1 max_frame_us=166 mean_frame_us=9235.0 due=2 events_d+2 mem=
+day=063 semantic_tick_us=10119 frames=1 max_frame_us=434 mean_frame_us=10119.0 due=2 events_d+2 mem=
+day=064 semantic_tick_us=11238 frames=1 max_frame_us=177 mean_frame_us=11238.0 due=2 events_d+2 mem=
+day=065 semantic_tick_us=9082 frames=1 max_frame_us=154 mean_frame_us=9082.0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+day=066 semantic_tick_us=10253 frames=1 max_frame_us=981 mean_frame_us=10253.0 due=2 events_d+2 mem=
+day=067 semantic_tick_us=10129 frames=1 max_frame_us=156 mean_frame_us=10129.0 due=2 events_d+2 mem=
+day=068 semantic_tick_us=8941 frames=1 max_frame_us=159 mean_frame_us=8941.0 due=2 events_d+2 mem=
+day=069 semantic_tick_us=9590 frames=1 max_frame_us=164 mean_frame_us=9590.0 due=2 events_d+2 mem=
+day=070 semantic_tick_us=11156 frames=1 max_frame_us=201 mean_frame_us=11156.0 due=2 events_d+2 mem=88965688
+day=071 semantic_tick_us=9720 frames=1 max_frame_us=159 mean_frame_us=9720.0 due=2 events_d+2 mem=
+day=072 semantic_tick_us=9271 frames=1 max_frame_us=183 mean_frame_us=9271.0 due=2 events_d+2 mem=
+day=073 semantic_tick_us=9579 frames=1 max_frame_us=206 mean_frame_us=9579.0 due=2 events_d+2 mem=
+day=074 semantic_tick_us=9629 frames=1 max_frame_us=160 mean_frame_us=9629.0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+day=075 semantic_tick_us=10320 frames=1 max_frame_us=1223 mean_frame_us=10320.0 due=2 events_d+2 mem=
+day=076 semantic_tick_us=10484 frames=1 max_frame_us=192 mean_frame_us=10484.0 due=2 events_d+2 mem=
+day=077 semantic_tick_us=10612 frames=1 max_frame_us=161 mean_frame_us=10612.0 due=2 events_d+2 mem=
+day=078 semantic_tick_us=10454 frames=1 max_frame_us=154 mean_frame_us=10454.0 due=2 events_d+2 mem=
+day=079 semantic_tick_us=11607 frames=1 max_frame_us=154 mean_frame_us=11607.0 due=2 events_d+2 mem=
+day=080 semantic_tick_us=9348 frames=1 max_frame_us=180 mean_frame_us=9348.0 due=2 events_d+2 mem=88975368
+day=081 semantic_tick_us=10831 frames=1 max_frame_us=188 mean_frame_us=10831.0 due=2 events_d+2 mem=
+day=082 semantic_tick_us=9888 frames=1 max_frame_us=186 mean_frame_us=9888.0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+day=083 semantic_tick_us=9553 frames=1 max_frame_us=788 mean_frame_us=9553.0 due=2 events_d+2 mem=
+day=084 semantic_tick_us=10671 frames=1 max_frame_us=226 mean_frame_us=10671.0 due=2 events_d+2 mem=
+day=085 semantic_tick_us=9734 frames=1 max_frame_us=154 mean_frame_us=9734.0 due=2 events_d+2 mem=
+day=086 semantic_tick_us=9376 frames=1 max_frame_us=153 mean_frame_us=9376.0 due=2 events_d+2 mem=
+day=087 semantic_tick_us=9578 frames=1 max_frame_us=150 mean_frame_us=9578.0 due=2 events_d+2 mem=
+day=088 semantic_tick_us=9224 frames=1 max_frame_us=155 mean_frame_us=9224.0 due=2 events_d+2 mem=
+day=089 semantic_tick_us=9930 frames=1 max_frame_us=157 mean_frame_us=9930.0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+day=090 semantic_tick_us=207161557 frames=1 max_frame_us=207147440 mean_frame_us=207161557.0 due=40002 events_d+10002 mem=96528880
+STORM_FRAME day=090 semantic_tick_us=207161557 max_frame_us=207147440 budget30_pct_max_frame=690.5% frames=1
+STATS total_us=620038279 mean_us=6889314.2 p50_us=9996 p95_us=15824 p99_us=207161557 max_us=207161557
+SEM_HASH=bcd2763c957c1c21f73cf8e0f637fa81e1ca8d76eb3354feb20f63108956c2b4
+SEQ_HASH=795365ba15cf63228be9d7672e36cad4dff9cd6ef938114c6e402d93a9c5b89d
+COUNTERS events=30104 coup=6000 exposure=0
+GATE sem=PASS seq=PASS counters=PASS
+CONTENT_DIAG DS_calls=66000 DS_us=704591
+=== END phase=c2 scheduler=current probe=off days=90 variant= ===
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+WARNING: 21 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 9 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

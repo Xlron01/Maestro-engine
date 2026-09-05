@@ -4,6 +4,26 @@
 
 ---
 
+### [TASK-037] T5-C — Storm Root-Cause & Measured-Bottleneck-Only Fix
+
+- **Status:** COMPLETE (PROVISIONAL — verdicts لكل مرشّح؛ قرار الترحيل قرار المالك حصريًا)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-036 (T5-B), TASK-035 (T5-P0)
+- **Objective:** تفكيك جذري لعاصفة mass-synchronous workload (30-40K jobs/تكة، 162-291s مقابل سقف 30s) بلا أي تعديل نواة، وإصلاح ما تقيسه فقط.
+- **Acceptance Criteria:**
+  - [x] عزل كامل: صفر تعديل على النواة التسعة؛ كل الجديد في `scripts/experimental/` + `scripts/test_t5c_storm_lab.gd`.
+  - [x] **E0 — أساس رسمي جديد منزوع القياس (نفس الحملة/البيئة):** OSB=Current OFF: 191.15/180.34/176.01s (d30/60/90)، BSB=Bucket OFF: 190.92/203.94/236.27s، quiet p50: 8.66ms مقابل 200µs. فاتورة الـheavy probe: current +155s (+28%)، bucket +788s (+125%) — أرقام T5-B العاصفية لا تتكوّر منزوعة القياس (تاريخية فقط).
+  - [x] **E1 — الجذر مثبت بالقياس:** EventQueue.push_event (إعادة فرز المصفوفة كاملة مع كل دفعة) = **99.2-99.5%** من زمن العاصفة (208.8s من 209.8s يوم d30 current؛ 225.8s من 227.6s bucket)؛ المجدول ≤0.3%؛ التنفيذ الفعلي 0.3%؛ ties=10,000/عاصفة. البوابات PASS bitwise على تشغيلي التفكيك.
+  - [x] **جدول القرار المجمد مطبق:** EventQueue 99%≥15% ⇒ C1 مفعّلة · Execution 0.3% ⇒ C3 غير مفعّلة.
+  - [x] **C1 BatchedEventQueue = PASS:** عواصف −99.8% (0.361/0.352/0.480s على current) · SEM/SEQ/counters bitwise PASS على current+bucket · انحراف EVENT_SEQ (ترتيب الروابط المتساوية) موثق مع برهان اللا-أثر (أحداث العاصفة كلها noop/تبادلية).
+  - [x] **C2 SlicedRunner = PASS محور الـframe فقط:** تكافؤ ظل bitwise (K=∞) · K=5000 لا يلتزم (max frame 82s=273%) · **K=1000 يلتزم (max 24.4s=81.5%)** · القاعدة المسجلة: Semantic tick duration ≠ Wall-clock frame duration — الزمن الكلي للعاصفة لا يتغير بتقطيعه.
+  - [x] **E4 day-shift = FAIL مرفوض:** SEQ ينحرف فورًا بكل الصيغ؛ spread يكسر SEM فورًا (تغيّر عدد الإطلاقات/نافذة)؛ تطابق m29/m31 العرضي موثق كخدعة نطاق (population ورقية + count محفوظ داخل 35 يومًا فقط).
+  - [x] وثيقة التسليم: [26-T5-C-Storm-Root-Cause.md](file:///c:/tmp/maestro%20engine/26-T5-C-Storm-Root-Cause.md) + 13 raw log بأسماء `test_t5c_*`.
+- **Validation Method:** تشغيلات Godot headless على الحمل الحقيقي t5_p0 حصرًا؛ بوابات SEM/SEQ/counters مجمّدة قبل التشغيل؛ لا benchmark اصطناعي.
+- **Evidence:** [قسم 8 في الوثيقة 26 — خريطة الأدلة الكاملة](file:///c:/tmp/maestro%20engine/26-T5-C-Storm-Root-Cause.md)
+
+---
+
 ### [TASK-036] T5-B Experimental Scheduler Benchmark
 
 - **Status:** COMPLETE (PROVISIONAL — verdicts per frozen thresholds; الاعتماد النهائي للمالك)

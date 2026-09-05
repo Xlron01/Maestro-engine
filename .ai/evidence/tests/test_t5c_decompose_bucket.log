@@ -1,0 +1,155 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  T5-C STORM LAB | phase=decompose scheduler=bucket probe=off days=90 variant=
+  args=["--script", "res://scripts/test_t5c_storm_lab.gd", "--phase=decompose", "--scheduler=bucket", "--days=90"]
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+world=10000 jobs=40002 t0 done
+day=001 tick_us=164 sched_us=19 due=2 jobs_us=90 eqp_us=0 eqo_us=5 evh_us=0 resid_us=50 dbg_est_us=7 ev_d+0 mem=
+day=002 tick_us=148 sched_us=12 due=2 jobs_us=82 eqp_us=0 eqo_us=2 evh_us=0 resid_us=52 dbg_est_us=7 ev_d+0 mem=
+day=003 tick_us=177 sched_us=12 due=2 jobs_us=113 eqp_us=0 eqo_us=3 evh_us=0 resid_us=49 dbg_est_us=7 ev_d+0 mem=
+day=004 tick_us=145 sched_us=13 due=2 jobs_us=82 eqp_us=0 eqo_us=2 evh_us=0 resid_us=48 dbg_est_us=7 ev_d+0 mem=
+day=005 tick_us=150 sched_us=13 due=2 jobs_us=85 eqp_us=0 eqo_us=3 evh_us=0 resid_us=49 dbg_est_us=7 ev_d+0 mem=
+day=006 tick_us=403 sched_us=48 due=2 jobs_us=200 eqp_us=0 eqo_us=7 evh_us=0 resid_us=148 dbg_est_us=10 ev_d+0 mem=
+day=007 tick_us=212 sched_us=17 due=2 jobs_us=122 eqp_us=0 eqo_us=2 evh_us=0 resid_us=71 dbg_est_us=10 ev_d+0 mem=
+day=008 tick_us=150 sched_us=12 due=2 jobs_us=84 eqp_us=0 eqo_us=2 evh_us=0 resid_us=52 dbg_est_us=7 ev_d+0 mem=
+day=009 tick_us=176 sched_us=12 due=2 jobs_us=112 eqp_us=0 eqo_us=2 evh_us=0 resid_us=50 dbg_est_us=7 ev_d+0 mem=
+day=010 tick_us=160 sched_us=12 due=2 jobs_us=92 eqp_us=0 eqo_us=3 evh_us=0 resid_us=53 dbg_est_us=8 ev_d+0 mem=112795563
+day=011 tick_us=151 sched_us=13 due=2 jobs_us=84 eqp_us=0 eqo_us=3 evh_us=0 resid_us=51 dbg_est_us=7 ev_d+0 mem=
+day=012 tick_us=608 sched_us=45 due=2 jobs_us=307 eqp_us=0 eqo_us=8 evh_us=5 resid_us=243 dbg_est_us=7 ev_d+1 mem=
+day=013 tick_us=151 sched_us=12 due=2 jobs_us=85 eqp_us=0 eqo_us=2 evh_us=0 resid_us=52 dbg_est_us=7 ev_d+0 mem=
+day=014 tick_us=152 sched_us=12 due=2 jobs_us=87 eqp_us=0 eqo_us=2 evh_us=0 resid_us=51 dbg_est_us=7 ev_d+0 mem=
+day=015 tick_us=180 sched_us=13 due=2 jobs_us=112 eqp_us=0 eqo_us=2 evh_us=0 resid_us=53 dbg_est_us=7 ev_d+0 mem=
+day=016 tick_us=155 sched_us=13 due=2 jobs_us=87 eqp_us=0 eqo_us=3 evh_us=0 resid_us=52 dbg_est_us=7 ev_d+0 mem=
+day=017 tick_us=152 sched_us=12 due=2 jobs_us=85 eqp_us=0 eqo_us=2 evh_us=0 resid_us=53 dbg_est_us=7 ev_d+0 mem=
+day=018 tick_us=192 sched_us=13 due=2 jobs_us=91 eqp_us=0 eqo_us=5 evh_us=5 resid_us=78 dbg_est_us=7 ev_d+1 mem=
+day=019 tick_us=208 sched_us=19 due=2 jobs_us=121 eqp_us=0 eqo_us=3 evh_us=0 resid_us=65 dbg_est_us=8 ev_d+0 mem=
+day=020 tick_us=149 sched_us=12 due=2 jobs_us=83 eqp_us=0 eqo_us=2 evh_us=0 resid_us=52 dbg_est_us=7 ev_d+0 mem=112799095
+day=021 tick_us=403 sched_us=29 due=2 jobs_us=242 eqp_us=0 eqo_us=4 evh_us=0 resid_us=128 dbg_est_us=12 ev_d+0 mem=
+day=022 tick_us=310 sched_us=14 due=2 jobs_us=181 eqp_us=0 eqo_us=4 evh_us=0 resid_us=111 dbg_est_us=49 ev_d+0 mem=
+day=023 tick_us=242 sched_us=13 due=2 jobs_us=132 eqp_us=0 eqo_us=2 evh_us=0 resid_us=95 dbg_est_us=8 ev_d+0 mem=
+day=024 tick_us=157 sched_us=13 due=2 jobs_us=87 eqp_us=0 eqo_us=2 evh_us=0 resid_us=55 dbg_est_us=7 ev_d+0 mem=
+day=025 tick_us=237 sched_us=17 due=2 jobs_us=138 eqp_us=0 eqo_us=3 evh_us=0 resid_us=79 dbg_est_us=13 ev_d+0 mem=
+day=026 tick_us=167 sched_us=13 due=2 jobs_us=88 eqp_us=0 eqo_us=2 evh_us=0 resid_us=64 dbg_est_us=7 ev_d+0 mem=
+day=027 tick_us=187 sched_us=13 due=2 jobs_us=101 eqp_us=0 eqo_us=3 evh_us=0 resid_us=70 dbg_est_us=7 ev_d+0 mem=
+day=028 tick_us=152 sched_us=12 due=2 jobs_us=85 eqp_us=0 eqo_us=2 evh_us=0 resid_us=53 dbg_est_us=7 ev_d+0 mem=
+day=029 tick_us=169 sched_us=15 due=2 jobs_us=94 eqp_us=0 eqo_us=3 evh_us=0 resid_us=57 dbg_est_us=7 ev_d+0 mem=
+day=030 tick_us=227554034 sched_us=708880 due=30002 jobs_us=226314507 eqp_us=225754532 eqo_us=44847 evh_us=3793 resid_us=-225272525 dbg_est_us=673 ev_d+10001 mem=120857179
+DETAIL day=030 total_us=227554034
+  sched_scan_us=708880 (0.3%) due=30002
+  jobs_us=226314507 (99.5%) pushes=10000 eq_push_us=225754532 (99.2%) eq_pop_us=44847 (0.0%)
+  event_handlers_us=3793 (0.0%) residual_us=-225272525 (-99.0%) dbg_est_us=673
+    job coup_risk_check        calls=10000  us=135411
+    job economy_tick           calls=1      us=131
+    job economy_v2_tick        calls=1      us=26
+    job military_readiness     calls=10000  us=226080421
+    job population_update      calls=10000  us=98518
+    evt Economic_Investment          calls=10000  us=3789
+    evt Election                     calls=1      us=4
+  EQ stats: push_max_arr=10001 push_avg_arr=5001.5 ties_consecutive=10000
+day=031 tick_us=4450 sched_us=25 due=2 jobs_us=105 eqp_us=5 eqo_us=6 evh_us=3 resid_us=4306 dbg_est_us=8 ev_d+1 mem=
+day=032 tick_us=183 sched_us=13 due=2 jobs_us=96 eqp_us=5 eqo_us=4 evh_us=3 resid_us=62 dbg_est_us=7 ev_d+1 mem=
+day=033 tick_us=202 sched_us=32 due=2 jobs_us=95 eqp_us=5 eqo_us=4 evh_us=2 resid_us=64 dbg_est_us=8 ev_d+1 mem=
+day=034 tick_us=345 sched_us=46 due=2 jobs_us=184 eqp_us=9 eqo_us=5 evh_us=3 resid_us=98 dbg_est_us=8 ev_d+1 mem=
+day=035 tick_us=391 sched_us=27 due=2 jobs_us=197 eqp_us=10 eqo_us=7 evh_us=5 resid_us=145 dbg_est_us=12 ev_d+1 mem=
+day=036 tick_us=184 sched_us=12 due=2 jobs_us=97 eqp_us=6 eqo_us=3 evh_us=3 resid_us=63 dbg_est_us=7 ev_d+1 mem=
+day=037 tick_us=183 sched_us=13 due=2 jobs_us=97 eqp_us=5 eqo_us=3 evh_us=3 resid_us=62 dbg_est_us=7 ev_d+1 mem=
+day=038 tick_us=184 sched_us=12 due=2 jobs_us=97 eqp_us=6 eqo_us=2 evh_us=3 resid_us=64 dbg_est_us=7 ev_d+1 mem=
+day=039 tick_us=236 sched_us=16 due=2 jobs_us=127 eqp_us=5 eqo_us=3 evh_us=3 resid_us=82 dbg_est_us=7 ev_d+1 mem=
+day=040 tick_us=346 sched_us=20 due=2 jobs_us=166 eqp_us=7 eqo_us=6 evh_us=5 resid_us=142 dbg_est_us=8 ev_d+1 mem=115269923
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+day=041 tick_us=635 sched_us=12 due=2 jobs_us=546 eqp_us=6 eqo_us=4 evh_us=4 resid_us=63 dbg_est_us=7 ev_d+1 mem=
+day=042 tick_us=183 sched_us=13 due=2 jobs_us=96 eqp_us=6 eqo_us=4 evh_us=2 resid_us=62 dbg_est_us=7 ev_d+1 mem=
+day=043 tick_us=208 sched_us=12 due=2 jobs_us=107 eqp_us=5 eqo_us=9 evh_us=3 resid_us=72 dbg_est_us=8 ev_d+1 mem=
+day=044 tick_us=183 sched_us=12 due=2 jobs_us=96 eqp_us=5 eqo_us=4 evh_us=3 resid_us=63 dbg_est_us=7 ev_d+1 mem=
+day=045 tick_us=353 sched_us=18 due=2 jobs_us=150 eqp_us=7 eqo_us=7 evh_us=8 resid_us=163 dbg_est_us=27 ev_d+2 mem=
+day=046 tick_us=191 sched_us=12 due=2 jobs_us=102 eqp_us=4 eqo_us=4 evh_us=3 resid_us=66 dbg_est_us=7 ev_d+1 mem=
+day=047 tick_us=182 sched_us=12 due=2 jobs_us=97 eqp_us=5 eqo_us=3 evh_us=3 resid_us=62 dbg_est_us=7 ev_d+1 mem=
+day=048 tick_us=181 sched_us=12 due=2 jobs_us=96 eqp_us=5 eqo_us=3 evh_us=3 resid_us=62 dbg_est_us=7 ev_d+1 mem=
+day=049 tick_us=185 sched_us=13 due=2 jobs_us=97 eqp_us=5 eqo_us=3 evh_us=3 resid_us=64 dbg_est_us=7 ev_d+1 mem=
+day=050 tick_us=190 sched_us=13 due=2 jobs_us=99 eqp_us=4 eqo_us=3 evh_us=3 resid_us=68 dbg_est_us=7 ev_d+1 mem=115281611
+day=051 tick_us=207 sched_us=15 due=2 jobs_us=104 eqp_us=7 eqo_us=2 evh_us=3 resid_us=76 dbg_est_us=7 ev_d+2 mem=
+day=052 tick_us=222 sched_us=13 due=2 jobs_us=104 eqp_us=6 eqo_us=6 evh_us=6 resid_us=87 dbg_est_us=11 ev_d+2 mem=
+day=053 tick_us=280 sched_us=20 due=2 jobs_us=141 eqp_us=11 eqo_us=6 evh_us=4 resid_us=98 dbg_est_us=8 ev_d+2 mem=
+day=054 tick_us=199 sched_us=12 due=2 jobs_us=103 eqp_us=7 eqo_us=5 evh_us=4 resid_us=68 dbg_est_us=7 ev_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+day=055 tick_us=747 sched_us=12 due=2 jobs_us=623 eqp_us=8 eqo_us=4 evh_us=5 resid_us=95 dbg_est_us=7 ev_d+2 mem=
+day=056 tick_us=229 sched_us=12 due=2 jobs_us=127 eqp_us=7 eqo_us=5 evh_us=4 resid_us=74 dbg_est_us=7 ev_d+2 mem=
+day=057 tick_us=200 sched_us=12 due=2 jobs_us=105 eqp_us=7 eqo_us=5 evh_us=4 resid_us=67 dbg_est_us=7 ev_d+2 mem=
+day=058 tick_us=236 sched_us=17 due=2 jobs_us=107 eqp_us=8 eqo_us=11 evh_us=5 resid_us=88 dbg_est_us=7 ev_d+2 mem=
+day=059 tick_us=202 sched_us=15 due=2 jobs_us=104 eqp_us=7 eqo_us=3 evh_us=5 resid_us=68 dbg_est_us=8 ev_d+2 mem=
+day=060 tick_us=223619029 sched_us=698946 due=30002 jobs_us=222399671 eqp_us=221862420 eqo_us=44359 evh_us=3816 resid_us=-221390183 dbg_est_us=782 ev_d+10002 mem=122366359
+DETAIL day=060 total_us=223619029
+  sched_scan_us=698946 (0.3%) due=30002
+  jobs_us=222399671 (99.5%) pushes=10002 eq_push_us=221862420 (99.2%) eq_pop_us=44359 (0.0%)
+  event_handlers_us=3816 (0.0%) residual_us=-221390183 (-99.0%) dbg_est_us=782
+    job coup_risk_check        calls=10000  us=133225
+    job economy_tick           calls=1      us=112
+    job economy_v2_tick        calls=1      us=30
+    job military_readiness     calls=10000  us=222174528
+    job population_update      calls=10000  us=91776
+    evt Economic_Investment          calls=10000  us=3802
+    evt Economy_Shortage_Occurred    calls=2      us=14
+  EQ stats: push_max_arr=10001 push_avg_arr=4991.5 ties_consecutive=20011
+day=061 tick_us=4527 sched_us=37 due=2 jobs_us=155 eqp_us=8 eqo_us=5 evh_us=3 resid_us=4319 dbg_est_us=7 ev_d+2 mem=
+day=062 tick_us=218 sched_us=12 due=2 jobs_us=116 eqp_us=7 eqo_us=8 evh_us=4 resid_us=71 dbg_est_us=7 ev_d+2 mem=
+day=063 tick_us=197 sched_us=12 due=2 jobs_us=103 eqp_us=7 eqo_us=4 evh_us=4 resid_us=67 dbg_est_us=8 ev_d+2 mem=
+day=064 tick_us=198 sched_us=12 due=2 jobs_us=102 eqp_us=7 eqo_us=4 evh_us=3 resid_us=70 dbg_est_us=7 ev_d+2 mem=
+day=065 tick_us=228 sched_us=40 due=2 jobs_us=103 eqp_us=7 eqo_us=6 evh_us=4 resid_us=68 dbg_est_us=7 ev_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+day=066 tick_us=1603 sched_us=14 due=2 jobs_us=1253 eqp_us=33 eqo_us=21 evh_us=22 resid_us=260 dbg_est_us=9 ev_d+2 mem=
+day=067 tick_us=289 sched_us=17 due=2 jobs_us=157 eqp_us=9 eqo_us=7 evh_us=6 resid_us=93 dbg_est_us=12 ev_d+2 mem=
+day=068 tick_us=479 sched_us=24 due=2 jobs_us=184 eqp_us=9 eqo_us=6 evh_us=5 resid_us=251 dbg_est_us=10 ev_d+2 mem=
+day=069 tick_us=351 sched_us=13 due=2 jobs_us=195 eqp_us=15 eqo_us=5 evh_us=6 resid_us=117 dbg_est_us=7 ev_d+2 mem=
+day=070 tick_us=229 sched_us=13 due=2 jobs_us=128 eqp_us=7 eqo_us=5 evh_us=4 resid_us=72 dbg_est_us=7 ev_d+2 mem=116781455
+day=071 tick_us=226 sched_us=12 due=2 jobs_us=104 eqp_us=8 eqo_us=5 evh_us=4 resid_us=93 dbg_est_us=8 ev_d+2 mem=
+day=072 tick_us=196 sched_us=12 due=2 jobs_us=103 eqp_us=8 eqo_us=5 evh_us=5 resid_us=63 dbg_est_us=7 ev_d+2 mem=
+day=073 tick_us=223 sched_us=13 due=2 jobs_us=105 eqp_us=7 eqo_us=5 evh_us=8 resid_us=85 dbg_est_us=7 ev_d+2 mem=
+day=074 tick_us=209 sched_us=14 due=2 jobs_us=111 eqp_us=7 eqo_us=4 evh_us=4 resid_us=69 dbg_est_us=7 ev_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+day=075 tick_us=866 sched_us=14 due=2 jobs_us=762 eqp_us=9 eqo_us=6 evh_us=5 resid_us=70 dbg_est_us=7 ev_d+2 mem=
+day=076 tick_us=300 sched_us=18 due=2 jobs_us=134 eqp_us=9 eqo_us=7 evh_us=10 resid_us=122 dbg_est_us=9 ev_d+2 mem=
+day=077 tick_us=218 sched_us=12 due=2 jobs_us=105 eqp_us=7 eqo_us=4 evh_us=5 resid_us=85 dbg_est_us=9 ev_d+2 mem=
+day=078 tick_us=224 sched_us=13 due=2 jobs_us=117 eqp_us=14 eqo_us=5 evh_us=5 resid_us=70 dbg_est_us=7 ev_d+2 mem=
+day=079 tick_us=230 sched_us=29 due=2 jobs_us=106 eqp_us=7 eqo_us=5 evh_us=5 resid_us=78 dbg_est_us=7 ev_d+2 mem=
+day=080 tick_us=245 sched_us=13 due=2 jobs_us=136 eqp_us=10 eqo_us=4 evh_us=5 resid_us=77 dbg_est_us=7 ev_d+2 mem=116795055
+day=081 tick_us=314 sched_us=14 due=2 jobs_us=216 eqp_us=7 eqo_us=3 evh_us=5 resid_us=69 dbg_est_us=7 ev_d+2 mem=
+day=082 tick_us=206 sched_us=21 due=2 jobs_us=103 eqp_us=7 eqo_us=4 evh_us=4 resid_us=67 dbg_est_us=6 ev_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+day=083 tick_us=662 sched_us=13 due=2 jobs_us=564 eqp_us=8 eqo_us=5 evh_us=5 resid_us=67 dbg_est_us=7 ev_d+2 mem=
+day=084 tick_us=197 sched_us=12 due=2 jobs_us=103 eqp_us=5 eqo_us=6 evh_us=6 resid_us=65 dbg_est_us=7 ev_d+2 mem=
+day=085 tick_us=241 sched_us=13 due=2 jobs_us=137 eqp_us=7 eqo_us=3 evh_us=5 resid_us=76 dbg_est_us=7 ev_d+2 mem=
+day=086 tick_us=271 sched_us=19 due=2 jobs_us=154 eqp_us=9 eqo_us=3 evh_us=5 resid_us=81 dbg_est_us=8 ev_d+2 mem=
+day=087 tick_us=406 sched_us=27 due=2 jobs_us=241 eqp_us=10 eqo_us=8 evh_us=22 resid_us=98 dbg_est_us=7 ev_d+2 mem=
+day=088 tick_us=205 sched_us=12 due=2 jobs_us=103 eqp_us=7 eqo_us=6 evh_us=5 resid_us=72 dbg_est_us=7 ev_d+2 mem=
+day=089 tick_us=196 sched_us=13 due=2 jobs_us=101 eqp_us=7 eqo_us=4 evh_us=5 resid_us=66 dbg_est_us=7 ev_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+day=090 tick_us=221513671 sched_us=611533 due=40002 jobs_us=220332156 eqp_us=219748748 eqo_us=44979 evh_us=3685 resid_us=-219227430 dbg_est_us=597 ev_d+10002 mem=125170087
+DETAIL day=090 total_us=221513671
+  sched_scan_us=611533 (0.3%) due=40002
+  jobs_us=220332156 (99.5%) pushes=10002 eq_push_us=219748748 (99.2%) eq_pop_us=44979 (0.0%)
+  event_handlers_us=3685 (0.0%) residual_us=-219227430 (-99.0%) dbg_est_us=597
+    job coup_risk_check        calls=10000  us=131642
+    job economy_tick           calls=1      us=6436
+    job economy_v2_tick        calls=1      us=33
+    job gdp_update             calls=10000  us=48206
+    job military_readiness     calls=10000  us=220053076
+    job population_update      calls=10000  us=92763
+    evt Economic_Investment          calls=10000  us=3665
+    evt Economy_Shortage_Occurred    calls=2      us=20
+  EQ stats: push_max_arr=10001 push_avg_arr=4984.9 ties_consecutive=30041
+STATS total_us=672718412 mean_us=7474649.0 p50_us=208 p95_us=4450 p99_us=227554034 max_us=227554034
+SEM_HASH=bcd2763c957c1c21f73cf8e0f637fa81e1ca8d76eb3354feb20f63108956c2b4
+SEQ_HASH=795365ba15cf63228be9d7672e36cad4dff9cd6ef938114c6e402d93a9c5b89d
+COUNTERS events=30104 coup=6000 exposure=0
+GATE sem=PASS seq=PASS counters=PASS
+EVENT_DIAG pushes=30100 pops=30104 ties=30041 max_arr=10001 avg_arr=4984.9 EVENT_SEQ_HASH=9e35a648a40aad8e403ff10416fd04f2beea005a039818ea54b1f436ffd39135
+CONTENT_DIAG DS_calls=66000 DS_us=660318
+=== END phase=decompose scheduler=bucket probe=off days=90 variant= ===
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+WARNING: 25 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 12 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

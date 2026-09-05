@@ -1,0 +1,119 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  T5-C STORM LAB | phase=c1 scheduler=current probe=off days=90 variant=
+  args=["--script", "res://scripts/test_t5c_storm_lab.gd", "--phase=c1", "--scheduler=current", "--days=90"]
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+C1 batched_event_queue attached | scheduler=current
+world=10000 jobs=40002 t0 done
+day=001 tick_us=9879 sched_us=0 due=2 events_d+0 mem=
+day=002 tick_us=9656 sched_us=0 due=2 events_d+0 mem=
+day=003 tick_us=9870 sched_us=0 due=2 events_d+0 mem=
+day=004 tick_us=9606 sched_us=0 due=2 events_d+0 mem=
+day=005 tick_us=9236 sched_us=0 due=2 events_d+0 mem=
+day=006 tick_us=9486 sched_us=0 due=2 events_d+0 mem=
+day=007 tick_us=10569 sched_us=0 due=2 events_d+0 mem=
+day=008 tick_us=9907 sched_us=0 due=2 events_d+0 mem=
+day=009 tick_us=10935 sched_us=0 due=2 events_d+0 mem=
+day=010 tick_us=9419 sched_us=0 due=2 events_d+0 mem=87718132
+day=011 tick_us=9466 sched_us=0 due=2 events_d+0 mem=
+day=012 tick_us=9569 sched_us=0 due=2 events_d+1 mem=
+day=013 tick_us=9405 sched_us=0 due=2 events_d+0 mem=
+day=014 tick_us=9671 sched_us=0 due=2 events_d+0 mem=
+day=015 tick_us=9516 sched_us=0 due=2 events_d+0 mem=
+day=016 tick_us=9650 sched_us=0 due=2 events_d+0 mem=
+day=017 tick_us=9643 sched_us=0 due=2 events_d+0 mem=
+day=018 tick_us=9215 sched_us=0 due=2 events_d+1 mem=
+day=019 tick_us=12111 sched_us=0 due=2 events_d+0 mem=
+day=020 tick_us=9164 sched_us=0 due=2 events_d+0 mem=87723844
+day=021 tick_us=10129 sched_us=0 due=2 events_d+0 mem=
+day=022 tick_us=10520 sched_us=0 due=2 events_d+0 mem=
+day=023 tick_us=9338 sched_us=0 due=2 events_d+0 mem=
+day=024 tick_us=9745 sched_us=0 due=2 events_d+0 mem=
+day=025 tick_us=9645 sched_us=0 due=2 events_d+0 mem=
+day=026 tick_us=9551 sched_us=0 due=2 events_d+0 mem=
+day=027 tick_us=9386 sched_us=0 due=2 events_d+0 mem=
+day=028 tick_us=9281 sched_us=0 due=2 events_d+0 mem=
+day=029 tick_us=10855 sched_us=0 due=2 events_d+0 mem=
+day=030 tick_us=360844 sched_us=0 due=30002 events_d+10001 mem=107940616
+day=031 tick_us=22927 sched_us=0 due=2 events_d+1 mem=
+day=032 tick_us=9567 sched_us=0 due=2 events_d+1 mem=
+day=033 tick_us=10136 sched_us=0 due=2 events_d+1 mem=
+day=034 tick_us=11069 sched_us=0 due=2 events_d+1 mem=
+day=035 tick_us=9614 sched_us=0 due=2 events_d+1 mem=
+day=036 tick_us=9696 sched_us=0 due=2 events_d+1 mem=
+day=037 tick_us=10439 sched_us=0 due=2 events_d+1 mem=
+day=038 tick_us=9439 sched_us=0 due=2 events_d+1 mem=
+day=039 tick_us=9263 sched_us=0 due=2 events_d+1 mem=
+day=040 tick_us=9342 sched_us=0 due=2 events_d+1 mem=90193812
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+day=041 tick_us=10243 sched_us=0 due=2 events_d+1 mem=
+day=042 tick_us=9628 sched_us=0 due=2 events_d+1 mem=
+day=043 tick_us=9145 sched_us=0 due=2 events_d+1 mem=
+day=044 tick_us=9158 sched_us=0 due=2 events_d+1 mem=
+day=045 tick_us=10188 sched_us=0 due=2 events_d+2 mem=
+day=046 tick_us=11943 sched_us=0 due=2 events_d+1 mem=
+day=047 tick_us=9099 sched_us=0 due=2 events_d+1 mem=
+day=048 tick_us=9802 sched_us=0 due=2 events_d+1 mem=
+day=049 tick_us=10665 sched_us=0 due=2 events_d+1 mem=
+day=050 tick_us=10002 sched_us=0 due=2 events_d+1 mem=90204180
+day=051 tick_us=9543 sched_us=0 due=2 events_d+2 mem=
+day=052 tick_us=9503 sched_us=0 due=2 events_d+2 mem=
+day=053 tick_us=11051 sched_us=0 due=2 events_d+2 mem=
+day=054 tick_us=9588 sched_us=0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+day=055 tick_us=9654 sched_us=0 due=2 events_d+2 mem=
+day=056 tick_us=9416 sched_us=0 due=2 events_d+2 mem=
+day=057 tick_us=10030 sched_us=0 due=2 events_d+2 mem=
+day=058 tick_us=13243 sched_us=0 due=2 events_d+2 mem=
+day=059 tick_us=10299 sched_us=0 due=2 events_d+2 mem=
+day=060 tick_us=352456 sched_us=0 due=30002 events_d+10002 mem=97580376
+day=061 tick_us=14655 sched_us=0 due=2 events_d+2 mem=
+day=062 tick_us=9791 sched_us=0 due=2 events_d+2 mem=
+day=063 tick_us=10829 sched_us=0 due=2 events_d+2 mem=
+day=064 tick_us=9644 sched_us=0 due=2 events_d+2 mem=
+day=065 tick_us=9595 sched_us=0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+day=066 tick_us=9978 sched_us=0 due=2 events_d+2 mem=
+day=067 tick_us=9808 sched_us=0 due=2 events_d+2 mem=
+day=068 tick_us=9362 sched_us=0 due=2 events_d+2 mem=
+day=069 tick_us=9452 sched_us=0 due=2 events_d+2 mem=
+day=070 tick_us=9995 sched_us=0 due=2 events_d+2 mem=91995472
+day=071 tick_us=10212 sched_us=0 due=2 events_d+2 mem=
+day=072 tick_us=10186 sched_us=0 due=2 events_d+2 mem=
+day=073 tick_us=10234 sched_us=0 due=2 events_d+2 mem=
+day=074 tick_us=10379 sched_us=0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+day=075 tick_us=12832 sched_us=0 due=2 events_d+2 mem=
+day=076 tick_us=8598 sched_us=0 due=2 events_d+2 mem=
+day=077 tick_us=8548 sched_us=0 due=2 events_d+2 mem=
+day=078 tick_us=10265 sched_us=0 due=2 events_d+2 mem=
+day=079 tick_us=8518 sched_us=0 due=2 events_d+2 mem=
+day=080 tick_us=8513 sched_us=0 due=2 events_d+2 mem=92009072
+day=081 tick_us=8264 sched_us=0 due=2 events_d+2 mem=
+day=082 tick_us=8612 sched_us=0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+day=083 tick_us=9997 sched_us=0 due=2 events_d+2 mem=
+day=084 tick_us=9511 sched_us=0 due=2 events_d+2 mem=
+day=085 tick_us=9754 sched_us=0 due=2 events_d+2 mem=
+day=086 tick_us=10114 sched_us=0 due=2 events_d+2 mem=
+day=087 tick_us=10949 sched_us=0 due=2 events_d+2 mem=
+day=088 tick_us=10106 sched_us=0 due=2 events_d+2 mem=
+day=089 tick_us=9619 sched_us=0 due=2 events_d+2 mem=
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+day=090 tick_us=479748 sched_us=0 due=40002 events_d+10002 mem=100092656
+STATS total_us=2069483 mean_us=22994.3 p50_us=9696 p95_us=14655 p99_us=479748 max_us=479748
+SEM_HASH=bcd2763c957c1c21f73cf8e0f637fa81e1ca8d76eb3354feb20f63108956c2b4
+SEQ_HASH=795365ba15cf63228be9d7672e36cad4dff9cd6ef938114c6e402d93a9c5b89d
+COUNTERS events=30104 coup=6000 exposure=0
+GATE sem=PASS seq=PASS counters=PASS
+C1_DIAG pushes=30100 pops=30104 sorts=62 sort_us=125278 EVENT_SEQ_HASH=afbef37e095bd12569f4206d9444a4166a2149d6a05ec969e2d04e7a19729843
+CONTENT_DIAG DS_calls=66000 DS_us=294952
+=== END phase=c1 scheduler=current probe=off days=90 variant= ===
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+WARNING: 22 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 10 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

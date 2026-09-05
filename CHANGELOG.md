@@ -2,6 +2,18 @@
 
 سجل زمني لجميع التعديلات الهامة التي طرأت على مشروع **Maestro Engine**.
 
+## [2026-09-05]
+
+### Added
+- **T5-C (Storm Root-Cause & Measured-Bottleneck-Only Fix) — PROVISIONAL (بانتظار اعتماد المالك):**
+  - تفكيك عاصفة mass-synchronous workload على الحمل الحقيقي (t5_p0، 10K دولة، 40,002 jobs) بمسار تجريبي معزول — **صفر تعديل على النواة التسعة**.
+  - **E0:** أساس رسمي جديد منزوع القياس (OSB=Current OFF: 191.15/180.34/176.01s لـd30/60/90) + قياس فاتورة الـheavy probe (+28% current، +125% bucket) — أرقام T5-B العاصفية تصبح مرجعية تاريخية فقط، وميزة bucket العاصفية لا تتكوّر منزوعة القياس.
+  - **E1:** الجذر مثبت بالقياس: `EventQueue.push_event` يعيد فرز المصفوفة كاملة مع كل دفعة = **99.2-99.5% من زمن العاصفة**؛ المجدول ≤0.3%؛ التنفيذ 0.3%.
+  - **C1 BatchedEventQueue (تجريبي):** append + فرز lazy واحد + صرف بمؤشر رأس ⇒ عواصف **−99.8%** (0.36-0.48s) مع SEM/SEQ/counters bitwise PASS على current+bucket. **Verdict: PASS.**
+  - **C2 SlicedRunner (تجريبي):** توزيع wall-clock داخل التكة بتكافؤ bitwise؛ K=1000 يلتزم سقف 30s للـframe (24.4s=81.5%) دون تقليص الزمن الكلي — القاعدة المسجلة: Semantic tick duration ≠ Wall-clock frame duration. **Verdict: PASS محور الـframe فقط.**
+  - **E4 (ضابط سلبي):** إعادة توزيع calendar-time مرفوضة بقياس — SEQ ينحرف فورًا وspread يكسر SEM (تغيّر عدد الإطلاقات/نافذة). **Verdict: FAIL.**
+  - وثيقة التسليم `26-T5-C-Storm-Root-Cause.md` + 13 raw log (`test_t5c_*`) + عدّاء `scripts/test_t5c_storm_lab.gd` + 4 وحدات تجريبية في `scripts/experimental/`.
+
 ## [2026-08-29]
 
 ### Added

@@ -1,3 +1,21 @@
+- **Current Task:** TASK-037 (T5-C Storm Root-Cause) — **الجذر مثبت بالقياس: EventQueue.push_event = 99.2-99.5% من العاصفة · C1=PASS (−99.8%) · C2=PASS محور الـframe · E4=FAIL مرفوض · بانتظارك**
+
+## 0-a) T5-C — Storm Root-Cause — ملخص (الأحدث)
+
+**الهدف:** لماذا ما زالت عاصفة T5-P0 بطيئة (162-291s مقابل سقف 30s) حتى بعد فوز Bucket؟ — تفكيك بالقياس ثم إصلاح المكوّن المقاس فقط، بلا أي تعديل نواة.
+
+**النتيجة (كلها على الحمل الحقيقي t5_p0، نفس الحملة/البيئة، بوابات SEM/SEQ/counters مجمّدة):**
+- **E0 — أساس رسمي جديد منزوع القياس:** OSB (Current OFF) عواصف **191.15/180.34/176.01s** · BSB (Bucket OFF) **190.92/203.94/236.27s** · quiet p50: 8.66ms مقابل 200µs. فاتورة الـheavy probe: current +155s (+28%) وbucket +788s (+125%) — **ميزة bucket العاصفية في T5-B لا تتكوّر منزوعة القياس** (أرقامها تاريخية فقط الآن).
+- **E1 — الجذر:** `EventQueue.push_event` يعيد فرز المصفوفة كاملة مع كل دفعة (EventQueue.gd:18) ⇒ **99.2-99.5%** من زمن العاصفة (208.8s/209.8s يوم d30). المجدول ≤0.3%، التنفيذ الفعلي 0.3%. جدول القرار المجمد ⇒ **C1 مفعّلة، C3 غير مفعّلة**.
+- **C1 BatchedEventQueue = PASS:** append-only + فرز lazy واحد + صرف بمؤشر رأس. العواصف **0.361/0.352/0.480s (−99.8%)**، SEM/SEQ/counters bitwise PASS على current+bucket. انحراف ترتيب روابط الأحداث المتساوية موثق (أحداث العاصفة كلها noop).
+- **C2 SlicedRunner = PASS محور الـframe فقط:** تكافؤ ظل bitwise؛ K=5000 لا يلتزم (max frame 82s)، **K=1000 يلتزم (24.4s = 81.5% من السقف)**. القاعدة المسجلة: **Semantic tick duration ≠ Wall-clock frame duration** — التقطيع يوزع الزمن لا يقلصه؛ ومع C1 تسقط الحاجة إليه (التكة كلها 0.36s).
+- **E4 day-shift = FAIL مرفوض:** SEQ ينحرف فورًا بكل الصيغ؛ spread يكسر SEM فورًا (عدد الإطلاقات/نافذة يتغير)؛ تطابق m29/m31 العرضي خلال 35 يومًا موثق كخدعة نطاق لا برهان تكافؤ.
+
+**Evidence:** وثيقة [26-T5-C-Storm-Root-Cause.md](file:///c:/tmp/maestro%20engine/26-T5-C-Storm-Root-Cause.md) (الخلاصة §0، شجرة التفكيك §2، المصفوفة §6، خريطة 13 raw log §8). العدّاء: `scripts/test_t5c_storm_lab.gd`. التجريبية: `scripts/experimental/{batched_event_queue, sliced_runner, event_queue_probe, scheduler_probe_lite}.gd`.
+**Scope:** صفر تعديل نواة (diff الملفات التسعة فارغ). **لا قرار migration مني — T5-D (ترحيل EventQueue) مقترح بقرار المالك.**
+
+---
+
 - **Current Task:** TASK-036 (T5-B Scheduler Benchmark) — **Bucket=FULL PASS · Heap=PARTIAL · بانتظارك**
 
 ## 0-b) T5-B — المصدر (الأحث)

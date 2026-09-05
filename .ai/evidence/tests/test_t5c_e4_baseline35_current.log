@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  T5-C STORM LAB | phase=e0 scheduler=current probe=off days=35 variant=
+  args=["--script", "res://scripts/test_t5c_storm_lab.gd", "--phase=e0", "--scheduler=current", "--probe=off", "--days=35"]
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+world=10000 jobs=40002 t0 done
+day=001 tick_us=9195 sched_us=0 due=2 events_d+0 mem=
+day=002 tick_us=7802 sched_us=0 due=2 events_d+0 mem=
+day=003 tick_us=8151 sched_us=0 due=2 events_d+0 mem=
+day=004 tick_us=9824 sched_us=0 due=2 events_d+0 mem=
+day=005 tick_us=8000 sched_us=0 due=2 events_d+0 mem=
+day=006 tick_us=9567 sched_us=0 due=2 events_d+0 mem=
+day=007 tick_us=8646 sched_us=0 due=2 events_d+0 mem=
+day=008 tick_us=8403 sched_us=0 due=2 events_d+0 mem=
+day=009 tick_us=8029 sched_us=0 due=2 events_d+0 mem=
+day=010 tick_us=8091 sched_us=0 due=2 events_d+0 mem=87717636
+day=011 tick_us=8555 sched_us=0 due=2 events_d+0 mem=
+day=012 tick_us=9710 sched_us=0 due=2 events_d+1 mem=
+day=013 tick_us=8271 sched_us=0 due=2 events_d+0 mem=
+day=014 tick_us=8129 sched_us=0 due=2 events_d+0 mem=
+day=015 tick_us=7989 sched_us=0 due=2 events_d+0 mem=
+day=016 tick_us=7993 sched_us=0 due=2 events_d+0 mem=
+day=017 tick_us=8234 sched_us=0 due=2 events_d+0 mem=
+day=018 tick_us=8174 sched_us=0 due=2 events_d+1 mem=
+day=019 tick_us=8626 sched_us=0 due=2 events_d+0 mem=
+day=020 tick_us=9058 sched_us=0 due=2 events_d+0 mem=87720968
+day=021 tick_us=9041 sched_us=0 due=2 events_d+0 mem=
+day=022 tick_us=8294 sched_us=0 due=2 events_d+0 mem=
+day=023 tick_us=8235 sched_us=0 due=2 events_d+0 mem=
+day=024 tick_us=8202 sched_us=0 due=2 events_d+0 mem=
+day=025 tick_us=8082 sched_us=0 due=2 events_d+0 mem=
+day=026 tick_us=8872 sched_us=0 due=2 events_d+0 mem=
+day=027 tick_us=9579 sched_us=0 due=2 events_d+0 mem=
+day=028 tick_us=8416 sched_us=0 due=2 events_d+0 mem=
+day=029 tick_us=8360 sched_us=0 due=2 events_d+0 mem=
+day=030 tick_us=184290838 sched_us=0 due=30002 events_d+10001 mem=94281996
+day=031 tick_us=13243 sched_us=0 due=2 events_d+1 mem=
+day=032 tick_us=8365 sched_us=0 due=2 events_d+1 mem=
+day=033 tick_us=8702 sched_us=0 due=2 events_d+1 mem=
+day=034 tick_us=9056 sched_us=0 due=2 events_d+1 mem=
+day=035 tick_us=8989 sched_us=0 due=2 events_d+1 mem=
+STATS total_us=184586721 mean_us=5273906.3 p50_us=8403 p95_us=13243 p99_us=184290838 max_us=184290838
+SEM_HASH=42c9fa27f91a50bbcdc405e3a711d79d7926a265484669d93ba23d2d8675e3c6
+SEQ_HASH=cc7f75482b4723a21224f8dfff2ba492fe3df0cdbd7ed1d5271b23a73df57d30
+COUNTERS events=10008 coup=2000 exposure=0
+CONTENT_DIAG DS_calls=22000 DS_us=199689
+=== END phase=e0 scheduler=current probe=off days=35 variant= ===
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+WARNING: 21 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 9 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
