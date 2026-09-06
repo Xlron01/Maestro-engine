@@ -30,3 +30,19 @@
 [194] building v_renamed
 [195] layers done v_renamed
 [293] REACHED QUIT
+[154] START
+[163] building base
+[164] layers done base
+[164] building v_goal_swap
+[166] layers done v_goal_swap
+[166] building v_fact_change
+[167] layers done v_fact_change
+[167] building v_capped_actor
+[169] layers done v_capped_actor
+[169] building v_capped_full
+[170] layers done v_capped_full
+[170] building v_option_add
+[171] layers done v_option_add
+[172] building v_renamed
+[173] layers done v_renamed
+[283] REACHED QUIT

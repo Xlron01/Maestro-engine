@@ -1,6 +1,29 @@
-﻿# Completed Tasks
+# Completed Tasks
 
 قائمة المهام المكتملة والمغلقة بنجاح في المشروع.
+
+---
+
+### [TASK-039] Political Institutional Core — Batch A
+
+- **Status:** COMPLETE (PROVISIONAL — بانتظار ختم المالك)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-038 (Compliance Runtime)
+- **Objective:** تنفيذ أول طبقة سياسية مؤسسية فوق النواة: 5 models + 12 actions + history contracts + data-driven institutional rules — tests-first (A–K تُجمد قبل كود الـresolution)، بلا مباشرة world mutation، بلا per-tick political polling.
+- **Acceptance Criteria:**
+  - [x] **5 Models:** PoliticalOffice · PoliticalParty · Legislature · Government · Election — عبر `scripts/politics/political_state.gd` + `data/rules/politics.json`.
+  - [x] **12 Actions** عبر Action Pipeline (لا direct mutation): FormGovernment · AppointOfficeholder · DismissOfficeholder · ResignGovernment · ProposeBill · VoteBill · VoteConfidence · VoteNoConfidence · SupportGovernment · WithdrawSupport · HoldElection · ContestElectionResult — عبر `scripts/politics/political_actions.gd`.
+  - [x] **History contracts** (أول تنفيذ لها — لم تكن موجودة قبل TASK-039): ElectionHistory · ElectionResult · ElectionDisputeHistory · SuccessionHistory · RegimeHistory — موثق صراحة في commit 0e32c9ac.
+  - [x] **Institutional rules data-driven:** `scripts/politics/institutional_rules.gd` + `data/rules/institutional_rules.json`.
+  - [x] **قبول A–K: PASS 31/31** — political loop سببي (election→parliament→formation→confidence→removal) · Election≠Succession · office lifecycle (Character≠Office · لا duplicate history) · bills deterministic · per-transition snapshots · PARTIAL-aware (PopularSupport/ConstitutionalValidity missing) · determinism bitwise · لا per-tick polling (30 ticks ⇒ 0 political evaluations).
+  - [x] **Benchmark:** N=100/1100 actions/330µs mean/0 per-tick evals/33MB delta/active_ratio=0.5 — `BENCH verdict=PASS`.
+  - [x] **Regression K كامل أخضر:** ScenarioTest 5/5 · D1 28/28 · Model v1 Integration 7/7 · Economy 14/14 · Compliance 25/25 · T5-C1 GATE=PASS (SEM/SEQ/counters bitwise).
+  - [x] **صفر تعديل نواة.**
+- **Commits:** 0e32c9ac (models+history) · 80ba4e27 (12 actions) · cc04b712 (acceptance A-K 31/31) · 43b975d6 (benchmark).
+- **Evidence:**
+  - Acceptance: `.ai/evidence/tests/test_t039_politics_run01.log` — PASS 31/31
+  - Benchmark: `.ai/evidence/tests/test_t039_politics_benchmark_run01.log` — BENCH verdict=PASS
+  - Regression K: `.ai/evidence/tests/test_t039_test_regressionK_*.log` (5 logs) + `.ai/evidence/tests/test_t039_regressionK_t5c_c1.log`
 
 ---
 

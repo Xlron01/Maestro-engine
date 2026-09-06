@@ -1,6 +1,26 @@
+- **Current Task:** TASK-039 (Political Institutional Core — Batch A) — **PASS 31/31 · Benchmark PASS · Regression K كامل أخضر · بانتظار ختم المالك**
+
+## 0-a) TASK-039 — Political Institutional Core (Batch A) — ملخص
+
+**الهدف:** تنفيذ أول طبقة سياسية مؤسسية فوق النواة — tests-first (A–K مجمّدة قبل الكود)، بلا direct world mutation، بلا per-tick political polling، صفر تعديل نواة.
+
+**النتيجة:**
+- **5 Models:** PoliticalOffice · PoliticalParty · Legislature · Government · Election — عبر `scripts/politics/political_state.gd` + `data/rules/politics.json`.
+- **12 Actions** عبر Action Pipeline: FormGovernment · AppointOfficeholder · DismissOfficeholder · ResignGovernment · ProposeBill · VoteBill · VoteConfidence · VoteNoConfidence · SupportGovernment · WithdrawSupport · HoldElection · ContestElectionResult.
+- **History contracts** (أول تنفيذ — لم تكن موجودة قبل TASK-039): ElectionHistory · ElectionResult · ElectionDisputeHistory · SuccessionHistory · RegimeHistory.
+- **Institutional rules data-driven:** `institutional_rules.gd` + `institutional_rules.json`.
+- **قبول A–K: PASS 31/31** — political loop سببي (election→parliament→formation→confidence→no-confidence→removal) · Election≠Succession (B1/B2) · office lifecycle (Character≠Office, D tests) · bills deterministic (E) · confidence (F) · compliance consumed not executed (G) · PARTIAL-aware/no fabrication (H) · determinism bitwise (I) · لا per-tick polling 30ticks⇒0evals (J).
+- **Benchmark:** N=100 countries · 1100 actions · 330µs/action mean · 0 per-tick political evaluations · 33MB memory delta · active_ratio=0.5 — `BENCH verdict=PASS`.
+- **Regression K كامل أخضر:** ScenarioTest 5/5+checksum · D1 28/28 · Model v1 Integration 7/7 · Economy 14/14 · Compliance 25/25 · T5-C1 GATE=PASS(SEM/SEQ/counters bitwise).
+
+**Commits:** 0e32c9ac (models+history) · 80ba4e27 (12 actions) · cc04b712 (acceptance A-K) · 43b975d6 (benchmark).
+**Evidence:** `.ai/evidence/tests/test_t039_politics_run01.log` (31/31) · `test_t039_politics_benchmark_run01.log` (BENCH PASS) · `test_t039_test_regressionK_*.log` (5 logs) · `test_t039_regressionK_t5c_c1.log`.
+**Scope:** صفر تعديل نواة. **لا قرار Batch B مني — قرار المالك.**
+
+---
+
 - **Current Task:** TASK-038 (Compliance Runtime Layer) — **A–L: PASS 25/25 · Regression كامل أخضر · بانتظارك**
 
-## 0-a) TASK-038 — Compliance Runtime Layer — ملخص (الأحدث)
 
 **الهدف:** تنفيذ الطبقة فوق النواة الحالية بعقود مقفولة — tests-first (توقعات A–L جمّدت قبل كود الـresolution)، بلا formula نهائية ولا weights، بلا أي تعديل نواة أو wiring إنتاجي.
 

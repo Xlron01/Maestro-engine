@@ -2,6 +2,20 @@
 
 سجل زمني لجميع التعديلات الهامة التي طرأت على مشروع **Maestro Engine**.
 
+## [2026-09-07]
+
+### Added
+- **TASK-039 (Political Institutional Core — Batch A) — PROVISIONAL (بانتظار اعتماد المالك):**
+  - أول طبقة سياسية مؤسسية فوق النواة — **صفر تعديل نواة** · data-driven rules · on-demand evaluation · لا per-tick political polling.
+  - **5 Models:** PoliticalOffice · PoliticalParty · Legislature · Government · Election — عبر `scripts/politics/political_state.gd` + `data/rules/politics.json`.
+  - **12 Actions** عبر Action Pipeline (لا direct world mutation): FormGovernment · AppointOfficeholder · DismissOfficeholder · ResignGovernment · ProposeBill · VoteBill · VoteConfidence · VoteNoConfidence · SupportGovernment · WithdrawSupport · HoldElection · ContestElectionResult — `scripts/politics/political_actions.gd`.
+  - **History contracts** (أول تنفيذ — لم تكن موجودة قبل TASK-039، موثق في commit 0e32c9ac): ElectionHistory · ElectionResult · ElectionDisputeHistory · SuccessionHistory · RegimeHistory.
+  - **Institutional rules data-driven:** `scripts/politics/institutional_rules.gd` + `data/rules/institutional_rules.json` — لا hardcode procedural path لكل دولة.
+  - **tests-first PASS 31/31 (A–K):** political causal loop (election→parliament→formation→confidence→no-confidence→government fall) · Election≠Succession · Character≠Office · PARTIAL-aware compliance · determinism bitwise · 30 ticks ⇒ 0 political evaluations (J tests).
+  - **Benchmark PASS:** N=100 countries · 1100 actions · 330µs/action mean · 0 per-tick political evaluations · 33MB memory delta · active_ratio=0.5.
+  - **Regression K كامل أخضر:** ScenarioTest 5/5+checksum · D1 28/28 · Model v1 Integration 7/7 · Economy 14/14 · Compliance 25/25 · T5-C1 GATE=PASS.
+  - 4 commits (0e32c9ac · 80ba4e27 · cc04b712 · 43b975d6) + 8 evidence logs في `.ai/evidence/tests/test_t039_*`.
+
 ## [2026-09-06]
 
 ### Added
