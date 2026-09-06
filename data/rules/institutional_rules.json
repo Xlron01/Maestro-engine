@@ -1,0 +1,65 @@
+{
+	"_non_final": "v0 minimum data-driven institutional rules — NOT a constitutional engine. Rule keys answer: can actor perform / approval required / confidence required / dismissal allowed / election changes holder. NON-FINAL placeholders pending owner constitutional design.",
+	"institutions": {
+		"legislature_parliament_H": {
+			"kind": "legislature",
+			"legislature_id": "parliament_H",
+			"rules": {
+				"confidence_required_to_form": true,
+				"formation_support_threshold": 0.5,
+				"bill_pass_threshold": 0.5,
+				"confidence_pass_threshold": 0.5,
+				"no_confidence_removes_government": true,
+				"confidence_fail_removes_government": false,
+				"proposer_requires_seats": true
+			}
+		},
+		"office_office_president": {
+			"kind": "office",
+			"office_id": "office_president",
+			"institution_id": "inst_state",
+			"role": "head_of_state",
+			"rules": {
+				"appointing_authority": "",
+				"dismissible_by": [],
+				"is_electoral_authority": true,
+				"succession_on_election_loss": true,
+				"succession_on_vacancy": "none"
+			}
+		},
+		"office_office_pm": {
+			"kind": "office",
+			"office_id": "office_pm",
+			"institution_id": "inst_government",
+			"role": "head_of_government",
+			"rules": {
+				"appointing_authority": "office_president",
+				"dismissible_by": ["office_president"],
+				"succession_on_election_loss": true,
+				"succession_on_vacancy": "none"
+			}
+		},
+		"office_office_finance": {
+			"kind": "office",
+			"office_id": "office_finance",
+			"institution_id": "inst_government",
+			"role": "minister",
+			"rules": {
+				"appointing_authority": "office_pm",
+				"dismissible_by": ["office_president", "office_pm"],
+				"succession_on_vacancy": "none"
+			}
+		}
+	},
+	"elections": {
+		"general": {
+			"type": "general",
+			"scope": "national",
+			"rules": {
+				"changes_composition": true,
+				"changes_head": true,
+				"electoral_authority_office": "office_president"
+			}
+		}
+	}
+}

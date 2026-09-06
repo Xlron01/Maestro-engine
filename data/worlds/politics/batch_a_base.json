@@ -1,0 +1,57 @@
+{
+	"world_id": "politics_batch_a_base",
+	"description": "TASK-039 BATCH-A acceptance fixture. Parties are real Actors (support/withdraw/vote/negotiate). Offices carry current state only (no embedded history). Characters are referenced by id - political layer never mutates them. Variants are built in-harness by deterministic overrides.",
+	"characters": {
+		"c_king": { "name": "Head of State" },
+		"c_la": { "name": "Leader A" },
+		"c_lb": { "name": "Leader B" },
+		"c_lc": { "name": "Leader C" },
+		"c_mp1": { "name": "MP One" }
+	},
+	"parties": {
+		"P_A": {
+			"party_id": "P_A", "leader": "c_la",
+			"membership": ["c_la", "c_mp1"],
+			"political_profile": { "electoral_strength": 0.45, "ideology": "center" },
+			"seats": { "parliament_H": 90 }
+		},
+		"P_B": {
+			"party_id": "P_B", "leader": "c_lb",
+			"membership": ["c_lb"],
+			"political_profile": { "electoral_strength": 0.40, "ideology": "opposition" },
+			"seats": { "parliament_H": 80 }
+		},
+		"P_C": {
+			"party_id": "P_C", "leader": "c_lc",
+			"membership": ["c_lc"],
+			"political_profile": { "electoral_strength": 0.15, "ideology": "kingmaker" },
+			"seats": { "parliament_H": 30 }
+		}
+	},
+	"legislatures": {
+		"parliament_H": {
+			"legislature_id": "parliament_H",
+			"chambers": ["lower"],
+			"seats": { "P_A": 90, "P_B": 80, "P_C": 30 },
+			"procedural_state": { "dissolved": false, "term": 1 },
+			"active_bills": [],
+			"active_motions": []
+		}
+	},
+	"offices": {
+		"office_president": {
+			"office_id": "office_president", "institution_id": "inst_state",
+			"role": "head_of_state", "holder": "c_king", "status": "appointed"
+		},
+		"office_pm": {
+			"office_id": "office_pm", "institution_id": "inst_government",
+			"role": "head_of_government", "holder": null, "status": "vacant"
+		},
+		"office_finance": {
+			"office_id": "office_finance", "institution_id": "inst_government",
+			"role": "minister", "holder": null, "status": "vacant"
+		}
+	},
+	"governments": {},
+	"government_support": {}
+}
