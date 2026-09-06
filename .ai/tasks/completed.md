@@ -4,6 +4,25 @@
 
 ---
 
+### [TASK-038] Compliance Runtime Layer — Contracts + Deterministic Resolution + Acceptance A–L
+
+- **Status:** COMPLETE (PROVISIONAL — بانتظار ختم المالك؛ formula الـCompliance النهائية قرار لاحق)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-037 (T5-C)، سلسلة Model v1/Decision Gates
+- **Objective:** تنفيذ Compliance Runtime Layer فوق النواة الحالية بعقود مقفولة (Authority/Influence/Legitimacy/Capability/Compliance) — tests-first (A–L تُجمد قبل كود الـresolution)، بلا formula نهائية ولا weights، بلا أي تعديل نواة أو wiring إنتاجي.
+- **Acceptance Criteria:**
+  - [x] صفر تعديل على النواة التسعة وعلى dispatch.json/طبقة المحتوى (K1/K2 يراقبان آليًا).
+  - [x] **tests-first**: `scripts/test_compliance_runtime.gd` كُتب بتوقعات مجمّدة قبل `compliance_query.gd`.
+  - [x] العقود المنفذة حرفيًا: Capability tri-state (FEASIBLE/INFEASIBLE/UNKNOWN + COMPLETE/PARTIAL) · Compliance ببُعدين مستقلين (degree ⊥ resistance NONE/PASSIVE/ACTIVE) · PARTIAL+missing_inputs بلا defaults.
+  - [x] التوضيحان المعتمدان من المراجعة منفذان نصًا: §0-b-1 social_relations قاموس واحد متعدد القنوات (loyalty/trust من نفس الـedge) · §0-b-2 عقد استخدام control_chains (caller يحسبها مرة — لا إعادة حساب ولا caching subsystem).
+  - [x] **القبول A–L: PASS 25/25** (`test_t038_compliance_run01.log`) — determinism bitwise · short-circuit بلا اختلاق · UNKNOWN يستمر · استقلال Authority/Loyalty/Influence · PARTIAL propagation · الحالات الخمس للا resistencia · لا world mutation · لا per-tick polling (30 ticks ⇒ 0 تقييم).
+  - [x] **Regression L:** ScenarioTest EXIT=0+checksum · D1 28/28 · Model v1 Integration 7/7 · Economy Phase 2 14/14.
+  - [x] 6 commits صغيرة (acb61208 → 889c948c) وفق خطة rev.2 المعتمدة + وثيقة [27-Compliance-Runtime-Layer.md](file:///c:/tmp/maestro%20engine/27-Compliance-Runtime-Layer.md).
+- **Validation Method:** Godot headless runs + raw logs مؤرشفة + بوابة bitwise canonical.
+- **Evidence:** وثيقة 27 §4/§5 + `.ai/evidence/tests/test_t038_*.log` (5 لوقات).
+
+---
+
 ### [TASK-037] T5-C — Storm Root-Cause & Measured-Bottleneck-Only Fix
 
 - **Status:** COMPLETE (PROVISIONAL — verdicts لكل مرشّح؛ قرار الترحيل قرار المالك حصريًا)

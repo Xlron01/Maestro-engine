@@ -1,14 +1,15 @@
 # CURRENT STATE
 
 ## Metadata
-- **Last Updated:** 2026-09-05
-- **Current Phase:** T5-C Storm Root-Cause — **DONE (الجذر: EventQueue.push_event = 99.2-99.5% من العاصفة؛ C1=PASS بـ−99.8%؛ بانتظار الختم)**
-- **Current Step:** توقف — قرار الترحيل (T5-D مقترح لـEventQueue) قرار المالك حصريًا
+- **Last Updated:** 2026-09-06
+- **Current Phase:** TASK-038 Compliance Runtime Layer — **DONE (A–L: PASS 25/25؛ Regression كامل أخضر؛ بانتظار الختم)**
+- **Current Step:** توقف — formula الـCompliance النهائية والربط on-demand قرار المالك
 
 ## Current Objective
-تفكيك عاصفة mass-synchronous workload (T5-P0) على الحمل الحقيقي بلا تعديل نواة، وإصلاح المكوّن المقاس فقط. النتيجة: الجذر = إعادة الفرز الكامل داخل EventQueue.push_event (99.2-99.5% من زمن العاصفة) وليس المجدول (≤0.3%). المرشّح C1 (BatchedEventQueue تجريبي) حقق −99.8% عواصف مع بوابات bitwise PASS. أرقام T5-B العاصفية أُعيد تأسيسها بأساس رسمي منزوع القياس (OSB=191/180/176s).
+بناء طبقة Compliance Runtime فوق النواة الحالية بعقود مقفولة (Capability tri-state / Influence ثنائية القناة / Legitimacy بأربعة domains / Compliance ببُعدين مستقلين) — tests-first بقبول A–L (25/25)، صفر تعديل نواة أو wiring إنتاجي، v0 resolution بجدول قواعد NON-FINAL بديل الأوزان الممنوعة.
 
 ## Active Tasks
+- `TASK-038`: Compliance Runtime Layer. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `T5-C`: Storm Root-Cause & Measured-Bottleneck-Only Fix. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `T4.5`: Scale Optimisation (Neighborhood Caching). (Status: COMPLETE, Evidence Saved, PROVISIONAL)
 - `T3-Phase 2`: Economy Feedback & Reusability. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
@@ -24,9 +25,9 @@
 - بيئة التشغيل: Godot الفعلي داخل مجلد اسمه exe: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. قرار المالك: ترحيل نمط BatchedEventQueue إلى EventQueue.gd (T5-D مقترح — ملف نواة واحد) مع حسم سياسة روابط الأحداث المتساوية الزمن ودراسة الذاكرة.
-2. إعادة تقييم حكم T5-B على Bucket (فوز quiet حقيقي 77×؛ فائدة العاصفة غير متكوّرة على الأساس المصحح).
-3. اعتماد `test_t5c_storm_lab.gd --phase=e0 --probe=off` كمرجع regression دائم للعاصفة.
+1. قرار المالك: formula الـCompliance النهائية (تستبدل v0 NON-FINAL دون مساس بالعقود/الاختبارات السلوكية).
+2. ربط on-demand من طبقة المحتوى عند أول action يحتاج response — استعلام لا نظام حي.
+3. مهام مؤجلة معلنة: T5-D (ترحيل BatchedEventQueue) · ملء future dependencies (PopularSupport/ConstitutionalValidity/ThreatAssessment) عند الحاجة الفعلية.
 
 ## Known Bugs & Temporary Hacks
 - **لا يوجد دين تقني متبقٍ في النواة:** جرد TASK-013 صُفّر؛ D1/D2 لم يلمسا Kernel إطلاقًا.

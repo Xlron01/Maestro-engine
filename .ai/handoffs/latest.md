@@ -1,3 +1,22 @@
+- **Current Task:** TASK-038 (Compliance Runtime Layer) — **A–L: PASS 25/25 · Regression كامل أخضر · بانتظارك**
+
+## 0-a) TASK-038 — Compliance Runtime Layer — ملخص (الأحدث)
+
+**الهدف:** تنفيذ الطبقة فوق النواة الحالية بعقود مقفولة — tests-first (توقعات A–L جمّدت قبل كود الـresolution)، بلا formula نهائية ولا weights، بلا أي تعديل نواة أو wiring إنتاجي.
+
+**النتيجة:**
+- العقود: Capability tri-state (UNKNOWN ≠ INFEASIBLE) · Compliance ببُعدين مستقلين (degree ⊥ resistance NONE/PASSIVE/ACTIVE، بلا probability) · Influence ثنائية القنوات غير alias · Legitimacy بأربعة domains مع PARTIAL بلا defaults · Coercion future-dependency فقط.
+- **القبول A–L: PASS 25/25** — determinism bitwise · short-circuit بلا اختلاق compliance · استقلال Authority/Loyalty/Influence (D/E/F) · propagation PARTIAL · الحالات الخمس (I) · لا world mutation (J) · لا per-tick polling: 30 ticks ⇒ 0 تقييم (K).
+- **Regression:** ScenarioTest EXIT=0+checksum · D1 28/28 · Integration 7/7 · Economy 14/14.
+- التوضيحان المعتمدان منفذان نصًا في الكود والوثيقة: §0-b-1 (social_relations قاموس واحد متعدد القنوات — قراءة قنوات لا نسخ) · §0-b-2 (عقد استخدام control_chains — caller يحسبها مرة، الطبقة لا تعيد الحساب).
+- v0 resolution = جدول قواعد عتبة من `compliance_config.json` موسوم **NON-FINAL** — بلا أوزان؛ حالات I الخمس مبنية بالتركيب.
+- Dependencies الباقية PARTIAL معلنة: PopularSupport/ConstitutionalValidity/ThreatAssessment/PublicOrder/AudienceView.
+
+**Commits:** acb61208 · 98d94f52 · 4c0563ca · e7674d02 · 889c948c (+ docs commit). **Evidence:** وثيقة [27-Compliance-Runtime-Layer.md](file:///c:/tmp/maestro%20engine/27-Compliance-Runtime-Layer.md) + `.ai/evidence/tests/test_t038_*.log`.
+**Scope:** صفر تعديل نواة/إنتاج. **لا formula نهائية اتُخذت — قرار المالك.**
+
+---
+
 - **Current Task:** TASK-037 (T5-C Storm Root-Cause) — **الجذر مثبت بالقياس: EventQueue.push_event = 99.2-99.5% من العاصفة · C1=PASS (−99.8%) · C2=PASS محور الـframe · E4=FAIL مرفوض · بانتظارك**
 
 ## 0-a) T5-C — Storm Root-Cause — ملخص (الأحدث)

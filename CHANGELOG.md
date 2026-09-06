@@ -2,6 +2,18 @@
 
 سجل زمني لجميع التعديلات الهامة التي طرأت على مشروع **Maestro Engine**.
 
+## [2026-09-06]
+
+### Added
+- **TASK-038 (Compliance Runtime Layer) — PROVISIONAL (بانتظار اعتماد المالك):**
+  - طبقة استعلام on-demand فوق النواة الحالية — **صفر تعديل على النواة التسعة وعلى dispatch.json/طبقة المحتوى**.
+  - عقود مقفولة منفذة: CapabilityAssessment tri-state (FEASIBLE/INFEASIBLE/UNKNOWN + COMPLETE/PARTIAL) · ComplianceAssessment ببُعدين مستقلين (compliance_degree ⊥ resistance_mode NONE/PASSIVE/ACTIVE) · Influence ثنائية القنوات (structural من control_chains المُمرَّرة + informal من social_relations) · Legitimacy بأربعة domains مع PARTIAL بلا defaults.
+  - **tests-first**: جناح `scripts/test_compliance_runtime.gd` كُتب بتوقعات مجمّدة قبل كود الـresolution — **PASS 25/25** (A–L) شاملة determinism bitwise وshort-circuit بلا اختلاق واستقلال الظواهر (D/E/F) والحالات الخمس للا مقاومة (I) ولا world mutation (J) ولا per-tick polling (K).
+  - v0 deterministic resolution: جدول قواعد عتبة من `data/rules/compliance_config.json` موسوم **NON-FINAL** — بلا أوزان ولا probability.
+  - توضيحا المراجعة منفذان نصًا: social_relations قاموس واحد متعدد القنوات (§0-b-1) + عقد استخدام control_chains كprecondition (§0-b-2).
+  - Regression كامل أخضر: ScenarioTest (checksum anchor) · D1 28/28 · Model v1 Integration 7/7 · Economy Phase 2 14/14.
+  - 6 commits صغيرة + وثيقة `27-Compliance-Runtime-Layer.md` + 5 raw logs (`test_t038_*`).
+
 ## [2026-09-05]
 
 ### Added
