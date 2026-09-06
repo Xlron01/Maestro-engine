@@ -42,9 +42,9 @@ var event_log := []           # تسلسل أحداث حتمي مرقم
 var _seq := 0
 
 
-static func load_from(data: Dictionary) -> PoliticalState:
-	var s := PoliticalState.new()
-	for c in (data.get("characters", {}) as Dictionary):
+static func load_from(data: Dictionary):
+	var s = new()
+	for c in (data.get("characters", {}) as Dictionary).keys():
 		s.characters[String(c)] = {"character_id": String(c)}
 	s.parties = _deep(data.get("parties", {}))
 	s.legislatures = _deep(data.get("legislatures", {}))

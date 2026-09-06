@@ -58,6 +58,7 @@
 			"rules": {
 				"changes_composition": true,
 				"changes_head": true,
+				"head_office": "office_pm",
 				"electoral_authority_office": "office_president"
 			}
 		}

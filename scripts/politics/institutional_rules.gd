@@ -20,8 +20,8 @@ const RULES_PATH := "res://data/rules/institutional_rules.json"
 var raw: Dictionary = {}
 
 
-static func load() -> InstitutionalRules:
-	var r := InstitutionalRules.new()
+static func load():
+	var r = new()
 	if not FileAccess.file_exists(RULES_PATH):
 		push_error("institutional_rules.json missing: %s" % RULES_PATH)
 		return r
@@ -65,7 +65,7 @@ func can_appoint(office_id: String, actor_id: String, state) -> Dictionary:
 	var auth := String(rules.get("appointing_authority", ""))
 	if auth.is_empty():
 		return {"ok": true, "reason": "open_appointment"}
-	var holder := state.holder_of(auth)
+	var holder = state.holder_of(auth)
 	if holder == actor_id:
 		return {"ok": true, "reason": "appointing_authority_holder"}
 	return {"ok": false, "reason": "not_appointing_authority"}
