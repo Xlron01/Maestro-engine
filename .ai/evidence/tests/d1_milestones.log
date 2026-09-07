@@ -46,3 +46,51 @@
 [172] building v_renamed
 [173] layers done v_renamed
 [283] REACHED QUIT
+[221] START
+[233] building base
+[235] layers done base
+[235] building v_goal_swap
+[237] layers done v_goal_swap
+[237] building v_fact_change
+[240] layers done v_fact_change
+[240] building v_capped_actor
+[242] layers done v_capped_actor
+[242] building v_capped_full
+[244] layers done v_capped_full
+[244] building v_option_add
+[246] layers done v_option_add
+[246] building v_renamed
+[248] layers done v_renamed
+[356] REACHED QUIT
+[172] START
+[181] building base
+[183] layers done base
+[183] building v_goal_swap
+[185] layers done v_goal_swap
+[185] building v_fact_change
+[186] layers done v_fact_change
+[186] building v_capped_actor
+[187] layers done v_capped_actor
+[187] building v_capped_full
+[189] layers done v_capped_full
+[189] building v_option_add
+[190] layers done v_option_add
+[190] building v_renamed
+[191] layers done v_renamed
+[552] REACHED QUIT
+[254] START
+[256] building base
+[258] layers done base
+[258] building v_goal_swap
+[260] layers done v_goal_swap
+[260] building v_fact_change
+[262] layers done v_fact_change
+[262] building v_capped_actor
+[264] layers done v_capped_actor
+[265] building v_capped_full
+[267] layers done v_capped_full
+[267] building v_option_add
+[269] layers done v_option_add
+[269] building v_renamed
+[270] layers done v_renamed
+[287] REACHED QUIT

@@ -20,7 +20,8 @@
 		"coup_risk_check": { "fn": "job_coup_risk_check" },
 		"agent_operation_check": { "fn": "job_agent_operation", "one_shot": true },
 		"economy_tick": { "fn": "job_economy_tick" },
-		"economy_v2_tick": { "fn": "job_economy_v2_tick" }
+		"economy_v2_tick": { "fn": "job_economy_v2_tick" },
+		"political_deadline_pump": { "fn": "job_political_deadline_pump" }
 	},
 
 

@@ -1,0 +1,10 @@
+{
+	"world_id": "t040_world",
+	"description": "TASK-040 Actor Runtime validation world — 200 countries with political institutions. TEST FIXTURE VALUES — not production game-balance.",
+	"characters": {},
+	"parties": {},
+	"legislatures": {},
+	"offices": {},
+	"governments": {},
+	"government_support": {}
+}

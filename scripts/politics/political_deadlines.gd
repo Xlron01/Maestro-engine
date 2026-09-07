@@ -2,7 +2,7 @@ extends RefCounted
 class_name PoliticalDeadlines
 
 # ============================================================
-# TASK-040-pre — POLITICAL DEADLINE ACTIVATION PATH
+# TASK-040-pre/040 — POLITICAL DEADLINE ACTIVATION PATH
 # ------------------------------------------------------------
 # الـdeadline = نقطة مجدولة في زمن المحاكاة تصبح عندها التزام سياسي
 # معرفًا مؤهلًا للتنشيط:
@@ -13,11 +13,12 @@ class_name PoliticalDeadlines
 # — الـdeadline الذي يستحق لا يختفي بصمت (سجل دائم في state.deadlines).
 #
 # الأهلية الزمنية (1 step = 1 day): current_simulation_day >= due_at.
-# lateness_days = actual_activation_at - due_at  (تشخيصي في هذه المهمة).
+# lateness_days = actual_activation_at - due_at  (تشخيصي).
 #
-# إعادة استخدام مقفولة (لا مجدول ثاني — قبول A7):
-#   الأهلية عبر instance من ScheduledQueue النواة نفسه (state.deadline_queue)
-#   والتنشيط عبر PoliticalActions.execute الحالي (Actor → Action →
+# التكامل مع Runtime (A10):
+#   الأهلية عبر scheduler الممرر (sim.scheduled في الإنتاج،
+#   state.deadline_queue في الاختبارات المستقلة — Decision 004).
+#   التنشيط عبر PoliticalActions.execute (Actor → Action →
 #   Resolution → Owning Domain) — صفر كتابة حالة مباشرة هنا.
 #
 # الأنواع في v1:
@@ -27,8 +28,7 @@ class_name PoliticalDeadlines
 #     يُجدول مستقلًا حيث تسمح القواعد (schedulable_independently) —
 #     لا افتراض أن انتهاء المدة يسبب انتخابًا عالميًا (قبول A4).
 #
-# محظور هنا: periodic political reassessment (future dependency) —
-# البنية لا تفترض استحالته لاحقًا لكن لا شيء ينفذه الآن.
+# محظور: periodic political reassessment (future dependency).
 # ============================================================
 
 const SQ := preload("res://scripts/ScheduledQueue.gd")
@@ -38,10 +38,9 @@ const JOB_NAME := "political_deadline"
 
 # ---------------- Registration / Scheduling ----------------
 
-static func schedule(state, deadline_id: String, deadline_type: String, owner: String,
+# Internal: يسجل deadline في scheduler الممرر
+static func _schedule_internal(scheduler, state, deadline_id: String, deadline_type: String, owner: String,
 		due_at: int, current_day: int, payload: Dictionary) -> Dictionary:
-	if state.deadline_queue == null:
-		state.deadline_queue = SQ.new()
 	var rec := {
 		"deadline_id": deadline_id,
 		"deadline_type": deadline_type,
@@ -57,30 +56,48 @@ static func schedule(state, deadline_id: String, deadline_type: String, owner: S
 		"resolution": null
 	}
 	state.deadlines[deadline_id] = rec
-	# next_check = due_at — الأهلية عبر get_due_jobs(day) القائمة
-	state.deadline_queue.register(deadline_id, JOB_NAME, 0, int(due_at))
+	scheduler.register(deadline_id, JOB_NAME, 0, int(due_at))
 	state.deadline_stats["scheduled"] = int(state.deadline_stats["scheduled"]) + 1
 	return rec
 
+# Standalone API (TASK-040-pre tests) — يستخدم state.deadline_queue
+static func schedule(state, deadline_id: String, deadline_type: String, owner: String,
+		due_at: int, current_day: int, payload: Dictionary) -> Dictionary:
+	if state.deadline_queue == null:
+		state.deadline_queue = SQ.new()
+	return _schedule_internal(state.deadline_queue, state, deadline_id, deadline_type, owner, due_at, current_day, payload)
 
-# انتهاء مدة الحكومة: يُجدول فقط إذا طلبت القاعدة المؤسسية المدة أصلًا
 static func schedule_term(state, government_id: String, legislature_id: String,
 		lrules: Dictionary, current_day: int) -> Dictionary:
 	var term_days := int(lrules.get("government_term_days", 0))
 	if term_days <= 0:
 		return {}
-	return schedule(state, "dl_term_" + government_id, "government_term_expiration",
+	if state.deadline_queue == null:
+		state.deadline_queue = SQ.new()
+	return _schedule_internal(state.deadline_queue, state, "dl_term_" + government_id, "government_term_expiration",
+		government_id, current_day + term_days, current_day,
+		{"legislature_id": legislature_id, "term_duration_days": term_days})
+
+# Integrated API (TASK-040 runtime) — يستخدم scheduler الممرر (sim.scheduled)
+static func schedule_integrated(scheduler, state, deadline_id: String, deadline_type: String, owner: String,
+		due_at: int, current_day: int, payload: Dictionary) -> Dictionary:
+	return _schedule_internal(scheduler, state, deadline_id, deadline_type, owner, due_at, current_day, payload)
+
+static func schedule_term_integrated(scheduler, state, government_id: String, legislature_id: String,
+		lrules: Dictionary, current_day: int) -> Dictionary:
+	var term_days := int(lrules.get("government_term_days", 0))
+	if term_days <= 0:
+		return {}
+	return _schedule_internal(scheduler, state, "dl_term_" + government_id, "government_term_expiration",
 		government_id, current_day + term_days, current_day,
 		{"legislature_id": legislature_id, "term_duration_days": term_days})
 
 
 # ---------------- Eligibility / Activation / Resolution ----------------
 
-# يُستدعى من الـorchestrator عند تقدم زمن المحاكاة (1 استدعاء/يوم محاكاك).
-# التعليق المؤقت على production run_step غير مطلوب في هذا الإثبات —
-# نقطة الدمج الموثقة: بعد run_step في الـorchestrator.
-static func pump(state, current_day: int, rules, actions_module, ctx: Dictionary) -> Dictionary:
-	if state.deadline_queue == null:
+# Internal: pump logic مع scheduler صريح
+static func _pump_internal(scheduler, state, current_day: int, rules, actions_module, ctx: Dictionary) -> Dictionary:
+	if scheduler == null:
 		return {"day": current_day, "due": 0, "activated": 0, "resolved": 0,
 			"duplicates": 0, "lateness_max": 0, "queue_size": 0, "rounds": 0}
 	var activated := 0
@@ -89,29 +106,24 @@ static func pump(state, current_day: int, rules, actions_module, ctx: Dictionary
 	var lateness_max := 0
 	var rounds := 0
 	var due_total := 0
-	# تصريف الأهلية حتى الاستقرار: deadline مُشتق أثناء التنشيط (مثل
-	# election_due من انتهاء المدة) يُفعَّل في نفس اليوم المحاكى —
-	# السلسلة السببية كاملة في ضخّة واحدة (حد أقصى حتمي للجولات).
 	var rounds_max := 8
 	while rounds < rounds_max:
 		rounds += 1
-		var jobs = state.deadline_queue.get_due_jobs(current_day)
+		var jobs = scheduler.get_due_jobs(current_day)
 		if jobs.is_empty():
 			break
 		var ids: Array = []
 		for j in jobs:
 			ids.append(String(j["entity_id"]))
-		ids.sort()  # ترتيب تنشيط حتمي
+		ids.sort()
 		for id in ids:
 			if not state.deadlines.has(id):
 				continue
 			var rec: Dictionary = state.deadlines[id]
 			if String(rec["status"]) != "scheduled":
-				# A3: لا تنشيط مزدوج — الـdeadline المعالج لا يُعاد
 				state.deadline_stats["duplicates"] = int(state.deadline_stats["duplicates"]) + 1
 				duplicates += 1
 				continue
-			# scheduled → due → activated
 			rec["status"] = "due"
 			state.deadline_stats["due"] = int(state.deadline_stats["due"]) + 1
 			due_total += 1
@@ -121,7 +133,6 @@ static func pump(state, current_day: int, rules, actions_module, ctx: Dictionary
 			state.emit_event("DeadlineActivated", {"deadline_id": id,
 				"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
 				"lateness_days": int(rec["lateness_days"])})
-			# activation عبر pipeline القائم — لا كتابة حالة مباشرة هنا (A6)
 			var resolution := _activate(rec, current_day, state, rules, actions_module, ctx)
 			rec["activation_count"] = int(rec["activation_count"]) + 1
 			rec["resolution"] = resolution
@@ -134,12 +145,22 @@ static func pump(state, current_day: int, rules, actions_module, ctx: Dictionary
 			state.emit_event("DeadlineResolved", {"deadline_id": id,
 				"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
 				"outcome": String(resolution.get("outcome", ""))})
-			# إزالة من طابور الأهلية — منع التكرار بنيويًا (A3)
-			state.deadline_queue.unregister(id, JOB_NAME)
+			scheduler.unregister(id, JOB_NAME)
 	return {"day": int(current_day), "due": due_total,
 		"activated": activated, "resolved": resolved,
 		"duplicates": duplicates, "lateness_max": lateness_max,
-		"queue_size": state.deadline_queue.all_jobs().size(), "rounds": rounds}
+		"queue_size": scheduler.all_jobs().size(), "rounds": rounds}
+
+# Standalone API (TASK-040-pre tests) — يستخدم state.deadline_queue
+static func pump(state, current_day: int, rules, actions_module, ctx: Dictionary) -> Dictionary:
+	if state.deadline_queue == null:
+		return {"day": current_day, "due": 0, "activated": 0, "resolved": 0,
+			"duplicates": 0, "lateness_max": 0, "queue_size": 0, "rounds": 0}
+	return _pump_internal(state.deadline_queue, state, current_day, rules, actions_module, ctx)
+
+# Integrated API (TASK-040 runtime) — يستخدم scheduler الممرر (sim.scheduled)
+static func pump_integrated(scheduler, state, current_day: int, rules, actions_module, ctx: Dictionary) -> Dictionary:
+	return _pump_internal(scheduler, state, current_day, rules, actions_module, ctx)
 
 
 # التنشيط: تقييم القواعد المؤسسية ثم التنفيذ عبر pipeline القائم
