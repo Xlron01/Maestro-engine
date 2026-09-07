@@ -82,54 +82,64 @@ static func schedule_term(state, government_id: String, legislature_id: String,
 static func pump(state, current_day: int, rules, actions_module, ctx: Dictionary) -> Dictionary:
 	if state.deadline_queue == null:
 		return {"day": current_day, "due": 0, "activated": 0, "resolved": 0,
-			"duplicates": 0, "lateness_max": 0, "queue_size": 0}
-	var jobs := state.deadline_queue.get_due_jobs(current_day)
-	var ids: Array = []
-	for j in jobs:
-		ids.append(String(j["entity_id"]))
-	ids.sort()  # ترتيب تنشيط حتمي
+			"duplicates": 0, "lateness_max": 0, "queue_size": 0, "rounds": 0}
 	var activated := 0
 	var resolved := 0
 	var duplicates := 0
 	var lateness_max := 0
-	for id in ids:
-		if not state.deadlines.has(id):
-			continue
-		var rec: Dictionary = state.deadlines[id]
-		if String(rec["status"]) != "scheduled":
-			# A3: لا تنشيط مزدوج — الـdeadline المعالج لا يُعاد
-			state.deadline_stats["duplicates"] = int(state.deadline_stats["duplicates"]) + 1
-			duplicates += 1
-			continue
-		# scheduled → due → activated
-		rec["status"] = "due"
-		state.deadline_stats["due"] = int(state.deadline_stats["due"]) + 1
-		rec["actual_activation_at"] = int(current_day)
-		rec["lateness_days"] = int(current_day) - int(rec["due_at"])
-		lateness_max = maxi(lateness_max, int(rec["lateness_days"]))
-		state.emit_event("DeadlineActivated", {"deadline_id": id,
-			"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
-			"lateness_days": int(rec["lateness_days"])})
-		# activation عبر pipeline القائم — لا كتابة حالة مباشرة هنا (A6)
-		var resolution := _activate(rec, current_day, state, rules, actions_module, ctx)
-		rec["activation_count"] = int(rec["activation_count"]) + 1
-		rec["resolution"] = resolution
-		rec["status"] = "resolved"
-		rec["resolved_at"] = int(current_day)
-		state.deadline_stats["activated"] = int(state.deadline_stats["activated"]) + 1
-		state.deadline_stats["resolved"] = int(state.deadline_stats["resolved"]) + 1
-		activated += 1
-		resolved += 1
-		state.emit_event("DeadlineResolved", {"deadline_id": id,
-			"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
-			"outcome": String(resolution.get("outcome", ""))})
-		# إزالة من طابور الأهلية — منع التكرار بنيويًا (A3)
-		state.deadline_queue.unregister(id, JOB_NAME)
-	return {"day": int(current_day),
-		"due": int(state.deadline_stats["due"]),
+	var rounds := 0
+	var due_total := 0
+	# تصريف الأهلية حتى الاستقرار: deadline مُشتق أثناء التنشيط (مثل
+	# election_due من انتهاء المدة) يُفعَّل في نفس اليوم المحاكى —
+	# السلسلة السببية كاملة في ضخّة واحدة (حد أقصى حتمي للجولات).
+	var rounds_max := 8
+	while rounds < rounds_max:
+		rounds += 1
+		var jobs = state.deadline_queue.get_due_jobs(current_day)
+		if jobs.is_empty():
+			break
+		var ids: Array = []
+		for j in jobs:
+			ids.append(String(j["entity_id"]))
+		ids.sort()  # ترتيب تنشيط حتمي
+		for id in ids:
+			if not state.deadlines.has(id):
+				continue
+			var rec: Dictionary = state.deadlines[id]
+			if String(rec["status"]) != "scheduled":
+				# A3: لا تنشيط مزدوج — الـdeadline المعالج لا يُعاد
+				state.deadline_stats["duplicates"] = int(state.deadline_stats["duplicates"]) + 1
+				duplicates += 1
+				continue
+			# scheduled → due → activated
+			rec["status"] = "due"
+			state.deadline_stats["due"] = int(state.deadline_stats["due"]) + 1
+			due_total += 1
+			rec["actual_activation_at"] = int(current_day)
+			rec["lateness_days"] = int(current_day) - int(rec["due_at"])
+			lateness_max = maxi(lateness_max, int(rec["lateness_days"]))
+			state.emit_event("DeadlineActivated", {"deadline_id": id,
+				"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
+				"lateness_days": int(rec["lateness_days"])})
+			# activation عبر pipeline القائم — لا كتابة حالة مباشرة هنا (A6)
+			var resolution := _activate(rec, current_day, state, rules, actions_module, ctx)
+			rec["activation_count"] = int(rec["activation_count"]) + 1
+			rec["resolution"] = resolution
+			rec["status"] = "resolved"
+			rec["resolved_at"] = int(current_day)
+			state.deadline_stats["activated"] = int(state.deadline_stats["activated"]) + 1
+			state.deadline_stats["resolved"] = int(state.deadline_stats["resolved"]) + 1
+			activated += 1
+			resolved += 1
+			state.emit_event("DeadlineResolved", {"deadline_id": id,
+				"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
+				"outcome": String(resolution.get("outcome", ""))})
+			# إزالة من طابور الأهلية — منع التكرار بنيويًا (A3)
+			state.deadline_queue.unregister(id, JOB_NAME)
+	return {"day": int(current_day), "due": due_total,
 		"activated": activated, "resolved": resolved,
 		"duplicates": duplicates, "lateness_max": lateness_max,
-		"queue_size": state.deadline_queue.pending_count() if state.deadline_queue != null else 0}
+		"queue_size": state.deadline_queue.all_jobs().size(), "rounds": rounds}
 
 
 # التنشيط: تقييم القواعد المؤسسية ثم التنفيذ عبر pipeline القائم
@@ -146,7 +156,7 @@ static func _activate(rec: Dictionary, current_day: int, state, rules,
 			var dl_id := "dl_election_" + String(rec["deadline_id"])
 			schedule(state, dl_id, "election_due", String(rec["owner"]),
 				current_day + call_days, current_day,
-				{"legislature_id": leg_id, "election_id": election_id, "type": etype_of(el_rules)})
+				{"legislature_id": leg_id, "election_id": election_id, "type": "general"})
 			return {"outcome": "election_deadline_scheduled", "election_deadline_id": dl_id}
 		return {"outcome": "no_election_required_per_rules"}
 	if dtype == "election_due":
@@ -166,6 +176,3 @@ static func _activate(rec: Dictionary, current_day: int, state, rules,
 			"action_outcome": String(r["outcome"])}
 	return {"outcome": "unknown_deadline_type"}
 
-
-static func etype_of(el_rules: Dictionary) -> String:
-	return String(el_rules.get("type", "general"))
