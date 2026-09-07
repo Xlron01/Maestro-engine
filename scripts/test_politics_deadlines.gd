@@ -263,7 +263,7 @@ func _t5_ownership_and_reuse() -> void:
 		and st.event_log.size() > 0
 		and _ev_has(st, "DeadlineActivated") and _ev_has(st, "DeadlineResolved")
 		and _ev_has(st, "ElectionHeld"))
-	_check("T8 A7: deadline queue IS the existing kernel ScheduledQueue (instance reuse)",
+	_check("T8 A7: deadline queue REUSES kernel ScheduledQueue CLASS (mechanism reuse per Decision 004)",
 		st.deadline_queue is SQ)
 	var audit_ok := true
 	var audit_detail := ""
