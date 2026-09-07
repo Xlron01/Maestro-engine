@@ -1,3 +1,3 @@
 # Active Tasks
 
-*لا مهام نشطة — T5-P0 نُقل إلى completed.md بحالة PROVISIONAL.*
+*لا مهام نشطة — TASK-040-pre مكتمل بحالة COMPLETE PROVISIONAL وبانتظار مراجعة المالك قبل TASK-040.*

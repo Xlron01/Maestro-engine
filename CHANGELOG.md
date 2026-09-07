@@ -16,6 +16,18 @@
   - **Regression K كامل أخضر:** ScenarioTest 5/5+checksum · D1 28/28 · Model v1 Integration 7/7 · Economy 14/14 · Compliance 25/25 · T5-C1 GATE=PASS.
   - 4 commits (0e32c9ac · 80ba4e27 · cc04b712 · 43b975d6) + 8 evidence logs في `.ai/evidence/tests/test_t039_*`.
 
+## [2026-09-07]
+
+### Added
+- **TASK-040-pre (Minimal Deadline Activation Proof) — PROVISIONAL:**
+  - تمثيل إنتاجي للـdeadlines (سجل دائم scheduled→due→activated→resolved، lateness_days) + مسار تنشيط يقرأ زمن SimClock ويصريف حتى الاستقرار داخل اليوم — **إعادة استخدام ScheduledQueue النواة كinstance مملوك (لا مجدول ثاني)**.
+  - السببية عبر القواعد المؤسسية فقط: `government_term_days` (جدولة عند التكوين) و`term_expiration_causes_election` (إنشاء election deadline) — بلا قاعدة لا يُختلق شيء؛ + `election_due` مستقل.
+  - **A1–A7: PASS 17/17** + أوراكل canonical SHA-256 متطابق ×2 + fixture معلن (test-value: term=30/horizon=45، صفر-RNG).
+  - regression 8 أجنحة EXIT=0؛ تعديل وحيد موثق لتدقيق J1/039 (توجيه أحدث).
+- **TASK-039 (BATCH-A Political Institutional Core) — PROVISIONAL:**
+  - 5 موديلات + 12 action data-driven deterministic عبر pipeline القائم (FormGovernment/Appoint/Dismiss/Resign/Propose/Vote/Confidence/NoConfidence/Support/Withdraw/HoldElection/Contest) + عقود التاريخ الأولى (ElectionHistory/ElectionResult/ElectionDisputeHistory/SuccessionHistory/RegimeHistory — أول implementation، انحراف موثق).
+  - tests-first **A–K: PASS 31/31** · benchmark §11: 1100 action/363ms، 0 per-tick evaluations · صفر تعديل نواة.
+
 ## [2026-09-06]
 
 ### Added

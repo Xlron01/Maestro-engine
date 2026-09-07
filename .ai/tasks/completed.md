@@ -4,6 +4,27 @@
 
 ---
 
+### [TASK-040-pre] Minimal Deadline Activation Proof
+
+- **Status:** COMPLETE (PROVISIONAL — مراجعة المالك قبل فتح TASK-040؛ لا انتقال تلقائي)
+- **Owner:** ox-alpha
+- **Dependencies:** TASK-039 (Batch-A)
+- **Objective:** أدنى بنية إنتاجية تثبت deadline-driven political activation — Government term expiration → قواعد مؤسسية → Election deadline → استحقاق → تنشيط → تنفيذ → resolved، مع deadline مستقل، بلا مجدول ثاني ولا periodic reassessment.
+- **Acceptance Criteria (A1–A7):** كلها **PASS 17/17** (`test_t040pre_deadlines_run01.log`):
+  - [x] A1 أهلية عند due بالضبط (يوم 30، lateness=0، لا تنشيط قبل 29).
+  - [x] A2 صفر deadlines معلقة عند الأفق (لا اختفاء صامت — سجل دائم status/activation/resolution).
+  - [x] A3 activation_count=1 لكل deadline (منع بنيوي unregister + عدّاد duplicates=0).
+  - [x] A4 السببية عبر القواعد فقط: term_expiration_causes_election ⇒ إنشاء/تنفيذ election deadline؛ بدونها no_election_required بلا اختلاق.
+  - [x] A5 canonical SHA-256 متطابق ×2: `29841b42…67cb2f4` (fixture معلن test-value: term=30/horizon=45، workload صفر-RNG).
+  - [x] A6 التنفيذ عبر PoliticalActions pipeline (لا كتابة حالة مباشرة).
+  - [x] A7 إعادة استخدام ScheduledQueue النواة كinstance (`is ScheduledQueue`) + audit مصدري.
+  - [x] Election deadline مستقل فعّل يوم 10 (ليس hardwired).
+  - [x] Regression 8 أجنحة EXIT=0 (تعديل وحيد موثق: تدقيق J1 في جناح 039 حُدّث لتوجيه 040-pre الأحدث §2).
+- **Evidence:** وثيقة [29-Deadline-Activation-Proof.md](file:///c:/tmp/maestro%20engine/29-Deadline-Activation-Proof.md) + `test_t040pre_*.log` (10).
+
+
+---
+
 ### [TASK-039] Political Institutional Core — Batch A
 
 - **Status:** COMPLETE (PROVISIONAL — بانتظار ختم المالك)
