@@ -23,6 +23,7 @@ class_name PoliticalActions
 
 const T := preload("res://scripts/compliance/compliance_types.gd")
 const CQ := preload("res://scripts/compliance/compliance_query.gd")
+const PD := preload("res://scripts/politics/political_deadlines.gd")
 
 static var eval_count: int = 0
 
@@ -42,7 +43,7 @@ static func execute(action: String, actor_id: String, payload: Dictionary,
 		"events": [], "assessments": []}
 	match action:
 		"FormGovernment":
-			outcome = _form_government(actor_id, payload, state, rules)
+			outcome = _form_government(actor_id, payload, state, rules, context)
 		"AppointOfficeholder":
 			outcome = _appoint_officeholder(actor_id, payload, state, rules, context)
 		"DismissOfficeholder":
@@ -78,7 +79,7 @@ static func _res(ok: bool, outcome: String, reason: String, events: Array,
 
 # ---------------- 1. FormGovernment ----------------
 
-static func _form_government(actor_id: String, payload: Dictionary, state, rules) -> Dictionary:
+static func _form_government(actor_id: String, payload: Dictionary, state, rules, context) -> Dictionary:
 	var leg_id := String(payload.get("legislature_id", ""))
 	if not state.legislatures.has(leg_id):
 		return _res(false, "failed", "unknown_legislature", [], [])
@@ -120,6 +121,11 @@ static func _form_government(actor_id: String, payload: Dictionary, state, rules
 			"support_share": share, "by": actor_id})]
 	state.apply_regime({"regime_id": "reg_" + gov_id, "head": String(payload.get("head", "")),
 		"government_id": gov_id, "change": "started"})
+	# TASK-040-pre: انتهاء مدة الحكومة التزام زمني يُجدول فقط إذا طلبت
+	# القاعدة المؤسسية المدة (government_term_days) — بلا القاعدة لا شيء يُجدول
+	var term_days := int(lrules.get("government_term_days", 0))
+	if term_days > 0:
+		PD.schedule_term(state, gov_id, leg_id, lrules, int(context.get("current_day", 0)))
 	var offices: Dictionary = payload.get("offices", {})
 	var okeys: Array = offices.keys()
 	okeys.sort()

@@ -41,6 +41,14 @@ var regime_history := []      # RegimeHistory[]
 var event_log := []           # تسلسل أحداث حتمي مرقم
 var _seq := 0
 
+# ---- TASK-040-pre: political deadlines (تمثيل إنتاجي أدنى) ----
+# سجل دائم: الـdeadline الذي يستحق لا يختفي بصمت (status/actual_activation_at/resolved_at)
+var deadlines := {}           # deadline_id -> Deadline record
+# إعادة استخدام آلية الجدولة القائمة حرفيًا (instance من ScheduledQueue النواة) —
+# لا مجدول ثاني ولا إعادة تنفيذ جدولة (قبول A7 يراقب).
+var deadline_queue = null     # ScheduledQueue instance (lazy)
+var deadline_stats := {"scheduled": 0, "due": 0, "activated": 0, "resolved": 0, "duplicates": 0}
+
 
 static func load_from(data: Dictionary):
 	var s = new()
@@ -177,7 +185,9 @@ func to_dict() -> Dictionary:
 		"election_disputes": election_disputes.duplicate(true),
 		"succession_history": succession_history.duplicate(true),
 		"regime_history": regime_history.duplicate(true),
-		"event_log": event_log.duplicate(true)
+		"event_log": event_log.duplicate(true),
+		"deadlines": deadlines.duplicate(true),
+		"deadline_stats": deadline_stats.duplicate(true)
 	}
 
 func canonical() -> String:

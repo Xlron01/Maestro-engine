@@ -1,0 +1,11 @@
+{
+	"fixture_id": "deadline_proof",
+	"fixture_terms": {
+		"note": "TEST FIXTURE VALUE - not production game-balance value",
+		"term_duration_days": 30,
+		"deadline_due_at": 30,
+		"election_call_days": 0,
+		"test_horizon_days": 45,
+		"seed": "none (zero-RNG deterministic workload)"
+	}
+}
