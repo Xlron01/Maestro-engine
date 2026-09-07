@@ -428,7 +428,10 @@ func _run_j() -> void:
 			break
 		var src := fa.get_as_text()
 		fa.close()
-		for token in ["_process(", "run_step(", "EventQueue", "ScheduledQueue",
+		# ScheduledQueue أزيلت من قائمة الحظر بتوجيه TASK-040-pre §2/A7 (أحدث):
+		# إعادة استخدام ScheduledQueue كinstance مملوك مطلوبة صراحة — المحظور
+		# يبقى اقتران مسار الإنتاج الفعلي (tick loop/EventQueue/dispatch/rng).
+		for token in ["_process(", "run_step(", "EventQueue",
 				"dispatch.json", "RandomNumberGenerator", "randf(", "randi(", "Time.get"]:
 			if src.contains(token):
 				audit_ok = false

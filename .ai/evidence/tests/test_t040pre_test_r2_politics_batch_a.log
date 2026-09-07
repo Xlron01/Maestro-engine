@@ -1,0 +1,65 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TASK-039 BATCH-A POLITICAL INSTITUTIONAL CORE — ACCEPTANCE
+============================================================
+
+-- A: full political loop with per-transition state assertions
+  PASS  A1 election held: history=1 result=1 winner=P_A tally=90/80/30
+  PASS  A2 formation below threshold => incomplete (forming, no GovernmentFormed)
+  PASS  A3 support relation exists via sparse map after SupportGovernment
+  PASS  A4 formation retry => formed + office assigned at formation
+  PASS  A5 confidence passed; then no-confidence failed (survives)
+  PASS  A6 withdraw: relation removed; government NOT directly fallen
+  PASS  A7 no-confidence passes => GovernmentRemoved (institutional resolution)
+
+-- B: Election != Succession (incumbent wins vs opposition wins)
+  PASS  B1 incumbent wins: election+result exist, NO succession record, no succession_id on election
+  PASS  B2 opposition wins => succession occurred with election_id link + composition changed
+  PASS  B3 dispute recorded in ElectionDisputeHistory linked by election_id
+
+-- C: party support relation, no direct parliament mutation
+  PASS  C1 support relation exists (sparse map)
+  PASS  C2 withdraw removes relation; parliament seats bitwise unchanged
+
+-- D: office lifecycle without duplicated history
+  PASS  D1 appoint head-of-government by head-of-state: holder changes + OfficeFilled
+  PASS  D1b PM appoints minister per rules
+  PASS  D2 non-appointing-authority fails by rules
+  PASS  D3 dismiss: office vacant; character untouched; exactly 5 minimum fields; no succession
+
+-- E: bills — propose, vote, outcome separated from vote action
+  PASS  E1 BillProposed: bill exists, status proposed, active in legislature
+  PASS  E2 vote recorded and outcome separate: BillVoted then BillPassed
+  PASS  E3 rejection path deterministic: BillRejected (40% < threshold)
+
+-- F: confidence transitions deterministic (incl. ResignGovernment)
+  PASS  F1 opposition forms government after removal (55% >= threshold)
+  PASS  F2 ResignGovernment: GovernmentResigned + status resigned
+  PASS  F3 event sequence strictly deterministic (seq = 1..N)
+
+-- G: actions consume ComplianceAssessment, never execute it directly
+  PASS  G1 exactly one compliance assessment consumed during the action
+  PASS  G2 bare compliance query leaves state bitwise untouched
+
+-- H: missing ConstitutionalValidity/PopularSupport => PARTIAL, no fabrication
+  PASS  H1 assessment PARTIAL with missing_inputs populated (PopularSupport/ConstitutionalValidity)
+  PASS  H2 no fabricated values: degree/mode present from v0 evidence rules, missing listed not defaulted
+
+-- I: same initial state + same action stream => same checksum/events
+  PASS  I1 state checksum identical (canonical bitwise)
+  PASS  I2 event sequence identical (canonical bitwise)
+
+-- J: no per-tick polling (audit + runtime counter)
+  PASS  J1 source audit: no tick-loop/engine-coupling/rng/time in politics modules
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+  PASS  J2 runtime: 30 production ticks => 0 political evaluations; explicit action => exactly +1
+  PASS  J3 no hidden evaluations: total execute calls == eval_count delta
+
+RESULT: PASS 31 / FAIL 0  (execute calls=55)
+[Dispatch] Registry loaded: 9 event handlers, 7 job handlers
+WARNING: 21 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 9 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
