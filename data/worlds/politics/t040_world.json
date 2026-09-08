@@ -1,10 +1,3441 @@
 {
-	"world_id": "t040_world",
-	"description": "TASK-040 Actor Runtime validation world — 200 countries with political institutions. TEST FIXTURE VALUES — not production game-balance.",
-	"characters": {},
-	"parties": {},
-	"legislatures": {},
-	"offices": {},
-	"governments": {},
-	"government_support": {}
+ "world_id": "t040_benchmark_world",
+ "description": "TASK-040 Actor Runtime benchmark fixture - 200 countries with political institutions. TEST FIXTURE VALUES - not production game-balance.",
+ "fixture_metadata": {
+  "seed": 20260908,
+  "num_countries": 200,
+  "term_duration_days": 30,
+  "test_horizon_days": 90,
+  "note": "TEST FIXTURE VALUE - not production game-balance value"
+ },
+ "characters": {
+  "AlphaPrime_000_c_king": {
+   "name": "Head of State AlphaPrime_000"
+  },
+  "AlphaPrime_000_c_leader_0": {
+   "name": "Leader 0 AlphaPrime_000"
+  },
+  "AlphaPrime_000_c_mp_0": {
+   "name": "MP 0 AlphaPrime_000"
+  },
+  "AlphaPrime_000_c_leader_1": {
+   "name": "Leader 1 AlphaPrime_000"
+  },
+  "AlphaPrime_000_c_mp_1": {
+   "name": "MP 1 AlphaPrime_000"
+  },
+  "AlphaPrime_000_c_leader_2": {
+   "name": "Leader 2 AlphaPrime_000"
+  },
+  "AlphaPrime_000_c_mp_2": {
+   "name": "MP 2 AlphaPrime_000"
+  },
+  "BetaPrime_001_c_king": {
+   "name": "Head of State BetaPrime_001"
+  },
+  "BetaPrime_001_c_leader_0": {
+   "name": "Leader 0 BetaPrime_001"
+  },
+  "BetaPrime_001_c_mp_0": {
+   "name": "MP 0 BetaPrime_001"
+  },
+  "BetaPrime_001_c_leader_1": {
+   "name": "Leader 1 BetaPrime_001"
+  },
+  "BetaPrime_001_c_mp_1": {
+   "name": "MP 1 BetaPrime_001"
+  },
+  "BetaPrime_001_c_leader_2": {
+   "name": "Leader 2 BetaPrime_001"
+  },
+  "BetaPrime_001_c_mp_2": {
+   "name": "MP 2 BetaPrime_001"
+  },
+  "BetaPrime_001_c_leader_3": {
+   "name": "Leader 3 BetaPrime_001"
+  },
+  "BetaPrime_001_c_mp_3": {
+   "name": "MP 3 BetaPrime_001"
+  },
+  "GammaPrime_002_c_king": {
+   "name": "Head of State GammaPrime_002"
+  },
+  "GammaPrime_002_c_leader_0": {
+   "name": "Leader 0 GammaPrime_002"
+  },
+  "GammaPrime_002_c_mp_0": {
+   "name": "MP 0 GammaPrime_002"
+  },
+  "GammaPrime_002_c_leader_1": {
+   "name": "Leader 1 GammaPrime_002"
+  },
+  "GammaPrime_002_c_mp_1": {
+   "name": "MP 1 GammaPrime_002"
+  },
+  "GammaPrime_002_c_leader_2": {
+   "name": "Leader 2 GammaPrime_002"
+  },
+  "GammaPrime_002_c_mp_2": {
+   "name": "MP 2 GammaPrime_002"
+  },
+  "GammaPrime_002_c_leader_3": {
+   "name": "Leader 3 GammaPrime_002"
+  },
+  "GammaPrime_002_c_mp_3": {
+   "name": "MP 3 GammaPrime_002"
+  },
+  "GammaPrime_002_c_leader_4": {
+   "name": "Leader 4 GammaPrime_002"
+  },
+  "GammaPrime_002_c_mp_4": {
+   "name": "MP 4 GammaPrime_002"
+  },
+  "DeltaPrime_003_c_king": {
+   "name": "Head of State DeltaPrime_003"
+  },
+  "DeltaPrime_003_c_leader_0": {
+   "name": "Leader 0 DeltaPrime_003"
+  },
+  "DeltaPrime_003_c_mp_0": {
+   "name": "MP 0 DeltaPrime_003"
+  },
+  "DeltaPrime_003_c_leader_1": {
+   "name": "Leader 1 DeltaPrime_003"
+  },
+  "DeltaPrime_003_c_mp_1": {
+   "name": "MP 1 DeltaPrime_003"
+  },
+  "DeltaPrime_003_c_leader_2": {
+   "name": "Leader 2 DeltaPrime_003"
+  },
+  "DeltaPrime_003_c_mp_2": {
+   "name": "MP 2 DeltaPrime_003"
+  },
+  "EpsilonPrime_004_c_king": {
+   "name": "Head of State EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_leader_0": {
+   "name": "Leader 0 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_mp_0": {
+   "name": "MP 0 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_leader_1": {
+   "name": "Leader 1 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_mp_1": {
+   "name": "MP 1 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_leader_2": {
+   "name": "Leader 2 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_mp_2": {
+   "name": "MP 2 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_leader_3": {
+   "name": "Leader 3 EpsilonPrime_004"
+  },
+  "EpsilonPrime_004_c_mp_3": {
+   "name": "MP 3 EpsilonPrime_004"
+  },
+  "ZetaPrime_005_c_king": {
+   "name": "Head of State ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_leader_0": {
+   "name": "Leader 0 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_mp_0": {
+   "name": "MP 0 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_leader_1": {
+   "name": "Leader 1 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_mp_1": {
+   "name": "MP 1 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_leader_2": {
+   "name": "Leader 2 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_mp_2": {
+   "name": "MP 2 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_leader_3": {
+   "name": "Leader 3 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_mp_3": {
+   "name": "MP 3 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_leader_4": {
+   "name": "Leader 4 ZetaPrime_005"
+  },
+  "ZetaPrime_005_c_mp_4": {
+   "name": "MP 4 ZetaPrime_005"
+  },
+  "EtaPrime_006_c_king": {
+   "name": "Head of State EtaPrime_006"
+  },
+  "EtaPrime_006_c_leader_0": {
+   "name": "Leader 0 EtaPrime_006"
+  },
+  "EtaPrime_006_c_mp_0": {
+   "name": "MP 0 EtaPrime_006"
+  },
+  "EtaPrime_006_c_leader_1": {
+   "name": "Leader 1 EtaPrime_006"
+  },
+  "EtaPrime_006_c_mp_1": {
+   "name": "MP 1 EtaPrime_006"
+  },
+  "EtaPrime_006_c_leader_2": {
+   "name": "Leader 2 EtaPrime_006"
+  },
+  "EtaPrime_006_c_mp_2": {
+   "name": "MP 2 EtaPrime_006"
+  },
+  "ThetaPrime_007_c_king": {
+   "name": "Head of State ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_leader_0": {
+   "name": "Leader 0 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_mp_0": {
+   "name": "MP 0 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_leader_1": {
+   "name": "Leader 1 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_mp_1": {
+   "name": "MP 1 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_leader_2": {
+   "name": "Leader 2 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_mp_2": {
+   "name": "MP 2 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_leader_3": {
+   "name": "Leader 3 ThetaPrime_007"
+  },
+  "ThetaPrime_007_c_mp_3": {
+   "name": "MP 3 ThetaPrime_007"
+  },
+  "IotaPrime_008_c_king": {
+   "name": "Head of State IotaPrime_008"
+  },
+  "IotaPrime_008_c_leader_0": {
+   "name": "Leader 0 IotaPrime_008"
+  },
+  "IotaPrime_008_c_mp_0": {
+   "name": "MP 0 IotaPrime_008"
+  },
+  "IotaPrime_008_c_leader_1": {
+   "name": "Leader 1 IotaPrime_008"
+  },
+  "IotaPrime_008_c_mp_1": {
+   "name": "MP 1 IotaPrime_008"
+  },
+  "IotaPrime_008_c_leader_2": {
+   "name": "Leader 2 IotaPrime_008"
+  },
+  "IotaPrime_008_c_mp_2": {
+   "name": "MP 2 IotaPrime_008"
+  },
+  "IotaPrime_008_c_leader_3": {
+   "name": "Leader 3 IotaPrime_008"
+  },
+  "IotaPrime_008_c_mp_3": {
+   "name": "MP 3 IotaPrime_008"
+  },
+  "IotaPrime_008_c_leader_4": {
+   "name": "Leader 4 IotaPrime_008"
+  },
+  "IotaPrime_008_c_mp_4": {
+   "name": "MP 4 IotaPrime_008"
+  },
+  "KappaPrime_009_c_king": {
+   "name": "Head of State KappaPrime_009"
+  },
+  "KappaPrime_009_c_leader_0": {
+   "name": "Leader 0 KappaPrime_009"
+  },
+  "KappaPrime_009_c_mp_0": {
+   "name": "MP 0 KappaPrime_009"
+  },
+  "KappaPrime_009_c_leader_1": {
+   "name": "Leader 1 KappaPrime_009"
+  },
+  "KappaPrime_009_c_mp_1": {
+   "name": "MP 1 KappaPrime_009"
+  },
+  "KappaPrime_009_c_leader_2": {
+   "name": "Leader 2 KappaPrime_009"
+  },
+  "KappaPrime_009_c_mp_2": {
+   "name": "MP 2 KappaPrime_009"
+  },
+  "LambdaPrime_010_c_king": {
+   "name": "Head of State LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_leader_0": {
+   "name": "Leader 0 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_mp_0": {
+   "name": "MP 0 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_leader_1": {
+   "name": "Leader 1 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_mp_1": {
+   "name": "MP 1 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_leader_2": {
+   "name": "Leader 2 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_mp_2": {
+   "name": "MP 2 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_leader_3": {
+   "name": "Leader 3 LambdaPrime_010"
+  },
+  "LambdaPrime_010_c_mp_3": {
+   "name": "MP 3 LambdaPrime_010"
+  },
+  "MuPrime_011_c_king": {
+   "name": "Head of State MuPrime_011"
+  },
+  "MuPrime_011_c_leader_0": {
+   "name": "Leader 0 MuPrime_011"
+  },
+  "MuPrime_011_c_mp_0": {
+   "name": "MP 0 MuPrime_011"
+  },
+  "MuPrime_011_c_leader_1": {
+   "name": "Leader 1 MuPrime_011"
+  },
+  "MuPrime_011_c_mp_1": {
+   "name": "MP 1 MuPrime_011"
+  },
+  "MuPrime_011_c_leader_2": {
+   "name": "Leader 2 MuPrime_011"
+  },
+  "MuPrime_011_c_mp_2": {
+   "name": "MP 2 MuPrime_011"
+  },
+  "MuPrime_011_c_leader_3": {
+   "name": "Leader 3 MuPrime_011"
+  },
+  "MuPrime_011_c_mp_3": {
+   "name": "MP 3 MuPrime_011"
+  },
+  "MuPrime_011_c_leader_4": {
+   "name": "Leader 4 MuPrime_011"
+  },
+  "MuPrime_011_c_mp_4": {
+   "name": "MP 4 MuPrime_011"
+  },
+  "NuPrime_012_c_king": {
+   "name": "Head of State NuPrime_012"
+  },
+  "NuPrime_012_c_leader_0": {
+   "name": "Leader 0 NuPrime_012"
+  },
+  "NuPrime_012_c_mp_0": {
+   "name": "MP 0 NuPrime_012"
+  },
+  "NuPrime_012_c_leader_1": {
+   "name": "Leader 1 NuPrime_012"
+  },
+  "NuPrime_012_c_mp_1": {
+   "name": "MP 1 NuPrime_012"
+  },
+  "NuPrime_012_c_leader_2": {
+   "name": "Leader 2 NuPrime_012"
+  },
+  "NuPrime_012_c_mp_2": {
+   "name": "MP 2 NuPrime_012"
+  },
+  "XiPrime_013_c_king": {
+   "name": "Head of State XiPrime_013"
+  },
+  "XiPrime_013_c_leader_0": {
+   "name": "Leader 0 XiPrime_013"
+  },
+  "XiPrime_013_c_mp_0": {
+   "name": "MP 0 XiPrime_013"
+  },
+  "XiPrime_013_c_leader_1": {
+   "name": "Leader 1 XiPrime_013"
+  },
+  "XiPrime_013_c_mp_1": {
+   "name": "MP 1 XiPrime_013"
+  },
+  "XiPrime_013_c_leader_2": {
+   "name": "Leader 2 XiPrime_013"
+  },
+  "XiPrime_013_c_mp_2": {
+   "name": "MP 2 XiPrime_013"
+  },
+  "XiPrime_013_c_leader_3": {
+   "name": "Leader 3 XiPrime_013"
+  },
+  "XiPrime_013_c_mp_3": {
+   "name": "MP 3 XiPrime_013"
+  },
+  "OmicronPrime_014_c_king": {
+   "name": "Head of State OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_leader_0": {
+   "name": "Leader 0 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_mp_0": {
+   "name": "MP 0 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_leader_1": {
+   "name": "Leader 1 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_mp_1": {
+   "name": "MP 1 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_leader_2": {
+   "name": "Leader 2 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_mp_2": {
+   "name": "MP 2 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_leader_3": {
+   "name": "Leader 3 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_mp_3": {
+   "name": "MP 3 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_leader_4": {
+   "name": "Leader 4 OmicronPrime_014"
+  },
+  "OmicronPrime_014_c_mp_4": {
+   "name": "MP 4 OmicronPrime_014"
+  },
+  "PiPrime_015_c_king": {
+   "name": "Head of State PiPrime_015"
+  },
+  "PiPrime_015_c_leader_0": {
+   "name": "Leader 0 PiPrime_015"
+  },
+  "PiPrime_015_c_mp_0": {
+   "name": "MP 0 PiPrime_015"
+  },
+  "PiPrime_015_c_leader_1": {
+   "name": "Leader 1 PiPrime_015"
+  },
+  "PiPrime_015_c_mp_1": {
+   "name": "MP 1 PiPrime_015"
+  },
+  "PiPrime_015_c_leader_2": {
+   "name": "Leader 2 PiPrime_015"
+  },
+  "PiPrime_015_c_mp_2": {
+   "name": "MP 2 PiPrime_015"
+  },
+  "RhoPrime_016_c_king": {
+   "name": "Head of State RhoPrime_016"
+  },
+  "RhoPrime_016_c_leader_0": {
+   "name": "Leader 0 RhoPrime_016"
+  },
+  "RhoPrime_016_c_mp_0": {
+   "name": "MP 0 RhoPrime_016"
+  },
+  "RhoPrime_016_c_leader_1": {
+   "name": "Leader 1 RhoPrime_016"
+  },
+  "RhoPrime_016_c_mp_1": {
+   "name": "MP 1 RhoPrime_016"
+  },
+  "RhoPrime_016_c_leader_2": {
+   "name": "Leader 2 RhoPrime_016"
+  },
+  "RhoPrime_016_c_mp_2": {
+   "name": "MP 2 RhoPrime_016"
+  },
+  "RhoPrime_016_c_leader_3": {
+   "name": "Leader 3 RhoPrime_016"
+  },
+  "RhoPrime_016_c_mp_3": {
+   "name": "MP 3 RhoPrime_016"
+  },
+  "SigmaPrime_017_c_king": {
+   "name": "Head of State SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_leader_0": {
+   "name": "Leader 0 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_mp_0": {
+   "name": "MP 0 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_leader_1": {
+   "name": "Leader 1 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_mp_1": {
+   "name": "MP 1 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_leader_2": {
+   "name": "Leader 2 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_mp_2": {
+   "name": "MP 2 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_leader_3": {
+   "name": "Leader 3 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_mp_3": {
+   "name": "MP 3 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_leader_4": {
+   "name": "Leader 4 SigmaPrime_017"
+  },
+  "SigmaPrime_017_c_mp_4": {
+   "name": "MP 4 SigmaPrime_017"
+  },
+  "TauPrime_018_c_king": {
+   "name": "Head of State TauPrime_018"
+  },
+  "TauPrime_018_c_leader_0": {
+   "name": "Leader 0 TauPrime_018"
+  },
+  "TauPrime_018_c_mp_0": {
+   "name": "MP 0 TauPrime_018"
+  },
+  "TauPrime_018_c_leader_1": {
+   "name": "Leader 1 TauPrime_018"
+  },
+  "TauPrime_018_c_mp_1": {
+   "name": "MP 1 TauPrime_018"
+  },
+  "TauPrime_018_c_leader_2": {
+   "name": "Leader 2 TauPrime_018"
+  },
+  "TauPrime_018_c_mp_2": {
+   "name": "MP 2 TauPrime_018"
+  },
+  "UpsilonPrime_019_c_king": {
+   "name": "Head of State UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_leader_0": {
+   "name": "Leader 0 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_mp_0": {
+   "name": "MP 0 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_leader_1": {
+   "name": "Leader 1 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_mp_1": {
+   "name": "MP 1 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_leader_2": {
+   "name": "Leader 2 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_mp_2": {
+   "name": "MP 2 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_leader_3": {
+   "name": "Leader 3 UpsilonPrime_019"
+  },
+  "UpsilonPrime_019_c_mp_3": {
+   "name": "MP 3 UpsilonPrime_019"
+  },
+  "PhiPrime_020_c_king": {
+   "name": "Head of State PhiPrime_020"
+  },
+  "PhiPrime_020_c_leader_0": {
+   "name": "Leader 0 PhiPrime_020"
+  },
+  "PhiPrime_020_c_mp_0": {
+   "name": "MP 0 PhiPrime_020"
+  },
+  "PhiPrime_020_c_leader_1": {
+   "name": "Leader 1 PhiPrime_020"
+  },
+  "PhiPrime_020_c_mp_1": {
+   "name": "MP 1 PhiPrime_020"
+  },
+  "PhiPrime_020_c_leader_2": {
+   "name": "Leader 2 PhiPrime_020"
+  },
+  "PhiPrime_020_c_mp_2": {
+   "name": "MP 2 PhiPrime_020"
+  },
+  "PhiPrime_020_c_leader_3": {
+   "name": "Leader 3 PhiPrime_020"
+  },
+  "PhiPrime_020_c_mp_3": {
+   "name": "MP 3 PhiPrime_020"
+  },
+  "PhiPrime_020_c_leader_4": {
+   "name": "Leader 4 PhiPrime_020"
+  },
+  "PhiPrime_020_c_mp_4": {
+   "name": "MP 4 PhiPrime_020"
+  },
+  "ChiPrime_021_c_king": {
+   "name": "Head of State ChiPrime_021"
+  },
+  "ChiPrime_021_c_leader_0": {
+   "name": "Leader 0 ChiPrime_021"
+  },
+  "ChiPrime_021_c_mp_0": {
+   "name": "MP 0 ChiPrime_021"
+  },
+  "ChiPrime_021_c_leader_1": {
+   "name": "Leader 1 ChiPrime_021"
+  },
+  "ChiPrime_021_c_mp_1": {
+   "name": "MP 1 ChiPrime_021"
+  },
+  "ChiPrime_021_c_leader_2": {
+   "name": "Leader 2 ChiPrime_021"
+  },
+  "ChiPrime_021_c_mp_2": {
+   "name": "MP 2 ChiPrime_021"
+  },
+  "PsiPrime_022_c_king": {
+   "name": "Head of State PsiPrime_022"
+  },
+  "PsiPrime_022_c_leader_0": {
+   "name": "Leader 0 PsiPrime_022"
+  },
+  "PsiPrime_022_c_mp_0": {
+   "name": "MP 0 PsiPrime_022"
+  },
+  "PsiPrime_022_c_leader_1": {
+   "name": "Leader 1 PsiPrime_022"
+  },
+  "PsiPrime_022_c_mp_1": {
+   "name": "MP 1 PsiPrime_022"
+  },
+  "PsiPrime_022_c_leader_2": {
+   "name": "Leader 2 PsiPrime_022"
+  },
+  "PsiPrime_022_c_mp_2": {
+   "name": "MP 2 PsiPrime_022"
+  },
+  "PsiPrime_022_c_leader_3": {
+   "name": "Leader 3 PsiPrime_022"
+  },
+  "PsiPrime_022_c_mp_3": {
+   "name": "MP 3 PsiPrime_022"
+  },
+  "OmegaPrime_023_c_king": {
+   "name": "Head of State OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_leader_0": {
+   "name": "Leader 0 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_mp_0": {
+   "name": "MP 0 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_leader_1": {
+   "name": "Leader 1 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_mp_1": {
+   "name": "MP 1 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_leader_2": {
+   "name": "Leader 2 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_mp_2": {
+   "name": "MP 2 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_leader_3": {
+   "name": "Leader 3 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_mp_3": {
+   "name": "MP 3 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_leader_4": {
+   "name": "Leader 4 OmegaPrime_023"
+  },
+  "OmegaPrime_023_c_mp_4": {
+   "name": "MP 4 OmegaPrime_023"
+  },
+  "AlphaSecundus_024_c_king": {
+   "name": "Head of State AlphaSecundus_024"
+  },
+  "AlphaSecundus_024_c_leader_0": {
+   "name": "Leader 0 AlphaSecundus_024"
+  },
+  "AlphaSecundus_024_c_mp_0": {
+   "name": "MP 0 AlphaSecundus_024"
+  },
+  "AlphaSecundus_024_c_leader_1": {
+   "name": "Leader 1 AlphaSecundus_024"
+  },
+  "AlphaSecundus_024_c_mp_1": {
+   "name": "MP 1 AlphaSecundus_024"
+  },
+  "AlphaSecundus_024_c_leader_2": {
+   "name": "Leader 2 AlphaSecundus_024"
+  },
+  "AlphaSecundus_024_c_mp_2": {
+   "name": "MP 2 AlphaSecundus_024"
+  },
+  "BetaSecundus_025_c_king": {
+   "name": "Head of State BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_leader_0": {
+   "name": "Leader 0 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_mp_0": {
+   "name": "MP 0 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_leader_1": {
+   "name": "Leader 1 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_mp_1": {
+   "name": "MP 1 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_leader_2": {
+   "name": "Leader 2 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_mp_2": {
+   "name": "MP 2 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_leader_3": {
+   "name": "Leader 3 BetaSecundus_025"
+  },
+  "BetaSecundus_025_c_mp_3": {
+   "name": "MP 3 BetaSecundus_025"
+  },
+  "GammaSecundus_026_c_king": {
+   "name": "Head of State GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_leader_0": {
+   "name": "Leader 0 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_mp_0": {
+   "name": "MP 0 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_leader_1": {
+   "name": "Leader 1 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_mp_1": {
+   "name": "MP 1 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_leader_2": {
+   "name": "Leader 2 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_mp_2": {
+   "name": "MP 2 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_leader_3": {
+   "name": "Leader 3 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_mp_3": {
+   "name": "MP 3 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_leader_4": {
+   "name": "Leader 4 GammaSecundus_026"
+  },
+  "GammaSecundus_026_c_mp_4": {
+   "name": "MP 4 GammaSecundus_026"
+  },
+  "DeltaSecundus_027_c_king": {
+   "name": "Head of State DeltaSecundus_027"
+  },
+  "DeltaSecundus_027_c_leader_0": {
+   "name": "Leader 0 DeltaSecundus_027"
+  },
+  "DeltaSecundus_027_c_mp_0": {
+   "name": "MP 0 DeltaSecundus_027"
+  },
+  "DeltaSecundus_027_c_leader_1": {
+   "name": "Leader 1 DeltaSecundus_027"
+  },
+  "DeltaSecundus_027_c_mp_1": {
+   "name": "MP 1 DeltaSecundus_027"
+  },
+  "DeltaSecundus_027_c_leader_2": {
+   "name": "Leader 2 DeltaSecundus_027"
+  },
+  "DeltaSecundus_027_c_mp_2": {
+   "name": "MP 2 DeltaSecundus_027"
+  },
+  "EpsilonSecundus_028_c_king": {
+   "name": "Head of State EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_leader_0": {
+   "name": "Leader 0 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_mp_0": {
+   "name": "MP 0 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_leader_1": {
+   "name": "Leader 1 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_mp_1": {
+   "name": "MP 1 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_leader_2": {
+   "name": "Leader 2 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_mp_2": {
+   "name": "MP 2 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_leader_3": {
+   "name": "Leader 3 EpsilonSecundus_028"
+  },
+  "EpsilonSecundus_028_c_mp_3": {
+   "name": "MP 3 EpsilonSecundus_028"
+  },
+  "ZetaSecundus_029_c_king": {
+   "name": "Head of State ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_leader_0": {
+   "name": "Leader 0 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_mp_0": {
+   "name": "MP 0 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_leader_1": {
+   "name": "Leader 1 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_mp_1": {
+   "name": "MP 1 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_leader_2": {
+   "name": "Leader 2 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_mp_2": {
+   "name": "MP 2 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_leader_3": {
+   "name": "Leader 3 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_mp_3": {
+   "name": "MP 3 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_leader_4": {
+   "name": "Leader 4 ZetaSecundus_029"
+  },
+  "ZetaSecundus_029_c_mp_4": {
+   "name": "MP 4 ZetaSecundus_029"
+  }
+ },
+ "parties": {
+  "AlphaPrime_000_P0": {
+   "party_id": "AlphaPrime_000_P0",
+   "leader": "AlphaPrime_000_c_leader_0",
+   "membership": [
+    "AlphaPrime_000_c_leader_0",
+    "AlphaPrime_000_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "center"
+   }
+  },
+  "AlphaPrime_000_P1": {
+   "party_id": "AlphaPrime_000_P1",
+   "leader": "AlphaPrime_000_c_leader_1",
+   "membership": [
+    "AlphaPrime_000_c_leader_1",
+    "AlphaPrime_000_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "center-left"
+   }
+  },
+  "AlphaPrime_000_P2": {
+   "party_id": "AlphaPrime_000_P2",
+   "leader": "AlphaPrime_000_c_leader_2",
+   "membership": [
+    "AlphaPrime_000_c_leader_2",
+    "AlphaPrime_000_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "center-right"
+   }
+  },
+  "BetaPrime_001_P0": {
+   "party_id": "BetaPrime_001_P0",
+   "leader": "BetaPrime_001_c_leader_0",
+   "membership": [
+    "BetaPrime_001_c_leader_0",
+    "BetaPrime_001_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "center-left"
+   }
+  },
+  "BetaPrime_001_P1": {
+   "party_id": "BetaPrime_001_P1",
+   "leader": "BetaPrime_001_c_leader_1",
+   "membership": [
+    "BetaPrime_001_c_leader_1",
+    "BetaPrime_001_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "center-right"
+   }
+  },
+  "BetaPrime_001_P2": {
+   "party_id": "BetaPrime_001_P2",
+   "leader": "BetaPrime_001_c_leader_2",
+   "membership": [
+    "BetaPrime_001_c_leader_2",
+    "BetaPrime_001_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "left"
+   }
+  },
+  "BetaPrime_001_P3": {
+   "party_id": "BetaPrime_001_P3",
+   "leader": "BetaPrime_001_c_leader_3",
+   "membership": [
+    "BetaPrime_001_c_leader_3",
+    "BetaPrime_001_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "right"
+   }
+  },
+  "GammaPrime_002_P0": {
+   "party_id": "GammaPrime_002_P0",
+   "leader": "GammaPrime_002_c_leader_0",
+   "membership": [
+    "GammaPrime_002_c_leader_0",
+    "GammaPrime_002_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "center-right"
+   }
+  },
+  "GammaPrime_002_P1": {
+   "party_id": "GammaPrime_002_P1",
+   "leader": "GammaPrime_002_c_leader_1",
+   "membership": [
+    "GammaPrime_002_c_leader_1",
+    "GammaPrime_002_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "left"
+   }
+  },
+  "GammaPrime_002_P2": {
+   "party_id": "GammaPrime_002_P2",
+   "leader": "GammaPrime_002_c_leader_2",
+   "membership": [
+    "GammaPrime_002_c_leader_2",
+    "GammaPrime_002_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "right"
+   }
+  },
+  "GammaPrime_002_P3": {
+   "party_id": "GammaPrime_002_P3",
+   "leader": "GammaPrime_002_c_leader_3",
+   "membership": [
+    "GammaPrime_002_c_leader_3",
+    "GammaPrime_002_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "populist"
+   }
+  },
+  "GammaPrime_002_P4": {
+   "party_id": "GammaPrime_002_P4",
+   "leader": "GammaPrime_002_c_leader_4",
+   "membership": [
+    "GammaPrime_002_c_leader_4",
+    "GammaPrime_002_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "technocratic"
+   }
+  },
+  "DeltaPrime_003_P0": {
+   "party_id": "DeltaPrime_003_P0",
+   "leader": "DeltaPrime_003_c_leader_0",
+   "membership": [
+    "DeltaPrime_003_c_leader_0",
+    "DeltaPrime_003_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "left"
+   }
+  },
+  "DeltaPrime_003_P1": {
+   "party_id": "DeltaPrime_003_P1",
+   "leader": "DeltaPrime_003_c_leader_1",
+   "membership": [
+    "DeltaPrime_003_c_leader_1",
+    "DeltaPrime_003_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "right"
+   }
+  },
+  "DeltaPrime_003_P2": {
+   "party_id": "DeltaPrime_003_P2",
+   "leader": "DeltaPrime_003_c_leader_2",
+   "membership": [
+    "DeltaPrime_003_c_leader_2",
+    "DeltaPrime_003_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "populist"
+   }
+  },
+  "EpsilonPrime_004_P0": {
+   "party_id": "EpsilonPrime_004_P0",
+   "leader": "EpsilonPrime_004_c_leader_0",
+   "membership": [
+    "EpsilonPrime_004_c_leader_0",
+    "EpsilonPrime_004_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "right"
+   }
+  },
+  "EpsilonPrime_004_P1": {
+   "party_id": "EpsilonPrime_004_P1",
+   "leader": "EpsilonPrime_004_c_leader_1",
+   "membership": [
+    "EpsilonPrime_004_c_leader_1",
+    "EpsilonPrime_004_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "populist"
+   }
+  },
+  "EpsilonPrime_004_P2": {
+   "party_id": "EpsilonPrime_004_P2",
+   "leader": "EpsilonPrime_004_c_leader_2",
+   "membership": [
+    "EpsilonPrime_004_c_leader_2",
+    "EpsilonPrime_004_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "technocratic"
+   }
+  },
+  "EpsilonPrime_004_P3": {
+   "party_id": "EpsilonPrime_004_P3",
+   "leader": "EpsilonPrime_004_c_leader_3",
+   "membership": [
+    "EpsilonPrime_004_c_leader_3",
+    "EpsilonPrime_004_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "center"
+   }
+  },
+  "ZetaPrime_005_P0": {
+   "party_id": "ZetaPrime_005_P0",
+   "leader": "ZetaPrime_005_c_leader_0",
+   "membership": [
+    "ZetaPrime_005_c_leader_0",
+    "ZetaPrime_005_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "populist"
+   }
+  },
+  "ZetaPrime_005_P1": {
+   "party_id": "ZetaPrime_005_P1",
+   "leader": "ZetaPrime_005_c_leader_1",
+   "membership": [
+    "ZetaPrime_005_c_leader_1",
+    "ZetaPrime_005_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "technocratic"
+   }
+  },
+  "ZetaPrime_005_P2": {
+   "party_id": "ZetaPrime_005_P2",
+   "leader": "ZetaPrime_005_c_leader_2",
+   "membership": [
+    "ZetaPrime_005_c_leader_2",
+    "ZetaPrime_005_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "center"
+   }
+  },
+  "ZetaPrime_005_P3": {
+   "party_id": "ZetaPrime_005_P3",
+   "leader": "ZetaPrime_005_c_leader_3",
+   "membership": [
+    "ZetaPrime_005_c_leader_3",
+    "ZetaPrime_005_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "center-left"
+   }
+  },
+  "ZetaPrime_005_P4": {
+   "party_id": "ZetaPrime_005_P4",
+   "leader": "ZetaPrime_005_c_leader_4",
+   "membership": [
+    "ZetaPrime_005_c_leader_4",
+    "ZetaPrime_005_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "center-right"
+   }
+  },
+  "EtaPrime_006_P0": {
+   "party_id": "EtaPrime_006_P0",
+   "leader": "EtaPrime_006_c_leader_0",
+   "membership": [
+    "EtaPrime_006_c_leader_0",
+    "EtaPrime_006_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "technocratic"
+   }
+  },
+  "EtaPrime_006_P1": {
+   "party_id": "EtaPrime_006_P1",
+   "leader": "EtaPrime_006_c_leader_1",
+   "membership": [
+    "EtaPrime_006_c_leader_1",
+    "EtaPrime_006_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "center"
+   }
+  },
+  "EtaPrime_006_P2": {
+   "party_id": "EtaPrime_006_P2",
+   "leader": "EtaPrime_006_c_leader_2",
+   "membership": [
+    "EtaPrime_006_c_leader_2",
+    "EtaPrime_006_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "center-left"
+   }
+  },
+  "ThetaPrime_007_P0": {
+   "party_id": "ThetaPrime_007_P0",
+   "leader": "ThetaPrime_007_c_leader_0",
+   "membership": [
+    "ThetaPrime_007_c_leader_0",
+    "ThetaPrime_007_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "center"
+   }
+  },
+  "ThetaPrime_007_P1": {
+   "party_id": "ThetaPrime_007_P1",
+   "leader": "ThetaPrime_007_c_leader_1",
+   "membership": [
+    "ThetaPrime_007_c_leader_1",
+    "ThetaPrime_007_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "center-left"
+   }
+  },
+  "ThetaPrime_007_P2": {
+   "party_id": "ThetaPrime_007_P2",
+   "leader": "ThetaPrime_007_c_leader_2",
+   "membership": [
+    "ThetaPrime_007_c_leader_2",
+    "ThetaPrime_007_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "center-right"
+   }
+  },
+  "ThetaPrime_007_P3": {
+   "party_id": "ThetaPrime_007_P3",
+   "leader": "ThetaPrime_007_c_leader_3",
+   "membership": [
+    "ThetaPrime_007_c_leader_3",
+    "ThetaPrime_007_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "left"
+   }
+  },
+  "IotaPrime_008_P0": {
+   "party_id": "IotaPrime_008_P0",
+   "leader": "IotaPrime_008_c_leader_0",
+   "membership": [
+    "IotaPrime_008_c_leader_0",
+    "IotaPrime_008_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "center-left"
+   }
+  },
+  "IotaPrime_008_P1": {
+   "party_id": "IotaPrime_008_P1",
+   "leader": "IotaPrime_008_c_leader_1",
+   "membership": [
+    "IotaPrime_008_c_leader_1",
+    "IotaPrime_008_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "center-right"
+   }
+  },
+  "IotaPrime_008_P2": {
+   "party_id": "IotaPrime_008_P2",
+   "leader": "IotaPrime_008_c_leader_2",
+   "membership": [
+    "IotaPrime_008_c_leader_2",
+    "IotaPrime_008_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "left"
+   }
+  },
+  "IotaPrime_008_P3": {
+   "party_id": "IotaPrime_008_P3",
+   "leader": "IotaPrime_008_c_leader_3",
+   "membership": [
+    "IotaPrime_008_c_leader_3",
+    "IotaPrime_008_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "right"
+   }
+  },
+  "IotaPrime_008_P4": {
+   "party_id": "IotaPrime_008_P4",
+   "leader": "IotaPrime_008_c_leader_4",
+   "membership": [
+    "IotaPrime_008_c_leader_4",
+    "IotaPrime_008_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "populist"
+   }
+  },
+  "KappaPrime_009_P0": {
+   "party_id": "KappaPrime_009_P0",
+   "leader": "KappaPrime_009_c_leader_0",
+   "membership": [
+    "KappaPrime_009_c_leader_0",
+    "KappaPrime_009_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "center-right"
+   }
+  },
+  "KappaPrime_009_P1": {
+   "party_id": "KappaPrime_009_P1",
+   "leader": "KappaPrime_009_c_leader_1",
+   "membership": [
+    "KappaPrime_009_c_leader_1",
+    "KappaPrime_009_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "left"
+   }
+  },
+  "KappaPrime_009_P2": {
+   "party_id": "KappaPrime_009_P2",
+   "leader": "KappaPrime_009_c_leader_2",
+   "membership": [
+    "KappaPrime_009_c_leader_2",
+    "KappaPrime_009_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "right"
+   }
+  },
+  "LambdaPrime_010_P0": {
+   "party_id": "LambdaPrime_010_P0",
+   "leader": "LambdaPrime_010_c_leader_0",
+   "membership": [
+    "LambdaPrime_010_c_leader_0",
+    "LambdaPrime_010_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "left"
+   }
+  },
+  "LambdaPrime_010_P1": {
+   "party_id": "LambdaPrime_010_P1",
+   "leader": "LambdaPrime_010_c_leader_1",
+   "membership": [
+    "LambdaPrime_010_c_leader_1",
+    "LambdaPrime_010_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "right"
+   }
+  },
+  "LambdaPrime_010_P2": {
+   "party_id": "LambdaPrime_010_P2",
+   "leader": "LambdaPrime_010_c_leader_2",
+   "membership": [
+    "LambdaPrime_010_c_leader_2",
+    "LambdaPrime_010_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "populist"
+   }
+  },
+  "LambdaPrime_010_P3": {
+   "party_id": "LambdaPrime_010_P3",
+   "leader": "LambdaPrime_010_c_leader_3",
+   "membership": [
+    "LambdaPrime_010_c_leader_3",
+    "LambdaPrime_010_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "technocratic"
+   }
+  },
+  "MuPrime_011_P0": {
+   "party_id": "MuPrime_011_P0",
+   "leader": "MuPrime_011_c_leader_0",
+   "membership": [
+    "MuPrime_011_c_leader_0",
+    "MuPrime_011_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "right"
+   }
+  },
+  "MuPrime_011_P1": {
+   "party_id": "MuPrime_011_P1",
+   "leader": "MuPrime_011_c_leader_1",
+   "membership": [
+    "MuPrime_011_c_leader_1",
+    "MuPrime_011_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "populist"
+   }
+  },
+  "MuPrime_011_P2": {
+   "party_id": "MuPrime_011_P2",
+   "leader": "MuPrime_011_c_leader_2",
+   "membership": [
+    "MuPrime_011_c_leader_2",
+    "MuPrime_011_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "technocratic"
+   }
+  },
+  "MuPrime_011_P3": {
+   "party_id": "MuPrime_011_P3",
+   "leader": "MuPrime_011_c_leader_3",
+   "membership": [
+    "MuPrime_011_c_leader_3",
+    "MuPrime_011_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "center"
+   }
+  },
+  "MuPrime_011_P4": {
+   "party_id": "MuPrime_011_P4",
+   "leader": "MuPrime_011_c_leader_4",
+   "membership": [
+    "MuPrime_011_c_leader_4",
+    "MuPrime_011_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "center-left"
+   }
+  },
+  "NuPrime_012_P0": {
+   "party_id": "NuPrime_012_P0",
+   "leader": "NuPrime_012_c_leader_0",
+   "membership": [
+    "NuPrime_012_c_leader_0",
+    "NuPrime_012_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "populist"
+   }
+  },
+  "NuPrime_012_P1": {
+   "party_id": "NuPrime_012_P1",
+   "leader": "NuPrime_012_c_leader_1",
+   "membership": [
+    "NuPrime_012_c_leader_1",
+    "NuPrime_012_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "technocratic"
+   }
+  },
+  "NuPrime_012_P2": {
+   "party_id": "NuPrime_012_P2",
+   "leader": "NuPrime_012_c_leader_2",
+   "membership": [
+    "NuPrime_012_c_leader_2",
+    "NuPrime_012_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "center"
+   }
+  },
+  "XiPrime_013_P0": {
+   "party_id": "XiPrime_013_P0",
+   "leader": "XiPrime_013_c_leader_0",
+   "membership": [
+    "XiPrime_013_c_leader_0",
+    "XiPrime_013_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "technocratic"
+   }
+  },
+  "XiPrime_013_P1": {
+   "party_id": "XiPrime_013_P1",
+   "leader": "XiPrime_013_c_leader_1",
+   "membership": [
+    "XiPrime_013_c_leader_1",
+    "XiPrime_013_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "center"
+   }
+  },
+  "XiPrime_013_P2": {
+   "party_id": "XiPrime_013_P2",
+   "leader": "XiPrime_013_c_leader_2",
+   "membership": [
+    "XiPrime_013_c_leader_2",
+    "XiPrime_013_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "center-left"
+   }
+  },
+  "XiPrime_013_P3": {
+   "party_id": "XiPrime_013_P3",
+   "leader": "XiPrime_013_c_leader_3",
+   "membership": [
+    "XiPrime_013_c_leader_3",
+    "XiPrime_013_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "center-right"
+   }
+  },
+  "OmicronPrime_014_P0": {
+   "party_id": "OmicronPrime_014_P0",
+   "leader": "OmicronPrime_014_c_leader_0",
+   "membership": [
+    "OmicronPrime_014_c_leader_0",
+    "OmicronPrime_014_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "center"
+   }
+  },
+  "OmicronPrime_014_P1": {
+   "party_id": "OmicronPrime_014_P1",
+   "leader": "OmicronPrime_014_c_leader_1",
+   "membership": [
+    "OmicronPrime_014_c_leader_1",
+    "OmicronPrime_014_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "center-left"
+   }
+  },
+  "OmicronPrime_014_P2": {
+   "party_id": "OmicronPrime_014_P2",
+   "leader": "OmicronPrime_014_c_leader_2",
+   "membership": [
+    "OmicronPrime_014_c_leader_2",
+    "OmicronPrime_014_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "center-right"
+   }
+  },
+  "OmicronPrime_014_P3": {
+   "party_id": "OmicronPrime_014_P3",
+   "leader": "OmicronPrime_014_c_leader_3",
+   "membership": [
+    "OmicronPrime_014_c_leader_3",
+    "OmicronPrime_014_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "left"
+   }
+  },
+  "OmicronPrime_014_P4": {
+   "party_id": "OmicronPrime_014_P4",
+   "leader": "OmicronPrime_014_c_leader_4",
+   "membership": [
+    "OmicronPrime_014_c_leader_4",
+    "OmicronPrime_014_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "right"
+   }
+  },
+  "PiPrime_015_P0": {
+   "party_id": "PiPrime_015_P0",
+   "leader": "PiPrime_015_c_leader_0",
+   "membership": [
+    "PiPrime_015_c_leader_0",
+    "PiPrime_015_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "center-left"
+   }
+  },
+  "PiPrime_015_P1": {
+   "party_id": "PiPrime_015_P1",
+   "leader": "PiPrime_015_c_leader_1",
+   "membership": [
+    "PiPrime_015_c_leader_1",
+    "PiPrime_015_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "center-right"
+   }
+  },
+  "PiPrime_015_P2": {
+   "party_id": "PiPrime_015_P2",
+   "leader": "PiPrime_015_c_leader_2",
+   "membership": [
+    "PiPrime_015_c_leader_2",
+    "PiPrime_015_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "left"
+   }
+  },
+  "RhoPrime_016_P0": {
+   "party_id": "RhoPrime_016_P0",
+   "leader": "RhoPrime_016_c_leader_0",
+   "membership": [
+    "RhoPrime_016_c_leader_0",
+    "RhoPrime_016_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "center-right"
+   }
+  },
+  "RhoPrime_016_P1": {
+   "party_id": "RhoPrime_016_P1",
+   "leader": "RhoPrime_016_c_leader_1",
+   "membership": [
+    "RhoPrime_016_c_leader_1",
+    "RhoPrime_016_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "left"
+   }
+  },
+  "RhoPrime_016_P2": {
+   "party_id": "RhoPrime_016_P2",
+   "leader": "RhoPrime_016_c_leader_2",
+   "membership": [
+    "RhoPrime_016_c_leader_2",
+    "RhoPrime_016_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "right"
+   }
+  },
+  "RhoPrime_016_P3": {
+   "party_id": "RhoPrime_016_P3",
+   "leader": "RhoPrime_016_c_leader_3",
+   "membership": [
+    "RhoPrime_016_c_leader_3",
+    "RhoPrime_016_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "populist"
+   }
+  },
+  "SigmaPrime_017_P0": {
+   "party_id": "SigmaPrime_017_P0",
+   "leader": "SigmaPrime_017_c_leader_0",
+   "membership": [
+    "SigmaPrime_017_c_leader_0",
+    "SigmaPrime_017_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "left"
+   }
+  },
+  "SigmaPrime_017_P1": {
+   "party_id": "SigmaPrime_017_P1",
+   "leader": "SigmaPrime_017_c_leader_1",
+   "membership": [
+    "SigmaPrime_017_c_leader_1",
+    "SigmaPrime_017_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "right"
+   }
+  },
+  "SigmaPrime_017_P2": {
+   "party_id": "SigmaPrime_017_P2",
+   "leader": "SigmaPrime_017_c_leader_2",
+   "membership": [
+    "SigmaPrime_017_c_leader_2",
+    "SigmaPrime_017_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "populist"
+   }
+  },
+  "SigmaPrime_017_P3": {
+   "party_id": "SigmaPrime_017_P3",
+   "leader": "SigmaPrime_017_c_leader_3",
+   "membership": [
+    "SigmaPrime_017_c_leader_3",
+    "SigmaPrime_017_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "technocratic"
+   }
+  },
+  "SigmaPrime_017_P4": {
+   "party_id": "SigmaPrime_017_P4",
+   "leader": "SigmaPrime_017_c_leader_4",
+   "membership": [
+    "SigmaPrime_017_c_leader_4",
+    "SigmaPrime_017_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "center"
+   }
+  },
+  "TauPrime_018_P0": {
+   "party_id": "TauPrime_018_P0",
+   "leader": "TauPrime_018_c_leader_0",
+   "membership": [
+    "TauPrime_018_c_leader_0",
+    "TauPrime_018_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "right"
+   }
+  },
+  "TauPrime_018_P1": {
+   "party_id": "TauPrime_018_P1",
+   "leader": "TauPrime_018_c_leader_1",
+   "membership": [
+    "TauPrime_018_c_leader_1",
+    "TauPrime_018_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "populist"
+   }
+  },
+  "TauPrime_018_P2": {
+   "party_id": "TauPrime_018_P2",
+   "leader": "TauPrime_018_c_leader_2",
+   "membership": [
+    "TauPrime_018_c_leader_2",
+    "TauPrime_018_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "technocratic"
+   }
+  },
+  "UpsilonPrime_019_P0": {
+   "party_id": "UpsilonPrime_019_P0",
+   "leader": "UpsilonPrime_019_c_leader_0",
+   "membership": [
+    "UpsilonPrime_019_c_leader_0",
+    "UpsilonPrime_019_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "populist"
+   }
+  },
+  "UpsilonPrime_019_P1": {
+   "party_id": "UpsilonPrime_019_P1",
+   "leader": "UpsilonPrime_019_c_leader_1",
+   "membership": [
+    "UpsilonPrime_019_c_leader_1",
+    "UpsilonPrime_019_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "technocratic"
+   }
+  },
+  "UpsilonPrime_019_P2": {
+   "party_id": "UpsilonPrime_019_P2",
+   "leader": "UpsilonPrime_019_c_leader_2",
+   "membership": [
+    "UpsilonPrime_019_c_leader_2",
+    "UpsilonPrime_019_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "center"
+   }
+  },
+  "UpsilonPrime_019_P3": {
+   "party_id": "UpsilonPrime_019_P3",
+   "leader": "UpsilonPrime_019_c_leader_3",
+   "membership": [
+    "UpsilonPrime_019_c_leader_3",
+    "UpsilonPrime_019_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "center-left"
+   }
+  },
+  "PhiPrime_020_P0": {
+   "party_id": "PhiPrime_020_P0",
+   "leader": "PhiPrime_020_c_leader_0",
+   "membership": [
+    "PhiPrime_020_c_leader_0",
+    "PhiPrime_020_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "technocratic"
+   }
+  },
+  "PhiPrime_020_P1": {
+   "party_id": "PhiPrime_020_P1",
+   "leader": "PhiPrime_020_c_leader_1",
+   "membership": [
+    "PhiPrime_020_c_leader_1",
+    "PhiPrime_020_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "center"
+   }
+  },
+  "PhiPrime_020_P2": {
+   "party_id": "PhiPrime_020_P2",
+   "leader": "PhiPrime_020_c_leader_2",
+   "membership": [
+    "PhiPrime_020_c_leader_2",
+    "PhiPrime_020_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "center-left"
+   }
+  },
+  "PhiPrime_020_P3": {
+   "party_id": "PhiPrime_020_P3",
+   "leader": "PhiPrime_020_c_leader_3",
+   "membership": [
+    "PhiPrime_020_c_leader_3",
+    "PhiPrime_020_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "center-right"
+   }
+  },
+  "PhiPrime_020_P4": {
+   "party_id": "PhiPrime_020_P4",
+   "leader": "PhiPrime_020_c_leader_4",
+   "membership": [
+    "PhiPrime_020_c_leader_4",
+    "PhiPrime_020_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "left"
+   }
+  },
+  "ChiPrime_021_P0": {
+   "party_id": "ChiPrime_021_P0",
+   "leader": "ChiPrime_021_c_leader_0",
+   "membership": [
+    "ChiPrime_021_c_leader_0",
+    "ChiPrime_021_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "center"
+   }
+  },
+  "ChiPrime_021_P1": {
+   "party_id": "ChiPrime_021_P1",
+   "leader": "ChiPrime_021_c_leader_1",
+   "membership": [
+    "ChiPrime_021_c_leader_1",
+    "ChiPrime_021_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "center-left"
+   }
+  },
+  "ChiPrime_021_P2": {
+   "party_id": "ChiPrime_021_P2",
+   "leader": "ChiPrime_021_c_leader_2",
+   "membership": [
+    "ChiPrime_021_c_leader_2",
+    "ChiPrime_021_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "center-right"
+   }
+  },
+  "PsiPrime_022_P0": {
+   "party_id": "PsiPrime_022_P0",
+   "leader": "PsiPrime_022_c_leader_0",
+   "membership": [
+    "PsiPrime_022_c_leader_0",
+    "PsiPrime_022_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "center-left"
+   }
+  },
+  "PsiPrime_022_P1": {
+   "party_id": "PsiPrime_022_P1",
+   "leader": "PsiPrime_022_c_leader_1",
+   "membership": [
+    "PsiPrime_022_c_leader_1",
+    "PsiPrime_022_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "center-right"
+   }
+  },
+  "PsiPrime_022_P2": {
+   "party_id": "PsiPrime_022_P2",
+   "leader": "PsiPrime_022_c_leader_2",
+   "membership": [
+    "PsiPrime_022_c_leader_2",
+    "PsiPrime_022_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "left"
+   }
+  },
+  "PsiPrime_022_P3": {
+   "party_id": "PsiPrime_022_P3",
+   "leader": "PsiPrime_022_c_leader_3",
+   "membership": [
+    "PsiPrime_022_c_leader_3",
+    "PsiPrime_022_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "right"
+   }
+  },
+  "OmegaPrime_023_P0": {
+   "party_id": "OmegaPrime_023_P0",
+   "leader": "OmegaPrime_023_c_leader_0",
+   "membership": [
+    "OmegaPrime_023_c_leader_0",
+    "OmegaPrime_023_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "center-right"
+   }
+  },
+  "OmegaPrime_023_P1": {
+   "party_id": "OmegaPrime_023_P1",
+   "leader": "OmegaPrime_023_c_leader_1",
+   "membership": [
+    "OmegaPrime_023_c_leader_1",
+    "OmegaPrime_023_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "left"
+   }
+  },
+  "OmegaPrime_023_P2": {
+   "party_id": "OmegaPrime_023_P2",
+   "leader": "OmegaPrime_023_c_leader_2",
+   "membership": [
+    "OmegaPrime_023_c_leader_2",
+    "OmegaPrime_023_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "right"
+   }
+  },
+  "OmegaPrime_023_P3": {
+   "party_id": "OmegaPrime_023_P3",
+   "leader": "OmegaPrime_023_c_leader_3",
+   "membership": [
+    "OmegaPrime_023_c_leader_3",
+    "OmegaPrime_023_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "populist"
+   }
+  },
+  "OmegaPrime_023_P4": {
+   "party_id": "OmegaPrime_023_P4",
+   "leader": "OmegaPrime_023_c_leader_4",
+   "membership": [
+    "OmegaPrime_023_c_leader_4",
+    "OmegaPrime_023_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "technocratic"
+   }
+  },
+  "AlphaSecundus_024_P0": {
+   "party_id": "AlphaSecundus_024_P0",
+   "leader": "AlphaSecundus_024_c_leader_0",
+   "membership": [
+    "AlphaSecundus_024_c_leader_0",
+    "AlphaSecundus_024_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "left"
+   }
+  },
+  "AlphaSecundus_024_P1": {
+   "party_id": "AlphaSecundus_024_P1",
+   "leader": "AlphaSecundus_024_c_leader_1",
+   "membership": [
+    "AlphaSecundus_024_c_leader_1",
+    "AlphaSecundus_024_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "right"
+   }
+  },
+  "AlphaSecundus_024_P2": {
+   "party_id": "AlphaSecundus_024_P2",
+   "leader": "AlphaSecundus_024_c_leader_2",
+   "membership": [
+    "AlphaSecundus_024_c_leader_2",
+    "AlphaSecundus_024_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "populist"
+   }
+  },
+  "BetaSecundus_025_P0": {
+   "party_id": "BetaSecundus_025_P0",
+   "leader": "BetaSecundus_025_c_leader_0",
+   "membership": [
+    "BetaSecundus_025_c_leader_0",
+    "BetaSecundus_025_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "right"
+   }
+  },
+  "BetaSecundus_025_P1": {
+   "party_id": "BetaSecundus_025_P1",
+   "leader": "BetaSecundus_025_c_leader_1",
+   "membership": [
+    "BetaSecundus_025_c_leader_1",
+    "BetaSecundus_025_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "populist"
+   }
+  },
+  "BetaSecundus_025_P2": {
+   "party_id": "BetaSecundus_025_P2",
+   "leader": "BetaSecundus_025_c_leader_2",
+   "membership": [
+    "BetaSecundus_025_c_leader_2",
+    "BetaSecundus_025_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "technocratic"
+   }
+  },
+  "BetaSecundus_025_P3": {
+   "party_id": "BetaSecundus_025_P3",
+   "leader": "BetaSecundus_025_c_leader_3",
+   "membership": [
+    "BetaSecundus_025_c_leader_3",
+    "BetaSecundus_025_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "center"
+   }
+  },
+  "GammaSecundus_026_P0": {
+   "party_id": "GammaSecundus_026_P0",
+   "leader": "GammaSecundus_026_c_leader_0",
+   "membership": [
+    "GammaSecundus_026_c_leader_0",
+    "GammaSecundus_026_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "populist"
+   }
+  },
+  "GammaSecundus_026_P1": {
+   "party_id": "GammaSecundus_026_P1",
+   "leader": "GammaSecundus_026_c_leader_1",
+   "membership": [
+    "GammaSecundus_026_c_leader_1",
+    "GammaSecundus_026_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "technocratic"
+   }
+  },
+  "GammaSecundus_026_P2": {
+   "party_id": "GammaSecundus_026_P2",
+   "leader": "GammaSecundus_026_c_leader_2",
+   "membership": [
+    "GammaSecundus_026_c_leader_2",
+    "GammaSecundus_026_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "center"
+   }
+  },
+  "GammaSecundus_026_P3": {
+   "party_id": "GammaSecundus_026_P3",
+   "leader": "GammaSecundus_026_c_leader_3",
+   "membership": [
+    "GammaSecundus_026_c_leader_3",
+    "GammaSecundus_026_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "center-left"
+   }
+  },
+  "GammaSecundus_026_P4": {
+   "party_id": "GammaSecundus_026_P4",
+   "leader": "GammaSecundus_026_c_leader_4",
+   "membership": [
+    "GammaSecundus_026_c_leader_4",
+    "GammaSecundus_026_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "center-right"
+   }
+  },
+  "DeltaSecundus_027_P0": {
+   "party_id": "DeltaSecundus_027_P0",
+   "leader": "DeltaSecundus_027_c_leader_0",
+   "membership": [
+    "DeltaSecundus_027_c_leader_0",
+    "DeltaSecundus_027_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.5,
+    "ideology": "technocratic"
+   }
+  },
+  "DeltaSecundus_027_P1": {
+   "party_id": "DeltaSecundus_027_P1",
+   "leader": "DeltaSecundus_027_c_leader_1",
+   "membership": [
+    "DeltaSecundus_027_c_leader_1",
+    "DeltaSecundus_027_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3333333333333333,
+    "ideology": "center"
+   }
+  },
+  "DeltaSecundus_027_P2": {
+   "party_id": "DeltaSecundus_027_P2",
+   "leader": "DeltaSecundus_027_c_leader_2",
+   "membership": [
+    "DeltaSecundus_027_c_leader_2",
+    "DeltaSecundus_027_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.16666666666666666,
+    "ideology": "center-left"
+   }
+  },
+  "EpsilonSecundus_028_P0": {
+   "party_id": "EpsilonSecundus_028_P0",
+   "leader": "EpsilonSecundus_028_c_leader_0",
+   "membership": [
+    "EpsilonSecundus_028_c_leader_0",
+    "EpsilonSecundus_028_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.4639175257731959,
+    "ideology": "center"
+   }
+  },
+  "EpsilonSecundus_028_P1": {
+   "party_id": "EpsilonSecundus_028_P1",
+   "leader": "EpsilonSecundus_028_c_leader_1",
+   "membership": [
+    "EpsilonSecundus_028_c_leader_1",
+    "EpsilonSecundus_028_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.30927835051546393,
+    "ideology": "center-left"
+   }
+  },
+  "EpsilonSecundus_028_P2": {
+   "party_id": "EpsilonSecundus_028_P2",
+   "leader": "EpsilonSecundus_028_c_leader_2",
+   "membership": [
+    "EpsilonSecundus_028_c_leader_2",
+    "EpsilonSecundus_028_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15463917525773196,
+    "ideology": "center-right"
+   }
+  },
+  "EpsilonSecundus_028_P3": {
+   "party_id": "EpsilonSecundus_028_P3",
+   "leader": "EpsilonSecundus_028_c_leader_3",
+   "membership": [
+    "EpsilonSecundus_028_c_leader_3",
+    "EpsilonSecundus_028_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07216494845360825,
+    "ideology": "left"
+   }
+  },
+  "ZetaSecundus_029_P0": {
+   "party_id": "ZetaSecundus_029_P0",
+   "leader": "ZetaSecundus_029_c_leader_0",
+   "membership": [
+    "ZetaSecundus_029_c_leader_0",
+    "ZetaSecundus_029_c_mp_0"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.45,
+    "ideology": "center-left"
+   }
+  },
+  "ZetaSecundus_029_P1": {
+   "party_id": "ZetaSecundus_029_P1",
+   "leader": "ZetaSecundus_029_c_leader_1",
+   "membership": [
+    "ZetaSecundus_029_c_leader_1",
+    "ZetaSecundus_029_c_mp_1"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.3,
+    "ideology": "center-right"
+   }
+  },
+  "ZetaSecundus_029_P2": {
+   "party_id": "ZetaSecundus_029_P2",
+   "leader": "ZetaSecundus_029_c_leader_2",
+   "membership": [
+    "ZetaSecundus_029_c_leader_2",
+    "ZetaSecundus_029_c_mp_2"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.15,
+    "ideology": "left"
+   }
+  },
+  "ZetaSecundus_029_P3": {
+   "party_id": "ZetaSecundus_029_P3",
+   "leader": "ZetaSecundus_029_c_leader_3",
+   "membership": [
+    "ZetaSecundus_029_c_leader_3",
+    "ZetaSecundus_029_c_mp_3"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.07,
+    "ideology": "right"
+   }
+  },
+  "ZetaSecundus_029_P4": {
+   "party_id": "ZetaSecundus_029_P4",
+   "leader": "ZetaSecundus_029_c_leader_4",
+   "membership": [
+    "ZetaSecundus_029_c_leader_4",
+    "ZetaSecundus_029_c_mp_4"
+   ],
+   "political_profile": {
+    "electoral_strength": 0.03,
+    "ideology": "populist"
+   }
+  }
+ },
+ "legislatures": {
+  "AlphaPrime_000_parliament": {
+   "legislature_id": "AlphaPrime_000_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "AlphaPrime_000_P0": 100,
+    "AlphaPrime_000_P1": 67,
+    "AlphaPrime_000_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "BetaPrime_001_parliament": {
+   "legislature_id": "BetaPrime_001_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "BetaPrime_001_P0": 93,
+    "BetaPrime_001_P1": 62,
+    "BetaPrime_001_P2": 31,
+    "BetaPrime_001_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "GammaPrime_002_parliament": {
+   "legislature_id": "GammaPrime_002_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "GammaPrime_002_P0": 90,
+    "GammaPrime_002_P1": 60,
+    "GammaPrime_002_P2": 30,
+    "GammaPrime_002_P3": 14,
+    "GammaPrime_002_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "DeltaPrime_003_parliament": {
+   "legislature_id": "DeltaPrime_003_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "DeltaPrime_003_P0": 100,
+    "DeltaPrime_003_P1": 67,
+    "DeltaPrime_003_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "EpsilonPrime_004_parliament": {
+   "legislature_id": "EpsilonPrime_004_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "EpsilonPrime_004_P0": 93,
+    "EpsilonPrime_004_P1": 62,
+    "EpsilonPrime_004_P2": 31,
+    "EpsilonPrime_004_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "ZetaPrime_005_parliament": {
+   "legislature_id": "ZetaPrime_005_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "ZetaPrime_005_P0": 90,
+    "ZetaPrime_005_P1": 60,
+    "ZetaPrime_005_P2": 30,
+    "ZetaPrime_005_P3": 14,
+    "ZetaPrime_005_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "EtaPrime_006_parliament": {
+   "legislature_id": "EtaPrime_006_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "EtaPrime_006_P0": 100,
+    "EtaPrime_006_P1": 67,
+    "EtaPrime_006_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "ThetaPrime_007_parliament": {
+   "legislature_id": "ThetaPrime_007_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "ThetaPrime_007_P0": 93,
+    "ThetaPrime_007_P1": 62,
+    "ThetaPrime_007_P2": 31,
+    "ThetaPrime_007_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "IotaPrime_008_parliament": {
+   "legislature_id": "IotaPrime_008_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "IotaPrime_008_P0": 90,
+    "IotaPrime_008_P1": 60,
+    "IotaPrime_008_P2": 30,
+    "IotaPrime_008_P3": 14,
+    "IotaPrime_008_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "KappaPrime_009_parliament": {
+   "legislature_id": "KappaPrime_009_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "KappaPrime_009_P0": 100,
+    "KappaPrime_009_P1": 67,
+    "KappaPrime_009_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "LambdaPrime_010_parliament": {
+   "legislature_id": "LambdaPrime_010_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "LambdaPrime_010_P0": 93,
+    "LambdaPrime_010_P1": 62,
+    "LambdaPrime_010_P2": 31,
+    "LambdaPrime_010_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "MuPrime_011_parliament": {
+   "legislature_id": "MuPrime_011_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "MuPrime_011_P0": 90,
+    "MuPrime_011_P1": 60,
+    "MuPrime_011_P2": 30,
+    "MuPrime_011_P3": 14,
+    "MuPrime_011_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "NuPrime_012_parliament": {
+   "legislature_id": "NuPrime_012_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "NuPrime_012_P0": 100,
+    "NuPrime_012_P1": 67,
+    "NuPrime_012_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "XiPrime_013_parliament": {
+   "legislature_id": "XiPrime_013_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "XiPrime_013_P0": 93,
+    "XiPrime_013_P1": 62,
+    "XiPrime_013_P2": 31,
+    "XiPrime_013_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "OmicronPrime_014_parliament": {
+   "legislature_id": "OmicronPrime_014_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "OmicronPrime_014_P0": 90,
+    "OmicronPrime_014_P1": 60,
+    "OmicronPrime_014_P2": 30,
+    "OmicronPrime_014_P3": 14,
+    "OmicronPrime_014_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "PiPrime_015_parliament": {
+   "legislature_id": "PiPrime_015_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "PiPrime_015_P0": 100,
+    "PiPrime_015_P1": 67,
+    "PiPrime_015_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "RhoPrime_016_parliament": {
+   "legislature_id": "RhoPrime_016_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "RhoPrime_016_P0": 93,
+    "RhoPrime_016_P1": 62,
+    "RhoPrime_016_P2": 31,
+    "RhoPrime_016_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "SigmaPrime_017_parliament": {
+   "legislature_id": "SigmaPrime_017_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "SigmaPrime_017_P0": 90,
+    "SigmaPrime_017_P1": 60,
+    "SigmaPrime_017_P2": 30,
+    "SigmaPrime_017_P3": 14,
+    "SigmaPrime_017_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "TauPrime_018_parliament": {
+   "legislature_id": "TauPrime_018_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "TauPrime_018_P0": 100,
+    "TauPrime_018_P1": 67,
+    "TauPrime_018_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "UpsilonPrime_019_parliament": {
+   "legislature_id": "UpsilonPrime_019_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "UpsilonPrime_019_P0": 93,
+    "UpsilonPrime_019_P1": 62,
+    "UpsilonPrime_019_P2": 31,
+    "UpsilonPrime_019_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "PhiPrime_020_parliament": {
+   "legislature_id": "PhiPrime_020_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "PhiPrime_020_P0": 90,
+    "PhiPrime_020_P1": 60,
+    "PhiPrime_020_P2": 30,
+    "PhiPrime_020_P3": 14,
+    "PhiPrime_020_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "ChiPrime_021_parliament": {
+   "legislature_id": "ChiPrime_021_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "ChiPrime_021_P0": 100,
+    "ChiPrime_021_P1": 67,
+    "ChiPrime_021_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "PsiPrime_022_parliament": {
+   "legislature_id": "PsiPrime_022_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "PsiPrime_022_P0": 93,
+    "PsiPrime_022_P1": 62,
+    "PsiPrime_022_P2": 31,
+    "PsiPrime_022_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "OmegaPrime_023_parliament": {
+   "legislature_id": "OmegaPrime_023_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "OmegaPrime_023_P0": 90,
+    "OmegaPrime_023_P1": 60,
+    "OmegaPrime_023_P2": 30,
+    "OmegaPrime_023_P3": 14,
+    "OmegaPrime_023_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "AlphaSecundus_024_parliament": {
+   "legislature_id": "AlphaSecundus_024_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "AlphaSecundus_024_P0": 100,
+    "AlphaSecundus_024_P1": 67,
+    "AlphaSecundus_024_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "BetaSecundus_025_parliament": {
+   "legislature_id": "BetaSecundus_025_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "BetaSecundus_025_P0": 93,
+    "BetaSecundus_025_P1": 62,
+    "BetaSecundus_025_P2": 31,
+    "BetaSecundus_025_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "GammaSecundus_026_parliament": {
+   "legislature_id": "GammaSecundus_026_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "GammaSecundus_026_P0": 90,
+    "GammaSecundus_026_P1": 60,
+    "GammaSecundus_026_P2": 30,
+    "GammaSecundus_026_P3": 14,
+    "GammaSecundus_026_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "DeltaSecundus_027_parliament": {
+   "legislature_id": "DeltaSecundus_027_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "DeltaSecundus_027_P0": 100,
+    "DeltaSecundus_027_P1": 67,
+    "DeltaSecundus_027_P2": 33
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "EpsilonSecundus_028_parliament": {
+   "legislature_id": "EpsilonSecundus_028_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "EpsilonSecundus_028_P0": 93,
+    "EpsilonSecundus_028_P1": 62,
+    "EpsilonSecundus_028_P2": 31,
+    "EpsilonSecundus_028_P3": 14
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  },
+  "ZetaSecundus_029_parliament": {
+   "legislature_id": "ZetaSecundus_029_parliament",
+   "chambers": [
+    "lower"
+   ],
+   "seats": {
+    "ZetaSecundus_029_P0": 90,
+    "ZetaSecundus_029_P1": 60,
+    "ZetaSecundus_029_P2": 30,
+    "ZetaSecundus_029_P3": 14,
+    "ZetaSecundus_029_P4": 6
+   },
+   "procedural_state": {
+    "dissolved": false,
+    "term": 1
+   },
+   "active_bills": [],
+   "active_motions": []
+  }
+ },
+ "offices": {
+  "AlphaPrime_000_office_president": {
+   "office_id": "AlphaPrime_000_office_president",
+   "institution_id": "AlphaPrime_000_inst_state",
+   "role": "head_of_state",
+   "holder": "AlphaPrime_000_c_king",
+   "status": "appointed"
+  },
+  "AlphaPrime_000_office_pm": {
+   "office_id": "AlphaPrime_000_office_pm",
+   "institution_id": "AlphaPrime_000_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "AlphaPrime_000_office_finance": {
+   "office_id": "AlphaPrime_000_office_finance",
+   "institution_id": "AlphaPrime_000_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "BetaPrime_001_office_president": {
+   "office_id": "BetaPrime_001_office_president",
+   "institution_id": "BetaPrime_001_inst_state",
+   "role": "head_of_state",
+   "holder": "BetaPrime_001_c_king",
+   "status": "appointed"
+  },
+  "BetaPrime_001_office_pm": {
+   "office_id": "BetaPrime_001_office_pm",
+   "institution_id": "BetaPrime_001_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "BetaPrime_001_office_finance": {
+   "office_id": "BetaPrime_001_office_finance",
+   "institution_id": "BetaPrime_001_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "GammaPrime_002_office_president": {
+   "office_id": "GammaPrime_002_office_president",
+   "institution_id": "GammaPrime_002_inst_state",
+   "role": "head_of_state",
+   "holder": "GammaPrime_002_c_king",
+   "status": "appointed"
+  },
+  "GammaPrime_002_office_pm": {
+   "office_id": "GammaPrime_002_office_pm",
+   "institution_id": "GammaPrime_002_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "GammaPrime_002_office_finance": {
+   "office_id": "GammaPrime_002_office_finance",
+   "institution_id": "GammaPrime_002_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "DeltaPrime_003_office_president": {
+   "office_id": "DeltaPrime_003_office_president",
+   "institution_id": "DeltaPrime_003_inst_state",
+   "role": "head_of_state",
+   "holder": "DeltaPrime_003_c_king",
+   "status": "appointed"
+  },
+  "DeltaPrime_003_office_pm": {
+   "office_id": "DeltaPrime_003_office_pm",
+   "institution_id": "DeltaPrime_003_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "DeltaPrime_003_office_finance": {
+   "office_id": "DeltaPrime_003_office_finance",
+   "institution_id": "DeltaPrime_003_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "EpsilonPrime_004_office_president": {
+   "office_id": "EpsilonPrime_004_office_president",
+   "institution_id": "EpsilonPrime_004_inst_state",
+   "role": "head_of_state",
+   "holder": "EpsilonPrime_004_c_king",
+   "status": "appointed"
+  },
+  "EpsilonPrime_004_office_pm": {
+   "office_id": "EpsilonPrime_004_office_pm",
+   "institution_id": "EpsilonPrime_004_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "EpsilonPrime_004_office_finance": {
+   "office_id": "EpsilonPrime_004_office_finance",
+   "institution_id": "EpsilonPrime_004_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ZetaPrime_005_office_president": {
+   "office_id": "ZetaPrime_005_office_president",
+   "institution_id": "ZetaPrime_005_inst_state",
+   "role": "head_of_state",
+   "holder": "ZetaPrime_005_c_king",
+   "status": "appointed"
+  },
+  "ZetaPrime_005_office_pm": {
+   "office_id": "ZetaPrime_005_office_pm",
+   "institution_id": "ZetaPrime_005_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ZetaPrime_005_office_finance": {
+   "office_id": "ZetaPrime_005_office_finance",
+   "institution_id": "ZetaPrime_005_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "EtaPrime_006_office_president": {
+   "office_id": "EtaPrime_006_office_president",
+   "institution_id": "EtaPrime_006_inst_state",
+   "role": "head_of_state",
+   "holder": "EtaPrime_006_c_king",
+   "status": "appointed"
+  },
+  "EtaPrime_006_office_pm": {
+   "office_id": "EtaPrime_006_office_pm",
+   "institution_id": "EtaPrime_006_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "EtaPrime_006_office_finance": {
+   "office_id": "EtaPrime_006_office_finance",
+   "institution_id": "EtaPrime_006_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ThetaPrime_007_office_president": {
+   "office_id": "ThetaPrime_007_office_president",
+   "institution_id": "ThetaPrime_007_inst_state",
+   "role": "head_of_state",
+   "holder": "ThetaPrime_007_c_king",
+   "status": "appointed"
+  },
+  "ThetaPrime_007_office_pm": {
+   "office_id": "ThetaPrime_007_office_pm",
+   "institution_id": "ThetaPrime_007_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ThetaPrime_007_office_finance": {
+   "office_id": "ThetaPrime_007_office_finance",
+   "institution_id": "ThetaPrime_007_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "IotaPrime_008_office_president": {
+   "office_id": "IotaPrime_008_office_president",
+   "institution_id": "IotaPrime_008_inst_state",
+   "role": "head_of_state",
+   "holder": "IotaPrime_008_c_king",
+   "status": "appointed"
+  },
+  "IotaPrime_008_office_pm": {
+   "office_id": "IotaPrime_008_office_pm",
+   "institution_id": "IotaPrime_008_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "IotaPrime_008_office_finance": {
+   "office_id": "IotaPrime_008_office_finance",
+   "institution_id": "IotaPrime_008_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "KappaPrime_009_office_president": {
+   "office_id": "KappaPrime_009_office_president",
+   "institution_id": "KappaPrime_009_inst_state",
+   "role": "head_of_state",
+   "holder": "KappaPrime_009_c_king",
+   "status": "appointed"
+  },
+  "KappaPrime_009_office_pm": {
+   "office_id": "KappaPrime_009_office_pm",
+   "institution_id": "KappaPrime_009_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "KappaPrime_009_office_finance": {
+   "office_id": "KappaPrime_009_office_finance",
+   "institution_id": "KappaPrime_009_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "LambdaPrime_010_office_president": {
+   "office_id": "LambdaPrime_010_office_president",
+   "institution_id": "LambdaPrime_010_inst_state",
+   "role": "head_of_state",
+   "holder": "LambdaPrime_010_c_king",
+   "status": "appointed"
+  },
+  "LambdaPrime_010_office_pm": {
+   "office_id": "LambdaPrime_010_office_pm",
+   "institution_id": "LambdaPrime_010_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "LambdaPrime_010_office_finance": {
+   "office_id": "LambdaPrime_010_office_finance",
+   "institution_id": "LambdaPrime_010_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "MuPrime_011_office_president": {
+   "office_id": "MuPrime_011_office_president",
+   "institution_id": "MuPrime_011_inst_state",
+   "role": "head_of_state",
+   "holder": "MuPrime_011_c_king",
+   "status": "appointed"
+  },
+  "MuPrime_011_office_pm": {
+   "office_id": "MuPrime_011_office_pm",
+   "institution_id": "MuPrime_011_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "MuPrime_011_office_finance": {
+   "office_id": "MuPrime_011_office_finance",
+   "institution_id": "MuPrime_011_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "NuPrime_012_office_president": {
+   "office_id": "NuPrime_012_office_president",
+   "institution_id": "NuPrime_012_inst_state",
+   "role": "head_of_state",
+   "holder": "NuPrime_012_c_king",
+   "status": "appointed"
+  },
+  "NuPrime_012_office_pm": {
+   "office_id": "NuPrime_012_office_pm",
+   "institution_id": "NuPrime_012_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "NuPrime_012_office_finance": {
+   "office_id": "NuPrime_012_office_finance",
+   "institution_id": "NuPrime_012_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "XiPrime_013_office_president": {
+   "office_id": "XiPrime_013_office_president",
+   "institution_id": "XiPrime_013_inst_state",
+   "role": "head_of_state",
+   "holder": "XiPrime_013_c_king",
+   "status": "appointed"
+  },
+  "XiPrime_013_office_pm": {
+   "office_id": "XiPrime_013_office_pm",
+   "institution_id": "XiPrime_013_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "XiPrime_013_office_finance": {
+   "office_id": "XiPrime_013_office_finance",
+   "institution_id": "XiPrime_013_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "OmicronPrime_014_office_president": {
+   "office_id": "OmicronPrime_014_office_president",
+   "institution_id": "OmicronPrime_014_inst_state",
+   "role": "head_of_state",
+   "holder": "OmicronPrime_014_c_king",
+   "status": "appointed"
+  },
+  "OmicronPrime_014_office_pm": {
+   "office_id": "OmicronPrime_014_office_pm",
+   "institution_id": "OmicronPrime_014_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "OmicronPrime_014_office_finance": {
+   "office_id": "OmicronPrime_014_office_finance",
+   "institution_id": "OmicronPrime_014_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "PiPrime_015_office_president": {
+   "office_id": "PiPrime_015_office_president",
+   "institution_id": "PiPrime_015_inst_state",
+   "role": "head_of_state",
+   "holder": "PiPrime_015_c_king",
+   "status": "appointed"
+  },
+  "PiPrime_015_office_pm": {
+   "office_id": "PiPrime_015_office_pm",
+   "institution_id": "PiPrime_015_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "PiPrime_015_office_finance": {
+   "office_id": "PiPrime_015_office_finance",
+   "institution_id": "PiPrime_015_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "RhoPrime_016_office_president": {
+   "office_id": "RhoPrime_016_office_president",
+   "institution_id": "RhoPrime_016_inst_state",
+   "role": "head_of_state",
+   "holder": "RhoPrime_016_c_king",
+   "status": "appointed"
+  },
+  "RhoPrime_016_office_pm": {
+   "office_id": "RhoPrime_016_office_pm",
+   "institution_id": "RhoPrime_016_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "RhoPrime_016_office_finance": {
+   "office_id": "RhoPrime_016_office_finance",
+   "institution_id": "RhoPrime_016_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "SigmaPrime_017_office_president": {
+   "office_id": "SigmaPrime_017_office_president",
+   "institution_id": "SigmaPrime_017_inst_state",
+   "role": "head_of_state",
+   "holder": "SigmaPrime_017_c_king",
+   "status": "appointed"
+  },
+  "SigmaPrime_017_office_pm": {
+   "office_id": "SigmaPrime_017_office_pm",
+   "institution_id": "SigmaPrime_017_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "SigmaPrime_017_office_finance": {
+   "office_id": "SigmaPrime_017_office_finance",
+   "institution_id": "SigmaPrime_017_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "TauPrime_018_office_president": {
+   "office_id": "TauPrime_018_office_president",
+   "institution_id": "TauPrime_018_inst_state",
+   "role": "head_of_state",
+   "holder": "TauPrime_018_c_king",
+   "status": "appointed"
+  },
+  "TauPrime_018_office_pm": {
+   "office_id": "TauPrime_018_office_pm",
+   "institution_id": "TauPrime_018_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "TauPrime_018_office_finance": {
+   "office_id": "TauPrime_018_office_finance",
+   "institution_id": "TauPrime_018_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "UpsilonPrime_019_office_president": {
+   "office_id": "UpsilonPrime_019_office_president",
+   "institution_id": "UpsilonPrime_019_inst_state",
+   "role": "head_of_state",
+   "holder": "UpsilonPrime_019_c_king",
+   "status": "appointed"
+  },
+  "UpsilonPrime_019_office_pm": {
+   "office_id": "UpsilonPrime_019_office_pm",
+   "institution_id": "UpsilonPrime_019_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "UpsilonPrime_019_office_finance": {
+   "office_id": "UpsilonPrime_019_office_finance",
+   "institution_id": "UpsilonPrime_019_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "PhiPrime_020_office_president": {
+   "office_id": "PhiPrime_020_office_president",
+   "institution_id": "PhiPrime_020_inst_state",
+   "role": "head_of_state",
+   "holder": "PhiPrime_020_c_king",
+   "status": "appointed"
+  },
+  "PhiPrime_020_office_pm": {
+   "office_id": "PhiPrime_020_office_pm",
+   "institution_id": "PhiPrime_020_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "PhiPrime_020_office_finance": {
+   "office_id": "PhiPrime_020_office_finance",
+   "institution_id": "PhiPrime_020_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ChiPrime_021_office_president": {
+   "office_id": "ChiPrime_021_office_president",
+   "institution_id": "ChiPrime_021_inst_state",
+   "role": "head_of_state",
+   "holder": "ChiPrime_021_c_king",
+   "status": "appointed"
+  },
+  "ChiPrime_021_office_pm": {
+   "office_id": "ChiPrime_021_office_pm",
+   "institution_id": "ChiPrime_021_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ChiPrime_021_office_finance": {
+   "office_id": "ChiPrime_021_office_finance",
+   "institution_id": "ChiPrime_021_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "PsiPrime_022_office_president": {
+   "office_id": "PsiPrime_022_office_president",
+   "institution_id": "PsiPrime_022_inst_state",
+   "role": "head_of_state",
+   "holder": "PsiPrime_022_c_king",
+   "status": "appointed"
+  },
+  "PsiPrime_022_office_pm": {
+   "office_id": "PsiPrime_022_office_pm",
+   "institution_id": "PsiPrime_022_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "PsiPrime_022_office_finance": {
+   "office_id": "PsiPrime_022_office_finance",
+   "institution_id": "PsiPrime_022_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "OmegaPrime_023_office_president": {
+   "office_id": "OmegaPrime_023_office_president",
+   "institution_id": "OmegaPrime_023_inst_state",
+   "role": "head_of_state",
+   "holder": "OmegaPrime_023_c_king",
+   "status": "appointed"
+  },
+  "OmegaPrime_023_office_pm": {
+   "office_id": "OmegaPrime_023_office_pm",
+   "institution_id": "OmegaPrime_023_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "OmegaPrime_023_office_finance": {
+   "office_id": "OmegaPrime_023_office_finance",
+   "institution_id": "OmegaPrime_023_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "AlphaSecundus_024_office_president": {
+   "office_id": "AlphaSecundus_024_office_president",
+   "institution_id": "AlphaSecundus_024_inst_state",
+   "role": "head_of_state",
+   "holder": "AlphaSecundus_024_c_king",
+   "status": "appointed"
+  },
+  "AlphaSecundus_024_office_pm": {
+   "office_id": "AlphaSecundus_024_office_pm",
+   "institution_id": "AlphaSecundus_024_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "AlphaSecundus_024_office_finance": {
+   "office_id": "AlphaSecundus_024_office_finance",
+   "institution_id": "AlphaSecundus_024_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "BetaSecundus_025_office_president": {
+   "office_id": "BetaSecundus_025_office_president",
+   "institution_id": "BetaSecundus_025_inst_state",
+   "role": "head_of_state",
+   "holder": "BetaSecundus_025_c_king",
+   "status": "appointed"
+  },
+  "BetaSecundus_025_office_pm": {
+   "office_id": "BetaSecundus_025_office_pm",
+   "institution_id": "BetaSecundus_025_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "BetaSecundus_025_office_finance": {
+   "office_id": "BetaSecundus_025_office_finance",
+   "institution_id": "BetaSecundus_025_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "GammaSecundus_026_office_president": {
+   "office_id": "GammaSecundus_026_office_president",
+   "institution_id": "GammaSecundus_026_inst_state",
+   "role": "head_of_state",
+   "holder": "GammaSecundus_026_c_king",
+   "status": "appointed"
+  },
+  "GammaSecundus_026_office_pm": {
+   "office_id": "GammaSecundus_026_office_pm",
+   "institution_id": "GammaSecundus_026_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "GammaSecundus_026_office_finance": {
+   "office_id": "GammaSecundus_026_office_finance",
+   "institution_id": "GammaSecundus_026_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "DeltaSecundus_027_office_president": {
+   "office_id": "DeltaSecundus_027_office_president",
+   "institution_id": "DeltaSecundus_027_inst_state",
+   "role": "head_of_state",
+   "holder": "DeltaSecundus_027_c_king",
+   "status": "appointed"
+  },
+  "DeltaSecundus_027_office_pm": {
+   "office_id": "DeltaSecundus_027_office_pm",
+   "institution_id": "DeltaSecundus_027_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "DeltaSecundus_027_office_finance": {
+   "office_id": "DeltaSecundus_027_office_finance",
+   "institution_id": "DeltaSecundus_027_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "EpsilonSecundus_028_office_president": {
+   "office_id": "EpsilonSecundus_028_office_president",
+   "institution_id": "EpsilonSecundus_028_inst_state",
+   "role": "head_of_state",
+   "holder": "EpsilonSecundus_028_c_king",
+   "status": "appointed"
+  },
+  "EpsilonSecundus_028_office_pm": {
+   "office_id": "EpsilonSecundus_028_office_pm",
+   "institution_id": "EpsilonSecundus_028_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "EpsilonSecundus_028_office_finance": {
+   "office_id": "EpsilonSecundus_028_office_finance",
+   "institution_id": "EpsilonSecundus_028_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ZetaSecundus_029_office_president": {
+   "office_id": "ZetaSecundus_029_office_president",
+   "institution_id": "ZetaSecundus_029_inst_state",
+   "role": "head_of_state",
+   "holder": "ZetaSecundus_029_c_king",
+   "status": "appointed"
+  },
+  "ZetaSecundus_029_office_pm": {
+   "office_id": "ZetaSecundus_029_office_pm",
+   "institution_id": "ZetaSecundus_029_inst_government",
+   "role": "head_of_government",
+   "holder": null,
+   "status": "vacant"
+  },
+  "ZetaSecundus_029_office_finance": {
+   "office_id": "ZetaSecundus_029_office_finance",
+   "institution_id": "ZetaSecundus_029_inst_government",
+   "role": "minister",
+   "holder": null,
+   "status": "vacant"
+  }
+ },
+ "governments": {},
+ "government_support": {}
 }

@@ -1,0 +1,1728 @@
+{
+ "_non_final": "TASK-040 benchmark fixture institutional rules - auto-generated to match t040_world.json. NOT production constitutional design.",
+ "institutions": {
+  "legislature_AlphaPrime_000_parliament": {
+   "kind": "legislature",
+   "legislature_id": "AlphaPrime_000_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_AlphaPrime_000_office_president": {
+   "kind": "office",
+   "office_id": "AlphaPrime_000_office_president",
+   "institution_id": "AlphaPrime_000_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_AlphaPrime_000_office_pm": {
+   "kind": "office",
+   "office_id": "AlphaPrime_000_office_pm",
+   "institution_id": "AlphaPrime_000_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_AlphaPrime_000_office_finance": {
+   "kind": "office",
+   "office_id": "AlphaPrime_000_office_finance",
+   "institution_id": "AlphaPrime_000_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_ChiPrime_021_parliament": {
+   "kind": "legislature",
+   "legislature_id": "ChiPrime_021_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_ChiPrime_021_office_president": {
+   "kind": "office",
+   "office_id": "ChiPrime_021_office_president",
+   "institution_id": "ChiPrime_021_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ChiPrime_021_office_pm": {
+   "kind": "office",
+   "office_id": "ChiPrime_021_office_pm",
+   "institution_id": "ChiPrime_021_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ChiPrime_021_office_finance": {
+   "kind": "office",
+   "office_id": "ChiPrime_021_office_finance",
+   "institution_id": "ChiPrime_021_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_ThetaPrime_007_parliament": {
+   "kind": "legislature",
+   "legislature_id": "ThetaPrime_007_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_ThetaPrime_007_office_president": {
+   "kind": "office",
+   "office_id": "ThetaPrime_007_office_president",
+   "institution_id": "ThetaPrime_007_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ThetaPrime_007_office_pm": {
+   "kind": "office",
+   "office_id": "ThetaPrime_007_office_pm",
+   "institution_id": "ThetaPrime_007_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ThetaPrime_007_office_finance": {
+   "kind": "office",
+   "office_id": "ThetaPrime_007_office_finance",
+   "institution_id": "ThetaPrime_007_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_RhoPrime_016_parliament": {
+   "kind": "legislature",
+   "legislature_id": "RhoPrime_016_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_RhoPrime_016_office_president": {
+   "kind": "office",
+   "office_id": "RhoPrime_016_office_president",
+   "institution_id": "RhoPrime_016_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_RhoPrime_016_office_pm": {
+   "kind": "office",
+   "office_id": "RhoPrime_016_office_pm",
+   "institution_id": "RhoPrime_016_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_RhoPrime_016_office_finance": {
+   "kind": "office",
+   "office_id": "RhoPrime_016_office_finance",
+   "institution_id": "RhoPrime_016_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_UpsilonPrime_019_parliament": {
+   "kind": "legislature",
+   "legislature_id": "UpsilonPrime_019_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_UpsilonPrime_019_office_president": {
+   "kind": "office",
+   "office_id": "UpsilonPrime_019_office_president",
+   "institution_id": "UpsilonPrime_019_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_UpsilonPrime_019_office_pm": {
+   "kind": "office",
+   "office_id": "UpsilonPrime_019_office_pm",
+   "institution_id": "UpsilonPrime_019_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_UpsilonPrime_019_office_finance": {
+   "kind": "office",
+   "office_id": "UpsilonPrime_019_office_finance",
+   "institution_id": "UpsilonPrime_019_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_NuPrime_012_parliament": {
+   "kind": "legislature",
+   "legislature_id": "NuPrime_012_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_NuPrime_012_office_president": {
+   "kind": "office",
+   "office_id": "NuPrime_012_office_president",
+   "institution_id": "NuPrime_012_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_NuPrime_012_office_pm": {
+   "kind": "office",
+   "office_id": "NuPrime_012_office_pm",
+   "institution_id": "NuPrime_012_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_NuPrime_012_office_finance": {
+   "kind": "office",
+   "office_id": "NuPrime_012_office_finance",
+   "institution_id": "NuPrime_012_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_BetaSecundus_025_parliament": {
+   "kind": "legislature",
+   "legislature_id": "BetaSecundus_025_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_BetaSecundus_025_office_president": {
+   "kind": "office",
+   "office_id": "BetaSecundus_025_office_president",
+   "institution_id": "BetaSecundus_025_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_BetaSecundus_025_office_pm": {
+   "kind": "office",
+   "office_id": "BetaSecundus_025_office_pm",
+   "institution_id": "BetaSecundus_025_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_BetaSecundus_025_office_finance": {
+   "kind": "office",
+   "office_id": "BetaSecundus_025_office_finance",
+   "institution_id": "BetaSecundus_025_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_SigmaPrime_017_parliament": {
+   "kind": "legislature",
+   "legislature_id": "SigmaPrime_017_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_SigmaPrime_017_office_president": {
+   "kind": "office",
+   "office_id": "SigmaPrime_017_office_president",
+   "institution_id": "SigmaPrime_017_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_SigmaPrime_017_office_pm": {
+   "kind": "office",
+   "office_id": "SigmaPrime_017_office_pm",
+   "institution_id": "SigmaPrime_017_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_SigmaPrime_017_office_finance": {
+   "kind": "office",
+   "office_id": "SigmaPrime_017_office_finance",
+   "institution_id": "SigmaPrime_017_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_GammaPrime_002_parliament": {
+   "kind": "legislature",
+   "legislature_id": "GammaPrime_002_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_GammaPrime_002_office_president": {
+   "kind": "office",
+   "office_id": "GammaPrime_002_office_president",
+   "institution_id": "GammaPrime_002_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_GammaPrime_002_office_pm": {
+   "kind": "office",
+   "office_id": "GammaPrime_002_office_pm",
+   "institution_id": "GammaPrime_002_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_GammaPrime_002_office_finance": {
+   "kind": "office",
+   "office_id": "GammaPrime_002_office_finance",
+   "institution_id": "GammaPrime_002_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_OmegaPrime_023_parliament": {
+   "kind": "legislature",
+   "legislature_id": "OmegaPrime_023_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_OmegaPrime_023_office_president": {
+   "kind": "office",
+   "office_id": "OmegaPrime_023_office_president",
+   "institution_id": "OmegaPrime_023_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_OmegaPrime_023_office_pm": {
+   "kind": "office",
+   "office_id": "OmegaPrime_023_office_pm",
+   "institution_id": "OmegaPrime_023_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_OmegaPrime_023_office_finance": {
+   "kind": "office",
+   "office_id": "OmegaPrime_023_office_finance",
+   "institution_id": "OmegaPrime_023_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_XiPrime_013_parliament": {
+   "kind": "legislature",
+   "legislature_id": "XiPrime_013_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_XiPrime_013_office_president": {
+   "kind": "office",
+   "office_id": "XiPrime_013_office_president",
+   "institution_id": "XiPrime_013_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_XiPrime_013_office_pm": {
+   "kind": "office",
+   "office_id": "XiPrime_013_office_pm",
+   "institution_id": "XiPrime_013_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_XiPrime_013_office_finance": {
+   "kind": "office",
+   "office_id": "XiPrime_013_office_finance",
+   "institution_id": "XiPrime_013_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_ZetaPrime_005_parliament": {
+   "kind": "legislature",
+   "legislature_id": "ZetaPrime_005_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_ZetaPrime_005_office_president": {
+   "kind": "office",
+   "office_id": "ZetaPrime_005_office_president",
+   "institution_id": "ZetaPrime_005_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ZetaPrime_005_office_pm": {
+   "kind": "office",
+   "office_id": "ZetaPrime_005_office_pm",
+   "institution_id": "ZetaPrime_005_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ZetaPrime_005_office_finance": {
+   "kind": "office",
+   "office_id": "ZetaPrime_005_office_finance",
+   "institution_id": "ZetaPrime_005_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_LambdaPrime_010_parliament": {
+   "kind": "legislature",
+   "legislature_id": "LambdaPrime_010_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_LambdaPrime_010_office_president": {
+   "kind": "office",
+   "office_id": "LambdaPrime_010_office_president",
+   "institution_id": "LambdaPrime_010_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_LambdaPrime_010_office_pm": {
+   "kind": "office",
+   "office_id": "LambdaPrime_010_office_pm",
+   "institution_id": "LambdaPrime_010_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_LambdaPrime_010_office_finance": {
+   "kind": "office",
+   "office_id": "LambdaPrime_010_office_finance",
+   "institution_id": "LambdaPrime_010_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_EpsilonSecundus_028_parliament": {
+   "kind": "legislature",
+   "legislature_id": "EpsilonSecundus_028_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_EpsilonSecundus_028_office_president": {
+   "kind": "office",
+   "office_id": "EpsilonSecundus_028_office_president",
+   "institution_id": "EpsilonSecundus_028_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_EpsilonSecundus_028_office_pm": {
+   "kind": "office",
+   "office_id": "EpsilonSecundus_028_office_pm",
+   "institution_id": "EpsilonSecundus_028_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_EpsilonSecundus_028_office_finance": {
+   "kind": "office",
+   "office_id": "EpsilonSecundus_028_office_finance",
+   "institution_id": "EpsilonSecundus_028_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_DeltaPrime_003_parliament": {
+   "kind": "legislature",
+   "legislature_id": "DeltaPrime_003_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_DeltaPrime_003_office_president": {
+   "kind": "office",
+   "office_id": "DeltaPrime_003_office_president",
+   "institution_id": "DeltaPrime_003_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_DeltaPrime_003_office_pm": {
+   "kind": "office",
+   "office_id": "DeltaPrime_003_office_pm",
+   "institution_id": "DeltaPrime_003_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_DeltaPrime_003_office_finance": {
+   "kind": "office",
+   "office_id": "DeltaPrime_003_office_finance",
+   "institution_id": "DeltaPrime_003_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_DeltaSecundus_027_parliament": {
+   "kind": "legislature",
+   "legislature_id": "DeltaSecundus_027_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_DeltaSecundus_027_office_president": {
+   "kind": "office",
+   "office_id": "DeltaSecundus_027_office_president",
+   "institution_id": "DeltaSecundus_027_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_DeltaSecundus_027_office_pm": {
+   "kind": "office",
+   "office_id": "DeltaSecundus_027_office_pm",
+   "institution_id": "DeltaSecundus_027_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_DeltaSecundus_027_office_finance": {
+   "kind": "office",
+   "office_id": "DeltaSecundus_027_office_finance",
+   "institution_id": "DeltaSecundus_027_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_EtaPrime_006_parliament": {
+   "kind": "legislature",
+   "legislature_id": "EtaPrime_006_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_EtaPrime_006_office_president": {
+   "kind": "office",
+   "office_id": "EtaPrime_006_office_president",
+   "institution_id": "EtaPrime_006_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_EtaPrime_006_office_pm": {
+   "kind": "office",
+   "office_id": "EtaPrime_006_office_pm",
+   "institution_id": "EtaPrime_006_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_EtaPrime_006_office_finance": {
+   "kind": "office",
+   "office_id": "EtaPrime_006_office_finance",
+   "institution_id": "EtaPrime_006_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_TauPrime_018_parliament": {
+   "kind": "legislature",
+   "legislature_id": "TauPrime_018_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_TauPrime_018_office_president": {
+   "kind": "office",
+   "office_id": "TauPrime_018_office_president",
+   "institution_id": "TauPrime_018_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_TauPrime_018_office_pm": {
+   "kind": "office",
+   "office_id": "TauPrime_018_office_pm",
+   "institution_id": "TauPrime_018_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_TauPrime_018_office_finance": {
+   "kind": "office",
+   "office_id": "TauPrime_018_office_finance",
+   "institution_id": "TauPrime_018_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_PhiPrime_020_parliament": {
+   "kind": "legislature",
+   "legislature_id": "PhiPrime_020_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_PhiPrime_020_office_president": {
+   "kind": "office",
+   "office_id": "PhiPrime_020_office_president",
+   "institution_id": "PhiPrime_020_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_PhiPrime_020_office_pm": {
+   "kind": "office",
+   "office_id": "PhiPrime_020_office_pm",
+   "institution_id": "PhiPrime_020_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_PhiPrime_020_office_finance": {
+   "kind": "office",
+   "office_id": "PhiPrime_020_office_finance",
+   "institution_id": "PhiPrime_020_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_PiPrime_015_parliament": {
+   "kind": "legislature",
+   "legislature_id": "PiPrime_015_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_PiPrime_015_office_president": {
+   "kind": "office",
+   "office_id": "PiPrime_015_office_president",
+   "institution_id": "PiPrime_015_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_PiPrime_015_office_pm": {
+   "kind": "office",
+   "office_id": "PiPrime_015_office_pm",
+   "institution_id": "PiPrime_015_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_PiPrime_015_office_finance": {
+   "kind": "office",
+   "office_id": "PiPrime_015_office_finance",
+   "institution_id": "PiPrime_015_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_PsiPrime_022_parliament": {
+   "kind": "legislature",
+   "legislature_id": "PsiPrime_022_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_PsiPrime_022_office_president": {
+   "kind": "office",
+   "office_id": "PsiPrime_022_office_president",
+   "institution_id": "PsiPrime_022_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_PsiPrime_022_office_pm": {
+   "kind": "office",
+   "office_id": "PsiPrime_022_office_pm",
+   "institution_id": "PsiPrime_022_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_PsiPrime_022_office_finance": {
+   "kind": "office",
+   "office_id": "PsiPrime_022_office_finance",
+   "institution_id": "PsiPrime_022_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_GammaSecundus_026_parliament": {
+   "kind": "legislature",
+   "legislature_id": "GammaSecundus_026_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_GammaSecundus_026_office_president": {
+   "kind": "office",
+   "office_id": "GammaSecundus_026_office_president",
+   "institution_id": "GammaSecundus_026_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_GammaSecundus_026_office_pm": {
+   "kind": "office",
+   "office_id": "GammaSecundus_026_office_pm",
+   "institution_id": "GammaSecundus_026_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_GammaSecundus_026_office_finance": {
+   "kind": "office",
+   "office_id": "GammaSecundus_026_office_finance",
+   "institution_id": "GammaSecundus_026_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_MuPrime_011_parliament": {
+   "kind": "legislature",
+   "legislature_id": "MuPrime_011_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_MuPrime_011_office_president": {
+   "kind": "office",
+   "office_id": "MuPrime_011_office_president",
+   "institution_id": "MuPrime_011_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_MuPrime_011_office_pm": {
+   "kind": "office",
+   "office_id": "MuPrime_011_office_pm",
+   "institution_id": "MuPrime_011_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_MuPrime_011_office_finance": {
+   "kind": "office",
+   "office_id": "MuPrime_011_office_finance",
+   "institution_id": "MuPrime_011_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_AlphaSecundus_024_parliament": {
+   "kind": "legislature",
+   "legislature_id": "AlphaSecundus_024_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_AlphaSecundus_024_office_president": {
+   "kind": "office",
+   "office_id": "AlphaSecundus_024_office_president",
+   "institution_id": "AlphaSecundus_024_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_AlphaSecundus_024_office_pm": {
+   "kind": "office",
+   "office_id": "AlphaSecundus_024_office_pm",
+   "institution_id": "AlphaSecundus_024_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_AlphaSecundus_024_office_finance": {
+   "kind": "office",
+   "office_id": "AlphaSecundus_024_office_finance",
+   "institution_id": "AlphaSecundus_024_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_KappaPrime_009_parliament": {
+   "kind": "legislature",
+   "legislature_id": "KappaPrime_009_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_KappaPrime_009_office_president": {
+   "kind": "office",
+   "office_id": "KappaPrime_009_office_president",
+   "institution_id": "KappaPrime_009_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_KappaPrime_009_office_pm": {
+   "kind": "office",
+   "office_id": "KappaPrime_009_office_pm",
+   "institution_id": "KappaPrime_009_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_KappaPrime_009_office_finance": {
+   "kind": "office",
+   "office_id": "KappaPrime_009_office_finance",
+   "institution_id": "KappaPrime_009_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_IotaPrime_008_parliament": {
+   "kind": "legislature",
+   "legislature_id": "IotaPrime_008_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_IotaPrime_008_office_president": {
+   "kind": "office",
+   "office_id": "IotaPrime_008_office_president",
+   "institution_id": "IotaPrime_008_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_IotaPrime_008_office_pm": {
+   "kind": "office",
+   "office_id": "IotaPrime_008_office_pm",
+   "institution_id": "IotaPrime_008_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_IotaPrime_008_office_finance": {
+   "kind": "office",
+   "office_id": "IotaPrime_008_office_finance",
+   "institution_id": "IotaPrime_008_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_EpsilonPrime_004_parliament": {
+   "kind": "legislature",
+   "legislature_id": "EpsilonPrime_004_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_EpsilonPrime_004_office_president": {
+   "kind": "office",
+   "office_id": "EpsilonPrime_004_office_president",
+   "institution_id": "EpsilonPrime_004_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_EpsilonPrime_004_office_pm": {
+   "kind": "office",
+   "office_id": "EpsilonPrime_004_office_pm",
+   "institution_id": "EpsilonPrime_004_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_EpsilonPrime_004_office_finance": {
+   "kind": "office",
+   "office_id": "EpsilonPrime_004_office_finance",
+   "institution_id": "EpsilonPrime_004_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_ZetaSecundus_029_parliament": {
+   "kind": "legislature",
+   "legislature_id": "ZetaSecundus_029_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_ZetaSecundus_029_office_president": {
+   "kind": "office",
+   "office_id": "ZetaSecundus_029_office_president",
+   "institution_id": "ZetaSecundus_029_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ZetaSecundus_029_office_pm": {
+   "kind": "office",
+   "office_id": "ZetaSecundus_029_office_pm",
+   "institution_id": "ZetaSecundus_029_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_ZetaSecundus_029_office_finance": {
+   "kind": "office",
+   "office_id": "ZetaSecundus_029_office_finance",
+   "institution_id": "ZetaSecundus_029_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_OmicronPrime_014_parliament": {
+   "kind": "legislature",
+   "legislature_id": "OmicronPrime_014_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_OmicronPrime_014_office_president": {
+   "kind": "office",
+   "office_id": "OmicronPrime_014_office_president",
+   "institution_id": "OmicronPrime_014_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_OmicronPrime_014_office_pm": {
+   "kind": "office",
+   "office_id": "OmicronPrime_014_office_pm",
+   "institution_id": "OmicronPrime_014_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_OmicronPrime_014_office_finance": {
+   "kind": "office",
+   "office_id": "OmicronPrime_014_office_finance",
+   "institution_id": "OmicronPrime_014_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  },
+  "legislature_BetaPrime_001_parliament": {
+   "kind": "legislature",
+   "legislature_id": "BetaPrime_001_parliament",
+   "rules": {
+    "confidence_required_to_form": true,
+    "formation_support_threshold": 0.5,
+    "bill_pass_threshold": 0.5,
+    "confidence_pass_threshold": 0.5,
+    "no_confidence_removes_government": true,
+    "confidence_fail_removes_government": false,
+    "proposer_requires_seats": true,
+    "government_term_days": 30,
+    "term_expiration_causes_election": true,
+    "election_call_days": 0
+   }
+  },
+  "office_BetaPrime_001_office_president": {
+   "kind": "office",
+   "office_id": "BetaPrime_001_office_president",
+   "institution_id": "BetaPrime_001_inst_state",
+   "role": "head_of_state",
+   "rules": {
+    "appointing_authority": "",
+    "dismissible_by": [],
+    "is_electoral_authority": true,
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_BetaPrime_001_office_pm": {
+   "kind": "office",
+   "office_id": "BetaPrime_001_office_pm",
+   "institution_id": "BetaPrime_001_inst_government",
+   "role": "head_of_government",
+   "rules": {
+    "appointing_authority": "office_president",
+    "dismissible_by": [
+     "office_president"
+    ],
+    "succession_on_election_loss": true,
+    "succession_on_vacancy": "none"
+   }
+  },
+  "office_BetaPrime_001_office_finance": {
+   "kind": "office",
+   "office_id": "BetaPrime_001_office_finance",
+   "institution_id": "BetaPrime_001_inst_government",
+   "role": "minister",
+   "rules": {
+    "appointing_authority": "office_pm",
+    "dismissible_by": [
+     "office_president",
+     "office_pm"
+    ],
+    "succession_on_vacancy": "none"
+   }
+  }
+ },
+ "elections": {
+  "general": {
+   "type": "general",
+   "scope": "national",
+   "rules": {
+    "changes_composition": true,
+    "changes_head": true,
+    "head_office": "office_pm",
+    "electoral_authority_office": "office_president",
+    "schedulable_independently": true
+   }
+  }
+ }
+}
