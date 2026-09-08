@@ -44,6 +44,15 @@
   - **إثبات حياد المسار الافتراضي (A/B empirical):** probe `scripts/t040_defaultpath_probe.gd` شُغّل على الكود الحالي وعلى كود الـbaseline الحرفي (عبر `git stash` لملفي المحرك) — **المساران متطابقان bitwise**: default path (4 دول، 30 يومًا) وdirectory-override t5_p0 (10K دولة، 10 أيام) أعطيا نفس SHA-256 للـworld snapshot ونفس الـpolitical counters في الحالتين. لا سلوك افتراضي تغيّر. الأدلة: `t040_defaultpath_ab_current.log` / `t040_defaultpath_ab_baseline.log` (متطابقة SHA-256: `70235614…d76a`).
   - **Regression كامل أخضر بعد كل التعديلات:** deadlines 17/17 · batch_a 31/31 · ScenarioTest 5/5 (checksum anchor) · D1 28/28 · model v1 7/7 · economy 14/14+8/8 · compliance 25/25 · validate_memory 0 errors.
   - **معلق لتصديق المالك:** تعارض أرقام D (نص 15+30+170=215 مقابل عالم 200 المجمّد → حُسم لصالح quiet=155). **حُسم 2026-09-09: N=200/quiet=155 بموافقة المالك الصريحة.**
+## [2026-09-08]
+
+### Changed
+- **README.md — تحديث شامل:**
+  - إزالة إسناد `docs/getting-started.md` (ملف غير موجود في المستودع).
+  - إضافة قسم الحالة الحالية (إنجليزي/عربي): معيار "أول محرك شغال" محقق + 10 مراحل مكتملة + TASK-039 Batch A PROVISIONAL + TASK-038/T5-C/T4.5/T3.
+  - إضافة جدول مكونات المحرك (9 طبقات) وجدول جناحات الاختبار مع آخر النتائج (ScenarioTest 5/5 · D1 28/28 · Model v1 7/7 · Economy 14/14 · Compliance 25/25 · Politics 31/31) وأوامر التشغيل headless.
+  - إضافة هيكل المشروع وفهرس الوثائق المرقمة (00–27) ووصف بروتوكول ذاكرة `.ai/`.
+  - الاحتفاظ بالبنية ثنائية اللغة (English / العربية) كما كانت.
 
 ## [2026-09-07]
 
