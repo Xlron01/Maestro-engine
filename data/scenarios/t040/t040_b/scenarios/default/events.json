@@ -1,0 +1,152 @@
+[
+ {
+  "time": 5,
+  "type": "Coup_Attempt",
+  "source": "c089"
+ },
+ {
+  "time": 5,
+  "type": "Coup_Attempt",
+  "source": "c177"
+ },
+ {
+  "time": 15,
+  "type": "Coup_Attempt",
+  "source": "c087"
+ },
+ {
+  "time": 18,
+  "type": "Coup_Attempt",
+  "source": "c064"
+ },
+ {
+  "time": 26,
+  "type": "Coup_Attempt",
+  "source": "c131"
+ },
+ {
+  "time": 28,
+  "type": "Coup_Attempt",
+  "source": "c000"
+ },
+ {
+  "time": 31,
+  "type": "Coup_Attempt",
+  "source": "c152"
+ },
+ {
+  "time": 32,
+  "type": "Coup_Attempt",
+  "source": "c154"
+ },
+ {
+  "time": 34,
+  "type": "Coup_Attempt",
+  "source": "c102"
+ },
+ {
+  "time": 36,
+  "type": "Coup_Attempt",
+  "source": "c107"
+ },
+ {
+  "time": 36,
+  "type": "Coup_Attempt",
+  "source": "c174"
+ },
+ {
+  "time": 38,
+  "type": "Coup_Attempt",
+  "source": "c023"
+ },
+ {
+  "time": 40,
+  "type": "Coup_Attempt",
+  "source": "c145"
+ },
+ {
+  "time": 42,
+  "type": "Coup_Attempt",
+  "source": "c130"
+ },
+ {
+  "time": 43,
+  "type": "Coup_Attempt",
+  "source": "c117"
+ },
+ {
+  "time": 46,
+  "type": "Minister_Died",
+  "source": "c102"
+ },
+ {
+  "time": 50,
+  "type": "Minister_Died",
+  "source": "c145"
+ },
+ {
+  "time": 51,
+  "type": "Minister_Died",
+  "source": "c130"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c089"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c117"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c174"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c107"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c131"
+ },
+ {
+  "time": 57,
+  "type": "Minister_Died",
+  "source": "c154"
+ },
+ {
+  "time": 58,
+  "type": "Minister_Died",
+  "source": "c177"
+ },
+ {
+  "time": 60,
+  "type": "Minister_Died",
+  "source": "c087"
+ },
+ {
+  "time": 66,
+  "type": "Minister_Died",
+  "source": "c064"
+ },
+ {
+  "time": 69,
+  "type": "Minister_Died",
+  "source": "c023"
+ },
+ {
+  "time": 79,
+  "type": "Minister_Died",
+  "source": "c000"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c152"
+ }
+]

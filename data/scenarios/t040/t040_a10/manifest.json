@@ -1,0 +1,29 @@
+{
+ "tree": "t040_a10",
+ "seed": 101040,
+ "scenario_spec": {
+  "governed": 1,
+  "crisis": 1,
+  "background": 0,
+  "horizon": 60,
+  "election_call_days": 0,
+  "all_election_wired": true
+ },
+ "governed": [
+  "c064"
+ ],
+ "crisis_active": [
+  "c064"
+ ],
+ "background_active": [],
+ "n_countries": 200,
+ "horizon": 60,
+ "events": {
+  "total": 2,
+  "by_type": {
+   "Coup_Attempt": 1,
+   "Minister_Died": 1
+  }
+ },
+ "note": "TEST FIXTURE — deterministic workload; same seed => identical tree"
+}

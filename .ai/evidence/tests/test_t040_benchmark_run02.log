@@ -1,0 +1,356 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TASK-040 — ACTOR RUNTIME INTEGRATED VALIDATION BENCHMARK
+  baseline=bf2ea5b4 seed=12345 world=200 countries
+============================================================
+
+-- P0: fixture integrity
+  PASS  P0[A10] 200 countries, 1 governed, 1 crisis, 0 background
+  PASS  P0[A] 200 countries, 30 governed, 0 crisis, 0 background
+  PASS  P0[B] 200 countries, 15 governed, 15 crisis, 0 background
+  PASS  P0[C] 200 countries, 120 governed, 120 crisis, 0 background
+  PASS  P0[D] 200 countries, 45 governed, 15 crisis, 30 background
+
+-- P1: A10 gate — full production chain on t040_a10
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+  PASS  A10-a pump fired every day (production scheduled job)
+  PASS  A10-b term deadline activated at due day (60), lateness 0
+  PASS  A10-c derived election deadline exists and resolved via pipeline
+  PASS  A10-d election executed (HoldElection through PoliticalActions)
+  PASS  A10-e single scheduler: domain deadline_queue unused (null)
+  PASS  A10-f all deadlines drained from sim.scheduled (0 remaining)
+
+============================================================
+  SCENARIO A — t040_a (horizon=90)
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+  -- metrics:
+     scenario = A
+     horizon = 90
+     runtime_total_us = 466922
+     runtime_mean_tick_us = 5188.02222222222
+     runtime_peak_tick_us = 157757
+     events_total = 30
+     events_consumed_total_stream = 730
+     events_landed_relevant = 30
+     events_landed = { "Minister_Died": 30 }
+     events_pending_at_end = 0
+     event_activations = 629
+     deadline_activations = 60
+     deadline_completed = 60
+     deadline_deferred = 0
+     deadline_misses = 0
+     deadline_lateness_max = 0
+     deadline_lateness_mean = 0.0
+     deadline_lateness_n = 0
+     elections_executed = 30
+     pa_evals = 30
+     cq_evals = 0
+     max_wait_event_days = 0
+     queue_peak = 833
+     memory_delta_bytes = 17671344
+     quiet_evals = 0
+     quiet_ticks_with_evals = 0
+  -- per-tick log (90 ticks, first 12):
+     day=001 tick_us=1060 events=1 event_act=1 dl_act=0 queue=833 pa_evals=0
+     day=002 tick_us=849 events=1 event_act=1 dl_act=0 queue=833 pa_evals=0
+     day=003 tick_us=839 events=1 event_act=1 dl_act=0 queue=833 pa_evals=0
+     day=004 tick_us=830 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=005 tick_us=828 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=006 tick_us=824 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=007 tick_us=826 events=1 event_act=1 dl_act=0 queue=833 pa_evals=0
+     day=008 tick_us=792 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=009 tick_us=789 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=010 tick_us=790 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=011 tick_us=788 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     day=012 tick_us=892 events=0 event_act=0 dl_act=0 queue=833 pa_evals=0
+     ... (full log in evidence file)
+  PASS  A-A9 completes horizon without crash (90 ticks)
+  PASS  A-A3 all 30 fixture events landed on target (30 landed, 0 pending)
+  PASS  A-A4 zero deadline misses at horizon
+  PASS  A-A5 zero duplicate activations
+  PASS  A-A7 event work executed within horizon (max wait 0 days)
+  PASS  A-A8 no political evals on quiet ticks (0 evals on 0 quiet days)
+  evidence written: res://.ai/evidence/tests/t040_scenario_a_ticklog.txt
+
+============================================================
+  SCENARIO B — t040_b (horizon=90)
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+  -- metrics:
+     scenario = B
+     horizon = 90
+     runtime_total_us = 353937
+     runtime_mean_tick_us = 3932.63333333333
+     runtime_peak_tick_us = 65905
+     events_total = 30
+     events_consumed_total_stream = 730
+     events_landed_relevant = 30
+     events_landed = { "Coup_Attempt": 15, "Minister_Died": 15 }
+     events_pending_at_end = 0
+     event_activations = 628
+     deadline_activations = 30
+     deadline_completed = 30
+     deadline_deferred = 0
+     deadline_misses = 0
+     deadline_lateness_max = 0
+     deadline_lateness_mean = 0.0
+     deadline_lateness_n = 0
+     elections_executed = 15
+     pa_evals = 15
+     cq_evals = 0
+     max_wait_event_days = 0
+     queue_peak = 818
+     memory_delta_bytes = 8909440
+     quiet_evals = 0
+     quiet_ticks_with_evals = 0
+  -- per-tick log (90 ticks, first 12):
+     day=001 tick_us=956 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=002 tick_us=1370 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=003 tick_us=1304 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=004 tick_us=1299 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=005 tick_us=1345 events=2 event_act=2 dl_act=0 queue=818 pa_evals=0
+     day=006 tick_us=1333 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=007 tick_us=1326 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=008 tick_us=1315 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=009 tick_us=1035 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=010 tick_us=779 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=011 tick_us=770 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     day=012 tick_us=770 events=0 event_act=0 dl_act=0 queue=818 pa_evals=0
+     ... (full log in evidence file)
+  PASS  B-A9 completes horizon without crash (90 ticks)
+  PASS  B-A3 all 30 fixture events landed on target (30 landed, 0 pending)
+  PASS  B-A4 zero deadline misses at horizon
+  PASS  B-A5 zero duplicate activations
+  PASS  B-A7 event work executed within horizon (max wait 0 days)
+  PASS  B-A8 no political evals on quiet ticks (0 evals on 0 quiet days)
+  evidence written: res://.ai/evidence/tests/t040_scenario_b_ticklog.txt
+
+============================================================
+  SCENARIO C — t040_c (horizon=90)
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+  -- metrics:
+     scenario = C
+     horizon = 90
+     runtime_total_us = 1493238
+     runtime_mean_tick_us = 16591.5333333333
+     runtime_peak_tick_us = 469598
+     events_total = 240
+     events_consumed_total_stream = 940
+     events_landed_relevant = 240
+     events_landed = { "Coup_Attempt": 120, "Minister_Died": 120 }
+     events_pending_at_end = 0
+     event_activations = 828
+     deadline_activations = 240
+     deadline_completed = 240
+     deadline_deferred = 0
+     deadline_misses = 0
+     deadline_lateness_max = 0
+     deadline_lateness_mean = 0.0
+     deadline_lateness_n = 0
+     elections_executed = 120
+     pa_evals = 120
+     cq_evals = 0
+     max_wait_event_days = 0
+     queue_peak = 923
+     memory_delta_bytes = 70054160
+     quiet_evals = 0
+     quiet_ticks_with_evals = 0
+  -- per-tick log (90 ticks, first 12):
+     day=001 tick_us=1242 events=0 event_act=0 dl_act=0 queue=923 pa_evals=0
+     day=002 tick_us=925 events=0 event_act=0 dl_act=0 queue=923 pa_evals=0
+     day=003 tick_us=906 events=0 event_act=0 dl_act=0 queue=923 pa_evals=0
+     day=004 tick_us=909 events=0 event_act=0 dl_act=0 queue=923 pa_evals=0
+     day=005 tick_us=963 events=2 event_act=2 dl_act=0 queue=923 pa_evals=0
+     day=006 tick_us=924 events=2 event_act=2 dl_act=0 queue=923 pa_evals=0
+     day=007 tick_us=924 events=3 event_act=3 dl_act=0 queue=923 pa_evals=0
+     day=008 tick_us=954 events=3 event_act=3 dl_act=0 queue=923 pa_evals=0
+     day=009 tick_us=929 events=3 event_act=3 dl_act=0 queue=923 pa_evals=0
+     day=010 tick_us=1025 events=3 event_act=3 dl_act=0 queue=923 pa_evals=0
+     day=011 tick_us=1045 events=4 event_act=4 dl_act=0 queue=923 pa_evals=0
+     day=012 tick_us=939 events=3 event_act=3 dl_act=0 queue=923 pa_evals=0
+     ... (full log in evidence file)
+  PASS  C-A9 completes horizon without crash (90 ticks)
+  PASS  C-A3 all 240 fixture events landed on target (240 landed, 0 pending)
+  PASS  C-A4 zero deadline misses at horizon
+  PASS  C-A5 zero duplicate activations
+  PASS  C-A7 event work executed within horizon (max wait 0 days)
+  PASS  C-A8 no political evals on quiet ticks (0 evals on 0 quiet days)
+  evidence written: res://.ai/evidence/tests/t040_scenario_c_ticklog.txt
+
+============================================================
+  SCENARIO D — t040_d (horizon=120)
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 44.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 46.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 48.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 50.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 52.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 54.0
+  -- metrics:
+     scenario = D
+     horizon = 120
+     runtime_total_us = 621413
+     runtime_mean_tick_us = 5178.44166666667
+     runtime_peak_tick_us = 150973
+     events_total = 120
+     events_consumed_total_stream = 1080
+     events_landed_relevant = 120
+     events_landed = { "Minister_Died": 75, "Election": 30, "Coup_Attempt": 15 }
+     events_pending_at_end = 0
+     event_activations = 916
+     deadline_activations = 60
+     deadline_completed = 60
+     deadline_deferred = 0
+     deadline_misses = 0
+     deadline_lateness_max = 0
+     deadline_lateness_mean = 0.0
+     deadline_lateness_n = 0
+     elections_executed = 15
+     pa_evals = 15
+     cq_evals = 0
+     max_wait_event_days = 0
+     queue_peak = 848
+     memory_delta_bytes = 8958504
+     quiet_evals = 0
+     quiet_ticks_with_evals = 0
+  -- per-tick log (120 ticks, first 12):
+     day=001 tick_us=1074 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=002 tick_us=828 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=003 tick_us=896 events=2 event_act=2 dl_act=0 queue=848 pa_evals=0
+     day=004 tick_us=836 events=0 event_act=0 dl_act=0 queue=848 pa_evals=0
+     day=005 tick_us=842 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=006 tick_us=844 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=007 tick_us=847 events=2 event_act=2 dl_act=0 queue=848 pa_evals=0
+     day=008 tick_us=847 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=009 tick_us=832 events=0 event_act=0 dl_act=0 queue=848 pa_evals=0
+     day=010 tick_us=826 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=011 tick_us=805 events=1 event_act=1 dl_act=0 queue=848 pa_evals=0
+     day=012 tick_us=816 events=0 event_act=0 dl_act=0 queue=848 pa_evals=0
+     ... (full log in evidence file)
+  PASS  D-A9 completes horizon without crash (120 ticks)
+  PASS  D-A3 all 120 fixture events landed on target (120 landed, 0 pending)
+  PASS  D-A4 zero deadline misses at horizon
+  PASS  D-A5 zero duplicate activations
+  PASS  D-A7 event work executed within horizon (max wait 0 days)
+  PASS  D-A8 no political evals on quiet ticks (0 evals on 0 quiet days)
+  evidence written: res://.ai/evidence/tests/t040_scenario_d_ticklog.txt
+
+-- P3: determinism oracle (canonical SHA-256, 2 runs each)
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+  PASS  A-A1/A2 canonical SHA-256 identical across runs
+  PASS  A-A1b hash is exactly 64 hex chars (len=64, hex=true)
+  A CANONICAL_SHA256 = dce306df07cb77072d07be18d53771aead142fb3190eceddaac8c9f77bf4d999
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+  PASS  B-A1/A2 canonical SHA-256 identical across runs
+  PASS  B-A1b hash is exactly 64 hex chars (len=64, hex=true)
+  B CANONICAL_SHA256 = b1f04a4eb4af0dd6cd5ec8e627b090fab0934f91ac38a8e16abc4c8f57c88bac
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+  PASS  C-A1/A2 canonical SHA-256 identical across runs
+  PASS  C-A1b hash is exactly 64 hex chars (len=64, hex=true)
+  C CANONICAL_SHA256 = 46b381cd8fdbff813fdd82722ecf2b28f692a758e825d651db34251104d68f23
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 44.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 46.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 48.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 50.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 52.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 54.0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 34.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 36.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 38.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 40.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 42.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 44.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 46.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 48.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 50.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 52.0
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 54.0
+  PASS  D-A1/A2 canonical SHA-256 identical across runs
+  PASS  D-A1b hash is exactly 64 hex chars (len=64, hex=true)
+  D CANONICAL_SHA256 = 9295442b5eb5014126011b8a4070c7f96ffaeab04ad3ac4236fc4cfa843d1924
+
+RESULT: PASS 43 / FAIL 0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+WARNING: 169 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 11 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

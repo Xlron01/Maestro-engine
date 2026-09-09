@@ -1,0 +1,602 @@
+[
+ {
+  "time": 1,
+  "type": "Minister_Died",
+  "source": "c020"
+ },
+ {
+  "time": 2,
+  "type": "Election",
+  "source": "c177"
+ },
+ {
+  "time": 3,
+  "type": "Minister_Died",
+  "source": "c056"
+ },
+ {
+  "time": 3,
+  "type": "Minister_Died",
+  "source": "c181"
+ },
+ {
+  "time": 5,
+  "type": "Coup_Attempt",
+  "source": "c031"
+ },
+ {
+  "time": 6,
+  "type": "Election",
+  "source": "c013"
+ },
+ {
+  "time": 7,
+  "type": "Coup_Attempt",
+  "source": "c187"
+ },
+ {
+  "time": 7,
+  "type": "Minister_Died",
+  "source": "c070"
+ },
+ {
+  "time": 8,
+  "type": "Minister_Died",
+  "source": "c193"
+ },
+ {
+  "time": 10,
+  "type": "Minister_Died",
+  "source": "c128"
+ },
+ {
+  "time": 11,
+  "type": "Minister_Died",
+  "source": "c183"
+ },
+ {
+  "time": 14,
+  "type": "Coup_Attempt",
+  "source": "c097"
+ },
+ {
+  "time": 15,
+  "type": "Minister_Died",
+  "source": "c117"
+ },
+ {
+  "time": 18,
+  "type": "Minister_Died",
+  "source": "c011"
+ },
+ {
+  "time": 19,
+  "type": "Minister_Died",
+  "source": "c101"
+ },
+ {
+  "time": 21,
+  "type": "Coup_Attempt",
+  "source": "c040"
+ },
+ {
+  "time": 21,
+  "type": "Election",
+  "source": "c068"
+ },
+ {
+  "time": 22,
+  "type": "Coup_Attempt",
+  "source": "c120"
+ },
+ {
+  "time": 23,
+  "type": "Election",
+  "source": "c101"
+ },
+ {
+  "time": 23,
+  "type": "Minister_Died",
+  "source": "c123"
+ },
+ {
+  "time": 24,
+  "type": "Minister_Died",
+  "source": "c003"
+ },
+ {
+  "time": 24,
+  "type": "Minister_Died",
+  "source": "c063"
+ },
+ {
+  "time": 25,
+  "type": "Minister_Died",
+  "source": "c145"
+ },
+ {
+  "time": 26,
+  "type": "Election",
+  "source": "c070"
+ },
+ {
+  "time": 28,
+  "type": "Election",
+  "source": "c113"
+ },
+ {
+  "time": 28,
+  "type": "Minister_Died",
+  "source": "c057"
+ },
+ {
+  "time": 29,
+  "type": "Coup_Attempt",
+  "source": "c142"
+ },
+ {
+  "time": 29,
+  "type": "Election",
+  "source": "c128"
+ },
+ {
+  "time": 29,
+  "type": "Minister_Died",
+  "source": "c144"
+ },
+ {
+  "time": 31,
+  "type": "Minister_Died",
+  "source": "c149"
+ },
+ {
+  "time": 32,
+  "type": "Coup_Attempt",
+  "source": "c139"
+ },
+ {
+  "time": 32,
+  "type": "Coup_Attempt",
+  "source": "c192"
+ },
+ {
+  "time": 34,
+  "type": "Minister_Died",
+  "source": "c045"
+ },
+ {
+  "time": 35,
+  "type": "Minister_Died",
+  "source": "c155"
+ },
+ {
+  "time": 36,
+  "type": "Minister_Died",
+  "source": "c018"
+ },
+ {
+  "time": 37,
+  "type": "Election",
+  "source": "c078"
+ },
+ {
+  "time": 37,
+  "type": "Election",
+  "source": "c144"
+ },
+ {
+  "time": 38,
+  "type": "Coup_Attempt",
+  "source": "c094"
+ },
+ {
+  "time": 40,
+  "type": "Election",
+  "source": "c038"
+ },
+ {
+  "time": 42,
+  "type": "Coup_Attempt",
+  "source": "c195"
+ },
+ {
+  "time": 42,
+  "type": "Election",
+  "source": "c145"
+ },
+ {
+  "time": 43,
+  "type": "Minister_Died",
+  "source": "c081"
+ },
+ {
+  "time": 43,
+  "type": "Minister_Died",
+  "source": "c179"
+ },
+ {
+  "time": 44,
+  "type": "Coup_Attempt",
+  "source": "c067"
+ },
+ {
+  "time": 44,
+  "type": "Election",
+  "source": "c165"
+ },
+ {
+  "time": 46,
+  "type": "Minister_Died",
+  "source": "c054"
+ },
+ {
+  "time": 47,
+  "type": "Minister_Died",
+  "source": "c188"
+ },
+ {
+  "time": 48,
+  "type": "Election",
+  "source": "c082"
+ },
+ {
+  "time": 48,
+  "type": "Minister_Died",
+  "source": "c165"
+ },
+ {
+  "time": 51,
+  "type": "Coup_Attempt",
+  "source": "c148"
+ },
+ {
+  "time": 52,
+  "type": "Minister_Died",
+  "source": "c161"
+ },
+ {
+  "time": 53,
+  "type": "Election",
+  "source": "c198"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c025"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c184"
+ },
+ {
+  "time": 56,
+  "type": "Coup_Attempt",
+  "source": "c175"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c072"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c079"
+ },
+ {
+  "time": 57,
+  "type": "Coup_Attempt",
+  "source": "c172"
+ },
+ {
+  "time": 58,
+  "type": "Election",
+  "source": "c147"
+ },
+ {
+  "time": 58,
+  "type": "Minister_Died",
+  "source": "c177"
+ },
+ {
+  "time": 59,
+  "type": "Minister_Died",
+  "source": "c116"
+ },
+ {
+  "time": 60,
+  "type": "Coup_Attempt",
+  "source": "c024"
+ },
+ {
+  "time": 60,
+  "type": "Election",
+  "source": "c057"
+ },
+ {
+  "time": 60,
+  "type": "Minister_Died",
+  "source": "c120"
+ },
+ {
+  "time": 61,
+  "type": "Minister_Died",
+  "source": "c010"
+ },
+ {
+  "time": 63,
+  "type": "Minister_Died",
+  "source": "c097"
+ },
+ {
+  "time": 63,
+  "type": "Minister_Died",
+  "source": "c157"
+ },
+ {
+  "time": 65,
+  "type": "Minister_Died",
+  "source": "c024"
+ },
+ {
+  "time": 65,
+  "type": "Minister_Died",
+  "source": "c122"
+ },
+ {
+  "time": 67,
+  "type": "Election",
+  "source": "c136"
+ },
+ {
+  "time": 67,
+  "type": "Minister_Died",
+  "source": "c195"
+ },
+ {
+  "time": 68,
+  "type": "Election",
+  "source": "c109"
+ },
+ {
+  "time": 69,
+  "type": "Minister_Died",
+  "source": "c139"
+ },
+ {
+  "time": 72,
+  "type": "Minister_Died",
+  "source": "c047"
+ },
+ {
+  "time": 72,
+  "type": "Minister_Died",
+  "source": "c078"
+ },
+ {
+  "time": 72,
+  "type": "Minister_Died",
+  "source": "c175"
+ },
+ {
+  "time": 73,
+  "type": "Minister_Died",
+  "source": "c109"
+ },
+ {
+  "time": 74,
+  "type": "Election",
+  "source": "c020"
+ },
+ {
+  "time": 74,
+  "type": "Minister_Died",
+  "source": "c100"
+ },
+ {
+  "time": 74,
+  "type": "Minister_Died",
+  "source": "c147"
+ },
+ {
+  "time": 79,
+  "type": "Election",
+  "source": "c164"
+ },
+ {
+  "time": 80,
+  "type": "Minister_Died",
+  "source": "c152"
+ },
+ {
+  "time": 80,
+  "type": "Minister_Died",
+  "source": "c158"
+ },
+ {
+  "time": 81,
+  "type": "Minister_Died",
+  "source": "c067"
+ },
+ {
+  "time": 82,
+  "type": "Minister_Died",
+  "source": "c108"
+ },
+ {
+  "time": 83,
+  "type": "Election",
+  "source": "c152"
+ },
+ {
+  "time": 83,
+  "type": "Minister_Died",
+  "source": "c038"
+ },
+ {
+  "time": 85,
+  "type": "Minister_Died",
+  "source": "c040"
+ },
+ {
+  "time": 86,
+  "type": "Election",
+  "source": "c155"
+ },
+ {
+  "time": 86,
+  "type": "Minister_Died",
+  "source": "c148"
+ },
+ {
+  "time": 86,
+  "type": "Minister_Died",
+  "source": "c192"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c026"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c083"
+ },
+ {
+  "time": 92,
+  "type": "Minister_Died",
+  "source": "c094"
+ },
+ {
+  "time": 92,
+  "type": "Minister_Died",
+  "source": "c121"
+ },
+ {
+  "time": 92,
+  "type": "Minister_Died",
+  "source": "c164"
+ },
+ {
+  "time": 92,
+  "type": "Minister_Died",
+  "source": "c187"
+ },
+ {
+  "time": 97,
+  "type": "Minister_Died",
+  "source": "c130"
+ },
+ {
+  "time": 100,
+  "type": "Minister_Died",
+  "source": "c044"
+ },
+ {
+  "time": 100,
+  "type": "Minister_Died",
+  "source": "c103"
+ },
+ {
+  "time": 100,
+  "type": "Minister_Died",
+  "source": "c198"
+ },
+ {
+  "time": 101,
+  "type": "Election",
+  "source": "c103"
+ },
+ {
+  "time": 101,
+  "type": "Minister_Died",
+  "source": "c136"
+ },
+ {
+  "time": 102,
+  "type": "Election",
+  "source": "c117"
+ },
+ {
+  "time": 102,
+  "type": "Election",
+  "source": "c149"
+ },
+ {
+  "time": 104,
+  "type": "Minister_Died",
+  "source": "c142"
+ },
+ {
+  "time": 106,
+  "type": "Election",
+  "source": "c003"
+ },
+ {
+  "time": 106,
+  "type": "Minister_Died",
+  "source": "c008"
+ },
+ {
+  "time": 108,
+  "type": "Minister_Died",
+  "source": "c172"
+ },
+ {
+  "time": 109,
+  "type": "Minister_Died",
+  "source": "c031"
+ },
+ {
+  "time": 109,
+  "type": "Minister_Died",
+  "source": "c068"
+ },
+ {
+  "time": 110,
+  "type": "Minister_Died",
+  "source": "c113"
+ },
+ {
+  "time": 111,
+  "type": "Election",
+  "source": "c025"
+ },
+ {
+  "time": 111,
+  "type": "Election",
+  "source": "c083"
+ },
+ {
+  "time": 112,
+  "type": "Minister_Died",
+  "source": "c082"
+ },
+ {
+  "time": 114,
+  "type": "Election",
+  "source": "c026"
+ },
+ {
+  "time": 114,
+  "type": "Minister_Died",
+  "source": "c131"
+ },
+ {
+  "time": 117,
+  "type": "Election",
+  "source": "c122"
+ },
+ {
+  "time": 118,
+  "type": "Minister_Died",
+  "source": "c013"
+ },
+ {
+  "time": 120,
+  "type": "Minister_Died",
+  "source": "c086"
+ }
+]

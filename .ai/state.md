@@ -1,34 +1,32 @@
 # CURRENT STATE
 
 ## Metadata
-- **Last Updated:** 2026-09-07
-- **Current Phase:** TASK-040-pre Minimal Deadline Activation Proof — **COMPLETE PROVISIONAL (17/17 PASS؛ Regression K كامل أخضر؛ أوراكل Hashing حتمي)**
-- **Current Step:** بانتظار مراجعة المالك لـ TASK-040-pre قبل فتح TASK-040 — لا مهام نشطة
+- **Last Updated:** 2026-09-09
+- **Current Phase:** TASK-040 مقفولة رسميًا (43/43 PASS + موافقة المالك الصريحة + commit). **لا مهمة نشطة** — في انتظار تكليف المالك للخطوة التالية (T5-D مرشح مؤجل رسميًا ولا يُفتح إلا بقرار صريح).
+- **Current Step:** NONE — ممنوع فتح أي مهمة جديدة دون تكليف صريح من المالك.
 
 ## Current Objective
-إثبات أقل بنية تحتية إنتاجية لاستيقاظ الـDeadlines السياسية (TASK-040-pre) دون تنفيذ periodic political reassessment، واستكمال التسجيل وإثبات عدم وجود per-tick polling، والالتزام بمسار الملكية (Actor → Action → Resolution → Owning Domain) وإعادة استخدام `ScheduledQueue` النواة.
+لا هدف نشط. آخر هدف مكتمل ومعتمد: TASK-040 Actor Runtime Integrated Validation Benchmark (43/43 عبر تشغيلين منفصلين، Scenario D كاملة بلا تجويع، حياد المسار الافتراضي مُثبت bitwise مقابل الـbaseline).
 
 ## Active Tasks
-*لا مهام نشطة — TASK-040-pre مكتملة PROVISIONAL وبانتظار مراجعة المالك*
+- (لا شيء — TASK-040 انتقلت إلى completed.md)
 
 ## Completed Tasks (آخر دورة)
-- `TASK-040-pre`: Minimal Deadline Activation Proof. (Status: COMPLETE PROVISIONAL, Evidence Saved)
-  - Acceptance A1–A8: 17/17 PASS — term expiration(30d) → institutional rule → 2-step causal chain → election deadline → activation at due_at(lateness 0) → HoldElection via PoliticalActions → resolved.
-  - Empirical ScheduledQueue reuse: start_at for arbitrary future day, one_shot: true post-execution unregister, 0 daily/per-tick polling.
-  - Canonical SHA-256 Oracle: `29841b4297c7b9ffe8f0591ff37b3e8f2545b6221669360ab74b7e25b67cb2f4` (deterministic across runs).
-  - Full Regression Green: test_politics_deadlines 17/17 · ScenarioTest 5/5 · test_politics_batch_a 31/31 · test_compliance_runtime 25/25.
-- `TASK-039`: Political Institutional Core — Batch A. (Status: COMPLETE PROVISIONAL, Evidence Saved)
-- `TASK-038`: Compliance Runtime Layer. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
-- `T5-C`: Storm Root-Cause & Measured-Bottleneck-Only Fix. (Status: COMPLETE, Evidence Saved, PROVISIONAL)
+- `TASK-040`: Actor Runtime Integrated Validation Benchmark. **COMPLETE — معتمدة رسميًا 2026-09-09** (موافقة صريحة غطت A10 gap fix + ENGINE TOUCH #5 بعد إثبات الحياد + N=200/quiet=155)
+- `TASK-040-pre`: Minimal Deadline Activation Proof. (COMPLETE PROVISIONAL)
+- `TASK-039`: Political Institutional Core — Batch A. (COMPLETE PROVISIONAL)
+- `TASK-038`: Compliance Runtime Layer. (COMPLETE PROVISIONAL)
+- `T5-C`: Storm Root-Cause & Measured-Bottleneck-Only Fix. (COMPLETE PROVISIONAL)
 
 ## Blockers & Known Risks
-- لا يوجد معوقات.
-- بيئة التشغيل: Godot الفعلي: `C:\\Users\\ahmed\\Downloads\\Godot_v4.7.2-stable_win64.exe\\Godot_v4.7.2-stable_win64_console.exe`.
-- TASK-040 لا تُفتح تلقائياً وتتطلب مراجعة المالك أولاً.
+- لا blockers. كل قرارات TASK-040 المعلقة حُسمت بموافقة المالك (2026-09-09).
+- التغيير الكامن المكتشف (`elections_held` null-crash + تضخيم العدّ) وُثّق كتغيير منفصل في CHANGELOG (بند Fixed بتاريخ 2026-09-09).
+- بيئة التشغيل: Godot الفعلي: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. قرار المالك ومراجعته لتقرير إثبات TASK-040-pre قبل فتح TASK-040.
-2. قرار المالك بشأن TASK-039 Batch A (ختم CONFIRMED).
+1. تحديد المالك للخطوة التالية (T5-D مؤجلة رسميًا — فتحها يتطلب قرارًا صريحًا؛ بدائل محتملة: اعتماد PROVISIONAL للمهام السابقة، أو T5-D، أو غيرها بتكليف).
+2. ملاحظة بيئية: worktree `siren` على فرع `t040-full-benchmark` يتقدم على master المحلي (الذي يحمل ee98f568 المرفوض كhistory فقط) — دمج master/تنظيفه بقرار المالك.
 
 ## Known Bugs & Temporary Hacks
-- **تحذيرات الخروج في Godot:** ObjectDB leaks عند خروج السكريبتات المستقلة (سلوك موروث pre-existing baseline).
+- **تحذيرات الخروج في Godot:** ObjectDB leaks عند خروج السكريبتات المستقلة (سلوك موروث pre-existing baseline، غير مرتبط بـTASK-040).
+- **`events_consumed_total_stream` يشمل الأحداث المشتقة ذاتيًا** (Military_Spending/Economic_Investment الناتجة عن قرارات الدول) — الفصل بين relevant/total موثق في الـharness (`events_landed_relevant`).

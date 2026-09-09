@@ -13,6 +13,10 @@ class_name GameEventHandlers
 # ENGINE TOUCH #1 (T3-Phase 1): Economy module delegation.
 # ENGINE TOUCH #3 (T3-Phase 2): Economy v2 delegation + Economy_Shortage_Occurred handler.
 # ENGINE TOUCH #4 (TASK-040): Political deadline integration (A10).
+# ENGINE TOUCH #5 (TASK-040): Fixture-tree political world/rules loading —
+#   when data_root_override points at a self-contained scenario tree that has
+#   worlds/politics/world.json + rules/institutional_rules.json, load them from
+#   the tree (benchmark/fixture injection). Default behaviour unchanged.
 # Zero kernel logic here - delegation only.
 # ============================================================
 
@@ -70,9 +74,31 @@ func _init_political() -> void:
 
 func _load_political_state() -> void:
 	# Load from data - in production from data/worlds/politics/*.json
-	var data_root = ""
+	# ENGINE TOUCH #5 (TASK-040): fixture-tree injection — if data_root_override
+	# points at a scenario tree carrying worlds/politics/world.json, load the
+	# political world AND the tree's institutional rules from there.
+	var data_root := ""
 	if _sim.data_root_override != "":
 		data_root = _sim.data_root_override
+	var tree_world: String = data_root.path_join("worlds/politics/world.json")
+	var tree_rules: String = data_root.path_join("rules/institutional_rules.json")
+	if not data_root.is_empty() and FileAccess.file_exists(tree_world):
+		var fw := FileAccess.open(tree_world, FileAccess.READ)
+		var parsed_w = JSON.parse_string(fw.get_as_text())
+		fw.close()
+		if typeof(parsed_w) == TYPE_DICTIONARY:
+			_political_state = PS.load_from(parsed_w)
+			if FileAccess.file_exists(tree_rules):
+				var fr := FileAccess.open(tree_rules, FileAccess.READ)
+				var parsed_r = JSON.parse_string(fr.get_as_text())
+				fr.close()
+				if typeof(parsed_r) == TYPE_DICTIONARY:
+					_political_rules.raw = parsed_r
+			_schedule_existing_political_terms()
+			return
+		push_error("PoliticalHandlers: invalid fixture political world data")
+		_political_state = PS.new()
+		return
 	if data_root.is_empty():
 		data_root = "res://data/worlds/politics/t040_world.json"
 	var f = FileAccess.open(data_root, FileAccess.READ)
@@ -125,10 +151,16 @@ func job_political_deadline_pump(_job: Dictionary, _t: int) -> void:
 	political_counters["deadlines_due"] += int(result["due"])
 	political_counters["deadlines_activated"] += int(result["activated"])
 	political_counters["deadlines_resolved"] += int(result["resolved"])
-	# Count executed elections
+	# Count elections executed TODAY (resolution is null while merely
+	# scheduled — null-guard required; resolved_at == day makes the
+	# counter a true cumulative total, not a daily recount)
+	var day_i := int(day)
 	for id in _political_state.deadlines.keys():
-		var rec = _political_state.deadlines[id]
-		if String(rec["deadline_type"]) == "election_due" and String(rec["resolution"].get("outcome", "")) == "election_executed":
+		var rec: Dictionary = _political_state.deadlines[id]
+		var res = rec["resolution"]
+		if String(rec["deadline_type"]) == "election_due" and res != null \
+				and rec["resolved_at"] != null and int(rec["resolved_at"]) == day_i \
+				and String((res as Dictionary).get("outcome", "")) == "election_executed":
 			political_counters["elections_held"] += 1
 
 

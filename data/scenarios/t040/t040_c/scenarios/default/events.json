@@ -1,0 +1,1202 @@
+[
+ {
+  "time": 5,
+  "type": "Coup_Attempt",
+  "source": "c007"
+ },
+ {
+  "time": 5,
+  "type": "Coup_Attempt",
+  "source": "c083"
+ },
+ {
+  "time": 6,
+  "type": "Coup_Attempt",
+  "source": "c101"
+ },
+ {
+  "time": 6,
+  "type": "Coup_Attempt",
+  "source": "c113"
+ },
+ {
+  "time": 7,
+  "type": "Coup_Attempt",
+  "source": "c110"
+ },
+ {
+  "time": 7,
+  "type": "Coup_Attempt",
+  "source": "c134"
+ },
+ {
+  "time": 7,
+  "type": "Coup_Attempt",
+  "source": "c165"
+ },
+ {
+  "time": 8,
+  "type": "Coup_Attempt",
+  "source": "c127"
+ },
+ {
+  "time": 8,
+  "type": "Coup_Attempt",
+  "source": "c156"
+ },
+ {
+  "time": 8,
+  "type": "Coup_Attempt",
+  "source": "c160"
+ },
+ {
+  "time": 9,
+  "type": "Coup_Attempt",
+  "source": "c111"
+ },
+ {
+  "time": 9,
+  "type": "Coup_Attempt",
+  "source": "c129"
+ },
+ {
+  "time": 9,
+  "type": "Coup_Attempt",
+  "source": "c187"
+ },
+ {
+  "time": 10,
+  "type": "Coup_Attempt",
+  "source": "c005"
+ },
+ {
+  "time": 10,
+  "type": "Coup_Attempt",
+  "source": "c096"
+ },
+ {
+  "time": 10,
+  "type": "Coup_Attempt",
+  "source": "c159"
+ },
+ {
+  "time": 11,
+  "type": "Coup_Attempt",
+  "source": "c028"
+ },
+ {
+  "time": 11,
+  "type": "Coup_Attempt",
+  "source": "c046"
+ },
+ {
+  "time": 11,
+  "type": "Coup_Attempt",
+  "source": "c074"
+ },
+ {
+  "time": 11,
+  "type": "Coup_Attempt",
+  "source": "c163"
+ },
+ {
+  "time": 12,
+  "type": "Coup_Attempt",
+  "source": "c097"
+ },
+ {
+  "time": 12,
+  "type": "Coup_Attempt",
+  "source": "c142"
+ },
+ {
+  "time": 12,
+  "type": "Coup_Attempt",
+  "source": "c143"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c009"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c054"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c066"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c082"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c106"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c146"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c168"
+ },
+ {
+  "time": 13,
+  "type": "Coup_Attempt",
+  "source": "c175"
+ },
+ {
+  "time": 14,
+  "type": "Coup_Attempt",
+  "source": "c004"
+ },
+ {
+  "time": 14,
+  "type": "Coup_Attempt",
+  "source": "c039"
+ },
+ {
+  "time": 14,
+  "type": "Coup_Attempt",
+  "source": "c104"
+ },
+ {
+  "time": 14,
+  "type": "Coup_Attempt",
+  "source": "c125"
+ },
+ {
+  "time": 14,
+  "type": "Coup_Attempt",
+  "source": "c186"
+ },
+ {
+  "time": 15,
+  "type": "Coup_Attempt",
+  "source": "c067"
+ },
+ {
+  "time": 15,
+  "type": "Coup_Attempt",
+  "source": "c107"
+ },
+ {
+  "time": 16,
+  "type": "Coup_Attempt",
+  "source": "c056"
+ },
+ {
+  "time": 16,
+  "type": "Coup_Attempt",
+  "source": "c173"
+ },
+ {
+  "time": 17,
+  "type": "Coup_Attempt",
+  "source": "c115"
+ },
+ {
+  "time": 17,
+  "type": "Coup_Attempt",
+  "source": "c170"
+ },
+ {
+  "time": 18,
+  "type": "Coup_Attempt",
+  "source": "c001"
+ },
+ {
+  "time": 18,
+  "type": "Coup_Attempt",
+  "source": "c090"
+ },
+ {
+  "time": 18,
+  "type": "Coup_Attempt",
+  "source": "c195"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c012"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c018"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c019"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c058"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c069"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c077"
+ },
+ {
+  "time": 19,
+  "type": "Coup_Attempt",
+  "source": "c093"
+ },
+ {
+  "time": 20,
+  "type": "Coup_Attempt",
+  "source": "c100"
+ },
+ {
+  "time": 20,
+  "type": "Coup_Attempt",
+  "source": "c117"
+ },
+ {
+  "time": 21,
+  "type": "Coup_Attempt",
+  "source": "c042"
+ },
+ {
+  "time": 21,
+  "type": "Coup_Attempt",
+  "source": "c145"
+ },
+ {
+  "time": 22,
+  "type": "Coup_Attempt",
+  "source": "c006"
+ },
+ {
+  "time": 23,
+  "type": "Coup_Attempt",
+  "source": "c008"
+ },
+ {
+  "time": 23,
+  "type": "Coup_Attempt",
+  "source": "c057"
+ },
+ {
+  "time": 23,
+  "type": "Coup_Attempt",
+  "source": "c147"
+ },
+ {
+  "time": 26,
+  "type": "Coup_Attempt",
+  "source": "c025"
+ },
+ {
+  "time": 26,
+  "type": "Coup_Attempt",
+  "source": "c065"
+ },
+ {
+  "time": 26,
+  "type": "Coup_Attempt",
+  "source": "c153"
+ },
+ {
+  "time": 27,
+  "type": "Coup_Attempt",
+  "source": "c070"
+ },
+ {
+  "time": 27,
+  "type": "Coup_Attempt",
+  "source": "c084"
+ },
+ {
+  "time": 27,
+  "type": "Coup_Attempt",
+  "source": "c151"
+ },
+ {
+  "time": 28,
+  "type": "Coup_Attempt",
+  "source": "c047"
+ },
+ {
+  "time": 28,
+  "type": "Coup_Attempt",
+  "source": "c050"
+ },
+ {
+  "time": 28,
+  "type": "Coup_Attempt",
+  "source": "c064"
+ },
+ {
+  "time": 28,
+  "type": "Coup_Attempt",
+  "source": "c185"
+ },
+ {
+  "time": 29,
+  "type": "Coup_Attempt",
+  "source": "c027"
+ },
+ {
+  "time": 29,
+  "type": "Coup_Attempt",
+  "source": "c078"
+ },
+ {
+  "time": 29,
+  "type": "Coup_Attempt",
+  "source": "c191"
+ },
+ {
+  "time": 30,
+  "type": "Coup_Attempt",
+  "source": "c017"
+ },
+ {
+  "time": 30,
+  "type": "Coup_Attempt",
+  "source": "c075"
+ },
+ {
+  "time": 30,
+  "type": "Coup_Attempt",
+  "source": "c112"
+ },
+ {
+  "time": 30,
+  "type": "Coup_Attempt",
+  "source": "c190"
+ },
+ {
+  "time": 30,
+  "type": "Coup_Attempt",
+  "source": "c198"
+ },
+ {
+  "time": 31,
+  "type": "Coup_Attempt",
+  "source": "c038"
+ },
+ {
+  "time": 31,
+  "type": "Coup_Attempt",
+  "source": "c068"
+ },
+ {
+  "time": 31,
+  "type": "Coup_Attempt",
+  "source": "c079"
+ },
+ {
+  "time": 32,
+  "type": "Coup_Attempt",
+  "source": "c036"
+ },
+ {
+  "time": 32,
+  "type": "Coup_Attempt",
+  "source": "c118"
+ },
+ {
+  "time": 32,
+  "type": "Coup_Attempt",
+  "source": "c169"
+ },
+ {
+  "time": 33,
+  "type": "Coup_Attempt",
+  "source": "c120"
+ },
+ {
+  "time": 33,
+  "type": "Coup_Attempt",
+  "source": "c184"
+ },
+ {
+  "time": 35,
+  "type": "Coup_Attempt",
+  "source": "c062"
+ },
+ {
+  "time": 35,
+  "type": "Coup_Attempt",
+  "source": "c166"
+ },
+ {
+  "time": 36,
+  "type": "Coup_Attempt",
+  "source": "c128"
+ },
+ {
+  "time": 37,
+  "type": "Coup_Attempt",
+  "source": "c020"
+ },
+ {
+  "time": 37,
+  "type": "Coup_Attempt",
+  "source": "c041"
+ },
+ {
+  "time": 37,
+  "type": "Coup_Attempt",
+  "source": "c177"
+ },
+ {
+  "time": 37,
+  "type": "Coup_Attempt",
+  "source": "c199"
+ },
+ {
+  "time": 38,
+  "type": "Coup_Attempt",
+  "source": "c182"
+ },
+ {
+  "time": 39,
+  "type": "Coup_Attempt",
+  "source": "c013"
+ },
+ {
+  "time": 39,
+  "type": "Coup_Attempt",
+  "source": "c016"
+ },
+ {
+  "time": 39,
+  "type": "Coup_Attempt",
+  "source": "c072"
+ },
+ {
+  "time": 39,
+  "type": "Coup_Attempt",
+  "source": "c092"
+ },
+ {
+  "time": 39,
+  "type": "Coup_Attempt",
+  "source": "c136"
+ },
+ {
+  "time": 40,
+  "type": "Coup_Attempt",
+  "source": "c022"
+ },
+ {
+  "time": 40,
+  "type": "Coup_Attempt",
+  "source": "c073"
+ },
+ {
+  "time": 41,
+  "type": "Coup_Attempt",
+  "source": "c045"
+ },
+ {
+  "time": 41,
+  "type": "Coup_Attempt",
+  "source": "c085"
+ },
+ {
+  "time": 42,
+  "type": "Coup_Attempt",
+  "source": "c044"
+ },
+ {
+  "time": 42,
+  "type": "Coup_Attempt",
+  "source": "c048"
+ },
+ {
+  "time": 42,
+  "type": "Coup_Attempt",
+  "source": "c167"
+ },
+ {
+  "time": 43,
+  "type": "Coup_Attempt",
+  "source": "c052"
+ },
+ {
+  "time": 43,
+  "type": "Coup_Attempt",
+  "source": "c126"
+ },
+ {
+  "time": 43,
+  "type": "Coup_Attempt",
+  "source": "c189"
+ },
+ {
+  "time": 44,
+  "type": "Coup_Attempt",
+  "source": "c130"
+ },
+ {
+  "time": 44,
+  "type": "Coup_Attempt",
+  "source": "c149"
+ },
+ {
+  "time": 44,
+  "type": "Coup_Attempt",
+  "source": "c164"
+ },
+ {
+  "time": 44,
+  "type": "Coup_Attempt",
+  "source": "c178"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c000"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c015"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c091"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c095"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c138"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c162"
+ },
+ {
+  "time": 45,
+  "type": "Coup_Attempt",
+  "source": "c193"
+ },
+ {
+  "time": 45,
+  "type": "Minister_Died",
+  "source": "c028"
+ },
+ {
+  "time": 45,
+  "type": "Minister_Died",
+  "source": "c084"
+ },
+ {
+  "time": 45,
+  "type": "Minister_Died",
+  "source": "c186"
+ },
+ {
+  "time": 46,
+  "type": "Minister_Died",
+  "source": "c127"
+ },
+ {
+  "time": 46,
+  "type": "Minister_Died",
+  "source": "c128"
+ },
+ {
+  "time": 47,
+  "type": "Minister_Died",
+  "source": "c165"
+ },
+ {
+  "time": 49,
+  "type": "Minister_Died",
+  "source": "c050"
+ },
+ {
+  "time": 49,
+  "type": "Minister_Died",
+  "source": "c160"
+ },
+ {
+  "time": 49,
+  "type": "Minister_Died",
+  "source": "c182"
+ },
+ {
+  "time": 50,
+  "type": "Minister_Died",
+  "source": "c042"
+ },
+ {
+  "time": 51,
+  "type": "Minister_Died",
+  "source": "c073"
+ },
+ {
+  "time": 51,
+  "type": "Minister_Died",
+  "source": "c177"
+ },
+ {
+  "time": 52,
+  "type": "Minister_Died",
+  "source": "c048"
+ },
+ {
+  "time": 52,
+  "type": "Minister_Died",
+  "source": "c070"
+ },
+ {
+  "time": 54,
+  "type": "Minister_Died",
+  "source": "c090"
+ },
+ {
+  "time": 54,
+  "type": "Minister_Died",
+  "source": "c138"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c019"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c065"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c112"
+ },
+ {
+  "time": 55,
+  "type": "Minister_Died",
+  "source": "c145"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c062"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c110"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c162"
+ },
+ {
+  "time": 56,
+  "type": "Minister_Died",
+  "source": "c193"
+ },
+ {
+  "time": 57,
+  "type": "Minister_Died",
+  "source": "c004"
+ },
+ {
+  "time": 57,
+  "type": "Minister_Died",
+  "source": "c113"
+ },
+ {
+  "time": 57,
+  "type": "Minister_Died",
+  "source": "c167"
+ },
+ {
+  "time": 58,
+  "type": "Minister_Died",
+  "source": "c044"
+ },
+ {
+  "time": 58,
+  "type": "Minister_Died",
+  "source": "c046"
+ },
+ {
+  "time": 58,
+  "type": "Minister_Died",
+  "source": "c168"
+ },
+ {
+  "time": 58,
+  "type": "Minister_Died",
+  "source": "c169"
+ },
+ {
+  "time": 59,
+  "type": "Minister_Died",
+  "source": "c066"
+ },
+ {
+  "time": 61,
+  "type": "Minister_Died",
+  "source": "c000"
+ },
+ {
+  "time": 61,
+  "type": "Minister_Died",
+  "source": "c001"
+ },
+ {
+  "time": 61,
+  "type": "Minister_Died",
+  "source": "c151"
+ },
+ {
+  "time": 61,
+  "type": "Minister_Died",
+  "source": "c156"
+ },
+ {
+  "time": 61,
+  "type": "Minister_Died",
+  "source": "c170"
+ },
+ {
+  "time": 62,
+  "type": "Minister_Died",
+  "source": "c027"
+ },
+ {
+  "time": 62,
+  "type": "Minister_Died",
+  "source": "c038"
+ },
+ {
+  "time": 62,
+  "type": "Minister_Died",
+  "source": "c147"
+ },
+ {
+  "time": 63,
+  "type": "Minister_Died",
+  "source": "c120"
+ },
+ {
+  "time": 65,
+  "type": "Minister_Died",
+  "source": "c006"
+ },
+ {
+  "time": 65,
+  "type": "Minister_Died",
+  "source": "c078"
+ },
+ {
+  "time": 65,
+  "type": "Minister_Died",
+  "source": "c091"
+ },
+ {
+  "time": 65,
+  "type": "Minister_Died",
+  "source": "c159"
+ },
+ {
+  "time": 66,
+  "type": "Minister_Died",
+  "source": "c039"
+ },
+ {
+  "time": 66,
+  "type": "Minister_Died",
+  "source": "c069"
+ },
+ {
+  "time": 66,
+  "type": "Minister_Died",
+  "source": "c130"
+ },
+ {
+  "time": 67,
+  "type": "Minister_Died",
+  "source": "c175"
+ },
+ {
+  "time": 67,
+  "type": "Minister_Died",
+  "source": "c195"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c008"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c018"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c047"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c054"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c058"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c072"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c074"
+ },
+ {
+  "time": 68,
+  "type": "Minister_Died",
+  "source": "c085"
+ },
+ {
+  "time": 69,
+  "type": "Minister_Died",
+  "source": "c022"
+ },
+ {
+  "time": 69,
+  "type": "Minister_Died",
+  "source": "c118"
+ },
+ {
+  "time": 69,
+  "type": "Minister_Died",
+  "source": "c142"
+ },
+ {
+  "time": 69,
+  "type": "Minister_Died",
+  "source": "c187"
+ },
+ {
+  "time": 70,
+  "type": "Minister_Died",
+  "source": "c184"
+ },
+ {
+  "time": 70,
+  "type": "Minister_Died",
+  "source": "c199"
+ },
+ {
+  "time": 71,
+  "type": "Minister_Died",
+  "source": "c093"
+ },
+ {
+  "time": 71,
+  "type": "Minister_Died",
+  "source": "c100"
+ },
+ {
+  "time": 72,
+  "type": "Minister_Died",
+  "source": "c017"
+ },
+ {
+  "time": 72,
+  "type": "Minister_Died",
+  "source": "c020"
+ },
+ {
+  "time": 72,
+  "type": "Minister_Died",
+  "source": "c136"
+ },
+ {
+  "time": 73,
+  "type": "Minister_Died",
+  "source": "c009"
+ },
+ {
+  "time": 73,
+  "type": "Minister_Died",
+  "source": "c077"
+ },
+ {
+  "time": 74,
+  "type": "Minister_Died",
+  "source": "c096"
+ },
+ {
+  "time": 75,
+  "type": "Minister_Died",
+  "source": "c013"
+ },
+ {
+  "time": 75,
+  "type": "Minister_Died",
+  "source": "c079"
+ },
+ {
+  "time": 75,
+  "type": "Minister_Died",
+  "source": "c083"
+ },
+ {
+  "time": 75,
+  "type": "Minister_Died",
+  "source": "c092"
+ },
+ {
+  "time": 75,
+  "type": "Minister_Died",
+  "source": "c164"
+ },
+ {
+  "time": 76,
+  "type": "Minister_Died",
+  "source": "c016"
+ },
+ {
+  "time": 76,
+  "type": "Minister_Died",
+  "source": "c153"
+ },
+ {
+  "time": 77,
+  "type": "Minister_Died",
+  "source": "c036"
+ },
+ {
+  "time": 77,
+  "type": "Minister_Died",
+  "source": "c163"
+ },
+ {
+  "time": 77,
+  "type": "Minister_Died",
+  "source": "c190"
+ },
+ {
+  "time": 78,
+  "type": "Minister_Died",
+  "source": "c007"
+ },
+ {
+  "time": 78,
+  "type": "Minister_Died",
+  "source": "c082"
+ },
+ {
+  "time": 78,
+  "type": "Minister_Died",
+  "source": "c129"
+ },
+ {
+  "time": 78,
+  "type": "Minister_Died",
+  "source": "c189"
+ },
+ {
+  "time": 80,
+  "type": "Minister_Died",
+  "source": "c064"
+ },
+ {
+  "time": 80,
+  "type": "Minister_Died",
+  "source": "c125"
+ },
+ {
+  "time": 80,
+  "type": "Minister_Died",
+  "source": "c185"
+ },
+ {
+  "time": 81,
+  "type": "Minister_Died",
+  "source": "c106"
+ },
+ {
+  "time": 82,
+  "type": "Minister_Died",
+  "source": "c041"
+ },
+ {
+  "time": 82,
+  "type": "Minister_Died",
+  "source": "c068"
+ },
+ {
+  "time": 83,
+  "type": "Minister_Died",
+  "source": "c067"
+ },
+ {
+  "time": 83,
+  "type": "Minister_Died",
+  "source": "c134"
+ },
+ {
+  "time": 84,
+  "type": "Minister_Died",
+  "source": "c012"
+ },
+ {
+  "time": 84,
+  "type": "Minister_Died",
+  "source": "c057"
+ },
+ {
+  "time": 84,
+  "type": "Minister_Died",
+  "source": "c146"
+ },
+ {
+  "time": 84,
+  "type": "Minister_Died",
+  "source": "c173"
+ },
+ {
+  "time": 85,
+  "type": "Minister_Died",
+  "source": "c115"
+ },
+ {
+  "time": 86,
+  "type": "Minister_Died",
+  "source": "c005"
+ },
+ {
+  "time": 86,
+  "type": "Minister_Died",
+  "source": "c052"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c025"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c095"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c107"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c126"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c143"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c149"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c178"
+ },
+ {
+  "time": 87,
+  "type": "Minister_Died",
+  "source": "c191"
+ },
+ {
+  "time": 88,
+  "type": "Minister_Died",
+  "source": "c045"
+ },
+ {
+  "time": 89,
+  "type": "Minister_Died",
+  "source": "c104"
+ },
+ {
+  "time": 89,
+  "type": "Minister_Died",
+  "source": "c166"
+ },
+ {
+  "time": 89,
+  "type": "Minister_Died",
+  "source": "c198"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c015"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c056"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c075"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c097"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c101"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c111"
+ },
+ {
+  "time": 90,
+  "type": "Minister_Died",
+  "source": "c117"
+ }
+]

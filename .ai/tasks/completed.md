@@ -4,6 +4,34 @@
 
 ---
 
+### [TASK-040] Actor Runtime Integrated Validation Benchmark
+
+- **Status:** COMPLETE (معتمدة رسميًا من المالك أحمد 2026-09-09 — الموافقة الصريحة غطت: (أ) A10 gap fix وفق Decision 004، (ب) ENGINE TOUCH #5 بعد إثبات A/B تجريبي bitwise لحياد المسار الافتراضي، (ج) حسم تعارض أرقام D لصالح N=200/quiet=155)
+- **Owner:** z-ai/glm-5.3 (Hermes Agent)
+- **Dependencies:** TASK-040-pre (baseline `bf2ea5b4` — A10 integration accepted)
+- **Objective:** Validate the integrated Actor Runtime under deterministic mixed event/deadline workloads at N=200 (scenarios A/B/C/D) via the production path only (`Simulation.run_step() → sim.scheduled → pump_integrated → PoliticalActions → Owning Domain`), determining correctness/determinism/fairness/starvation under stacked contention.
+- **Acceptance Criteria — كلها PASS 43/43 عبر تشغيلين منفصلين (bit-identical):**
+  - [x] P0 fixture integrity: 5 أشجار حتمية seeded (200 دولة × 4 أحزاب لكل دولة، موسومة TEST FIXTURE) + مدقق ثابت 0 errors
+  - [x] A10 gate أولًا: السلسلة الإنتاجية الكاملة مثبتة تجريبيًا (term→rule→derived election على sim.scheduled→HoldElection عبر pipeline→owning domain)، صفر استدعاء harness لأي pump
+  - [x] A1 canonical correctness + A2 determinism: أوراكل SHA-256 متطابق عبر عمليتين منفصلتين لكل سيناريو (A=`dce306df…d999` · B=`b1f04a4e…8bac` · C=`46b381cd…8f23` · D=`9295442b…1924` — كلها 64-hex مُتحقق منها برمجيًا)
+  - [x] A3–A6: كل أحداث الـfixture هبطت (max wait=0)، صفر deadline misses عند الأفق، صفر duplicates، ordering حتمي
+  - [x] A7 starvation (Scenario D بالكامل — الاختبار الرئيسي): 60/60 deadline activations resolved (30 term + 30 derived elections)، lateness_max=0، 15 انتخابات منفذة، 120/120 أحداث هبطت (wait=0)، ذروة تكديس يوم 30: 20 deadline + 200 job شهري في tick واحد @151ms — لا تجويع في أي فئة
+  - [x] A8: صفر تقييمات سياسية على الأيام الهادئة (لا periodic reassessment — لم تُبنَ ولم تدخل من باب خلفي)
+  - [x] A9: كل الآفاق اكتملت، exit 0، لا crashes
+  - [x] A10: political deadlines عبر production path فقط — مثبت بالبوابة وبالسيناريوهات الأربعة
+  - [x] حياد المسار الافتراضي: A/B probe مقابل كود الـbaseline الحرفي (git stash) — default path وdirectory-override متطابقان bitwise (نفس world SHA-256 ونفس counters)
+  - [x] Regression كامل أخضر بعد تعديلي المحرك: deadlines 17/17 · batch_a 31/31 · ScenarioTest 5/5 (checksum anchor) · D1 28/28 · model v1 7/7 · economy P1 8/8 + P2 14/14 · compliance 25/25 · validate_memory 0 errors
+  - [x] موافقة المالك الصريحة على: التعديلين المعماريين + حسم N=200/quiet=155 (2026-09-09) — لا انتقال قبلها (التُزم)
+- **Validation Method:** `python scripts/t040_worldgen.py` → `python scripts/t040_verify_fixture.py` → Godot headless `scripts/test_t040_benchmark.gd` (×2 منفصلتين) → full regression suite → A/B default-path probe
+- **Evidence:**
+  - [.ai/evidence/tests/test_t040_benchmark_run01.log](file:///.ai/evidence/tests/test_t040_benchmark_run01.log) (43/43 PASS + hashes)
+  - [.ai/evidence/tests/test_t040_benchmark_run02.log](file:///.ai/evidence/tests/test_t040_benchmark_run02.log) (rerun مستقل — bit-identical)
+  - [.ai/evidence/tests/t040_scenario_a_ticklog.txt](file:///.ai/evidence/tests/t040_scenario_a_ticklog.txt) · [b](file:///.ai/evidence/tests/t040_scenario_b_ticklog.txt) · [c](file:///.ai/evidence/tests/t040_scenario_c_ticklog.txt) · [d](file:///.ai/evidence/tests/t040_scenario_d_ticklog.txt) (per-tick raw لكل سيناريو)
+  - [.ai/evidence/tests/t040_defaultpath_ab_current.log](file:///.ai/evidence/tests/t040_defaultpath_ab_current.log) / [baseline](file:///.ai/evidence/tests/t040_defaultpath_ab_baseline.log) (حياد المسار الافتراضي bitwise)
+  - Regression: `test_t040_reg_*.log` (8 أجنحة)
+
+---
+
 ### [TASK-040-pre] Minimal Deadline Activation Proof
 
 - **Status:** COMPLETE (PROVISIONAL — مراجعة المالك قبل فتح TASK-040؛ لا انتقال تلقائي)

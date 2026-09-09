@@ -2,6 +2,25 @@
 
 سجل زمني لجميع التعديلات الهامة التي طرأت على مشروع **Maestro Engine**.
 
+## [2026-09-09]
+
+### Fixed
+- **إصلاح كامن منفصل عن TASK-040 (اكتشاف عرضي أثناء البناء):** عداد `elections_held` في `game_event_handlers.gd::job_political_deadline_pump` كان (1) يصل إلى `rec["resolution"].get(...)` على سجلات لم تُحلّ بعد — `resolution = null` ⇒ SCRIPT ERROR يوميًا عند أول deadline معلق، و(2) يعيد عدّ كل الانتخابات المنتهية تراكميًا كل يوم (تضخيم يومي مضاعف). الإصلاح: null-guard + عدّ فقط ما `resolved_at == day`. لم يكن يظهر في الإنتاج الافتراضي لأن عالم الإنتاج بلا حكومات. (طلب أحمد 2026-09-09: يُوثَّق كتغيير منفصل عن TASK-040 نفسها — "مكسب إضافي مش مطلوب منه".)
+
+### Added
+- **TASK-040 (Actor Runtime Integrated Validation Benchmark) — COMPLETE معتمدة رسميًا (43/43 PASS × تشغيلين منفصلين · موافقة أحمد الصريحة 2026-09-09 · commit تم):**
+  - تنفيذ كامل من الصفر من baseline `bf2ea5b4` (الـcommit المرفوض ee98f568 لم يُبنَ عليه؛ بطلانه ثبت معماريًا: data_root directory → فشل صامت → PoliticalState فارغة → صفر deadlines + always-true checks).
+  - **5 أشجار fixture حتمية** (200 دولة × 4 أحزاب لكل دولة، seeded بالكامل، موسومة TEST FIXTURE) تحت `data/scenarios/t040/` + مولد `scripts/t040_worldgen.py` (idempotent: نفس seed ⇒ نفس الشجرة byte-idential) + مدقق ثابت `scripts/t040_verify_fixture.py` (0 errors).
+  - **A10 gate أولًا:** السلسلة الإنتاجية الكاملة (term→rule→election_deadline مشتق على sim.scheduled→HoldElection عبر pipeline→owning domain) مثبتة تجريبيًا بلا أي استدعاء harness للـpump — production path فقط.
+  - **Harness كامل** `scripts/test_t040_benchmark.gd`: P0 integrity → P1 A10 gate (يوقف الكل عند الفشل) → P2 سيناريوهات A/B/C/D (per-tick raw logging: tick_us، events، activations by class، queue، evals) → P3 أوراكل حتمية SHA-256 عبر تشغيلين منفصلين مع فحص 64-hex برمجيًا قبل العرض.
+  - **النتائج:** A/B/C/D كلها PASS — صفر misses، صفر duplicates، كل الأحداث هبطت (max wait=0)، صفر تقييمات سياسية على الأيام الهادئة (A8)، lateness_max=0.
+  - **Scenario D (Stacked Contention) بالكامل:** 60/60 deadlines resolved (lateness 0)، 15 انتخابات، 120/120 أحداث (wait 0)، ذروة يوم 30: 20 deadline+200 job شهري في tick واحد (151ms) — لا تجويع.
+  - **أوراكل الحتمية (ثابت عبر التشغيلات):** A=dce306df…d999 · B=b1f04a4e…8bac · C=46b381cd…8f23 · D=9295442b…1924 (كلها 64-hex صحيحة، متطابقة bitwise بين run01/run02).
+  - **إصلاحان في طبقة المحتوى (معتمدان 2026-09-09):** (1) ENGINE TOUCH #5 — تحميل political world/institutional rules من شجرة الـfixture عبر data_root_override؛ (2) توحيد Decision-004 — تمرير الـscheduler إلى `PD._activate` ليُسجَّل الـelection_deadline المشتق على نفس الـqueue المقروءة (بدونه: فقد صامت A4/A10 حقيقي عند الـbaseline). + إصلاح null-crash كامن في عداد elections_held.
+  - **إثبات حياد المسار الافتراضي (A/B empirical):** probe `scripts/t040_defaultpath_probe.gd` شُغّل على الكود الحالي وعلى كود الـbaseline الحرفي (عبر `git stash` لملفي المحرك) — **المساران متطابقان bitwise**: default path (4 دول، 30 يومًا) وdirectory-override t5_p0 (10K دولة، 10 أيام) أعطيا نفس SHA-256 للـworld snapshot ونفس الـpolitical counters في الحالتين. لا سلوك افتراضي تغيّر. الأدلة: `t040_defaultpath_ab_current.log` / `t040_defaultpath_ab_baseline.log` (متطابقة SHA-256: `70235614…d76a`).
+  - **Regression كامل أخضر بعد كل التعديلات:** deadlines 17/17 · batch_a 31/31 · ScenarioTest 5/5 (checksum anchor) · D1 28/28 · model v1 7/7 · economy 14/14+8/8 · compliance 25/25 · validate_memory 0 errors.
+  - **معلق لتصديق المالك:** تعارض أرقام D (نص 15+30+170=215 مقابل عالم 200 المجمّد → حُسم لصالح quiet=155). **حُسم 2026-09-09: N=200/quiet=155 بموافقة المالك الصريحة.**
+
 ## [2026-09-07]
 
 ### Added

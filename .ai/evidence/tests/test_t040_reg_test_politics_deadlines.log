@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TASK-040-pre — MINIMAL DEADLINE ACTIVATION PROOF (A1-A7)
+============================================================
+  fixture: term=30 due_at=30 call_days=0 horizon=45 seed=none (zero-RNG deterministic workload)
+
+-- T1: term expiration -> rule eval -> election deadline -> activation -> resolution
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+  PASS  T1a term deadline scheduled at formation (due_at=30, owner=gov_1)
+  PASS  T1b A1: no activation before due day (ticks 1-29 => 0 activations)
+  PASS  T1c A1: term deadline activated exactly at due day 30 (lateness 0)
+  PASS  T1d A4 causal wiring: election deadline created BY the rule evaluation
+  PASS  T1e election executed once via pipeline (HoldElection reached the domain)
+  PASS  T1f A2: required deadlines all resolved at horizon (none silently missed)
+  PASS  T1g deadline queue drained (size 0) and every record resolved
+  PASS  T1h A3: zero duplicate activations
+
+-- T2: rules WITHOUT term->election => term resolves, no election fabricated
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+  PASS  T2 term resolved as no_election_required_per_rules; no election deadline; no election
+
+-- T3: independent election_due deadline (no government term involved)
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+  PASS  T3 independent election deadline activates at day 10 and executes HoldElection
+
+-- T4/T5: horizon sweep — no missed deadline, no duplicate activation
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+  PASS  T4 A2: zero deadlines stuck un-resolved at horizon
+  PASS  T5 A3: every deadline activated exactly once
+
+-- T7/T8: ownership path preserved + scheduler reuse (no second scheduler)
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+  PASS  T7 A6: deadline activation flowed through the Action pipeline
+  PASS  T8 A7: deadline queue REUSES kernel ScheduledQueue CLASS (mechanism reuse per Decision 004)
+  PASS  T8b source audit: no polling/engine-coupling/rng in politics modules
+
+-- T6: A5 determinism — canonical snapshot + SHA-256 across repeated runs
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+INVESTMENT | beta invested 100 wheat. New wheat prod rate: 32.0
+  CANONICAL_SHA256 run1 = 29841b4297c7b9ffe8f0591ff37b3e8f2545b6221669360ab74b7e25b67cb2f4
+  CANONICAL_SHA256 run2 = 29841b4297c7b9ffe8f0591ff37b3e8f2545b6221669360ab74b7e25b67cb2f4
+  PASS  T6 A5: identical canonical simulation state => identical SHA-256
+  PASS  T6b canonical excludes runtime metadata: snapshot deterministic across runs
+
+RESULT: PASS 17 / FAIL 0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+WARNING: 97 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 11 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

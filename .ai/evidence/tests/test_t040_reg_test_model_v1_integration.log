@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  MODEL v1 — INTEGRATION GATE
+  Both channels + chains | Joint L1/L2/L3 compliance
+============================================================
+
+[layers] exposure=1.0500000000 dp=0.8000 ex_cap=1.00 access=0.8400000000 rel_supply=0.9450000000 total=1.7850000000
+[PASS] I-1 exposure primitive matches mirrored computation exactly
+[PASS] I-2 derived possession Washington->EUV_gate == 0.8 exactly
+[PASS] I-3 access channel == exposure_supply x dp x exercise_cap (mirror exact)
+[PASS] I-4 L1 joint: stance/hostility flips leave ALL layers bitwise identical
+[PASS] I-5 L2 joint: no aggregate threat/danger keys anywhere in derived output
+[PASS] I-6 L3 joint: every emitted derived value is a bare float
+[PASS] I-7 double-run chains output canonical-identical
+
+============================================================
+  INTEGRATION GATE RESULT: PASS (7 checks)
+  Model v1 is CLEARED FOR FREEZE pending owner sign-off.
+============================================================
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers

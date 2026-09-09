@@ -1,0 +1,61 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+============================================================
+  TASK-038 COMPLIANCE RUNTIME LAYER — ACCEPTANCE (A-L)
+============================================================
+
+-- A: Determinism (same inputs => identical assessment)
+  PASS  A1 two identical compliance calls => canonical bitwise equal
+  PASS  A2 two identical legitimacy calls => canonical bitwise equal
+
+-- B: Capability INFEASIBLE+COMPLETE => no fabricated compliance
+  PASS  B1 short-circuited with null degree/mode/strength
+  PASS  B2 short-circuit unaffected by loyalty/conflict (canonical equal to B1)
+
+-- C: Capability UNKNOWN+PARTIAL (missing Geography) continues
+  PASS  C1 capability UNKNOWN+PARTIAL, not INFEASIBLE, missing Geography path
+  PASS  C2 resolution continues: degree/mode present, PARTIAL propagated
+
+-- D: Authority high vs absent (loyalty absent => NEUTRAL path)
+  PASS  D1 compliance differs: pressure => (0.5, NONE) vs no-authority => (0.0, PASSIVE)
+  PASS  D2 capability assessment bitwise identical (Authority != Capability)
+
+-- E: loyalty changes, influence pinned (channel separation)
+  PASS  E1 influence assessment bitwise identical across loyalty change
+  PASS  E2 compliance changed via loyalty: (1.0,NONE) -> (0.5,NONE)
+
+-- F: informal-high/no-authority vs authority-high/informal-low
+  PASS  F1 channels not aliases: a(struct=0.0,informal=0.9) b(struct=0.9,informal=0.0)
+  PASS  F2 canonical assessments differ
+
+-- G: State legitimacy with missing PopularSupport
+  PASS  G1 status PARTIAL + missing contains PopularSupport
+  PASS  G2 value computed from available evidence only (mean of primitives), no default
+
+-- H: Action legitimacy with missing ConstitutionalValidity
+  PASS  H1 status PARTIAL + missing contains ConstitutionalValidity
+  PASS  H2 computation continues from available inputs (value non-null from Authority)
+
+-- I: five resistance states without ambiguity
+  PASS  I1 full: (1.0, NONE)
+  PASS  I2 partial: (0.5, NONE)
+  PASS  I3 passive: (0.0, PASSIVE, 0.5)
+  PASS  I4 active: (0.0, ACTIVE, 0.7)
+  PASS  I5 partial+active: (0.4, ACTIVE)
+
+-- J: compliance query leaves world untouched
+  PASS  J1 before_state == after_state (bitwise canonical)
+
+-- K: no per-tick polling (audit + runtime counter)
+  PASS  K1 source audit: no tick-loop/process/polling bindings in layer modules
+  PASS  K2 dispatch.json untouched: no compliance wiring
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+  PASS  K3 runtime: 30 ticks => +0 evaluations, explicit call => +1
+
+RESULT: PASS 25 / FAIL 0
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+WARNING: 25 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 11 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

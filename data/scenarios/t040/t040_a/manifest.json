@@ -1,0 +1,55 @@
+{
+ "tree": "t040_a",
+ "seed": 40140,
+ "scenario_spec": {
+  "governed": 30,
+  "crisis": 0,
+  "background": 0,
+  "horizon": 90,
+  "election_call_days": 5,
+  "all_election_wired": true
+ },
+ "governed": [
+  "c005",
+  "c007",
+  "c014",
+  "c022",
+  "c025",
+  "c027",
+  "c036",
+  "c058",
+  "c063",
+  "c065",
+  "c080",
+  "c088",
+  "c090",
+  "c096",
+  "c097",
+  "c098",
+  "c106",
+  "c108",
+  "c118",
+  "c128",
+  "c129",
+  "c132",
+  "c135",
+  "c138",
+  "c144",
+  "c157",
+  "c170",
+  "c192",
+  "c193",
+  "c196"
+ ],
+ "crisis_active": [],
+ "background_active": [],
+ "n_countries": 200,
+ "horizon": 90,
+ "events": {
+  "total": 30,
+  "by_type": {
+   "Minister_Died": 30
+  }
+ },
+ "note": "TEST FIXTURE — deterministic workload; same seed => identical tree"
+}

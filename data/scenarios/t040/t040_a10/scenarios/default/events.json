@@ -1,0 +1,12 @@
+[
+ {
+  "time": 12,
+  "type": "Coup_Attempt",
+  "source": "c064"
+ },
+ {
+  "time": 46,
+  "type": "Minister_Died",
+  "source": "c064"
+ }
+]

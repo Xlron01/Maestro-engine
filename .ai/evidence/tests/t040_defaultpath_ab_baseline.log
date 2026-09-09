@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+=== T040 DEFAULT-PATH A/B PROBE START ===
+code: 4.7.2-stable (official)
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+init: countries=4 provinces=1 data_root_override=''
+political: governments=0 parties=0 legislatures=0 offices=0 characters=0 deadlines=0
+counters@day0: {"deadline_pumps":0,"deadlines_activated":0,"deadlines_due":0,"deadlines_resolved":0,"elections_held":0}
+world_sha256@day0: dbe0eb0909c11aaf19db87936cc906bd02aa3651632c02575e174f5f0e1a6f5b
+day_after_run: 30
+counters@day30: {"deadline_pumps":30,"deadlines_activated":0,"deadlines_due":0,"deadlines_resolved":0,"elections_held":0}
+world_sha256@day30: a353bc01c2c0e7ba5bfd7c1eb76498ec2386482d630816f7fea66ad73049c1d6
+hash_format_ok: true (64-hex verified)
+--- phase2: directory-override t5_p0 ---
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+init2: countries=10000 provinces=0 override='res://data/scenarios/t5_p0'
+political2: governments=0 parties=0 legislatures=0 offices=0 characters=0 deadlines=0
+world2_sha256@day0: 60cc423a26cdef9dcc695824eb6f14aeb4c2b08473e9ffa237a45562e37c9592
+day2_after_run: 10
+counters2@day10: {"deadline_pumps":10,"deadlines_activated":0,"deadlines_due":0,"deadlines_resolved":0,"elections_held":0}
+world2_sha256@day10: 60cc423a26cdef9dcc695824eb6f14aeb4c2b08473e9ffa237a45562e37c9592
+hash_format_ok2: true (64-hex verified)
+=== T040 DEFAULT-PATH A/B PROBE END ===
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers
+WARNING: 37 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 11 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

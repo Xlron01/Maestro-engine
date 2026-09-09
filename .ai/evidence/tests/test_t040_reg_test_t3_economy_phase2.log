@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+========================================
+T3-Phase 2 Economy Test — Investment + Feedback + Reusability
+========================================
+
+--- EC2-1: Investment Trigger ---
+PASS | EC2-1-a: alpha wheat initial=500
+PASS | EC2-1-b: investment triggered (alpha wheat < 600 after 11 ticks)
+   alpha wheat after 11 ticks: 500.0
+
+--- EC2-2: Feedback Read (stability → production) ---
+   alpha net per tick: -25.00 (expected = -25.0)
+   beta  net per tick: 5.00 (expected = +5.0)
+PASS | EC2-2-a: lower stability → lower alpha net vs beta
+PASS | EC2-2-b: alpha net <= -4 (stability=0.5 cuts production)
+
+--- EC2-3: Feedback Write via Events (shortage → stability penalty) ---
+PASS | EC2-3-a: Economy_Shortage_Occurred event pushed for alpha
+PASS | EC2-3-b: event payload has correct country
+PASS | EC2-3-c: stability decreased after shortage penalty
+PASS | EC2-3-d: stability penalty = 0.05 applied (got=0.7500 exp=0.7500)
+   stability: 0.800 → 0.750 (delta=-0.050)
+
+--- EC2-4: Reusability (Coal v2 + Wheat v1 coexistence) ---
+PASS | EC2-4-a: wheat v1 initial stock present (alpha=500)
+PASS | EC2-4-b: coal v2 initial stock present (alpha=100)
+PASS | EC2-4-c: wheat v1 still running after tick
+PASS | EC2-4-d: coal v2 still running after tick (stock > initial-cons)
+PASS | EC2-4-e: v1 stocks have no coal
+PASS | EC2-4-f: v2 stocks have no wheat
+   wheat after tick: 500.0 | coal after tick: 102.0
+
+========================================
+RESULT: 14 PASS | 0 FAIL
+========================================
+[Dispatch] Registry loaded: 9 event handlers, 8 job handlers

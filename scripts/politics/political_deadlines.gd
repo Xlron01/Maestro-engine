@@ -96,6 +96,10 @@ static func schedule_term_integrated(scheduler, state, government_id: String, le
 # ---------------- Eligibility / Activation / Resolution ----------------
 
 # Internal: pump logic مع scheduler صريح
+# TASK-040 (Decision 004 unification): الـdeadline المشتق (election_due الناتج
+# من انتهاء مدة الحكومة) يُسجل على نفس الـscheduler الممرر (sim.scheduled في
+# الإنتاج) — لا تحويل صامت للـdomain-owned queue. الـstandalone tests تمرر
+# state.deadline_queue فسلوكها القديم محفوظ حرفيًا.
 static func _pump_internal(scheduler, state, current_day: int, rules, actions_module, ctx: Dictionary) -> Dictionary:
 	if scheduler == null:
 		return {"day": current_day, "due": 0, "activated": 0, "resolved": 0,
@@ -133,7 +137,7 @@ static func _pump_internal(scheduler, state, current_day: int, rules, actions_mo
 			state.emit_event("DeadlineActivated", {"deadline_id": id,
 				"deadline_type": String(rec["deadline_type"]), "day": int(current_day),
 				"lateness_days": int(rec["lateness_days"])})
-			var resolution := _activate(rec, current_day, state, rules, actions_module, ctx)
+			var resolution := _activate(rec, current_day, state, rules, actions_module, ctx, scheduler)
 			rec["activation_count"] = int(rec["activation_count"]) + 1
 			rec["resolution"] = resolution
 			rec["status"] = "resolved"
@@ -164,8 +168,10 @@ static func pump_integrated(scheduler, state, current_day: int, rules, actions_m
 
 
 # التنشيط: تقييم القواعد المؤسسية ثم التنفيذ عبر pipeline القائم
+# TASK-040 (Decision 004 unification): scheduler ممرر من الـpump — الـdeadline
+# المشتق يُسجل عليه (schedule_integrated) فيبقى على نفس الـqueue المقروءة.
 static func _activate(rec: Dictionary, current_day: int, state, rules,
-		actions_module, ctx: Dictionary) -> Dictionary:
+		actions_module, ctx: Dictionary, scheduler) -> Dictionary:
 	var dtype := String(rec["deadline_type"])
 	if dtype == "government_term_expiration":
 		var leg_id := String((rec["payload"] as Dictionary).get("legislature_id", ""))
@@ -175,9 +181,14 @@ static func _activate(rec: Dictionary, current_day: int, state, rules,
 			var call_days := int(lrules.get("election_call_days", 0))
 			var election_id := "el_due_" + String(rec["deadline_id"])
 			var dl_id := "dl_election_" + String(rec["deadline_id"])
-			schedule(state, dl_id, "election_due", String(rec["owner"]),
-				current_day + call_days, current_day,
-				{"legislature_id": leg_id, "election_id": election_id, "type": "general"})
+			if scheduler != null:
+				schedule_integrated(scheduler, state, dl_id, "election_due", String(rec["owner"]),
+					current_day + call_days, current_day,
+					{"legislature_id": leg_id, "election_id": election_id, "type": "general"})
+			else:
+				schedule(state, dl_id, "election_due", String(rec["owner"]),
+					current_day + call_days, current_day,
+					{"legislature_id": leg_id, "election_id": election_id, "type": "general"})
 			return {"outcome": "election_deadline_scheduled", "election_deadline_id": dl_id}
 		return {"outcome": "no_election_required_per_rules"}
 	if dtype == "election_due":
