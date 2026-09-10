@@ -1,0 +1,193 @@
+{
+ "world": "production_minimal",
+ "variant": "aswired",
+ "node_counts": {
+  "Office": 3,
+  "Party": 3,
+  "Legislature": 1,
+  "Government": 0,
+  "Character (identity-only, excluded)": 5
+ },
+ "node_types": {
+  "Office": 3,
+  "Party": 3,
+  "Legislature": 1
+ },
+ "metrics": {
+  "nodes_total": 7,
+  "edges_total": 13,
+  "out_degree_mean": 2.1666666666666665,
+  "out_degree_max": 4,
+  "out_degree_p50": 2,
+  "out_degree_p95": 4,
+  "in_degree_mean": 4.333333333333333,
+  "in_degree_max": 7,
+  "top_out": [
+   [
+    "office_president",
+    4
+   ],
+   [
+    "office_pm",
+    2
+   ],
+   [
+    "P_A",
+    2
+   ],
+   [
+    "P_B",
+    2
+   ],
+   [
+    "P_C",
+    2
+   ],
+   [
+    "parliament_H",
+    1
+   ]
+  ],
+  "top_in": [
+   [
+    "parliament_H",
+    7
+   ],
+   [
+    "office_pm",
+    3
+   ],
+   [
+    "office_finance",
+    3
+   ]
+  ],
+  "components": 1,
+  "largest_component": 7,
+  "mean_component": 7.0,
+  "component_sizes_top5": [
+   7
+  ],
+  "cross_country_edges": 0,
+  "cross_country_examples": [],
+  "edges_static_rule": 7,
+  "edges_dynamic_state": 6,
+  "edges_by_type": {
+   "E1 appointing_authority": 2,
+   "E2 dismissible_by": 3,
+   "E3 party.seats->leg totals": 3,
+   "E7 strength->seat quota": 3,
+   "E6 electoral_authority gate": 1,
+   "E6 head_office succession": 1
+  },
+  "hubs_in_ge20": {},
+  "max_causal_depth": 3,
+  "scc_count": 7,
+  "cyclic_sccs": 0,
+  "cyclic_scc_examples": []
+ },
+ "closures": [
+  {
+   "op": "HoldElection (per legislature, all legs)",
+   "n": 1,
+   "direct_writes_median": 1,
+   "direct_writes_max": 1,
+   "eval_closure_median": 2,
+   "eval_closure_max": 2,
+   "structural_closure_median": 3,
+   "structural_closure_max": 3
+  },
+  {
+   "op": "DismissOfficeholder",
+   "target": "office_president",
+   "n": 1,
+   "eval_closure": 4,
+   "eval_nodes": [
+    "office_finance",
+    "office_pm",
+    "parliament_H"
+   ],
+   "structural_closure": 4
+  }
+ ],
+ "edges_dump": [
+  {
+   "src": "office_president",
+   "dst": "office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "office_president",
+   "dst": "office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "office_pm",
+   "dst": "office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "office_president",
+   "dst": "office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "office_pm",
+   "dst": "office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "P_A",
+   "dst": "parliament_H",
+   "etype": "E3 party.seats->leg totals",
+   "provenance": "dynamic-state"
+  },
+  {
+   "src": "P_B",
+   "dst": "parliament_H",
+   "etype": "E3 party.seats->leg totals",
+   "provenance": "dynamic-state"
+  },
+  {
+   "src": "P_C",
+   "dst": "parliament_H",
+   "etype": "E3 party.seats->leg totals",
+   "provenance": "dynamic-state"
+  },
+  {
+   "src": "P_A",
+   "dst": "parliament_H",
+   "etype": "E7 strength->seat quota",
+   "provenance": "dynamic-state"
+  },
+  {
+   "src": "P_B",
+   "dst": "parliament_H",
+   "etype": "E7 strength->seat quota",
+   "provenance": "dynamic-state"
+  },
+  {
+   "src": "P_C",
+   "dst": "parliament_H",
+   "etype": "E7 strength->seat quota",
+   "provenance": "dynamic-state"
+  },
+  {
+   "src": "office_president",
+   "dst": "parliament_H",
+   "etype": "E6 electoral_authority gate",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "parliament_H",
+   "dst": "office_pm",
+   "etype": "E6 head_office succession",
+   "provenance": "static-rule"
+  }
+ ]
+}

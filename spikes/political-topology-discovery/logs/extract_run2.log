@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\ahmed\orca\workspaces\maestro engine\siren\spikes\political-topology-discovery\extract_topology.py", line 628, in <module>
+    main()
+  File "C:\Users\ahmed\orca\workspaces\maestro engine\siren\spikes\political-topology-discovery\extract_topology.py", line 604, in main
+    "edges": m["edges_total"],
+             ~^^^^^^^^^^^^^^^
+KeyError: 'edges_total'

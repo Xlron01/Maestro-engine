@@ -1,0 +1,44 @@
+PASS  E1=400
+PASS  E2=600
+PASS  E3 seats=800
+PASS  E3 leg->gov=30
+PASS  E4=120
+PASS  E7=160000
+PASS  E8=30
+PASS  E9=30
+PASS  aswired full total=162010
+PASS  aswired active=1980 / latent=160030
+PASS  prodsem full total=162410
+PASS  prodsem active=2380
+PASS  scopedE7 full total=3210
+PASS  scopedE7 active=2380 / latent=830
+PASS  full aswired static=1030  [1030]
+PASS  full prodsem static=1430  [1430]
+PASS  active aswired: static=1000 / dyn=980
+PASS  active prodsem: static=1400 / dyn=980
+PASS  active aswired: out_mean=1.57 p95=3 max=5  [mean=1.571 p95=3 max=5]
+PASS  active aswired: in_max=4  [4]
+PASS  active aswired: hubs>=20 = 0
+PASS  active aswired: comps=400 largest=6
+PASS  active aswired: depth=2
+PASS  active aswired: cross-country=0
+PASS  active prodsem: out_mean=1.66 p95=4 max=5
+PASS  active prodsem: in_max=5  [5]
+PASS  active prodsem: comps=200 largest=9
+PASS  active prodsem: depth=3
+PASS  active prodsem: cross-country=0
+PASS  active prodsem: cyclic SCCs=30  [30]
+PASS  full aswired: out_max=201 in_max=805 largest=1030
+PASS  full prodsem: largest=1630 (giant)
+PASS  full prodsem: depth=4
+PASS  full scopedE7: in_max=10
+PASS  HoldElection ACTIVE: direct median=1, eval median=2/max=3, struct median=3/max=8  [{"op": "HoldElection (per legislature, all legs)", "n": 200, "direct_writes_median": 1, "direct_writes_max": 1, "eval_closure_median": 2, "eval_closure_max": 3, "structural_closure_median": 3, "structural_closure_max": 8}]
+PASS  HoldElection FULL: struct max=750  [750]
+PASS  Dismiss prodsem: eval=4 struct=4
+PASS  minimal: nodes=7 active_edges=10 in_max=7 depth=3 comps=1
+PASS  t040_c: active 2520 aswired / 2920 prodsem
+PASS  t040_c: cross-country active=0 in both
+PASS  t040_c: largest active 6/9, depth 2/3
+PASS  scenario A: 60 dl / max 20; C: 240 dl / max 64
+
+ALL CHECKS PASSED

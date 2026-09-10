@@ -1,0 +1,233 @@
+{
+ "world": "production_minimal",
+ "variant": "aswired",
+ "node_counts": {
+  "Office": 3,
+  "Party": 3,
+  "Legislature": 1,
+  "Government": 0,
+  "Character (identity-only, excluded)": 5
+ },
+ "node_types": {
+  "Office": 3,
+  "Party": 3,
+  "Legislature": 1
+ },
+ "full": {
+  "metrics": {
+   "nodes_total": 7,
+   "edges_total": 13,
+   "out_degree_mean": 2.1666666666666665,
+   "out_degree_max": 4,
+   "out_degree_p50": 2,
+   "out_degree_p95": 4,
+   "in_degree_mean": 4.333333333333333,
+   "in_degree_max": 7,
+   "top_out": [
+    [
+     "office_president",
+     4
+    ],
+    [
+     "office_pm",
+     2
+    ],
+    [
+     "P_A",
+     2
+    ],
+    [
+     "P_B",
+     2
+    ],
+    [
+     "P_C",
+     2
+    ],
+    [
+     "parliament_H",
+     1
+    ]
+   ],
+   "top_in": [
+    [
+     "parliament_H",
+     7
+    ],
+    [
+     "office_pm",
+     3
+    ],
+    [
+     "office_finance",
+     3
+    ]
+   ],
+   "components": 1,
+   "largest_component": 7,
+   "mean_component": 7.0,
+   "component_sizes_top5": [
+    7
+   ],
+   "cross_country_edges": 0,
+   "cross_country_examples": [],
+   "edges_static_rule": 7,
+   "edges_dynamic_state": 6,
+   "edges_by_type": {
+    "E1 appointing_authority": 2,
+    "E2 dismissible_by": 3,
+    "E3 party.seats->leg totals": 3,
+    "E7 strength->seat quota": 3,
+    "E6 electoral_authority gate": 1,
+    "E6 head_office succession": 1
+   },
+   "hubs_in_ge20": {}
+  },
+  "max_causal_depth": 3,
+  "scc_count": 7,
+  "cyclic_sccs": 0,
+  "cyclic_scc_examples": [],
+  "closures": [
+   {
+    "op": "HoldElection (per legislature, all legs)",
+    "n": 1,
+    "direct_writes_median": 1,
+    "direct_writes_max": 1,
+    "eval_closure_median": 2,
+    "eval_closure_max": 2,
+    "structural_closure_median": 3,
+    "structural_closure_max": 3
+   },
+   {
+    "op": "DismissOfficeholder",
+    "target": "office_president",
+    "n": 1,
+    "eval_closure": 4,
+    "eval_nodes": [
+     "office_finance",
+     "office_pm",
+     "parliament_H"
+    ],
+    "structural_closure": 4
+   }
+  ]
+ },
+ "active": {
+  "metrics": {
+   "nodes_total": 7,
+   "edges_total": 10,
+   "out_degree_mean": 1.6666666666666667,
+   "out_degree_max": 4,
+   "out_degree_p50": 1,
+   "out_degree_p95": 4,
+   "in_degree_mean": 3.3333333333333335,
+   "in_degree_max": 4,
+   "top_out": [
+    [
+     "office_president",
+     4
+    ],
+    [
+     "office_pm",
+     2
+    ],
+    [
+     "P_A",
+     1
+    ],
+    [
+     "P_B",
+     1
+    ],
+    [
+     "P_C",
+     1
+    ],
+    [
+     "parliament_H",
+     1
+    ]
+   ],
+   "top_in": [
+    [
+     "parliament_H",
+     4
+    ],
+    [
+     "office_pm",
+     3
+    ],
+    [
+     "office_finance",
+     3
+    ]
+   ],
+   "components": 1,
+   "largest_component": 7,
+   "mean_component": 7.0,
+   "component_sizes_top5": [
+    7
+   ],
+   "cross_country_edges": 0,
+   "cross_country_examples": [],
+   "edges_static_rule": 7,
+   "edges_dynamic_state": 3,
+   "edges_by_type": {
+    "E1 appointing_authority": 2,
+    "E2 dismissible_by": 3,
+    "E3 party.seats->leg totals": 3,
+    "E6 electoral_authority gate": 1,
+    "E6 head_office succession": 1
+   },
+   "hubs_in_ge20": {}
+  },
+  "max_causal_depth": 3,
+  "scc_count": 7,
+  "cyclic_sccs": 0,
+  "cyclic_scc_examples": [],
+  "closures": [
+   {
+    "op": "HoldElection (per legislature, all legs)",
+    "n": 1,
+    "direct_writes_median": 1,
+    "direct_writes_max": 1,
+    "eval_closure_median": 2,
+    "eval_closure_max": 2,
+    "structural_closure_median": 3,
+    "structural_closure_max": 3
+   },
+   {
+    "op": "DismissOfficeholder",
+    "target": "office_president",
+    "n": 1,
+    "eval_closure": 4,
+    "eval_nodes": [
+     "office_finance",
+     "office_pm",
+     "parliament_H"
+    ],
+    "structural_closure": 4
+   }
+  ]
+ },
+ "split": {
+  "edges_total": 13,
+  "edges_active": 10,
+  "edges_latent": 3,
+  "edges_by_type_active": {
+   "E1 appointing_authority": 2,
+   "E2 dismissible_by": 3,
+   "E3 party.seats->leg totals": 3,
+   "E6 electoral_authority gate": 1,
+   "E6 head_office succession": 1
+  },
+  "edges_by_type_latent": {
+   "E1 appointing_authority": 2,
+   "E2 dismissible_by": 3,
+   "E3 party.seats->leg totals": 3,
+   "E7 strength->seat quota": 3,
+   "E6 electoral_authority gate": 1,
+   "E6 head_office succession": 1
+  }
+ }
+}

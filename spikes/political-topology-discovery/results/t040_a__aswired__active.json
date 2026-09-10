@@ -1,0 +1,592 @@
+{
+ "world": "t040_a",
+ "variant": "aswired",
+ "node_counts": {
+  "Office": 600,
+  "Party": 800,
+  "Legislature": 200,
+  "Government": 30,
+  "Character (identity-only, excluded)": 1800
+ },
+ "node_types": {
+  "Office": 600,
+  "Party": 800,
+  "Legislature": 200,
+  "Government": 30
+ },
+ "full": {
+  "metrics": {
+   "nodes_total": 1630,
+   "edges_total": 162010,
+   "out_degree_mean": 128.5793650793651,
+   "out_degree_max": 201,
+   "out_degree_p50": 201,
+   "out_degree_p95": 201,
+   "in_degree_mean": 216.01333333333332,
+   "in_degree_max": 805,
+   "top_out": [
+    [
+     "c000_P0",
+     201
+    ],
+    [
+     "c000_P1",
+     201
+    ],
+    [
+     "c000_P2",
+     201
+    ],
+    [
+     "c000_P3",
+     201
+    ],
+    [
+     "c001_P0",
+     201
+    ],
+    [
+     "c001_P1",
+     201
+    ],
+    [
+     "c001_P2",
+     201
+    ],
+    [
+     "c001_P3",
+     201
+    ],
+    [
+     "c002_P0",
+     201
+    ],
+    [
+     "c002_P1",
+     201
+    ]
+   ],
+   "top_in": [
+    [
+     "leg_c005",
+     805
+    ],
+    [
+     "leg_c007",
+     805
+    ],
+    [
+     "leg_c014",
+     805
+    ],
+    [
+     "leg_c022",
+     805
+    ],
+    [
+     "leg_c025",
+     805
+    ],
+    [
+     "leg_c027",
+     805
+    ],
+    [
+     "leg_c036",
+     805
+    ],
+    [
+     "leg_c058",
+     805
+    ],
+    [
+     "leg_c063",
+     805
+    ],
+    [
+     "leg_c065",
+     805
+    ]
+   ],
+   "components": 201,
+   "largest_component": 1030,
+   "mean_component": 8.109452736318408,
+   "component_sizes_top5": [
+    1030,
+    3,
+    3,
+    3,
+    3
+   ],
+   "cross_country_edges": 159200,
+   "cross_country_examples": [
+    {
+     "src": "c001_P0",
+     "dst": "leg_c000",
+     "etype": "E7 strength->seat quota",
+     "provenance": "dynamic-state",
+     "src_country": "c001",
+     "dst_country": "c000"
+    },
+    {
+     "src": "c001_P1",
+     "dst": "leg_c000",
+     "etype": "E7 strength->seat quota",
+     "provenance": "dynamic-state",
+     "src_country": "c001",
+     "dst_country": "c000"
+    },
+    {
+     "src": "c001_P2",
+     "dst": "leg_c000",
+     "etype": "E7 strength->seat quota",
+     "provenance": "dynamic-state",
+     "src_country": "c001",
+     "dst_country": "c000"
+    },
+    {
+     "src": "c001_P3",
+     "dst": "leg_c000",
+     "etype": "E7 strength->seat quota",
+     "provenance": "dynamic-state",
+     "src_country": "c001",
+     "dst_country": "c000"
+    },
+    {
+     "src": "c002_P0",
+     "dst": "leg_c000",
+     "etype": "E7 strength->seat quota",
+     "provenance": "dynamic-state",
+     "src_country": "c002",
+     "dst_country": "c000"
+    },
+    {
+     "src": "c002_P1",
+     "dst": "leg_c000",
+     "etype": "E7 strength->seat quota",
+     "provenance": "dynamic-state",
+     "src_country": "c002",
+     "dst_country": "c000"
+    }
+   ],
+   "per_country_count": 200,
+   "per_country_nodes_mean": 8.15,
+   "per_country_edges_mean": 810.05,
+   "per_country_edges_max": 816,
+   "edges_static_rule": 1030,
+   "edges_dynamic_state": 160980,
+   "edges_by_type": {
+    "E1 appointing_authority": 400,
+    "E2 dismissible_by": 600,
+    "E3 leg->gov formation/tallies": 30,
+    "E3 party.seats->leg totals": 800,
+    "E4 gov.status->support eligibility": 120,
+    "E7 strength->seat quota": 160000,
+    "E8 term wiring (time-gated)": 30,
+    "E9 head resigns eligibility": 30
+   },
+   "hubs_in_ge20": {
+    "leg_c000": 804,
+    "leg_c001": 804,
+    "leg_c002": 804,
+    "leg_c003": 804,
+    "leg_c004": 804,
+    "leg_c005": 805,
+    "leg_c006": 804,
+    "leg_c007": 805,
+    "leg_c008": 804,
+    "leg_c009": 804,
+    "leg_c010": 804,
+    "leg_c011": 804,
+    "leg_c012": 804,
+    "leg_c013": 804,
+    "leg_c014": 805,
+    "leg_c015": 804,
+    "leg_c016": 804,
+    "leg_c017": 804,
+    "leg_c018": 804,
+    "leg_c019": 804,
+    "leg_c020": 804,
+    "leg_c021": 804,
+    "leg_c022": 805,
+    "leg_c023": 804,
+    "leg_c024": 804,
+    "leg_c025": 805,
+    "leg_c026": 804,
+    "leg_c027": 805,
+    "leg_c028": 804,
+    "leg_c029": 804,
+    "leg_c030": 804,
+    "leg_c031": 804,
+    "leg_c032": 804,
+    "leg_c033": 804,
+    "leg_c034": 804,
+    "leg_c035": 804,
+    "leg_c036": 805,
+    "leg_c037": 804,
+    "leg_c038": 804,
+    "leg_c039": 804,
+    "leg_c040": 804,
+    "leg_c041": 804,
+    "leg_c042": 804,
+    "leg_c043": 804,
+    "leg_c044": 804,
+    "leg_c045": 804,
+    "leg_c046": 804,
+    "leg_c047": 804,
+    "leg_c048": 804,
+    "leg_c049": 804,
+    "leg_c050": 804,
+    "leg_c051": 804,
+    "leg_c052": 804,
+    "leg_c053": 804,
+    "leg_c054": 804,
+    "leg_c055": 804,
+    "leg_c056": 804,
+    "leg_c057": 804,
+    "leg_c058": 805,
+    "leg_c059": 804,
+    "leg_c060": 804,
+    "leg_c061": 804,
+    "leg_c062": 804,
+    "leg_c063": 805,
+    "leg_c064": 804,
+    "leg_c065": 805,
+    "leg_c066": 804,
+    "leg_c067": 804,
+    "leg_c068": 804,
+    "leg_c069": 804,
+    "leg_c070": 804,
+    "leg_c071": 804,
+    "leg_c072": 804,
+    "leg_c073": 804,
+    "leg_c074": 804,
+    "leg_c075": 804,
+    "leg_c076": 804,
+    "leg_c077": 804,
+    "leg_c078": 804,
+    "leg_c079": 804,
+    "leg_c080": 805,
+    "leg_c081": 804,
+    "leg_c082": 804,
+    "leg_c083": 804,
+    "leg_c084": 804,
+    "leg_c085": 804,
+    "leg_c086": 804,
+    "leg_c087": 804,
+    "leg_c088": 805,
+    "leg_c089": 804,
+    "leg_c090": 805,
+    "leg_c091": 804,
+    "leg_c092": 804,
+    "leg_c093": 804,
+    "leg_c094": 804,
+    "leg_c095": 804,
+    "leg_c096": 805,
+    "leg_c097": 805,
+    "leg_c098": 805,
+    "leg_c099": 804,
+    "leg_c100": 804,
+    "leg_c101": 804,
+    "leg_c102": 804,
+    "leg_c103": 804,
+    "leg_c104": 804,
+    "leg_c105": 804,
+    "leg_c106": 805,
+    "leg_c107": 804,
+    "leg_c108": 805,
+    "leg_c109": 804,
+    "leg_c110": 804,
+    "leg_c111": 804,
+    "leg_c112": 804,
+    "leg_c113": 804,
+    "leg_c114": 804,
+    "leg_c115": 804,
+    "leg_c116": 804,
+    "leg_c117": 804,
+    "leg_c118": 805,
+    "leg_c119": 804,
+    "leg_c120": 804,
+    "leg_c121": 804,
+    "leg_c122": 804,
+    "leg_c123": 804,
+    "leg_c124": 804,
+    "leg_c125": 804,
+    "leg_c126": 804,
+    "leg_c127": 804,
+    "leg_c128": 805,
+    "leg_c129": 805,
+    "leg_c130": 804,
+    "leg_c131": 804,
+    "leg_c132": 805,
+    "leg_c133": 804,
+    "leg_c134": 804,
+    "leg_c135": 805,
+    "leg_c136": 804,
+    "leg_c137": 804,
+    "leg_c138": 805,
+    "leg_c139": 804,
+    "leg_c140": 804,
+    "leg_c141": 804,
+    "leg_c142": 804,
+    "leg_c143": 804,
+    "leg_c144": 805,
+    "leg_c145": 804,
+    "leg_c146": 804,
+    "leg_c147": 804,
+    "leg_c148": 804,
+    "leg_c149": 804,
+    "leg_c150": 804,
+    "leg_c151": 804,
+    "leg_c152": 804,
+    "leg_c153": 804,
+    "leg_c154": 804,
+    "leg_c155": 804,
+    "leg_c156": 804,
+    "leg_c157": 805,
+    "leg_c158": 804,
+    "leg_c159": 804,
+    "leg_c160": 804,
+    "leg_c161": 804,
+    "leg_c162": 804,
+    "leg_c163": 804,
+    "leg_c164": 804,
+    "leg_c165": 804,
+    "leg_c166": 804,
+    "leg_c167": 804,
+    "leg_c168": 804,
+    "leg_c169": 804,
+    "leg_c170": 805,
+    "leg_c171": 804,
+    "leg_c172": 804,
+    "leg_c173": 804,
+    "leg_c174": 804,
+    "leg_c175": 804,
+    "leg_c176": 804,
+    "leg_c177": 804,
+    "leg_c178": 804,
+    "leg_c179": 804,
+    "leg_c180": 804,
+    "leg_c181": 804,
+    "leg_c182": 804,
+    "leg_c183": 804,
+    "leg_c184": 804,
+    "leg_c185": 804,
+    "leg_c186": 804,
+    "leg_c187": 804,
+    "leg_c188": 804,
+    "leg_c189": 804,
+    "leg_c190": 804,
+    "leg_c191": 804,
+    "leg_c192": 805,
+    "leg_c193": 805,
+    "leg_c194": 804,
+    "leg_c195": 804,
+    "leg_c196": 805,
+    "leg_c197": 804,
+    "leg_c198": 804,
+    "leg_c199": 804
+   }
+  },
+  "max_causal_depth": 2,
+  "scc_count": 1451,
+  "cyclic_sccs": 1,
+  "cyclic_scc_examples": [],
+  "closures": [
+   {
+    "op": "HoldElection (per legislature, all legs)",
+    "n": 200,
+    "direct_writes_median": 1,
+    "direct_writes_max": 1,
+    "eval_closure_median": 1,
+    "eval_closure_max": 3,
+    "structural_closure_median": 1,
+    "structural_closure_max": 350
+   },
+   {
+    "op": "DismissOfficeholder",
+    "target": "c000_office_president",
+    "n": 1,
+    "eval_closure": 3,
+    "eval_nodes": [
+     "c000_office_finance",
+     "c000_office_pm"
+    ],
+    "structural_closure": 3
+   }
+  ]
+ },
+ "active": {
+  "metrics": {
+   "nodes_total": 1630,
+   "edges_total": 1980,
+   "out_degree_mean": 1.5714285714285714,
+   "out_degree_max": 5,
+   "out_degree_p50": 1,
+   "out_degree_p95": 3,
+   "in_degree_mean": 2.64,
+   "in_degree_max": 4,
+   "top_out": [
+    [
+     "gov_c005",
+     5
+    ],
+    [
+     "gov_c007",
+     5
+    ],
+    [
+     "gov_c014",
+     5
+    ],
+    [
+     "gov_c022",
+     5
+    ],
+    [
+     "gov_c025",
+     5
+    ],
+    [
+     "gov_c027",
+     5
+    ],
+    [
+     "gov_c036",
+     5
+    ],
+    [
+     "gov_c058",
+     5
+    ],
+    [
+     "gov_c063",
+     5
+    ],
+    [
+     "gov_c065",
+     5
+    ]
+   ],
+   "top_in": [
+    [
+     "leg_c000",
+     4
+    ],
+    [
+     "leg_c001",
+     4
+    ],
+    [
+     "leg_c002",
+     4
+    ],
+    [
+     "leg_c003",
+     4
+    ],
+    [
+     "leg_c004",
+     4
+    ],
+    [
+     "leg_c005",
+     4
+    ],
+    [
+     "leg_c006",
+     4
+    ],
+    [
+     "leg_c007",
+     4
+    ],
+    [
+     "leg_c008",
+     4
+    ],
+    [
+     "leg_c009",
+     4
+    ]
+   ],
+   "components": 400,
+   "largest_component": 6,
+   "mean_component": 4.075,
+   "component_sizes_top5": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ],
+   "cross_country_edges": 0,
+   "cross_country_examples": [],
+   "per_country_count": 200,
+   "per_country_nodes_mean": 8.15,
+   "per_country_edges_mean": 9.9,
+   "per_country_edges_max": 15,
+   "edges_static_rule": 1000,
+   "edges_dynamic_state": 980,
+   "edges_by_type": {
+    "E1 appointing_authority": 400,
+    "E2 dismissible_by": 600,
+    "E3 leg->gov formation/tallies": 30,
+    "E3 party.seats->leg totals": 800,
+    "E4 gov.status->support eligibility": 120,
+    "E9 head resigns eligibility": 30
+   },
+   "hubs_in_ge20": {}
+  },
+  "max_causal_depth": 2,
+  "scc_count": 1480,
+  "cyclic_sccs": 30,
+  "cyclic_scc_examples": [],
+  "closures": [
+   {
+    "op": "HoldElection (per legislature, all legs)",
+    "n": 200,
+    "direct_writes_median": 1,
+    "direct_writes_max": 1,
+    "eval_closure_median": 1,
+    "eval_closure_max": 2,
+    "structural_closure_median": 1,
+    "structural_closure_max": 6
+   },
+   {
+    "op": "DismissOfficeholder",
+    "target": "c000_office_president",
+    "n": 1,
+    "eval_closure": 3,
+    "eval_nodes": [
+     "c000_office_finance",
+     "c000_office_pm"
+    ],
+    "structural_closure": 3
+   }
+  ]
+ },
+ "split": {
+  "edges_total": 162010,
+  "edges_active": 1980,
+  "edges_latent": 160030,
+  "edges_by_type_active": {
+   "E1 appointing_authority": 400,
+   "E2 dismissible_by": 600,
+   "E3 leg->gov formation/tallies": 30,
+   "E3 party.seats->leg totals": 800,
+   "E4 gov.status->support eligibility": 120,
+   "E9 head resigns eligibility": 30
+  },
+  "edges_by_type_latent": {
+   "E1 appointing_authority": 400,
+   "E2 dismissible_by": 600,
+   "E3 leg->gov formation/tallies": 30,
+   "E3 party.seats->leg totals": 800,
+   "E4 gov.status->support eligibility": 120,
+   "E7 strength->seat quota": 160000,
+   "E8 term wiring (time-gated)": 30,
+   "E9 head resigns eligibility": 30
+  }
+ }
+}

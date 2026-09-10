@@ -1,0 +1,10 @@
+production_minimal/aswired: edges=13 cross=0 comps=1 largest=7 depth=3 cycSCC=0 out_max=4 in_max=7
+t040_a/aswired: edges=162010 cross=160920 comps=201 largest=1030 depth=2 cycSCC=1 out_max=201 in_max=805
+t040_a/prodsem: edges=162410 cross=161320 comps=200 largest=1033 depth=4 cycSCC=1 out_max=203 in_max=806
+t040_a/prodsem_scopedE7: edges=2410 cross=1320 comps=200 largest=1033 depth=3 cycSCC=30 out_max=203 in_max=202
+t040_c/aswired: edges=162640 cross=161280 comps=201 largest=1120 depth=2 cycSCC=1 out_max=201 in_max=805
+t040_c/prodsem: edges=163040 cross=161680 comps=200 largest=1123 depth=4 cycSCC=1 out_max=203 in_max=806
+t040_c/prodsem_scopedE7: edges=3040 cross=1680 comps=200 largest=1123 depth=3 cycSCC=120 out_max=203 in_max=202
+
+workload: {"scenario_A": {"days": 90, "deadline_activations_total": 60, "deadline_activations_max_day": 20, "pa_evals_total": 30, "pa_evals_max_day": 20, "events_max_day": 203}, "scenario_B": {"days": 90, "deadline_activations_total": 30, "deadline_activations_max_day": 9, "pa_evals_total": 15, "pa_evals_max_
+done — results in C:\Users\ahmed\orca\workspaces\maestro engine\siren\spikes\political-topology-discovery\results

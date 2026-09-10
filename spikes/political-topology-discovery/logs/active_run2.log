@@ -1,0 +1,8 @@
+production_minimal/aswired: full=13 active=10 latent=3 cross_active=0 comps_active=1 largest_active=7 depth_active=3
+t040_a/aswired: full=162010 active=1980 latent=160030 cross_active=0 comps_active=400 largest_active=6 depth_active=2
+t040_a/prodsem: full=162410 active=2380 latent=160030 cross_active=0 comps_active=200 largest_active=9 depth_active=3
+t040_a/prodsem_scopedE7: full=3210 active=2380 latent=830 cross_active=0 comps_active=200 largest_active=9 depth_active=3
+t040_c/aswired: full=162640 active=2520 latent=160120 cross_active=0 comps_active=400 largest_active=6 depth_active=2
+t040_c/prodsem: full=163040 active=2920 latent=160120 cross_active=0 comps_active=200 largest_active=9 depth_active=3
+t040_c/prodsem_scopedE7: full=3840 active=2920 latent=920 cross_active=0 comps_active=200 largest_active=9 depth_active=3
+done

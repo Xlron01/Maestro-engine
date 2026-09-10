@@ -1,0 +1,2219 @@
+{
+ "world": "t040_c",
+ "variant": "prodsem",
+ "node_counts": {
+  "Office": 600,
+  "Party": 800,
+  "Legislature": 200,
+  "Government": 120,
+  "Character (identity-only, excluded)": 1800
+ },
+ "node_types": {
+  "Office": 600,
+  "Party": 800,
+  "Legislature": 200,
+  "Government": 120
+ },
+ "metrics": {
+  "nodes_total": 1720,
+  "edges_total": 163040,
+  "out_degree_mean": 107.26315789473684,
+  "out_degree_max": 201,
+  "out_degree_p50": 201,
+  "out_degree_p95": 201,
+  "in_degree_mean": 135.86666666666667,
+  "in_degree_max": 806,
+  "top_out": [
+   [
+    "c000_P0",
+    201
+   ],
+   [
+    "c000_P1",
+    201
+   ],
+   [
+    "c000_P2",
+    201
+   ],
+   [
+    "c000_P3",
+    201
+   ],
+   [
+    "c001_P0",
+    201
+   ],
+   [
+    "c001_P1",
+    201
+   ],
+   [
+    "c001_P2",
+    201
+   ],
+   [
+    "c001_P3",
+    201
+   ],
+   [
+    "c002_P0",
+    201
+   ],
+   [
+    "c002_P1",
+    201
+   ]
+  ],
+  "top_in": [
+   [
+    "leg_c000",
+    806
+   ],
+   [
+    "leg_c001",
+    806
+   ],
+   [
+    "leg_c004",
+    806
+   ],
+   [
+    "leg_c005",
+    806
+   ],
+   [
+    "leg_c006",
+    806
+   ],
+   [
+    "leg_c007",
+    806
+   ],
+   [
+    "leg_c008",
+    806
+   ],
+   [
+    "leg_c009",
+    806
+   ],
+   [
+    "leg_c012",
+    806
+   ],
+   [
+    "leg_c013",
+    806
+   ]
+  ],
+  "components": 1,
+  "largest_component": 1720,
+  "mean_component": 1720.0,
+  "component_sizes_top5": [
+   1720
+  ],
+  "cross_country_edges": 159200,
+  "cross_country_examples": [
+   {
+    "src": "c001_P0",
+    "dst": "leg_c000",
+    "etype": "E7 strength->seat quota",
+    "provenance": "dynamic-state",
+    "src_country": "c001",
+    "dst_country": "c000"
+   },
+   {
+    "src": "c001_P1",
+    "dst": "leg_c000",
+    "etype": "E7 strength->seat quota",
+    "provenance": "dynamic-state",
+    "src_country": "c001",
+    "dst_country": "c000"
+   },
+   {
+    "src": "c001_P2",
+    "dst": "leg_c000",
+    "etype": "E7 strength->seat quota",
+    "provenance": "dynamic-state",
+    "src_country": "c001",
+    "dst_country": "c000"
+   },
+   {
+    "src": "c001_P3",
+    "dst": "leg_c000",
+    "etype": "E7 strength->seat quota",
+    "provenance": "dynamic-state",
+    "src_country": "c001",
+    "dst_country": "c000"
+   },
+   {
+    "src": "c002_P0",
+    "dst": "leg_c000",
+    "etype": "E7 strength->seat quota",
+    "provenance": "dynamic-state",
+    "src_country": "c002",
+    "dst_country": "c000"
+   },
+   {
+    "src": "c002_P1",
+    "dst": "leg_c000",
+    "etype": "E7 strength->seat quota",
+    "provenance": "dynamic-state",
+    "src_country": "c002",
+    "dst_country": "c000"
+   }
+  ],
+  "per_country_count": 200,
+  "per_country_nodes_mean": 8.6,
+  "per_country_edges_mean": 815.2,
+  "per_country_edges_max": 818,
+  "edges_static_rule": 1520,
+  "edges_dynamic_state": 161520,
+  "edges_by_type": {
+   "E1 appointing_authority": 400,
+   "E2 dismissible_by": 600,
+   "E3 leg->gov formation/tallies": 120,
+   "E3 party.seats->leg totals": 800,
+   "E4 gov.status->support eligibility": 480,
+   "E7 strength->seat quota": 160000,
+   "E6 electoral_authority gate": 200,
+   "E6 head_office succession": 200,
+   "E8 term wiring (time-gated)": 120,
+   "E9 head resigns eligibility": 120
+  },
+  "hubs_in_ge20": {
+   "leg_c000": 806,
+   "leg_c001": 806,
+   "leg_c002": 805,
+   "leg_c003": 805,
+   "leg_c004": 806,
+   "leg_c005": 806,
+   "leg_c006": 806,
+   "leg_c007": 806,
+   "leg_c008": 806,
+   "leg_c009": 806,
+   "leg_c010": 805,
+   "leg_c011": 805,
+   "leg_c012": 806,
+   "leg_c013": 806,
+   "leg_c014": 805,
+   "leg_c015": 806,
+   "leg_c016": 806,
+   "leg_c017": 806,
+   "leg_c018": 806,
+   "leg_c019": 806,
+   "leg_c020": 806,
+   "leg_c021": 805,
+   "leg_c022": 806,
+   "leg_c023": 805,
+   "leg_c024": 805,
+   "leg_c025": 806,
+   "leg_c026": 805,
+   "leg_c027": 806,
+   "leg_c028": 806,
+   "leg_c029": 805,
+   "leg_c030": 805,
+   "leg_c031": 805,
+   "leg_c032": 805,
+   "leg_c033": 805,
+   "leg_c034": 805,
+   "leg_c035": 805,
+   "leg_c036": 806,
+   "leg_c037": 805,
+   "leg_c038": 806,
+   "leg_c039": 806,
+   "leg_c040": 805,
+   "leg_c041": 806,
+   "leg_c042": 806,
+   "leg_c043": 805,
+   "leg_c044": 806,
+   "leg_c045": 806,
+   "leg_c046": 806,
+   "leg_c047": 806,
+   "leg_c048": 806,
+   "leg_c049": 805,
+   "leg_c050": 806,
+   "leg_c051": 805,
+   "leg_c052": 806,
+   "leg_c053": 805,
+   "leg_c054": 806,
+   "leg_c055": 805,
+   "leg_c056": 806,
+   "leg_c057": 806,
+   "leg_c058": 806,
+   "leg_c059": 805,
+   "leg_c060": 805,
+   "leg_c061": 805,
+   "leg_c062": 806,
+   "leg_c063": 805,
+   "leg_c064": 806,
+   "leg_c065": 806,
+   "leg_c066": 806,
+   "leg_c067": 806,
+   "leg_c068": 806,
+   "leg_c069": 806,
+   "leg_c070": 806,
+   "leg_c071": 805,
+   "leg_c072": 806,
+   "leg_c073": 806,
+   "leg_c074": 806,
+   "leg_c075": 806,
+   "leg_c076": 805,
+   "leg_c077": 806,
+   "leg_c078": 806,
+   "leg_c079": 806,
+   "leg_c080": 805,
+   "leg_c081": 805,
+   "leg_c082": 806,
+   "leg_c083": 806,
+   "leg_c084": 806,
+   "leg_c085": 806,
+   "leg_c086": 805,
+   "leg_c087": 805,
+   "leg_c088": 805,
+   "leg_c089": 805,
+   "leg_c090": 806,
+   "leg_c091": 806,
+   "leg_c092": 806,
+   "leg_c093": 806,
+   "leg_c094": 805,
+   "leg_c095": 806,
+   "leg_c096": 806,
+   "leg_c097": 806,
+   "leg_c098": 805,
+   "leg_c099": 805,
+   "leg_c100": 806,
+   "leg_c101": 806,
+   "leg_c102": 805,
+   "leg_c103": 805,
+   "leg_c104": 806,
+   "leg_c105": 805,
+   "leg_c106": 806,
+   "leg_c107": 806,
+   "leg_c108": 805,
+   "leg_c109": 805,
+   "leg_c110": 806,
+   "leg_c111": 806,
+   "leg_c112": 806,
+   "leg_c113": 806,
+   "leg_c114": 805,
+   "leg_c115": 806,
+   "leg_c116": 805,
+   "leg_c117": 806,
+   "leg_c118": 806,
+   "leg_c119": 805,
+   "leg_c120": 806,
+   "leg_c121": 805,
+   "leg_c122": 805,
+   "leg_c123": 805,
+   "leg_c124": 805,
+   "leg_c125": 806,
+   "leg_c126": 806,
+   "leg_c127": 806,
+   "leg_c128": 806,
+   "leg_c129": 806,
+   "leg_c130": 806,
+   "leg_c131": 805,
+   "leg_c132": 805,
+   "leg_c133": 805,
+   "leg_c134": 806,
+   "leg_c135": 805,
+   "leg_c136": 806,
+   "leg_c137": 805,
+   "leg_c138": 806,
+   "leg_c139": 805,
+   "leg_c140": 805,
+   "leg_c141": 805,
+   "leg_c142": 806,
+   "leg_c143": 806,
+   "leg_c144": 805,
+   "leg_c145": 806,
+   "leg_c146": 806,
+   "leg_c147": 806,
+   "leg_c148": 805,
+   "leg_c149": 806,
+   "leg_c150": 805,
+   "leg_c151": 806,
+   "leg_c152": 805,
+   "leg_c153": 806,
+   "leg_c154": 805,
+   "leg_c155": 805,
+   "leg_c156": 806,
+   "leg_c157": 805,
+   "leg_c158": 805,
+   "leg_c159": 806,
+   "leg_c160": 806,
+   "leg_c161": 805,
+   "leg_c162": 806,
+   "leg_c163": 806,
+   "leg_c164": 806,
+   "leg_c165": 806,
+   "leg_c166": 806,
+   "leg_c167": 806,
+   "leg_c168": 806,
+   "leg_c169": 806,
+   "leg_c170": 806,
+   "leg_c171": 805,
+   "leg_c172": 805,
+   "leg_c173": 806,
+   "leg_c174": 805,
+   "leg_c175": 806,
+   "leg_c176": 805,
+   "leg_c177": 806,
+   "leg_c178": 806,
+   "leg_c179": 805,
+   "leg_c180": 805,
+   "leg_c181": 805,
+   "leg_c182": 806,
+   "leg_c183": 805,
+   "leg_c184": 806,
+   "leg_c185": 806,
+   "leg_c186": 806,
+   "leg_c187": 806,
+   "leg_c188": 805,
+   "leg_c189": 806,
+   "leg_c190": 806,
+   "leg_c191": 806,
+   "leg_c192": 805,
+   "leg_c193": 806,
+   "leg_c194": 805,
+   "leg_c195": 806,
+   "leg_c196": 805,
+   "leg_c197": 805,
+   "leg_c198": 806,
+   "leg_c199": 806
+  },
+  "max_causal_depth": 4,
+  "scc_count": 1001,
+  "cyclic_sccs": 1,
+  "cyclic_scc_examples": []
+ },
+ "closures": [
+  {
+   "op": "HoldElection (per legislature, all legs)",
+   "n": 200,
+   "direct_writes_median": 1,
+   "direct_writes_max": 1,
+   "eval_closure_median": 4,
+   "eval_closure_max": 4,
+   "structural_closure_median": 1200,
+   "structural_closure_max": 1200
+  },
+  {
+   "op": "DismissOfficeholder",
+   "target": "c000_office_president",
+   "n": 1,
+   "eval_closure": 4,
+   "eval_nodes": [
+    "c000_office_finance",
+    "c000_office_pm",
+    "leg_c000"
+   ],
+   "structural_closure": 1201
+  }
+ ],
+ "edges_dump": "[163040 edges — first 300 in edges_sample]",
+ "edges_sample": [
+  {
+   "src": "c000_office_president",
+   "dst": "c000_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c000_office_president",
+   "dst": "c000_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c000_office_pm",
+   "dst": "c000_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c000_office_president",
+   "dst": "c000_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c000_office_pm",
+   "dst": "c000_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c001_office_president",
+   "dst": "c001_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c001_office_president",
+   "dst": "c001_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c001_office_pm",
+   "dst": "c001_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c001_office_president",
+   "dst": "c001_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c001_office_pm",
+   "dst": "c001_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c002_office_president",
+   "dst": "c002_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c002_office_president",
+   "dst": "c002_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c002_office_pm",
+   "dst": "c002_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c002_office_president",
+   "dst": "c002_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c002_office_pm",
+   "dst": "c002_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c003_office_president",
+   "dst": "c003_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c003_office_president",
+   "dst": "c003_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c003_office_pm",
+   "dst": "c003_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c003_office_president",
+   "dst": "c003_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c003_office_pm",
+   "dst": "c003_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c004_office_president",
+   "dst": "c004_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c004_office_president",
+   "dst": "c004_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c004_office_pm",
+   "dst": "c004_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c004_office_president",
+   "dst": "c004_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c004_office_pm",
+   "dst": "c004_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c005_office_president",
+   "dst": "c005_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c005_office_president",
+   "dst": "c005_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c005_office_pm",
+   "dst": "c005_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c005_office_president",
+   "dst": "c005_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c005_office_pm",
+   "dst": "c005_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c006_office_president",
+   "dst": "c006_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c006_office_president",
+   "dst": "c006_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c006_office_pm",
+   "dst": "c006_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c006_office_president",
+   "dst": "c006_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c006_office_pm",
+   "dst": "c006_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c007_office_president",
+   "dst": "c007_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c007_office_president",
+   "dst": "c007_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c007_office_pm",
+   "dst": "c007_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c007_office_president",
+   "dst": "c007_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c007_office_pm",
+   "dst": "c007_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c008_office_president",
+   "dst": "c008_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c008_office_president",
+   "dst": "c008_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c008_office_pm",
+   "dst": "c008_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c008_office_president",
+   "dst": "c008_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c008_office_pm",
+   "dst": "c008_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c009_office_president",
+   "dst": "c009_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c009_office_president",
+   "dst": "c009_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c009_office_pm",
+   "dst": "c009_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c009_office_president",
+   "dst": "c009_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c009_office_pm",
+   "dst": "c009_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c010_office_president",
+   "dst": "c010_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c010_office_president",
+   "dst": "c010_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c010_office_pm",
+   "dst": "c010_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c010_office_president",
+   "dst": "c010_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c010_office_pm",
+   "dst": "c010_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c011_office_president",
+   "dst": "c011_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c011_office_president",
+   "dst": "c011_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c011_office_pm",
+   "dst": "c011_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c011_office_president",
+   "dst": "c011_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c011_office_pm",
+   "dst": "c011_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c012_office_president",
+   "dst": "c012_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c012_office_president",
+   "dst": "c012_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c012_office_pm",
+   "dst": "c012_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c012_office_president",
+   "dst": "c012_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c012_office_pm",
+   "dst": "c012_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c013_office_president",
+   "dst": "c013_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c013_office_president",
+   "dst": "c013_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c013_office_pm",
+   "dst": "c013_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c013_office_president",
+   "dst": "c013_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c013_office_pm",
+   "dst": "c013_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c014_office_president",
+   "dst": "c014_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c014_office_president",
+   "dst": "c014_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c014_office_pm",
+   "dst": "c014_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c014_office_president",
+   "dst": "c014_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c014_office_pm",
+   "dst": "c014_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c015_office_president",
+   "dst": "c015_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c015_office_president",
+   "dst": "c015_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c015_office_pm",
+   "dst": "c015_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c015_office_president",
+   "dst": "c015_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c015_office_pm",
+   "dst": "c015_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c016_office_president",
+   "dst": "c016_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c016_office_president",
+   "dst": "c016_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c016_office_pm",
+   "dst": "c016_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c016_office_president",
+   "dst": "c016_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c016_office_pm",
+   "dst": "c016_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c017_office_president",
+   "dst": "c017_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c017_office_president",
+   "dst": "c017_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c017_office_pm",
+   "dst": "c017_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c017_office_president",
+   "dst": "c017_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c017_office_pm",
+   "dst": "c017_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c018_office_president",
+   "dst": "c018_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c018_office_president",
+   "dst": "c018_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c018_office_pm",
+   "dst": "c018_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c018_office_president",
+   "dst": "c018_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c018_office_pm",
+   "dst": "c018_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c019_office_president",
+   "dst": "c019_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c019_office_president",
+   "dst": "c019_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c019_office_pm",
+   "dst": "c019_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c019_office_president",
+   "dst": "c019_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c019_office_pm",
+   "dst": "c019_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c020_office_president",
+   "dst": "c020_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c020_office_president",
+   "dst": "c020_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c020_office_pm",
+   "dst": "c020_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c020_office_president",
+   "dst": "c020_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c020_office_pm",
+   "dst": "c020_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c021_office_president",
+   "dst": "c021_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c021_office_president",
+   "dst": "c021_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c021_office_pm",
+   "dst": "c021_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c021_office_president",
+   "dst": "c021_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c021_office_pm",
+   "dst": "c021_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c022_office_president",
+   "dst": "c022_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c022_office_president",
+   "dst": "c022_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c022_office_pm",
+   "dst": "c022_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c022_office_president",
+   "dst": "c022_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c022_office_pm",
+   "dst": "c022_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c023_office_president",
+   "dst": "c023_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c023_office_president",
+   "dst": "c023_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c023_office_pm",
+   "dst": "c023_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c023_office_president",
+   "dst": "c023_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c023_office_pm",
+   "dst": "c023_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c024_office_president",
+   "dst": "c024_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c024_office_president",
+   "dst": "c024_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c024_office_pm",
+   "dst": "c024_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c024_office_president",
+   "dst": "c024_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c024_office_pm",
+   "dst": "c024_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c025_office_president",
+   "dst": "c025_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c025_office_president",
+   "dst": "c025_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c025_office_pm",
+   "dst": "c025_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c025_office_president",
+   "dst": "c025_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c025_office_pm",
+   "dst": "c025_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c026_office_president",
+   "dst": "c026_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c026_office_president",
+   "dst": "c026_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c026_office_pm",
+   "dst": "c026_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c026_office_president",
+   "dst": "c026_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c026_office_pm",
+   "dst": "c026_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c027_office_president",
+   "dst": "c027_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c027_office_president",
+   "dst": "c027_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c027_office_pm",
+   "dst": "c027_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c027_office_president",
+   "dst": "c027_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c027_office_pm",
+   "dst": "c027_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c028_office_president",
+   "dst": "c028_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c028_office_president",
+   "dst": "c028_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c028_office_pm",
+   "dst": "c028_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c028_office_president",
+   "dst": "c028_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c028_office_pm",
+   "dst": "c028_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c029_office_president",
+   "dst": "c029_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c029_office_president",
+   "dst": "c029_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c029_office_pm",
+   "dst": "c029_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c029_office_president",
+   "dst": "c029_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c029_office_pm",
+   "dst": "c029_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c030_office_president",
+   "dst": "c030_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c030_office_president",
+   "dst": "c030_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c030_office_pm",
+   "dst": "c030_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c030_office_president",
+   "dst": "c030_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c030_office_pm",
+   "dst": "c030_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c031_office_president",
+   "dst": "c031_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c031_office_president",
+   "dst": "c031_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c031_office_pm",
+   "dst": "c031_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c031_office_president",
+   "dst": "c031_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c031_office_pm",
+   "dst": "c031_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c032_office_president",
+   "dst": "c032_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c032_office_president",
+   "dst": "c032_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c032_office_pm",
+   "dst": "c032_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c032_office_president",
+   "dst": "c032_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c032_office_pm",
+   "dst": "c032_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c033_office_president",
+   "dst": "c033_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c033_office_president",
+   "dst": "c033_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c033_office_pm",
+   "dst": "c033_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c033_office_president",
+   "dst": "c033_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c033_office_pm",
+   "dst": "c033_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c034_office_president",
+   "dst": "c034_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c034_office_president",
+   "dst": "c034_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c034_office_pm",
+   "dst": "c034_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c034_office_president",
+   "dst": "c034_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c034_office_pm",
+   "dst": "c034_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c035_office_president",
+   "dst": "c035_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c035_office_president",
+   "dst": "c035_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c035_office_pm",
+   "dst": "c035_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c035_office_president",
+   "dst": "c035_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c035_office_pm",
+   "dst": "c035_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c036_office_president",
+   "dst": "c036_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c036_office_president",
+   "dst": "c036_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c036_office_pm",
+   "dst": "c036_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c036_office_president",
+   "dst": "c036_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c036_office_pm",
+   "dst": "c036_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c037_office_president",
+   "dst": "c037_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c037_office_president",
+   "dst": "c037_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c037_office_pm",
+   "dst": "c037_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c037_office_president",
+   "dst": "c037_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c037_office_pm",
+   "dst": "c037_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c038_office_president",
+   "dst": "c038_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c038_office_president",
+   "dst": "c038_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c038_office_pm",
+   "dst": "c038_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c038_office_president",
+   "dst": "c038_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c038_office_pm",
+   "dst": "c038_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c039_office_president",
+   "dst": "c039_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c039_office_president",
+   "dst": "c039_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c039_office_pm",
+   "dst": "c039_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c039_office_president",
+   "dst": "c039_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c039_office_pm",
+   "dst": "c039_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c040_office_president",
+   "dst": "c040_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c040_office_president",
+   "dst": "c040_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c040_office_pm",
+   "dst": "c040_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c040_office_president",
+   "dst": "c040_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c040_office_pm",
+   "dst": "c040_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c041_office_president",
+   "dst": "c041_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c041_office_president",
+   "dst": "c041_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c041_office_pm",
+   "dst": "c041_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c041_office_president",
+   "dst": "c041_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c041_office_pm",
+   "dst": "c041_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c042_office_president",
+   "dst": "c042_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c042_office_president",
+   "dst": "c042_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c042_office_pm",
+   "dst": "c042_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c042_office_president",
+   "dst": "c042_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c042_office_pm",
+   "dst": "c042_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c043_office_president",
+   "dst": "c043_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c043_office_president",
+   "dst": "c043_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c043_office_pm",
+   "dst": "c043_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c043_office_president",
+   "dst": "c043_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c043_office_pm",
+   "dst": "c043_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c044_office_president",
+   "dst": "c044_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c044_office_president",
+   "dst": "c044_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c044_office_pm",
+   "dst": "c044_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c044_office_president",
+   "dst": "c044_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c044_office_pm",
+   "dst": "c044_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c045_office_president",
+   "dst": "c045_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c045_office_president",
+   "dst": "c045_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c045_office_pm",
+   "dst": "c045_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c045_office_president",
+   "dst": "c045_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c045_office_pm",
+   "dst": "c045_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c046_office_president",
+   "dst": "c046_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c046_office_president",
+   "dst": "c046_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c046_office_pm",
+   "dst": "c046_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c046_office_president",
+   "dst": "c046_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c046_office_pm",
+   "dst": "c046_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c047_office_president",
+   "dst": "c047_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c047_office_president",
+   "dst": "c047_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c047_office_pm",
+   "dst": "c047_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c047_office_president",
+   "dst": "c047_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c047_office_pm",
+   "dst": "c047_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c048_office_president",
+   "dst": "c048_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c048_office_president",
+   "dst": "c048_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c048_office_pm",
+   "dst": "c048_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c048_office_president",
+   "dst": "c048_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c048_office_pm",
+   "dst": "c048_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c049_office_president",
+   "dst": "c049_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c049_office_president",
+   "dst": "c049_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c049_office_pm",
+   "dst": "c049_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c049_office_president",
+   "dst": "c049_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c049_office_pm",
+   "dst": "c049_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c050_office_president",
+   "dst": "c050_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c050_office_president",
+   "dst": "c050_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c050_office_pm",
+   "dst": "c050_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c050_office_president",
+   "dst": "c050_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c050_office_pm",
+   "dst": "c050_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c051_office_president",
+   "dst": "c051_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c051_office_president",
+   "dst": "c051_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c051_office_pm",
+   "dst": "c051_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c051_office_president",
+   "dst": "c051_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c051_office_pm",
+   "dst": "c051_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c052_office_president",
+   "dst": "c052_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c052_office_president",
+   "dst": "c052_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c052_office_pm",
+   "dst": "c052_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c052_office_president",
+   "dst": "c052_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c052_office_pm",
+   "dst": "c052_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c053_office_president",
+   "dst": "c053_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c053_office_president",
+   "dst": "c053_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c053_office_pm",
+   "dst": "c053_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c053_office_president",
+   "dst": "c053_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c053_office_pm",
+   "dst": "c053_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c054_office_president",
+   "dst": "c054_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c054_office_president",
+   "dst": "c054_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c054_office_pm",
+   "dst": "c054_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c054_office_president",
+   "dst": "c054_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c054_office_pm",
+   "dst": "c054_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c055_office_president",
+   "dst": "c055_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c055_office_president",
+   "dst": "c055_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c055_office_pm",
+   "dst": "c055_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c055_office_president",
+   "dst": "c055_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c055_office_pm",
+   "dst": "c055_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c056_office_president",
+   "dst": "c056_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c056_office_president",
+   "dst": "c056_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c056_office_pm",
+   "dst": "c056_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c056_office_president",
+   "dst": "c056_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c056_office_pm",
+   "dst": "c056_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c057_office_president",
+   "dst": "c057_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c057_office_president",
+   "dst": "c057_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c057_office_pm",
+   "dst": "c057_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c057_office_president",
+   "dst": "c057_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c057_office_pm",
+   "dst": "c057_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c058_office_president",
+   "dst": "c058_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c058_office_president",
+   "dst": "c058_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c058_office_pm",
+   "dst": "c058_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c058_office_president",
+   "dst": "c058_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c058_office_pm",
+   "dst": "c058_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c059_office_president",
+   "dst": "c059_office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c059_office_president",
+   "dst": "c059_office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c059_office_pm",
+   "dst": "c059_office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c059_office_president",
+   "dst": "c059_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  },
+  {
+   "src": "c059_office_pm",
+   "dst": "c059_office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule"
+  }
+ ]
+}

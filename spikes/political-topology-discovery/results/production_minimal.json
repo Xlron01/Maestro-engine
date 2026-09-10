@@ -1,0 +1,213 @@
+{
+ "world": "production_minimal",
+ "world_path": "data/worlds/politics/batch_a_base.json",
+ "rules_path": "data/rules/institutional_rules.json",
+ "node_counts": {
+  "Office": 3,
+  "Party": 3,
+  "Legislature": 1,
+  "Government": 0,
+  "Character (identity-only, excluded)": 5
+ },
+ "node_types": {
+  "Office": 3,
+  "Party": 3,
+  "Legislature": 1
+ },
+ "metrics": {
+  "nodes_total": 7,
+  "edges_total": 13,
+  "nodes_with_out": 6,
+  "nodes_with_in": 3,
+  "out_degree_mean": 2.1666666666666665,
+  "out_degree_max": 4,
+  "out_degree_p50": 2,
+  "out_degree_p95": 4,
+  "in_degree_mean": 4.333333333333333,
+  "in_degree_max": 7,
+  "top_out": [
+   [
+    "office_president",
+    4
+   ],
+   [
+    "office_pm",
+    2
+   ],
+   [
+    "P_A",
+    2
+   ],
+   [
+    "P_B",
+    2
+   ],
+   [
+    "P_C",
+    2
+   ],
+   [
+    "parliament_H",
+    1
+   ]
+  ],
+  "top_in": [
+   [
+    "parliament_H",
+    7
+   ],
+   [
+    "office_pm",
+    3
+   ],
+   [
+    "office_finance",
+    3
+   ]
+  ],
+  "components": 1,
+  "largest_component": 7,
+  "mean_component": 7.0,
+  "component_sizes_top5": [
+   7
+  ],
+  "cross_country_edges": 0,
+  "cross_country_examples": [],
+  "edges_static_rule": 7,
+  "edges_dynamic_state": 6,
+  "edges_by_type": {
+   "E1 appointing_authority": 2,
+   "E2 dismissible_by": 3,
+   "E3 party.seats->leg totals": 3,
+   "E7 strength->seat quota (global loop)": 3,
+   "E6 electoral_authority gate": 1,
+   "E6 head_office succession": 1
+  },
+  "hubs_in_ge20": {},
+  "max_causal_depth": 3,
+  "max_causal_path_head": [
+   "office_president",
+   "parliament_H",
+   "office_pm",
+   "office_finance"
+  ]
+ },
+ "closures": [
+  {
+   "op": "HoldElection",
+   "target": "parliament_H",
+   "direct_writes": 5,
+   "party_seat_writes": 3,
+   "semantic_closure": 3,
+   "semantic_nodes": [
+    "office_pm",
+    "office_president",
+    "parliament_H"
+   ],
+   "structural_closure": 2
+  },
+  {
+   "op": "DismissOfficeholder",
+   "target": "office_president",
+   "direct_writes": 1,
+   "semantic_closure": 1,
+   "semantic_nodes": [
+    "office_president"
+   ],
+   "structural_closure": 4
+  }
+ ],
+ "edges": [
+  {
+   "src": "office_president",
+   "dst": "office_pm",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule",
+   "note": ""
+  },
+  {
+   "src": "office_president",
+   "dst": "office_pm",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule",
+   "note": ""
+  },
+  {
+   "src": "office_pm",
+   "dst": "office_finance",
+   "etype": "E1 appointing_authority",
+   "provenance": "static-rule",
+   "note": ""
+  },
+  {
+   "src": "office_president",
+   "dst": "office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule",
+   "note": ""
+  },
+  {
+   "src": "office_pm",
+   "dst": "office_finance",
+   "etype": "E2 dismissible_by",
+   "provenance": "static-rule",
+   "note": ""
+  },
+  {
+   "src": "P_A",
+   "dst": "parliament_H",
+   "etype": "E3 party.seats->leg totals",
+   "provenance": "dynamic-state",
+   "note": ""
+  },
+  {
+   "src": "P_B",
+   "dst": "parliament_H",
+   "etype": "E3 party.seats->leg totals",
+   "provenance": "dynamic-state",
+   "note": ""
+  },
+  {
+   "src": "P_C",
+   "dst": "parliament_H",
+   "etype": "E3 party.seats->leg totals",
+   "provenance": "dynamic-state",
+   "note": ""
+  },
+  {
+   "src": "P_A",
+   "dst": "parliament_H",
+   "etype": "E7 strength->seat quota (global loop)",
+   "provenance": "dynamic-state",
+   "note": ""
+  },
+  {
+   "src": "P_B",
+   "dst": "parliament_H",
+   "etype": "E7 strength->seat quota (global loop)",
+   "provenance": "dynamic-state",
+   "note": ""
+  },
+  {
+   "src": "P_C",
+   "dst": "parliament_H",
+   "etype": "E7 strength->seat quota (global loop)",
+   "provenance": "dynamic-state",
+   "note": ""
+  },
+  {
+   "src": "office_president",
+   "dst": "parliament_H",
+   "etype": "E6 electoral_authority gate",
+   "provenance": "static-rule",
+   "note": ""
+  },
+  {
+   "src": "parliament_H",
+   "dst": "office_pm",
+   "etype": "E6 head_office succession",
+   "provenance": "static-rule",
+   "note": ""
+  }
+ ]
+}

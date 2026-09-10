@@ -1,0 +1,34 @@
+{
+ "scenario_A": {
+  "days": 90,
+  "deadline_activations_total": 60,
+  "deadline_activations_max_day": 20,
+  "pa_evals_total": 30,
+  "pa_evals_max_day": 20,
+  "events_max_day": 203
+ },
+ "scenario_B": {
+  "days": 90,
+  "deadline_activations_total": 30,
+  "deadline_activations_max_day": 9,
+  "pa_evals_total": 15,
+  "pa_evals_max_day": 9,
+  "events_max_day": 203
+ },
+ "scenario_C": {
+  "days": 90,
+  "deadline_activations_total": 240,
+  "deadline_activations_max_day": 64,
+  "pa_evals_total": 120,
+  "pa_evals_max_day": 64,
+  "events_max_day": 209
+ },
+ "scenario_D": {
+  "days": 120,
+  "deadline_activations_total": 60,
+  "deadline_activations_max_day": 25,
+  "pa_evals_total": 15,
+  "pa_evals_max_day": 9,
+  "events_max_day": 205
+ }
+}
