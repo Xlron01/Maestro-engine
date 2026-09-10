@@ -5,6 +5,17 @@
 ## [2026-09-10]
 
 ### Added
+- **Political Topology Discovery — COMPLETE (read-only spike، بتكليف المالك):** خطوة الـDiscovery التي سبقت أي PF-PROBE spec — استخراج وقياس بنية الاعتماد السياسية الفعلية من production code/data بدون أي تعديل سلوك أو تشغيل benchmark. كل أرقام التقرير متحقق منها آليًا (verify_report.py **44/44 PASS**).
+  - **المنهج:** جرد سطر-بسطر لكل `scripts/politics/` (1,052 سطر) + الـhandlers السياسية + الـworldgen قبل أي تعريف؛ CHARTER v1.0 مجمّد قبل الاستخراج (commit 198fdd0a — نمط PROBE-P1 pre-registration)؛ تعديل A1 مجمّد قبل التقرير: تمييز ACTIVE/LATENT edges (حافة بلا writer إنتاجي = latent — مسار قراءة حقيقي لا يمكن أن ينتشر عبره اليوم)؛ ثلاثة variants لكل عالم (aswired / prodsem production-election-semantics / prodsem_scopedE7 counterfactual)؛ ثلاثة أخطاء أدوات اكتُشفت وصُلحت قبل اعتماد أي رقم (country_of، ربط head_office، نمذجة writes المقاعد) — اللوجات كاملة محفوظة.
+  - **النتائج الرئيسية (200 دولة، production semantics):** 1,630 عقدة state؛ ACTIVE graph = 2,380 حافة · متوسط out-degree 1.66 · أقصى 5 · **صفر hubs** · أقصى عمق سببي 3 · **200 مكون منفصل، أكبرها 9 عقد، كل مكون = دولة واحدة** · **صفر حواف cross-country نشطة** · انتخابات واحدة: closure **median 3 / max 8 عقد (0.49% من العالم)** · الذروة المقاسة من workload حقيقي (TASK-040): 64 activation/يوم. regime تشبع PROBE-P1 مستحيل بنيويًا هنا (مكونات منفصلة — الكثافة تتكدس additively).
+  - **الاكتشاف المعماري الأهم (A-1):** `_hold_election` يفرز أحزاب **العالم كله** (800) لكل انتخابات — اليوم بلا أثر (لا writer لـ`electoral_strength`) لكن أول writer لقوة أحزاب (حملات/استطلاعات/انقلابات) يحوّل الرسم إلى giant بـ1,630 عقدة وclosure انتخابات واحدة = 750 عقدة. الـscoped counterfactual: نفس السلوك اليوم بـ50.6× أخف. **القرار للمالك (documented not decided).**
+  - **بقية الـanomalies:** fixture/production wiring divergence (أي PF-PROBE على prodsem) · الأحداث "السياسية" كلها تكتب WorldState.stability وتتجاهل PoliticalState (الـPF-PROBE يحقن عبر PoliticalActions) · `government_support` فارغة في كل العوالم (Support/Withdraw غير مقاسة) · 30 SCC ثنائية (office↔office) يجب أن يعالجها أي implementation incremental بـvisit-once.
+  - **إجابات PF-1..PF-5 (discovery-grade):** الـtopology في الـregime المثالي لـC2 **لو** اتبنى derived-state caching — لكن الـruntime الحالي on-demand بالكامل (مفيش derived state ليحافظ عليه C2 اليوم)، والخطر الوحيد latent (E7). أي قرار (PF-PROBE / scoping / تأجيل) للمالك.
+  - **صفر ملفات production تُلمس؛ لا verdicts؛ لا شيء دخل acceptance chain.** Commits: `198fdd0a` (Charter مجمّد) + `dcffac91` (النتائج + التقرير + الأدوات + اللوجات).
+
+## [2026-09-10]
+
+### Added
 - **PROBE-P1 (Incremental Propagation Feasibility) — FULL PASS معتمدة رسميًا (2026-09-10):** خط بحث معماري معزول (ليست TASK-0xx ولا تدخل acceptance chain) — أجاب على: هل dependency-driven propagation يحافظ على correctness وlocality عند scale قريب من GSG؟
   - **البنية:** `spikes/probe-p1/` فقط — SPEC.md (مواصفة المالك حرفيًا) مجمّدة بـcommit `37170714` قبل أي تشغيل (نمط Decision 004 pre-commitment)، ثم DESIGN.md v1.1 pre-registered (تنبؤات قابلة للتفنيد P-A..P-E + seeds + gate mappings)، ثم 192 تشغيلة subprocess معزولة (78 matrix × 2 passes + 36 memory-rerun).
   - **Correctness 4/4:** bitwise-identical عبر كل candidates/pass/scenario (52 scenario-passes) — أُعيد التحقق برمجيًا بعد الاستلام بواسطة `verify_report.py` (23/23 فحص PASS مقابل الـJSONs الخام، اللوج محفوظ).

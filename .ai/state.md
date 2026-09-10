@@ -2,30 +2,31 @@
 
 ## Metadata
 - **Last Updated:** 2026-09-10
-- **Current Phase:** PROBE-P1 (Incremental Propagation Feasibility) — **مغلقة رسميًا FULL PASS owner-ratified (2026-09-10)**. لا مهمة نشطة — في انتظار تكليف المالك للخطوة التالية.
-- **Current Step:** NONE — ممنوع فتح أي مهمة/probe جديد دون تكليف صريح من المالك. PROBE-P1 ليست TASK-0xx ولا تدخل acceptance chain — خط بحث معزول تحت `spikes/`.
+- **Current Phase:** PROBE-P1 مغلقة (FULL PASS) + **Political Topology Discovery مكتمل** (read-only، بلا verdict). لا مهمة نشطة — الخطوة التالية قرار المالك: PF-PROBE spec (لو يُكلَّف) أو غيرها.
+- **Current Step:** NONE — في انتظار قرار المالك على نتائج الـDiscovery. ممنوع فتح مهمة/probe جديد أو كتابة PF-PROBE spec دون تكليف صريح.
 
 ## Current Objective
-لا هدف نشط. آخر خط بحث مكتمل: PROBE-P1 — feasibility probe معزول (Python، نموذج مجرد nodes/state/dependencies/derived، صفر production files) أجاب على سؤال معماري واحد: هل dependency-driven propagation يحافظ على correctness وlocality عند scale؟ الجواب المقاس: نعم مع index عكسي (C2: نمو تكلفة 1.35× عند نمو العالم 100× مع تثبيت العمل المتأثر)، ولا بدون index (C1: 256.8× — فشل بوابة locality).
+لا هدف نشط. آخر خط بحث مكتمل: **Political Topology Discovery** — استخراج read-only لبنية الاعتماد السياسية الفعلية من الكود/البيانات (تحت `spikes/political-topology-discovery/`، commit 198fdd0a Charter + dcffac91 نتائج). أجاب discovery-grade على PF-1..PF-5 بمقاسات متحقق منها آليًا (44/44).
 
 ## Active Tasks
 - (لا شيء)
 
 ## Completed Tasks (آخر دورة)
-- `PROBE-P1` (spike — ليست TASK رسمية): Incremental Propagation Performance & Expressiveness Feasibility. **FULL PASS — owner-ratified 2026-09-10** (موافقة صريحة غطت قراءة PERF-3 = N/A + commit النتائج + إغلاق مرحلة evidence review). Correctness 4/4 bitwise عبر 192 subprocess run معزول؛ PERF-1/2/4/5/6/7 PASS؛ PERF-3 = N/A (شرطها غير قابل للتحقق بهذا التصميم — تشبع percolation: أي تغيير uniform ≥0.1% من N يصل 97-100% closure على DAG عشوائي؛ السرعة الفعلية عند الـclosure المقاس 87.4% مقابل حاجز 25%).
-- `TASK-040`: Actor Runtime Integrated Validation Benchmark. **COMPLETE — معتمدة رسميًا 2026-09-09** (موافقة صريحة غطت A10 gap fix + ENGINE TOUCH #5 بعد إثبات الحياد + N=200/quiet=155)
+- `Political Topology Discovery` (spike، read-only): **COMPLETE 2026-09-10** — أهم النتائج: (1) السياسة الحالية = 200 shell معزول × 9 عقد (active graph: 2,380 حافة، depth 3، صفر cross-country، صفر hubs، أكبر closure من انتخابات واحدة = 8 عقد = 0.49% من العالم)؛ (2) **E7 global-parties loop = latent giant** — 160K حافة كامنة، أول writer لـ`electoral_strength` هيشغلها (closure 750 من انتخابات واحدة) — قرار scoping للمالك (documented not decided)؛ (3) events السياسية كلها bypass الـPoliticalState (تكتب stability استراتيجي)؛ (4) `government_support` فارغة في كل العوالم (مسارات Support/Withdraw غير مقاسة)؛ (5) runtime الحالي on-demand بالكامل — مفيش derived state ليحافظ عليه C2.
+- `PROBE-P1` (spike): Incremental Propagation Feasibility. **FULL PASS — owner-ratified 2026-09-10**
+- `TASK-040`: Actor Runtime Integrated Validation Benchmark. **COMPLETE — معتمدة رسميًا 2026-09-09**
 - `TASK-040-pre`: Minimal Deadline Activation Proof. (COMPLETE PROVISIONAL)
 - `TASK-039`: Political Institutional Core — Batch A. (COMPLETE PROVISIONAL)
 - `TASK-038`: Compliance Runtime Layer. (COMPLETE PROVISIONAL)
-- `T5-C`: Storm Root-Cause & Measured-Bottleneck-Only Fix. (COMPLETE PROVISIONAL)
 
 ## Blockers & Known Risks
-- لا blockers. قرارات PROBE-P1 الثلاثة حُسمت بموافقة المالك (2026-09-10).
-- **تحذير معماري مقاس لأي probe مستقبلي:** الـtopology العشوائية (T1-T5) المستخدمة في PROBE-P1 ليست proxy واقعي لعلاقات domain حقيقية — أي "functional domain probe" قادم يجب أن يستخدم topology مشتقة من بنية الدومين الفعلية (clustering محلي/مؤسسي) وليس DAG عشوائي. موثق في `spikes/probe-p1/REPORT.md` (قسم Evidence review).
+- لا blockers. الـDiscovery موثق بالكامل وبلا قرارات معمارية.
+- **تحذير معماري مقاس (من الـDiscovery):** أي writer مستقبلي لـ`party.electoral_strength` هيحوّل الـE7 latent giant (160K حافة، in-degree 806) لactive — قبل أي feature من النوع ده لازم قرار scoping صريح من المالك على `_hold_election` global parties loop (political_actions.gd:357-393).
+- **لأي PF-PROBE قادم (لو كُلِّف):** لازم (أ) production election semantics مش fixture wiring (changes_head=true)، (ب) fixture فيه government_support relations وإلا مسارات Support/Withdraw تفضل معتمة، (ج) injection عبر PoliticalActions/deadlines مش events (الأحداث bypass الـPoliticalState).
 - بيئة التشغيل: Godot الفعلي: `C:\Users\ahmed\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe`.
 
 ## Next Recommended Actions
-1. قرار المالك للخطوة التالية (لا شيء تلقائي — PROBE-P1 مغلقة): بدائل مطروحة — functional domain probe بـtopology مشتقة من بنية الدومين الفعلية (§21 من SPEC)، اعتماد PROVISIONAL للمهام السابقة، أو T5-D بقرار صريح، أو غيرها بتكليف.
+1. قرار المالك على نتائج الـDiscovery: (أ) تكليف PF-PROBE spec على production semantics، (ب) قرار منفصل مبكر على scoping الـE7 loop، (ج) اعتماد PROVISIONAL للمهام السابقة، (د) غيرها.
 2. ملاحظة بيئية: worktree `siren` على فرع `t040-full-benchmark` يتقدم على master المحلي (الذي يحمل ee98f568 المرفوض كhistory فقط) — دمج master/تنظيفه بقرار المالك.
 
 ## Known Bugs & Temporary Hacks

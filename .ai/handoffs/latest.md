@@ -1,64 +1,87 @@
-# Handoff Report — PROBE-P1 (Incremental Propagation Feasibility) — مغلقة
+# Handoff Report — Political Topology Discovery — COMPLETE (2026-09-10)
 
-- **Current Task:** لا مهمة نشطة. آخر خط بحث: PROBE-P1 — **FULL PASS owner-ratified (2026-09-10)**.
+- **Current Task:** لا مهمة نشطة. آخر خط بحث: **Political Topology Discovery — COMPLETE** (read-only، بلا verdict، بانتظار قرار المالك).
 
-## 0) ما الذي حدث في هذه الجلسة (استكمال من نقطة توقف المطور السابق)
+## 0) ما الذي نُفّذ في هذه الجلسة
 
-استلم المطور السابق نتائج كاملة (192 تشغيلة معزولة) وتقريرًا موقوفًا على 3 قرارات للمالك.
-المالك (أحمد) أصدر قراراته الثلاثة في الـhandoff، ونُفذت حرفيًا:
+بتكليف صريح من المالك ("ابدأ Discovery") وبأرضية مناقشة PF-1..PF-5 المسجلة في المحادثة:
 
-1. **قراءة PERF-3:** سُجّلت "N/A — الشرط غير قابل للتحقق بهذا التصميم" مع التوثيق الرياضي
-   (تشبع percolation على DAG عشوائي بمتوسط out-degree 4: أي تغيير uniform ≥0.1% من N
-   يصل 97-100% union closure — نتيجة معروفة من نظرية الشبكات، ليست عيبًا في الـmechanism).
-   السرعة الفعلية عند الـclosure المقاس (87.4%) تخطت حاجز البوابة (25%). **Verdict النهائي: FULL PASS.**
-2. **Commit النتائج:** تم — commit `6d72cffc` (204 ملف تحت `spikes/probe-p1/` فقط،
-   صفر production files). الملفات المؤقتة (smoke_test.py, sanity40k.py, __pycache__/) حُذفت.
-3. **الخطوة التالية:** لا شيء تلقائي — مرحلة evidence review (§21) مغلقة. توثيق التحذير
-   المعماري في التقرير: الـtopology العشوائية المستخدمة ليست proxy واقعي لعلاقات domain
-   حقيقية — أي functional domain probe قادم يجب أن يستخدم topology مشتقة من بنية الدومين
-   الفعلية (clustering محلي/مؤسسي) وليس DAG عشوائي.
+1. **جرد كود كامل (audit)** — قراءة سطر-بسطر لكل `scripts/politics/` (1,052 سطر) + الجزء السياسي من
+   `game_event_handlers.gd` + `t040_worldgen.py` + كل الـrules/fixtures — قبل أي تعريف أو رقم.
+   الجرد أثبت الحواف الدلالية E1-E10 بمرجع سطري لكل قراءة state فعلية.
+2. **CHARTER.md v1.0 مجمّد قبل الاستخراج** (commit 198fdd0a) — تعريفات العقدة/الحافة/الـclosure،
+   قائمة الـmetrics (حقول المالك + إضافات المراجعة)، مصادر الـworkload. **تعديل A1** أُضيف بعد
+   اكتشاف الجرد وقبل التقرير: تقسيم ACTIVE/LATENT — حافة دلالية مصدرها بلا writer إنتاجي
+   (زي `electoral_strength`) هي latent: مسار قراءة حقيقي لكن لا يمكن أن ينتشر عبرها اليوم.
+3. **أداتان read-only** (`extract_topology.py` + `active_subgraph.py`) — استخراج الـgraph من
+   production code/data + قياس الـclosures على النسختين full/active. ثلاثة variants لكل عالم:
+   aswired / prodsem (production election semantics) / prodsem_scopedE7 (counterfactual).
+4. **REPORT.md** — كل الأرقام متحقق منها آليًا: `verify_report.py` **44/44 PASS**
+   (اللوج: `logs/verify_report.log`).
 
-## 1) تحقق مستقل قبل الالتزام (بدل الأخذ بالتقرير على الوجه الظاهر)
+أخطاء أدوات حقيقية اكتُشفت وصُلحت قبل اعتماد أي رقم (اللوجات كلها محفوظة بترتيبها):
+باگ country_of (عدّ cross-country كاذب) + ربط head_office بقالب بلد واحدة + نموذج closure كان
+يحسب مقاعد كل الأحزاب كـwrites (خطأ دلالي — `apply_seats` يكتب عقدة legislature واحدة).
 
-كُتب `spikes/probe-p1/verify_report.py` — فحص برمجي متقاطع لادعاءات REPORT.md مقابل
-الـJSONs الخام: **23/23 PASS** (تطابق hashes عبر 78×2 runs و52 scenario-passes،
-closures، نسب S9 locality، حدود S8/SUPP، بوابات الذاكرة، أعداد التشغيل).
-اللوج: `spikes/probe-p1/logs/verify_report.log`. صحّح أيضًا رقمان في التقرير:
-- "42 memory-rerun runs" → 36 (6 scenarios × 3 candidates × 2 tm/non-tm).
-- صفوف break-even بقيم 0 (سلاسل لم تُشغَّل) أُسندت بملاحظة تشرح التغطية الفعلية
-  (cc=400 per-change مغطاة بـS4؛ cc=20000 per-change محذوفة بقاعدة التكلفة المشجّرة مسبقًا).
+## 1) النتائج الرئيسية (متحقق منها 44/44)
 
-## 2) خلاصة نتائج PROBE-P1 (للاسترجاع السريع)
+**السياسة الحالية (Batch-A v0) = 200 shell معزول × 9 عقد:**
+- 1,630 عقدة state قابلة للتغير @200 دولة (متوسط 7 عقد سياسية/دولة) — characters عقد identity خالصة
+- ACTIVE graph: 2,380 حافة · متوسط out-degree 1.66 · أقصى out 5 · أقصى in 5 · **صفر hubs** · أقصى عمق سببي 3
+- 200 مكون منفصل، أكبرها 9 عقد — **كل مكون = دولة واحدة بالضبط** · **صفر حواف cross-country نشطة**
+- **انتخابات واحدة (production semantics): closure median 3، max 8 عقد = 0.49% من العالم، عمق 3، داخل دولتها دائمًا**
+- Dismiss: closure 4. سلسلة Election→Officeholder→Authority→Eligibility موجودة وحيّة وstrictly local
+- الذروة المقاسة من workload حقيقي (TASK-040 ticklogs): 64 deadline-activation/يوم @N=200
+- regime التشبع بتاع PROBE-P1 (uniform ≥0.1% يغرق DAG عشوائي) **مستحيل بنيويًا هنا** — المكونات منفصلة
 
-- **Correctness COR-1..4: 4/4 PASS** — bitwise عبر كل candidates/pass/scenario.
-- **PERF-1/2/4/5/6/7: PASS.** PERF-3: N/A (أعلاه).
-- **السؤال المركزي أُجيب:** مع تثبيت العمل المتأثر (closure=1) ونمو العالم 1K→100K:
-  C2 (indexed propagation) نمت 1.35× فقط (بوابة ≤3×)؛ C1 (بدون index) نمت 256.8× (فشل).
-  الـlocality مصدرها البنية (reverse index) وليس مفهوم الـaffected-set وحده (يحسم P1-COMP-4).
-- **Break-even:** تحت batch cadence يتقاطع كلا الـcandidates مع الـbaseline عند union closure
-  شبه كامل (cc=40 → 1.4-1.5× أبطأ). تحت per-change: C2 أسرع 6-12× عند كل كثافة مقاسة؛
-  C1 ينقلب أبطأ على dense/hub (T4 1.38×، T3 1.13-1.29×).
-- **ذاكرة:** reverse index = 24B/dep (~نصف الـedge array 51B/dep)؛ peak WS +2-4% فقط.
-- **Bugs حقيقية أثناء التنفيذ وصلحت قبل اعتماد البيانات:** (1) seed per-candidate divergence
-  في الـharness — أصلح وأعيدت الـmatrix كاملة من الصفر (~50 min ضائعة، موثقة)؛
-  (2) psapi GetProcessMemoryInfo فاشل صامت (0) — استُبدل بـK32GetProcessMemoryInfo
-  وأعيدت بوابات الذاكرة بمعزل (36 reruns).
+**الاكتشاف المعماري الأهم — E7 latent giant (anomaly A-1):**
+`_hold_election` (political_actions.gd:357-393) يفرز `state.parties` **كله** (800 حزب) بغض النظر عن
+دولة المجلس. اليوم: صفر تأثير عملي (لا يوجد writer لـ`electoral_strength`). لكن أول feature يكتب
+قوة حزب (حملات/استطلاعات/انقلابات تعيد تشكيل الأحزاب) يحوّل الرسم النشط من 200 shell معزول إلى
+**giant واحد 1,630 عقدة (in-degree 806) وclosure انتخابات واحدة = 750 عقدة**. الـscoped counterfactual
+(حلقة مقيدة بأحزاب الدولة) يعطي نفس السلوك اليوم بـ3,210 حافة بدل 162,410 — **50.6× أخف**.
+القرار (scoping = تعديل كود إنتاجي) للمالك — موثق بلا حسم.
 
-## 3) ما الذي لا يعنيه هذا (SPEC §20/§21 حرفيًا)
+**بقية الـanomalies:** A-2 fixture/production wiring divergence (أي PF-PROBE لازم على prodsem) ·
+A-3 الأحداث "السياسية" كلها تكتب WorldState.stability وتبايِع PoliticalState تمامًا (الـPF-PROBE لازم
+يحقن عبر PoliticalActions/deadlines) · A-4 `government_support` فارغة في كل العوالم (مسارات
+Support/Withdraw غير مقاسة) · A-5 ثلاثون SCC ثنائية العقد (office↔office) — بسيطة لكن أي
+implementation incremental لازم يعالجها (visit-once كما في PROBE-P1).
 
-FULL PASS لا يعني أي اعتماد: لا dependency propagation في GSG، لا قرار graph
-architecture، لا provenance/Observation/Relevance، لا ربط domains، لا parallelization،
-لا scheduler change، لا production budget. يعني فقط أن الـmechanism يستحق مرحلة
-design/functional-feasibility تالية لو كلفها المالك.
+## 2) إجابات PF-1..PF-5 (discovery-grade — من REPORT.md §7)
 
-## 4) الخطوة القادمة (قرار المالك — لا شيء تلقائي)
+- **PF-1:** topology فعلية صغيرة ومحلية تمامًا (أعلاه). لا فرض مسبق — البيانات هي اللي قالت.
+- **PF-2:** حدث سياسي واحد → affected set فعلًا 3-8 عقد. السياسة عندنا **مش** highly connected.
+- **PF-3:** السلسلة الحقيقية موجودة وحيّة: 3 hops، 8 عقد، ratio بنيوي ~204× لصالح الـincremental.
+- **PF-4:** الكثافة تتكدس additively عبر مكونات منفصلة — الذروة 64/يوم = 512 node-visit ضد 1,630
+  للـfull recompute. الـbreak-even غير قابل للوصول بالكثافة وحدها (يحتاج writer لقوة الأحزاب أو ميزات cross-country غير موجودة).
+- **PF-5:** بصراحة ثلاث طبقات: (1) الـtopology في الـregime المثالي لـC2 لو اتبنى derived-state caching؛
+  (2) لكن الـruntime الحالي on-demand بالكامل — **مفيش حاجة اسمها derived state ليحافظ عليها C2 اليوم**؛
+  (3) الخطر الحقيقي الوحيد latent (E7). القرار (PF-PROBE أو scoping) للمالك.
 
-- functional domain probe بـtopology مشتقة من بنية الدومين الفعلية (توصية التصميم)، أو
-- اعتماد PROVISIONAL للمهام السابقة (TASK-038/039/040-pre)، أو
-- T5-D بقرار صريح، أو غيرها.
+## 3) ما الذي لا يثبته هذا الـDiscovery
+
+Batch-A v0 فقط — تحالفات/فصائل/سياسة داخل الأحزاب/علاقات cross-country ستغير الـtopology جوهريًا.
+"200 shells × 9" يصف الدومين الحالي لا وجهته. صفر benchmark أداء، صفر verdict معماري، صفر تعديل
+production (تحقق: `git diff ebb0fde9..HEAD --stat -- scripts/ economy/ data/` فاضي). لا شيء دخل
+acceptance chain.
+
+## 4) القرارات المعلقة على المالك (لا شيء تلقائي)
+
+1. **PF-PROBE:** هل يُكلَّف spec على production semantics؟ (لو نعم: لازم prodsem wiring +
+   fixture بـgovernment_support + injection عبر PoliticalActions — موثق كمتطلبات مسبقة).
+2. **E7 scoping (منفصل ومبكر):** قرار صريح على تقييد حلقة الأحزاب في `_hold_election` قبل أي
+   writer مستقبلي لقوة الأحزاب — أو قبولها كـdebt موثق.
+3. بدائل أخرى: اعتماد PROVISIONAL للمهام السابقة، T5-D بقرار صريح، أو غيرها.
 
 ## 5) Commits لهذه الدورة
 
-- `37170714` — PROBE-P1: freeze owner spec + pre-registered execution design (v1.1, ratified) before first run
-- `6d72cffc` — PROBE-P1: FULL PASS owner-ratified (2026-09-10) - measured results, report, tooling
-- (ثالث قادم: memory cycle — state.md/CHANGELOG/handoff + validate_memory)
+- `198fdd0a` — Political Topology Discovery: freeze CHARTER v1.0 before extraction (pre-registration)
+- `dcffac91` — Political Topology Discovery: complete - measured topology, closures, anomaly register
+- (ثالث قادم: memory cycle هذا)
+
+## 6) بنية الملفات
+
+`spikes/political-topology-discovery/`: CHARTER.md · REPORT.md · extract_topology.py ·
+active_subgraph.py · verify_report.py · results/*.json (raw لكل عالم/variant — full + active) ·
+logs/ (كل التشغيلات بترتيبها بما فيها iterations الخاطئة — سجل صادق).
