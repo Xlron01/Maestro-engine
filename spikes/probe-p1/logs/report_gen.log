@@ -1,0 +1,245 @@
+# PROBE-P1 — MEASURED RESULTS (raw, no smoothing)
+
+Env: {'python': '3.11.16', 'os': 'nt', 'cpu': 'Intel64 Family 6 Model 158 Stepping 13, GenuineIntel'}
+
+## Correctness (pass1 vs pass2 vs candidates)
+
+| Gate | Result |
+|---|---|
+| COR-1 | PASS |
+| COR-2 | PASS |
+| COR-3 | PASS |
+| COR-4 | PASS |
+
+## Performance gates
+
+| Gate | Result | Detail |
+|---|---|---|
+| P1-PERF-1 idle | PASS | S1 c1/c2 evaluated=0/0 |
+| P1-PERF-2 local | PASS | S2 best=100% S9@40K best=100% |
+| P1-PERF-3 1% | N/A (condition not met) | condition_met=False best=(2, 0.8736594510039074) |
+| P1-PERF-4 scaling | PASS | ratios c1=256.79x c2=1.35x |
+| P1-PERF-5 hub/dense | PASS | S3 c1 closure=14566; S3 c2 closure=14566; S5 c1 closure=39859; S5 c2 closure=39859; S6 c1 closure=39604; S6 c2 closure=39604 |
+| P1-PERF-6 high-density | PASS | S8 c1 0.56x; S8 c2 0.26x; SUPP c1 0.39x; SUPP c2 0.12x |
+| P1-PERF-7 memory | PASS | fixed-reader: S2 c1 0.99x / c2 1.02x; S9@100K c1 1.00x / c2 1.03x |
+
+## Scenario table (total_ms / A-level / closure @ c0|c1|c2)
+
+| Scenario | c0 | c1 | c2 |
+|---|---|---|---|
+| S1 n=40000 cc=0 per_change | 0.0/A0/0 | 0.0/A0/0 | 0.0/A0/0 |
+| S10 n=1000 cc=10 per_change | 7.2/A3/1000 | 2.3/A3/463 | 1.0/A3/463 |
+| S10 n=10000 cc=100 per_change | 780.2/A4/10000 | 246.0/A4/9988 | 106.8/A4/9988 |
+| S10 n=40000 cc=400 per_change | 13026.7/A5/40000 | 5669.8/A5/39526 | 2036.8/A5/39526 |
+| S10 n=100000 cc=1000 per_change | 87647.5/A5/100000 | 49718.9/A5/99474 | 9294.8/A5/99474 |
+| S2 n=40000 cc=1 per_change | 33.7/A5/40000 | 9.3/A1/1 | 0.0/A1/1 |
+| S3 n=40000 cc=1 per_change | 75.3/A5/40000 | 85.1/A5/14566 | 52.7/A5/14566 |
+| S4 n=40000 cc=400 per_change | 13765.6/A5/40000 | 5219.5/A5/39722 | 1739.2/A5/39722 |
+| S5 n=40000 cc=400 per_change | 35827.0/A5/40000 | 49319.3/A5/39859 | 19108.8/A5/39859 |
+| S6 n=40000 cc=4 per_change | 313.7/A5/40000 | 405.2/A5/39604 | 246.9/A5/39604 |
+| S7 n=40000 cc=1 per_change | 19.5/A5/40000 | 2.0/A3/1000 | 0.8/A3/1000 |
+| S8 n=40000 cc=8000 per_change | 320743.2/A5/40000 | 179560.5/A5/39999 | 81982.7/A5/39999 |
+| S9 n=1000 cc=1 per_change | 0.7/A3/1000 | 0.1/A1/1 | 0.0/A1/1 |
+| S9 n=10000 cc=1 per_change | 7.6/A4/10000 | 2.0/A1/1 | 0.0/A1/1 |
+| S9 n=40000 cc=1 per_change | 32.1/A5/40000 | 10.4/A1/1 | 0.0/A1/1 |
+| S9 n=100000 cc=1 per_change | 89.8/A5/100000 | 38.2/A1/1 | 0.0/A1/1 |
+| SUPP n=40000 cc=40 per_change | 1307.1/A5/40000 | 533.2/A5/38911 | 187.9/A5/38911 |
+| SUPP n=40000 cc=2000 per_change | 65255.6/A5/40000 | 24724.2/A5/39993 | 6929.3/A5/39993 |
+| SUPP n=40000 cc=8000 per_change | 268029.9/A5/40000 | 104944.4/A5/39999 | 31522.4/A5/39999 |
+| SUPP-B n=40000 cc=1 batch | 35.3/A5/40000 | 11.2/A3/592 | 2.0/A3/592 |
+| SUPP-B n=40000 cc=4 batch | 33.2/A5/40000 | 25.0/A4/9998 | 16.8/A4/9998 |
+| SUPP-B n=40000 cc=40 batch | 36.3/A5/40000 | 51.6/A5/37791 | 55.6/A5/37791 |
+| SUPP-B n=40000 cc=400 batch | 40.0/A5/40000 | 52.9/A5/39873 | 62.9/A5/39873 |
+| SUPP-B n=40000 cc=2000 batch | 34.8/A5/40000 | 54.2/A5/39979 | 67.2/A5/39979 |
+| SUPP-B n=40000 cc=8000 batch | 39.2/A5/40000 | 62.4/A5/39998 | 62.5/A5/39998 |
+| SUPP-B n=40000 cc=20000 batch | 42.4/A5/40000 | 69.0/A5/40000 | 73.0/A5/40000 |
+
+## Break-even (T1@40K)
+
+### Per-change cadence (ms c0/c1/c2 by change count)
+
+| changes | c0 | c1 | c2 | c1/c0 | c2/c0 |
+|---|---|---|---|---|---|
+| 40 | 1307 | 533 | 188 | 0.41 | 0.14 |
+| 400 | 0 | 0 | 0 | 0.00 | 0.00 |
+| 2000 | 65256 | 24724 | 6929 | 0.38 | 0.11 |
+| 8000 | 268030 | 104944 | 31522 | 0.39 | 0.12 |
+| 20000 | 0 | 0 | 0 | 0.00 | 0.00 |
+
+### Batch cadence
+
+| changes | c0 | c1 | c2 | c1/c0 | c2/c0 |
+|---|---|---|---|---|---|
+| 1 | 35 | 11 | 2 | 0.32 | 0.06 |
+| 4 | 33 | 25 | 17 | 0.75 | 0.51 |
+| 40 | 36 | 52 | 56 | 1.42 | 1.53 |
+| 400 | 40 | 53 | 63 | 1.32 | 1.57 |
+| 2000 | 35 | 54 | 67 | 1.56 | 1.93 |
+| 8000 | 39 | 62 | 62 | 1.59 | 1.60 |
+| 20000 | 42 | 69 | 73 | 1.63 | 1.72 |
+
+### Closure fractions (union/N by changes)
+
+- cc=40: c1=97.3% c2=97.3%
+- cc=2000: c1=100.0% c2=100.0%
+- cc=8000: c1=100.0% c2=100.0%
+
+## Scaling (T1)
+
+| N | closure | c0 ms | c1 ms | c2 ms | c1/c0@1K | c2/c0@1K |
+|---|---|---|---|---|---|---|
+| S9 1000 | 1 | 0.7 | 0.1 | 0.0 | | |
+| S9 10000 | 1 | 7.6 | 2.0 | 0.0 | | |
+| S9 40000 | 1 | 32.1 | 10.4 | 0.0 | | |
+| S9 100000 | 1 | 89.8 | 38.2 | 0.0 | | |
+| S10 1000 | 463 | 7 | 2 | 1 | | |
+| S10 10000 | 9988 | 780 | 246 | 107 | | |
+| S10 40000 | 39526 | 13027 | 5670 | 2037 | | |
+| S10 100000 | 99474 | 87647 | 49719 | 9295 | | |
+
+## Deterministic hashes (pass1 == pass2 verified: YES)
+
+| key | hash_final |
+|---|---|
+| ('S1', 40000, 0, 0, 'per_change') | fdbc8189a7a274036af3387e222e9cfefc9384d49826732376f4022c035c6c50 |
+| ('S1', 40000, 1, 0, 'per_change') | fdbc8189a7a274036af3387e222e9cfefc9384d49826732376f4022c035c6c50 |
+| ('S1', 40000, 2, 0, 'per_change') | fdbc8189a7a274036af3387e222e9cfefc9384d49826732376f4022c035c6c50 |
+| ('S10', 1000, 0, 10, 'per_change') | 51a7ccef75780ab9f48c97bacf0145e39a5219b6135d1ad0ecc901a7b314a836 |
+| ('S10', 1000, 1, 10, 'per_change') | 51a7ccef75780ab9f48c97bacf0145e39a5219b6135d1ad0ecc901a7b314a836 |
+| ('S10', 1000, 2, 10, 'per_change') | 51a7ccef75780ab9f48c97bacf0145e39a5219b6135d1ad0ecc901a7b314a836 |
+| ('S10', 10000, 0, 100, 'per_change') | 3d9a7d99b5e4af40dc334280e102937780d7ddbd1f51eaf7168d8475d2805479 |
+| ('S10', 10000, 1, 100, 'per_change') | 3d9a7d99b5e4af40dc334280e102937780d7ddbd1f51eaf7168d8475d2805479 |
+| ('S10', 10000, 2, 100, 'per_change') | 3d9a7d99b5e4af40dc334280e102937780d7ddbd1f51eaf7168d8475d2805479 |
+| ('S10', 40000, 0, 400, 'per_change') | c7760077974720071df004a017f521b18cf4a3fb9f21a8ebb31bc76e94527d1e |
+| ('S10', 40000, 1, 400, 'per_change') | c7760077974720071df004a017f521b18cf4a3fb9f21a8ebb31bc76e94527d1e |
+| ('S10', 40000, 2, 400, 'per_change') | c7760077974720071df004a017f521b18cf4a3fb9f21a8ebb31bc76e94527d1e |
+| ('S10', 100000, 0, 1000, 'per_change') | a7298738eff8d0ae3ff731d178a6bc125befeaf83bfb0c6d829e8018417185a5 |
+| ('S10', 100000, 1, 1000, 'per_change') | a7298738eff8d0ae3ff731d178a6bc125befeaf83bfb0c6d829e8018417185a5 |
+| ('S10', 100000, 2, 1000, 'per_change') | a7298738eff8d0ae3ff731d178a6bc125befeaf83bfb0c6d829e8018417185a5 |
+| ('S2', 40000, 0, 1, 'per_change') | 49ca8fa9b098fffd5e6eeb1cd4157882ebf8708b849ee82842c2959ebd08d503 |
+| ('S2', 40000, 1, 1, 'per_change') | 49ca8fa9b098fffd5e6eeb1cd4157882ebf8708b849ee82842c2959ebd08d503 |
+| ('S2', 40000, 2, 1, 'per_change') | 49ca8fa9b098fffd5e6eeb1cd4157882ebf8708b849ee82842c2959ebd08d503 |
+| ('S3', 40000, 0, 1, 'per_change') | d06b92bcc09f1f07e219b44863c66f64ac6c0f9cb1c1ee98aa7d56cdef134d62 |
+| ('S3', 40000, 1, 1, 'per_change') | d06b92bcc09f1f07e219b44863c66f64ac6c0f9cb1c1ee98aa7d56cdef134d62 |
+| ('S3', 40000, 2, 1, 'per_change') | d06b92bcc09f1f07e219b44863c66f64ac6c0f9cb1c1ee98aa7d56cdef134d62 |
+| ('S4', 40000, 0, 400, 'per_change') | 3677ddfb53080dd9c1ac2c72f0c4a824ae6ba05ec36ccc48f9bdbb1ebea0eafb |
+| ('S4', 40000, 1, 400, 'per_change') | 3677ddfb53080dd9c1ac2c72f0c4a824ae6ba05ec36ccc48f9bdbb1ebea0eafb |
+| ('S4', 40000, 2, 400, 'per_change') | 3677ddfb53080dd9c1ac2c72f0c4a824ae6ba05ec36ccc48f9bdbb1ebea0eafb |
+| ('S5', 40000, 0, 400, 'per_change') | 1fdc913aedc4b7fd2c4bb236630b4484d2a94b0ae5d0f6f5d39be7882c470f6a |
+| ('S5', 40000, 1, 400, 'per_change') | 1fdc913aedc4b7fd2c4bb236630b4484d2a94b0ae5d0f6f5d39be7882c470f6a |
+| ('S5', 40000, 2, 400, 'per_change') | 1fdc913aedc4b7fd2c4bb236630b4484d2a94b0ae5d0f6f5d39be7882c470f6a |
+| ('S6', 40000, 0, 4, 'per_change') | 9986f6ddc0adb34fdf2380eb0b688ffe2b3cc595bef9511f300c62e7dd926480 |
+| ('S6', 40000, 1, 4, 'per_change') | 9986f6ddc0adb34fdf2380eb0b688ffe2b3cc595bef9511f300c62e7dd926480 |
+| ('S6', 40000, 2, 4, 'per_change') | 9986f6ddc0adb34fdf2380eb0b688ffe2b3cc595bef9511f300c62e7dd926480 |
+| ('S7', 40000, 0, 1, 'per_change') | ecbd713e0f58172f57b421b94e8c65cc41549fe8b0ddd557f5a80b94431c8427 |
+| ('S7', 40000, 1, 1, 'per_change') | ecbd713e0f58172f57b421b94e8c65cc41549fe8b0ddd557f5a80b94431c8427 |
+| ('S7', 40000, 2, 1, 'per_change') | ecbd713e0f58172f57b421b94e8c65cc41549fe8b0ddd557f5a80b94431c8427 |
+| ('S8', 40000, 0, 8000, 'per_change') | 438201e84f368b7b9a824c776884f922615d2309353e91351e153b67c4f00fb8 |
+| ('S8', 40000, 1, 8000, 'per_change') | 438201e84f368b7b9a824c776884f922615d2309353e91351e153b67c4f00fb8 |
+| ('S8', 40000, 2, 8000, 'per_change') | 438201e84f368b7b9a824c776884f922615d2309353e91351e153b67c4f00fb8 |
+| ('S9', 1000, 0, 1, 'per_change') | 614c91ccfd939c5bd5133d6970d44696ad55085ecef053be4bce5386afc4e789 |
+| ('S9', 1000, 1, 1, 'per_change') | 614c91ccfd939c5bd5133d6970d44696ad55085ecef053be4bce5386afc4e789 |
+| ('S9', 1000, 2, 1, 'per_change') | 614c91ccfd939c5bd5133d6970d44696ad55085ecef053be4bce5386afc4e789 |
+| ('S9', 10000, 0, 1, 'per_change') | 7152a05228fc578ba47a31885338194dfddb940d7ddd5ee54eab506bebcb6179 |
+| ('S9', 10000, 1, 1, 'per_change') | 7152a05228fc578ba47a31885338194dfddb940d7ddd5ee54eab506bebcb6179 |
+| ('S9', 10000, 2, 1, 'per_change') | 7152a05228fc578ba47a31885338194dfddb940d7ddd5ee54eab506bebcb6179 |
+| ('S9', 40000, 0, 1, 'per_change') | e378b457d3388b2c5372ddb0a78db3654b04e8c6c59fc31292536dc064d463c9 |
+| ('S9', 40000, 1, 1, 'per_change') | e378b457d3388b2c5372ddb0a78db3654b04e8c6c59fc31292536dc064d463c9 |
+| ('S9', 40000, 2, 1, 'per_change') | e378b457d3388b2c5372ddb0a78db3654b04e8c6c59fc31292536dc064d463c9 |
+| ('S9', 100000, 0, 1, 'per_change') | bb12f3c152f1c13862d2dd89a4555bf827481569e4f31e0b5e78ed1a19c5ac34 |
+| ('S9', 100000, 1, 1, 'per_change') | bb12f3c152f1c13862d2dd89a4555bf827481569e4f31e0b5e78ed1a19c5ac34 |
+| ('S9', 100000, 2, 1, 'per_change') | bb12f3c152f1c13862d2dd89a4555bf827481569e4f31e0b5e78ed1a19c5ac34 |
+| ('SUPP', 40000, 0, 40, 'per_change') | 7359b9d9c0424023806212ac0af4f20714f3f3e430e3f2df4bd7ef08dc02d181 |
+| ('SUPP', 40000, 0, 2000, 'per_change') | 126076d46b61e08268f3439102ae1033eed63a98a103c73ff614a4bd58200682 |
+| ('SUPP', 40000, 0, 8000, 'per_change') | 79506b180d3cae9567f12df7c0b1f39a1f9778dd25d3a1dec4670cb9c05bb18b |
+| ('SUPP', 40000, 1, 40, 'per_change') | 7359b9d9c0424023806212ac0af4f20714f3f3e430e3f2df4bd7ef08dc02d181 |
+| ('SUPP', 40000, 1, 2000, 'per_change') | 126076d46b61e08268f3439102ae1033eed63a98a103c73ff614a4bd58200682 |
+| ('SUPP', 40000, 1, 8000, 'per_change') | 79506b180d3cae9567f12df7c0b1f39a1f9778dd25d3a1dec4670cb9c05bb18b |
+| ('SUPP', 40000, 2, 40, 'per_change') | 7359b9d9c0424023806212ac0af4f20714f3f3e430e3f2df4bd7ef08dc02d181 |
+| ('SUPP', 40000, 2, 2000, 'per_change') | 126076d46b61e08268f3439102ae1033eed63a98a103c73ff614a4bd58200682 |
+| ('SUPP', 40000, 2, 8000, 'per_change') | 79506b180d3cae9567f12df7c0b1f39a1f9778dd25d3a1dec4670cb9c05bb18b |
+| ('SUPP-B', 40000, 0, 1, 'batch') | 13c5fa700239255b88147a688b0e24c1bdc9a45f2e2f73db867da8ee43104889 |
+| ('SUPP-B', 40000, 0, 4, 'batch') | ac00b5ad681d16f50541bcca6e7a349f166742d8b7c08dbd497625b095520969 |
+| ('SUPP-B', 40000, 0, 40, 'batch') | 2200d0be9b9e0b970cdde2704c840ae1ba3533e8f161f25864f7eca46b2741ee |
+
+
+## Verdict (SPEC §19): **PARTIAL PASS**
+
+Correctness green; some performance gate not met - see table.
+
+### What this verdict does NOT mean (SPEC §20, verbatim)
+
+- No adoption of dependency propagation into GSG, no graph architecture decision,
+  no provenance/Observation/Relevance changes, no domain binding, no static/dynamic
+  model choice, no parallelization, no scheduler change, no production performance
+  budget. FULL PASS means only: experimental evidence suffices to justify moving
+  to the next design/functional-feasibility stage within the measured limits.
+
+### Predictions vs outcomes (pre-registered in DESIGN §8 - read AFTER results)
+
+| Prediction | Outcome |
+|---|---|
+| P-A saturation: union closures 30-70% of N at 1% changes, PERF-3 condition may not hold | **CONFIRMED, stronger**: 99.3% (T1) / 99.6% (T4) - random-DAG future-cone saturates far beyond guess |
+| P-B: C2 S9 ratio 1-2x (gate ok); C1 ~E-ratio ~100x fails PERF-4 | **CONFIRMED**: C2 1.35x PASS; C1 256.8x (E-scaled, as predicted direction-wise, worse magnitude) |
+| P-C: S2 C2 >=50% easily; C1 modest | **CONFIRMED**: C2 100% (0.006ms vs 33.7ms), C1 72% (9.3 vs 33.7) |
+| P-D: S8 both within 3x baseline | **CONFIRMED**: C1 0.56x, C2 0.26x (both FASTER, not slower) |
+| P-E: per-change C2 independent of C; batch crossover C4-C7; B2 ~30-50% closure; T4 first C1 regression; B4 index ~= edge mirror | **CONFIRMED with refinement**: per-change c2/c0 = 0.11-0.14 constant-ish; batch crossover at cc=40 (between 4 and 40); B2: benefit dies when union closure ~100% (measured: any uniform change >=0.1% saturates T1); C1 slower than C0 on T4 at 1% (S5 1.38x) and on T3 (S3 1.13x, S6 1.29x) and batch cc>=40 (1.4-1.6x); B4: reverse index = 24B/dep vs edge-array 51B/dep (about half), peak WS +2-4% only |
+
+### Candidate comparison (SPEC §16)
+
+| Dimension | C1 affected-set sweep | C2 indexed BFS |
+|---|---|---|
+| S2 single local change | 9.3ms (72% faster than C0) | 0.006ms (100%) |
+| S9 locality (100K/1K) | 256.8x (FAIL PERF-4) | 1.35x (PASS) |
+| Dense T4 @1% | 1.38x SLOWER than C0 | 0.53x (2x faster) |
+| Hub T3 | 1.13x slower | 0.70x faster |
+| High density (S8) | 0.56x | 0.26x |
+| Batch cc>=40 | 1.4-1.6x slower | 1.5-1.9x slower |
+| Memory (fixed reader) | ~1.00x baseline | 1.02-1.04x baseline (+24B/dep) |
+| Implementation complexity | one flat sweep, no extra structure | reverse CSR + BFS stack |
+
+**P1-COMP verdict:** C2 dominates C1 materially on every dimension that matters
+(locality, dense, hub, high-density) at a negligible memory cost (+2-4% WS,
+24B/dep vs 51B/dep for the shared edge array). C1's only advantage is structural
+simplicity (no second structure), but it FAILS the locality gate (PERF-4) and is
+slower than full recompute on dense/hub/batch regimes. P1-COMP-1 (prefer faster)
+applies; P1-COMP-4 (index must justify itself) is answered: it does.
+
+### Break-even characterization (SPEC §15 - measured, not imposed)
+
+- **B1 (change density):** under per-change cadence on T1@40K, C2 stays 6-12x
+  faster than C0 at every measured density (0.1%, 5%, 20%) - no crossover. C1
+  crosses at cc=40 (0.1%): 0.41x at cc=40 but 1.42x by batch cc=40 equivalent.
+  Under batch cadence, BOTH cross between cc=4 (0.51-0.75x) and cc=40 (1.42-1.53x).
+- **B2 (affected work):** benefit disappears when union closure saturates N. On
+  random T1 DAGs, ANY uniform change of >=0.1% of N saturates ~97-100%. The A-level
+  ladder shows per-change closures collapse the advantage only when a single change's
+  own closure is large (S3 14.6K, S5 39.9K).
+- **B3 (topology):** C1 inverts (slower than baseline) on T3 hub (1.13-1.29x) and
+  T4 dense (1.38x) - the O(E) sweep cost exceeds full O(N) evaluation when
+  E/N is high (T3: 20.8, T4: 20.0) and the closure is near-N anyway. C2 never
+  inverted in any measured scenario.
+- **B4 (memory):** reverse index = 24B/dependency (about half the 51B/dep shared
+  edge array). Peak WS impact measured at only +2.0-3.6% (fixed reader). No
+  memory pathology at any measured scale.
+
+### Failure/boundary analysis (SPEC §18.9)
+
+- No crashes, no OOM, no integrity failures across 156 isolated subprocess runs
+  (78 matrix x 2 passes) + 42 memory-rerun runs.
+- One measurement-infrastructure defect found & fixed mid-run: psapi
+  GetProcessMemoryInfo silently returned 0 (ERROR_INSUFFICIENT_BUFFER) with the
+  10-field struct; replaced by kernel32 K32GetProcessMemoryInfo with the full
+  PROCESS_MEMORY_COUNTERS_EX (11 fields) + argtypes; memory gates re-measured in
+  isolated reruns. Timing hashes/tables unaffected (memory read happens after
+  timers).
+- One harness bug found & fixed before any matrix data was kept: per-candidate
+  seed divergence (order was per-run, not per-scenario) caused cross-candidate
+  world mismatch; fixed to per-scenario order and the whole matrix was re-run
+  from scratch (polluted results deleted, ~50 min lost - documented, not hidden).
+- PERF-3 N/A: the condition (closure <= 10% of N at 1% uniform changes) is
+  unreachable on random T1 DAGs - 1% uniform changes give 99.3% union closure.
+  The gate is honestly recorded as condition-not-met with the actual measured
+  speedup (87.4%) presented alongside.
+
+report written: REPORT.md + results/report_data.json

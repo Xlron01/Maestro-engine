@@ -1,0 +1,51 @@
+S2_n40000_c0_cc1_per_change.json               peak_ws=   65.9MB tm_peak=-
+S2_n40000_c0_cc1_per_change_tm.json            peak_ws=   82.4MB tm_peak=    16.8MB
+S2_n40000_c1_cc1_per_change.json               peak_ws=   65.4MB tm_peak=-
+S2_n40000_c1_cc1_per_change_tm.json            peak_ws=   82.2MB tm_peak=    16.8MB
+S2_n40000_c2_cc1_per_change.json               peak_ws=   67.3MB tm_peak=-
+S2_n40000_c2_cc1_per_change_tm.json            peak_ws=   86.8MB tm_peak=    19.5MB
+S3_n40000_c0_cc1_per_change.json               peak_ws=  194.4MB tm_peak=-
+S3_n40000_c0_cc1_per_change_tm.json            peak_ws=  259.4MB tm_peak=    67.2MB
+S3_n40000_c1_cc1_per_change.json               peak_ws=  195.0MB tm_peak=-
+S3_n40000_c1_cc1_per_change_tm.json            peak_ws=  259.3MB tm_peak=    67.2MB
+S3_n40000_c2_cc1_per_change.json               peak_ws=  201.2MB tm_peak=-
+S3_n40000_c2_cc1_per_change_tm.json            peak_ws=  269.4MB tm_peak=    75.1MB
+S5_n40000_c0_cc400_per_change.json             peak_ws=  204.9MB tm_peak=-
+S5_n40000_c0_cc400_per_change_tm.json          peak_ws=  272.3MB tm_peak=    67.2MB
+S5_n40000_c1_cc400_per_change.json             peak_ws=  204.6MB tm_peak=-
+S5_n40000_c1_cc400_per_change_tm.json          peak_ws=  272.5MB tm_peak=    67.2MB
+S5_n40000_c2_cc400_per_change.json             peak_ws=  210.8MB tm_peak=-
+S5_n40000_c2_cc400_per_change_tm.json          peak_ws=  281.9MB tm_peak=    74.8MB
+S6_n40000_c0_cc4_per_change.json               peak_ws=  195.1MB tm_peak=-
+S6_n40000_c0_cc4_per_change_tm.json            peak_ws=  260.4MB tm_peak=    67.2MB
+S6_n40000_c1_cc4_per_change.json               peak_ws=  195.6MB tm_peak=-
+S6_n40000_c1_cc4_per_change_tm.json            peak_ws=  260.4MB tm_peak=    67.2MB
+S6_n40000_c2_cc4_per_change.json               peak_ws=  202.1MB tm_peak=-
+S6_n40000_c2_cc4_per_change_tm.json            peak_ws=  269.3MB tm_peak=    75.1MB
+S9_n100000_c0_cc1_per_change.json              peak_ws=  129.7MB tm_peak=-
+S9_n100000_c0_cc1_per_change_tm.json           peak_ws=  164.3MB tm_peak=    33.6MB
+S9_n100000_c1_cc1_per_change.json              peak_ws=  129.8MB tm_peak=-
+S9_n100000_c1_cc1_per_change_tm.json           peak_ws=  163.9MB tm_peak=    33.6MB
+S9_n100000_c2_cc1_per_change.json              peak_ws=  134.2MB tm_peak=-
+S9_n100000_c2_cc1_per_change_tm.json           peak_ws=  175.0MB tm_peak=    40.5MB
+S8_n40000_c0_cc8000_per_change.json            peak_ws=   73.5MB tm_peak=-
+S8_n40000_c0_cc8000_per_change_tm.json         peak_ws=   91.4MB tm_peak=    16.8MB
+S8_n40000_c1_cc8000_per_change.json            peak_ws=   73.6MB tm_peak=-
+S8_n40000_c1_cc8000_per_change_tm.json         peak_ws=   91.2MB tm_peak=    16.8MB
+S8_n40000_c2_cc8000_per_change.json            peak_ws=   75.7MB tm_peak=-
+S8_n40000_c2_cc8000_per_change_tm.json         peak_ws=   95.6MB tm_peak=    19.9MB
+
+--- PERF-5 / PERF-7 (from fixed reader) ---
+PERF-5 S3 c1: ws_ratio=1.003 closure=14566
+PERF-5 S3 c2: ws_ratio=1.035 closure=14566
+PERF-5 S5 c1: ws_ratio=0.998 closure=39859
+PERF-5 S5 c2: ws_ratio=1.029 closure=39859
+PERF-5 S6 c1: ws_ratio=1.003 closure=39604
+PERF-5 S6 c2: ws_ratio=1.036 closure=39604
+PERF-5 S8 c1: ws_ratio=1.001 closure=39999
+PERF-5 S8 c2: ws_ratio=1.029 closure=39999
+PERF-7 S2 c1: ws_ratio=0.992
+PERF-7 S2 c2: ws_ratio=1.021
+PERF-7 S9 c1: ws_ratio=1.000
+PERF-7 S9 c2: ws_ratio=1.034
+PERF-5 pass: True  PERF-7 pass: True

@@ -1,0 +1,128 @@
+{
+ "correctness": {
+  "COR-1": true,
+  "COR-2": true,
+  "COR-3": true,
+  "COR-4": true
+ },
+ "notes": [],
+ "perf": {
+  "P1-PERF-1": true,
+  "P1-PERF-2": true,
+  "P1-PERF-3": {
+   "condition_met": false,
+   "best_speedup": [
+    2,
+    0.8736594510039074
+   ],
+   "pass": false
+  },
+  "P1-PERF-4": {
+   "ratios": {
+    "1": 256.7883064516129,
+    "2": 1.3454545454545457
+   },
+   "best": 2,
+   "pass": true
+  },
+  "P1-PERF-5": {
+   "pass": true,
+   "detail": [
+    [
+     "S3",
+     1,
+     "closure=14566"
+    ],
+    [
+     "S3",
+     2,
+     "closure=14566"
+    ],
+    [
+     "S5",
+     1,
+     "closure=39859"
+    ],
+    [
+     "S5",
+     2,
+     "closure=39859"
+    ],
+    [
+     "S6",
+     1,
+     "closure=39604"
+    ],
+    [
+     "S6",
+     2,
+     "closure=39604"
+    ]
+   ],
+   "memory_source": "results/_mem (fixed reader)"
+  },
+  "P1-PERF-6": {
+   "pass": true,
+   "detail": [
+    [
+     "S8",
+     1,
+     "0.56x"
+    ],
+    [
+     "S8",
+     2,
+     "0.26x"
+    ],
+    [
+     "SUPP",
+     1,
+     "0.39x"
+    ],
+    [
+     "SUPP",
+     2,
+     "0.12x"
+    ]
+   ]
+  },
+  "P1-PERF-7": {
+   "pass": true,
+   "detail": [
+    "fixed-reader: S2 c1 0.99x / c2 1.02x; S9@100K c1 1.00x / c2 1.03x"
+   ],
+   "memory_source": "results/_mem (fixed reader)"
+  }
+ },
+ "break_even": {
+  "closure_fractions": [
+   [
+    40,
+    0.972775,
+    0.972775
+   ],
+   [
+    2000,
+    0.999825,
+    0.999825
+   ],
+   [
+    8000,
+    0.999975,
+    0.999975
+   ]
+  ]
+ },
+ "verdict_inputs": {
+  "full_pass_conditions": {
+   "cor_all": true,
+   "perf1": true,
+   "perf2": true,
+   "perf3": false,
+   "perf4": true,
+   "perf5": true,
+   "perf6": true,
+   "perf7": true
+  }
+ }
+}

@@ -1,0 +1,32 @@
+PASS  COR-3 pass1==pass2 (all runs)  [78 runs, mismatches=[]]
+PASS  COR-1/2 hash agreement c0==c1==c2 per scenario  [52 scenario-passes, mismatches=[]]
+PASS  COR-4 effect counts identical across candidates  [[]]
+PASS  S2 totals ~33.7/9.3/<0.06ms  [c0=33.70 c1=9.27 c2=0.0086]
+PASS  S2 closure(c1)=closure(c2)=1  [c1=1 c2=1]
+PASS  S9 c1 ratio 100K/1K ~256.8x (>3 => C1 fails PERF-4)  [256.8x]
+PASS  S9 c2 ratio 100K/1K ~1.35x (<=3 => PASS)  [1.35x]
+PASS  S9 n=1000 closure=1  [got 1]
+PASS  S9 n=10000 closure=1  [got 1]
+PASS  S9 n=40000 closure=1  [got 1]
+PASS  S9 n=100000 closure=1  [got 1]
+PASS  S4 union closure=39722 (~99.3% => PERF-3 precondition not met)  [closure=39722, frac=0.993]
+PASS  S4 actual c2 speedup ~87.4% (bar: 25%)  [speedup=0.874 (c0=13766ms c2=1739ms)]
+PASS  S1 idle c1 nodes_evaluated=0  [evaluated=0]
+PASS  S1 idle c2 nodes_evaluated=0  [evaluated=0]
+PASS  S3 closure=14566  [got 14566]
+PASS  S5 closure=39859  [got 39859]
+PASS  S6 closure=39604  [got 39604]
+PASS  S8 c1/c2 within 3x baseline (reported 0.56x/0.26x)  [c1=0.56x c2=0.26x]
+PASS  SUPP-B cc=40: both candidates slower than baseline (crossover)  [c1/c0=1.42 c2/c0=1.53]
+
+_mem/gates.json: {
+ "perf5_pass": true,
+ "perf7_pass": true
+}
+PASS  S2_n40000: peak WS c1<=1.5x c0, c2<=1.5x c0  [c0=69.1MB c1=68.6MB (0.99x) c2=70.5MB (1.02x)]
+PASS  S9_n100000: peak WS c1<=1.5x c0, c2<=1.5x c0  [c0=136.0MB c1=136.1MB (1.00x) c2=140.7MB (1.03x)]
+
+runs: _p1=78 _p2=78 _mem=37
+PASS  matrix count 78 per pass  [78/78]
+
+ALL CHECKS PASSED
