@@ -2,6 +2,19 @@
 
 سجل زمني لجميع التعديلات الهامة التي طرأت على مشروع **Maestro Engine**.
 
+## [2026-09-10]
+
+### Added
+- **PROBE-P1 (Incremental Propagation Feasibility) — FULL PASS معتمدة رسميًا (2026-09-10):** خط بحث معماري معزول (ليست TASK-0xx ولا تدخل acceptance chain) — أجاب على: هل dependency-driven propagation يحافظ على correctness وlocality عند scale قريب من GSG؟
+  - **البنية:** `spikes/probe-p1/` فقط — SPEC.md (مواصفة المالك حرفيًا) مجمّدة بـcommit `37170714` قبل أي تشغيل (نمط Decision 004 pre-commitment)، ثم DESIGN.md v1.1 pre-registered (تنبؤات قابلة للتفنيد P-A..P-E + seeds + gate mappings)، ثم 192 تشغيلة subprocess معزولة (78 matrix × 2 passes + 36 memory-rerun).
+  - **Correctness 4/4:** bitwise-identical عبر كل candidates/pass/scenario (52 scenario-passes) — أُعيد التحقق برمجيًا بعد الاستلام بواسطة `verify_report.py` (23/23 فحص PASS مقابل الـJSONs الخام، اللوج محفوظ).
+  - **النتيجة المركزية (PERF-4):** مع تثبيت العمل المتأثر ونمو العالم 1K→100K (100×): C2 (reverse-index propagation) نمت **1.35×** فقط (بوابة ≤3×)؛ C1 (بدون index) نمت **256.8×** ⇒ فشل locality. الـlocality مصدرها البنية (reverse index) لا مفهوم الـaffected-set وحده — يحسم P1-COMP-4 (تكلفة الـindex مبررة: +24B/dep فقط، peak WS +2-4%).
+  - **PERF-3 = "N/A — الشرط غير قابل للتحقق بهذا التصميم" (قرار المالك):** أي تغيير uniform ≥0.1% من N يصل 97-100% union closure على DAG عشوائي (تشبع percolation — نتيجة معروفة من نظرية الشبكات، ليست عيبًا في الـmechanism)؛ السرعة الفعلية عند الـclosure المقاس (87.4%) تخطت حاجز البوابة (25%). Verdict النهائي: **FULL PASS** (كل بوابة قابلة للتطبيق نجحت).
+  - **Break-even (مقاس):** تحت batch cadence يتقاطع كلا الـcandidates مع الـbaseline عند union closure شبه كامل (cc=40 → 1.4-1.5× أبطأ)؛ تحت per-change: C2 أسرع 6-12× عند كل كثافة مقاسة، C1 ينقلب أبطأ على dense/hub.
+  - **تحذير معماري موثق لأي probe قادم:** الـtopology العشوائية (T1-T5) ليست proxy واقعي لعلاقات domain حقيقية — أي functional domain probe قادم يجب أن يستخدم topology مشتقة من بنية الدومين الفعلية (clustering محلي/مؤسسي). موثق في REPORT.md (قسم Evidence review).
+  - **باگان حقيقيان أثناء التنفيذ وصلحا قبل اعتماد البيانات:** seed divergence في الـharness (أُعيدت الـmatrix كاملة من الصفر، ~50 min موثقة) + فشل صامت في psapi memory reader (استُبدل بـK32GetProcessMemoryInfo وأعيدت بوابات الذاكرة بمعزل).
+  - **صفر ملفات production تُلمس.** لا قرار معماري يتبع تلقائيًا (SPEC §20/§21) — الملفات المؤقتة حُذفت؛ commits: `37170714` (تصميم مجمّد) ثم `6d72cffc` (نتائج + تقرير + tooling).
+
 ## [2026-09-09]
 
 ### Fixed
