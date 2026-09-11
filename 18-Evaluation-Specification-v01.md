@@ -94,7 +94,7 @@ if ratio > ceiling:  contribution = -(ratio - ceiling) * violation_multiplier
 
 - **F1** بلا `"scale": "interval"` ⇒ رفض تحميل (الافتراض يجب أن يكون معلنًا — درس CE-1).
 - **F2** فوق الأرضية: مساهمة ثابتة/مشبعة إذا `above_saturation=true`.
-- **F3** يجوز فقط `composite` من الموجود فعليًا في [`scripts/relevance_supply.gd`](file:///c:/tmp/maestro%20engine/scripts/relevance_supply.gd) (`supply_share` اليوم). يجب أن يعلن `violation_multiplier` (عدد > 1). **صيغة المساهمة المجمدة**: `c = (ceiling − share) × (share > ceiling ? violation_multiplier : 1.0)`.
+- **F3** يجوز فقط `composite` من الموجود فعليًا في [`scripts/relevance_supply.gd`](scripts/relevance_supply.gd) (`supply_share` اليوم). يجب أن يعلن `violation_multiplier` (عدد > 1). **صيغة المساهمة المجمدة**: `c = (ceiling − share) × (share > ceiling ? violation_multiplier : 1.0)`.
 - **F4-weighted** كل term يجب أن يحمل `scale_decl` متوافقًا (لا خلط ordinal مع interval).
 - **F4-lex**: المدخل الأول غير المحقق يحسم؛ المساواة الكلية تنزل لتعادل عادي (يدخل §7 إن كانت باريتو).
 - **F5** ليس شكلًا يُعلن — انظر قاعدة الرفض الحرفية V3 أدناه.
@@ -287,7 +287,7 @@ if ratio > ceiling:  contribution = -(ratio - ceiling) * violation_multiplier
 
 - **F1** بلا `"scale": "interval"` ⇒ رفض تحميل (الافتراض يجب أن يكون معلنًا — درس CE-1).
 - **F2** فوق الأرضية: مساهمة ثابتة/مشبعة إذا `above_saturation=true`.
-- **F3** يجوز فقط `composite` من الموجود فعليًا في [`scripts/relevance_supply.gd`](file:///c:/tmp/maestro%20engine/scripts/relevance_supply.gd) (`supply_share` اليوم). يجب أن يعلن `violation_multiplier` (عدد > 1). **صيغة المساهمة المجمدة**: `c = (ceiling − share) × (share > ceiling ? violation_multiplier : 1.0)`.
+- **F3** يجوز فقط `composite` من الموجود فعليًا في [`scripts/relevance_supply.gd`](scripts/relevance_supply.gd) (`supply_share` اليوم). يجب أن يعلن `violation_multiplier` (عدد > 1). **صيغة المساهمة المجمدة**: `c = (ceiling − share) × (share > ceiling ? violation_multiplier : 1.0)`.
 - **F4-weighted** كل term يجب أن يحمل `scale_decl` متوافقًا (لا خلط ordinal مع interval).
 - **F4-lex**: المدخل الأول غير المحقق يحسم؛ المساواة الكلية تنزل لتعادل عادي (يدخل §7 إن كانت باريتو).
 - **F5** ليس شكلًا يُعلن — انظر قاعدة الرفض الحرفية V3 أدناه.

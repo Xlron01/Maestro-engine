@@ -91,7 +91,7 @@
 }
 ```
 
-##### ب. التعديل في [`scripts/WorldState.gd`](file:///c:/tmp/maestro%20engine/scripts/WorldState.gd):
+##### ب. التعديل في [`scripts/WorldState.gd`](scripts/WorldState.gd):
 ```gdscript
 var agencies: Dictionary = {}    # id -> Agency Dictionary (Phase 6 Step 1)
 var agents: Dictionary = {}      # id -> Agent Dictionary (Phase 6 Step 1)
@@ -127,7 +127,7 @@ func from_dict(d: Dictionary) -> void:
 	agents    = (d.get("agents", {})).duplicate(true)
 ```
 
-##### ج. التعديل في [`scripts/ContentLoader.gd`](file:///c:/tmp/maestro%20engine/scripts/ContentLoader.gd):
+##### ج. التعديل في [`scripts/ContentLoader.gd`](scripts/ContentLoader.gd):
 ```gdscript
 	# 5) Agencies — optional (Phase 6 Step 1)
 	var agencies_path := data_path.path_join("agencies")
@@ -164,7 +164,7 @@ func from_dict(d: Dictionary) -> void:
 			dir.list_dir_end()
 ```
 
-##### د. التعديل في [`scripts/Simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/Simulation.gd):
+##### د. التعديل في [`scripts/Simulation.gd`](scripts/Simulation.gd):
 ```gdscript
 	# ---- Agencies: حمّل من ملفات البيانات (Phase 6) ----
 	for a in data.get("agencies", []):
@@ -239,15 +239,15 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 #### 4) التوضيح الصريح لتحديث الـ Checksum في TEST 4
 
 تغيّر الـ SHA256 Checksum الخاص بـ TEST 4 من `2610ed248f94155d7e9632d7e005edba091b034a672cb0a5a909f2956341a4ec` إلى `0d4ce193d76ae326924dc7b416f2243f1a05ae7e895ba22daeb035264306528b`.
-**التفسير الصريح:** التغيير متوقع ومقصود 100% لأن `WorldState.snapshot()` تم تحديثه ليشمل القواميس الجديدة `agencies` و `agents` ضمن الـ Snapshot الخاص بالـ State. تم تحديث الـ Regression Anchor في [`scripts/ScenarioTest.gd`](file:///c:/tmp/maestro%20engine/scripts/ScenarioTest.gd#L29) عمدًا لتثبيت الـ Snapshot الجديد للمحرك.
+**التفسير الصريح:** التغيير متوقع ومقصود 100% لأن `WorldState.snapshot()` تم تحديثه ليشمل القواميس الجديدة `agencies` و `agents` ضمن الـ Snapshot الخاص بالـ State. تم تحديث الـ Regression Anchor في [`scripts/ScenarioTest.gd`](scripts/ScenarioTest.gd#L29) عمدًا لتثبيت الـ Snapshot الجديد للمحرك.
 
 ---
 
 #### 5) الملفات التي تم لمسها ومبرر كل تعديل
 
-1. [`scripts/WorldState.gd`](file:///c:/tmp/maestro%20engine/scripts/WorldState.gd): إضافة قواميس `agencies` و `agents` وتحديث `to_dict()`, `from_dict()`, و `snapshot()` لضمان وجود الكيانات في حالة العالم وحفظها واستعادتها.
-2. [`scripts/ContentLoader.gd`](file:///c:/tmp/maestro%20engine/scripts/ContentLoader.gd): قراءة مجلدات `agencies/` و `agents/` وتمرير الكيانات في `load_full()`.
-3. [`scripts/Simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/Simulation.gd): إضافة أسطر التمرير من مخرجات `ContentLoader` إلى `WorldState` في `init_world()`.
+1. [`scripts/WorldState.gd`](scripts/WorldState.gd): إضافة قواميس `agencies` و `agents` وتحديث `to_dict()`, `from_dict()`, و `snapshot()` لضمان وجود الكيانات في حالة العالم وحفظها واستعادتها.
+2. [`scripts/ContentLoader.gd`](scripts/ContentLoader.gd): قراءة مجلدات `agencies/` و `agents/` وتمرير الكيانات في `load_full()`.
+3. [`scripts/Simulation.gd`](scripts/Simulation.gd): إضافة أسطر التمرير من مخرجات `ContentLoader` إلى `WorldState` في `init_world()`.
 
 **Findings:**
 تجاوز سقف الملفين (3 ملفات معدلة)، وهو استثناء مقبول مبرر لكون `Simulation.gd` يربط الـ Loader بـ WorldState.
@@ -260,7 +260,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 
 **شرط البدء:** Step 1 = PASS موثّق.
 
-**الهدف:** إثبات إن حالة الـ Agent (XP) تقدر تتغيّر كنتيجة لعملية، باستخدام نفس آلية `evaluate_weighted_score` بـ [`DecisionSystem.gd`](file:///c:/tmp/maestro%20engine/scripts/DecisionSystem.gd) دون كتابة أي دالة موازية جديدة.
+**الهدف:** إثبات إن حالة الـ Agent (XP) تقدر تتغيّر كنتيجة لعملية، باستخدام نفس آلية `evaluate_weighted_score` بـ [`DecisionSystem.gd`](scripts/DecisionSystem.gd) دون كتابة أي دالة موازية جديدة.
 
 **معيار PASS:**
 - [x] التغيير في `xp` ناتج عن استدعاء فعلي لعملية ويغطي **مساري النجاح والفشل** بعميلين مختلفين (`agent_007` خبير و `agent_rookie` مبتدئ).
@@ -274,7 +274,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 
 #### 1) الكود الفعلي المُضاف والتعديلات (Code Diffs)
 
-##### أ. إضافة العميل المبتدئ [`data/agents/agent_rookie/agent.json`](file:///c:/tmp/maestro%20engine/data/agents/agent_rookie/agent.json):
+##### أ. إضافة العميل المبتدئ [`data/agents/agent_rookie/agent.json`](data/agents/agent_rookie/agent.json):
 ```json
 {
     "id": "agent_rookie",
@@ -286,7 +286,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 }
 ```
 
-##### ب. تعديل قواعد العمليات في [`data/rules/politics.json`](file:///c:/tmp/maestro%20engine/data/rules/politics.json):
+##### ب. تعديل قواعد العمليات في [`data/rules/politics.json`](data/rules/politics.json):
 ```json
     "operation_weight_agent_xp": 0.05,
     "operation_weight_agency_budget": 0.0001,
@@ -295,7 +295,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
     "operation_xp_gain_failure": 5
 ```
 
-##### ج. تعديل مخطط القواعد في [`scripts/ContentSchema.gd`](file:///c:/tmp/maestro%20engine/scripts/ContentSchema.gd):
+##### ج. تعديل مخطط القواعد في [`scripts/ContentSchema.gd`](scripts/ContentSchema.gd):
 ```gdscript
 	["operation_weight_agent_xp",      T_FLOAT, false, 0.05,  [-10.0, 10.0]],
 	["operation_weight_agency_budget", T_FLOAT, false, 0.0001,[-10.0, 10.0]],
@@ -304,7 +304,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 	["operation_xp_gain_failure",     T_INT,   false, 5,     [0, 1000]],
 ```
 
-##### د. إضافة دالة العملية الموحدة بـ [`scripts/DecisionSystem.gd`](file:///c:/tmp/maestro%20engine/scripts/DecisionSystem.gd):
+##### د. إضافة دالة العملية الموحدة بـ [`scripts/DecisionSystem.gd`](scripts/DecisionSystem.gd):
 ```gdscript
 # ============================================================
 # evaluate_operation — تقييم تنفيذ عملية لـ Agent باستخدام الدالة العامة الموحدة
@@ -411,7 +411,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 #### 4) التوضيح الصريح لتحديث الـ Checksum في TEST 4
 
 تغيّر الـ SHA256 Checksum الخاص بـ TEST 4 في `ScenarioTest.gd` من `0d4ce193d76ae326924dc7b416f2243f1a05ae7e895ba22daeb035264306528b` إلى `a7cff9f1587a6f98487990e0c90a72955d8955ed0447f2863a07e55a02bd6896`.
-**التفسير الصريح:** التغيير متوقع ومقصود 100% لأن إضافة الكيان الجديد `agent_rookie` إلى مجلد `data/agents/` أدّى لزيادة عدد العناصر المفهرسة في `WorldState.snapshot()` من عميل واحد إلى عميلين. تم تحديث الـ Regression Anchor في [`scripts/ScenarioTest.gd`](file:///c:/tmp/maestro%20engine/scripts/ScenarioTest.gd#L29) عمدًا لتثبيت الـ Snapshot الجديد المعتمد للمحرك.
+**التفسير الصريح:** التغيير متوقع ومقصود 100% لأن إضافة الكيان الجديد `agent_rookie` إلى مجلد `data/agents/` أدّى لزيادة عدد العناصر المفهرسة في `WorldState.snapshot()` من عميل واحد إلى عميلين. تم تحديث الـ Regression Anchor في [`scripts/ScenarioTest.gd`](scripts/ScenarioTest.gd#L29) عمدًا لتثبيت الـ Snapshot الجديد المعتمد للمحرك.
 
 ---
 
@@ -419,11 +419,11 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 
 تم لمس **4 ملفات إجمالاً** تتوزع بين كود النواة (Core Code) والبيانات (Data Files):
 
-1. **[`scripts/DecisionSystem.gd`](file:///c:/tmp/maestro%20engine/scripts/DecisionSystem.gd) (ملف نواة #1):** إضافة دالة `evaluate_operation` لحساب ناتج العملية وتعديل `xp`.
-2. **[`scripts/ContentSchema.gd`](file:///c:/tmp/maestro%20engine/scripts/ContentSchema.gd) (ملف نواة #2):** إضافة 5 تعريفات حقول اختيارية في `SCHEMA_POLITICS_RULES`.
+1. **[`scripts/DecisionSystem.gd`](scripts/DecisionSystem.gd) (ملف نواة #1):** إضافة دالة `evaluate_operation` لحساب ناتج العملية وتعديل `xp`.
+2. **[`scripts/ContentSchema.gd`](scripts/ContentSchema.gd) (ملف نواة #2):** إضافة 5 تعريفات حقول اختيارية في `SCHEMA_POLITICS_RULES`.
    - **ما الذي اتغيّر ولماذا؟** تمت إضافة تعريف الحقول (`operation_weight_agent_xp`, `operation_weight_agency_budget`, `operation_success_threshold`, `operation_xp_gain_success`, `operation_xp_gain_failure`). السبب هو منع `ContentSchema.validate()` من إطلاق تحذيرات تلوث السجل (`Content warning: unknown field`) عند قراءة ملف `politics.json` المعدل في بداية المحاكاة.
-3. **[`data/rules/politics.json`](file:///c:/tmp/maestro%20engine/data/rules/politics.json) (ملف بيانات JSON خارجي - ليس كود نواة):** إضافة أوزان العملية وقيم اكتساب الخبرة.
-4. **[`data/agents/agent_rookie/agent.json`](file:///c:/tmp/maestro%20engine/data/agents/agent_rookie/agent.json) (ملف بيانات JSON خارجي - ليس كود نواة):** إضافة بيانات العميل المبتدئ لتغطية مسار الفشل.
+3. **[`data/rules/politics.json`](data/rules/politics.json) (ملف بيانات JSON خارجي - ليس كود نواة):** إضافة أوزان العملية وقيم اكتساب الخبرة.
+4. **[`data/agents/agent_rookie/agent.json`](data/agents/agent_rookie/agent.json) (ملف بيانات JSON خارجي - ليس كود نواة):** إضافة بيانات العميل المبتدئ لتغطية مسار الفشل.
 
 ---
 
@@ -458,7 +458,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 
 #### 1) الكود الفعلي المُضاف والتعديلات (Code Diffs)
 
-##### أ. التعديل في [`scripts/Simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/Simulation.gd):
+##### أ. التعديل في [`scripts/Simulation.gd`](scripts/Simulation.gd):
 
 ```diff
 +var operation_evaluations_count: int = 0
@@ -498,7 +498,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 +		"operation_evaluations": operation_evaluations_count,
 ```
 
-##### ب. التعديل في [`scripts/ScheduledQueue.gd`](file:///c:/tmp/maestro%20engine/scripts/ScheduledQueue.gd):
+##### ب. التعديل في [`scripts/ScheduledQueue.gd`](scripts/ScheduledQueue.gd):
 
 ```diff
 +func unregister(entity_id: String, job_name: String) -> void:
@@ -578,13 +578,13 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 تم لمس **ملفين من ملفات النواة** فقط:
 
-1. **[`scripts/Simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/Simulation.gd) (ملف نواة #1):**
+1. **[`scripts/Simulation.gd`](scripts/Simulation.gd) (ملف نواة #1):**
    - إضافة `operation_evaluations_count` (عداد مباشر للإثبات).
    - توسيع `_run_scheduled_job` بـ case جديد `"agent_operation_check"`.
    - تحديث `run_step` لاستخدام `scheduled.unregister()` بعد تنفيذ الـ One-Shot.
    - إضافة العداد في `save_to_file`, `load_from_file`, و `get_debug_info`.
 
-2. **[`scripts/ScheduledQueue.gd`](file:///c:/tmp/maestro%20engine/scripts/ScheduledQueue.gd) (ملف نواة #2):**
+2. **[`scripts/ScheduledQueue.gd`](scripts/ScheduledQueue.gd) (ملف نواة #2):**
    - إضافة دالة `unregister()` (6 أسطر) لحذف job بعد تنفيذه One-Shot.
 
 #### 📐 مقارنة العدد بالسقف المسموح (Core Budget Analysis):
@@ -620,17 +620,17 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 #### 1) الكود الفعلي المُضاف والتعديلات (Code Diffs)
 
-##### أ. إضافة القاعدة الرقمية في [`data/rules/politics.json`](file:///c:/tmp/maestro%20engine/data/rules/politics.json):
+##### أ. إضافة القاعدة الرقمية في [`data/rules/politics.json`](data/rules/politics.json):
 ```json
     "agent_exposure_stability_penalty": 0.03
 ```
 
-##### ب. تسجيل القاعدة في [`scripts/ContentSchema.gd`](file:///c:/tmp/maestro%20engine/scripts/ContentSchema.gd):
+##### ب. تسجيل القاعدة في [`scripts/ContentSchema.gd`](scripts/ContentSchema.gd):
 ```gdscript
 	["agent_exposure_stability_penalty", T_FLOAT, false, 0.03, [0.0, 1.0]],
 ```
 
-##### ج. معالجة الحدث ومتابعة العداد في [`scripts/Simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/Simulation.gd):
+##### ج. معالجة الحدث ومتابعة العداد في [`scripts/Simulation.gd`](scripts/Simulation.gd):
 ```gdscript
 var exposure_propagation_count: int = 0
 
@@ -738,9 +738,9 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 
 تم لمس **ملفين من ملفات النواة** وملف بيانات واحد:
 
-1. **[`scripts/Simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/Simulation.gd) (ملف نواة #1):** إضافة عداد الانتشار `exposure_propagation_count` ومعالجة حدث `Agent_Exposed`.
-2. **[`scripts/ContentSchema.gd`](file:///c:/tmp/maestro%20engine/scripts/ContentSchema.gd) (ملف نواة #2):** إضافة `agent_exposure_stability_penalty` في `SCHEMA_POLITICS_RULES` لتفعيل التحميل الديناميكي وتجنب تحذيرات الـ unknown field.
-3. **[`data/rules/politics.json`](file:///c:/tmp/maestro%20engine/data/rules/politics.json) (ملف بيانات):** إضافة القيمة الرقمية `0.03`.
+1. **[`scripts/Simulation.gd`](scripts/Simulation.gd) (ملف نواة #1):** إضافة عداد الانتشار `exposure_propagation_count` ومعالجة حدث `Agent_Exposed`.
+2. **[`scripts/ContentSchema.gd`](scripts/ContentSchema.gd) (ملف نواة #2):** إضافة `agent_exposure_stability_penalty` في `SCHEMA_POLITICS_RULES` لتفعيل التحميل الديناميكي وتجنب تحذيرات الـ unknown field.
+3. **[`data/rules/politics.json`](data/rules/politics.json) (ملف بيانات):** إضافة القيمة الرقمية `0.03`.
 
 #### 📐 مقارنة العدد بالسقف المسموح (Core Budget Analysis):
 - **عدد ملفات النواة المعدلة فعلياً:** **2 فقط** (`Simulation.gd` + `ContentSchema.gd`).
@@ -772,7 +772,7 @@ ERROR: 6 resources still in use at exit (run with --verbose for details).
 
 #### 1) الكود الفعلي المُضاف والتعديلات (Code Diffs)
 
-لم يتطلب تنفيذ Step 5 **أي تعديل على ملفات النواة أو ملفات البيانات**، حيث تم الاعتماد الكامل على كفاءة الـ Serialization المعتمدة سابقاً في `ScheduledQueue.gd`, `EventQueue.gd`, `WorldState.gd`, و `Simulation.gd`. تم إنشاء سكريبت التحقق المستقل [`scripts/test_phase6_step5.gd`](file:///c:/tmp/maestro%20engine/scripts/test_phase6_step5.gd).
+لم يتطلب تنفيذ Step 5 **أي تعديل على ملفات النواة أو ملفات البيانات**، حيث تم الاعتماد الكامل على كفاءة الـ Serialization المعتمدة سابقاً في `ScheduledQueue.gd`, `EventQueue.gd`, `WorldState.gd`, و `Simulation.gd`. تم إنشاء سكريبت التحقق المستقل [`scripts/test_phase6_step5.gd`](scripts/test_phase6_step5.gd).
 
 ---
 

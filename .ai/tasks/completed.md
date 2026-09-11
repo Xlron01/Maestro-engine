@@ -48,7 +48,7 @@
   - [x] A7 إعادة استخدام ScheduledQueue النواة كinstance (`is ScheduledQueue`) + audit مصدري.
   - [x] Election deadline مستقل فعّل يوم 10 (ليس hardwired).
   - [x] Regression 8 أجنحة EXIT=0 (تعديل وحيد موثق: تدقيق J1 في جناح 039 حُدّث لتوجيه 040-pre الأحدث §2).
-- **Evidence:** وثيقة [29-Deadline-Activation-Proof.md](file:///c:/tmp/maestro%20engine/29-Deadline-Activation-Proof.md) + `test_t040pre_*.log` (10).
+- **Evidence:** وثيقة [29-Deadline-Activation-Proof.md](29-Deadline-Activation-Proof.md) + `test_t040pre_*.log` (10).
 
 
 ---
@@ -89,7 +89,7 @@
   - [x] التوضيحان المعتمدان من المراجعة منفذان نصًا: §0-b-1 social_relations قاموس واحد متعدد القنوات (loyalty/trust من نفس الـedge) · §0-b-2 عقد استخدام control_chains (caller يحسبها مرة — لا إعادة حساب ولا caching subsystem).
   - [x] **القبول A–L: PASS 25/25** (`test_t038_compliance_run01.log`) — determinism bitwise · short-circuit بلا اختلاق · UNKNOWN يستمر · استقلال Authority/Loyalty/Influence · PARTIAL propagation · الحالات الخمس للا resistencia · لا world mutation · لا per-tick polling (30 ticks ⇒ 0 تقييم).
   - [x] **Regression L:** ScenarioTest EXIT=0+checksum · D1 28/28 · Model v1 Integration 7/7 · Economy Phase 2 14/14.
-  - [x] 6 commits صغيرة (acb61208 → 889c948c) وفق خطة rev.2 المعتمدة + وثيقة [27-Compliance-Runtime-Layer.md](file:///c:/tmp/maestro%20engine/27-Compliance-Runtime-Layer.md).
+  - [x] 6 commits صغيرة (acb61208 → 889c948c) وفق خطة rev.2 المعتمدة + وثيقة [27-Compliance-Runtime-Layer.md](27-Compliance-Runtime-Layer.md).
 - **Validation Method:** Godot headless runs + raw logs مؤرشفة + بوابة bitwise canonical.
 - **Evidence:** وثيقة 27 §4/§5 + `.ai/evidence/tests/test_t038_*.log` (5 لوقات).
 
@@ -109,9 +109,9 @@
   - [x] **C1 BatchedEventQueue = PASS:** عواصف −99.8% (0.361/0.352/0.480s على current) · SEM/SEQ/counters bitwise PASS على current+bucket · انحراف EVENT_SEQ (ترتيب الروابط المتساوية) موثق مع برهان اللا-أثر (أحداث العاصفة كلها noop/تبادلية).
   - [x] **C2 SlicedRunner = PASS محور الـframe فقط:** تكافؤ ظل bitwise (K=∞) · K=5000 لا يلتزم (max frame 82s=273%) · **K=1000 يلتزم (max 24.4s=81.5%)** · القاعدة المسجلة: Semantic tick duration ≠ Wall-clock frame duration — الزمن الكلي للعاصفة لا يتغير بتقطيعه.
   - [x] **E4 day-shift = FAIL مرفوض:** SEQ ينحرف فورًا بكل الصيغ؛ spread يكسر SEM فورًا (تغيّر عدد الإطلاقات/نافذة)؛ تطابق m29/m31 العرضي موثق كخدعة نطاق (population ورقية + count محفوظ داخل 35 يومًا فقط).
-  - [x] وثيقة التسليم: [26-T5-C-Storm-Root-Cause.md](file:///c:/tmp/maestro%20engine/26-T5-C-Storm-Root-Cause.md) + 13 raw log بأسماء `test_t5c_*`.
+  - [x] وثيقة التسليم: [26-T5-C-Storm-Root-Cause.md](26-T5-C-Storm-Root-Cause.md) + 13 raw log بأسماء `test_t5c_*`.
 - **Validation Method:** تشغيلات Godot headless على الحمل الحقيقي t5_p0 حصرًا؛ بوابات SEM/SEQ/counters مجمّدة قبل التشغيل؛ لا benchmark اصطناعي.
-- **Evidence:** [قسم 8 في الوثيقة 26 — خريطة الأدلة الكاملة](file:///c:/tmp/maestro%20engine/26-T5-C-Storm-Root-Cause.md)
+- **Evidence:** [قسم 8 في الوثيقة 26 — خريطة الأدلة الكاملة](26-T5-C-Storm-Root-Cause.md)
 
 ---
 
@@ -128,7 +128,7 @@
   - [x] Quiet-day: current p50=11.5ms مقابل bucket 149µs (−98.7%) وheap 202µs (−98.2%).
   - [x] Storm (30/60/90): bucket −38/−41/−36%; heap −18/−26/−20%. الذاكرة +27%/+30%.
   - [x] الحكمان: **Bucket = FULL PASS**, **Heap = PARTIAL PASS** (بالعتبات المجمّدة قبل التشغيل).
-- **Evidence:** [25-Experimental-Scheduler-Benchmark.md](file:///c:/tmp/maestro%20engine/25-Experimental-Scheduler-Benchmark.md) + 5 raw logs أرشيفية + 3 تشخيصات ترتيب.
+- **Evidence:** [25-Experimental-Scheduler-Benchmark.md](25-Experimental-Scheduler-Benchmark.md) + 5 raw logs أرشيفية + 3 تشخيصات ترتيب.
 - **Validation Method:** تشغيل ثلاث متواليات archived + مقارنة hashes حرفية.
 
 ---
@@ -164,7 +164,7 @@
   - [x] **PASS 18/18 (run05 EXIT=0)** بما فيها G7-twins (1 vs 2) · G7-coupling · G-greedy · G-cost(2 vs 8) · G-prune(0.46 edge).
   - [x] transcript+SHA256 مضمّنة doc22 §8 · PROVISIONAL حتى الختام.
 - **Validation Method:** Godot headless run05 + raw logs + مراجعة المالك للختام
-- **Evidence:** [-Generalization-Gate.md\](file:///c:/tmp/maestro%20engine/22-Generalization-Gate.md) · [run05](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_g_run05.log)
+- **Evidence:** [-Generalization-Gate.md\](22-Generalization-Gate.md) · [run05](.ai/evidence/tests/test_g_run05.log)
 
 ---
 
@@ -181,7 +181,7 @@
   - [x] TP1..TP10 + L0 كلها PASS بنصوصها المجمدة، الأرقام الحرجة bitwise (99.0/11.0/5.0/0.7/0.95/0.48/0.8/0.4).
   - [x] transcript validator + SHA256 الخمسة مضمّنة في doc21 §7 + سطر commit-scope.
 - **Validation Method:** Godot headless run + raw logs مؤرشفة + مراجعة المالك للإغلاق
-- **Evidence:** [`21-Planning-Specification-v01.md`](file:///c:/tmp/maestro%20engine/21-Planning-Specification-v01.md) · [run01](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_p_run01.log)
+- **Evidence:** [`21-Planning-Specification-v01.md`](21-Planning-Specification-v01.md) · [run01](.ai/evidence/tests/test_p_run01.log)
 
 ---
 
@@ -198,7 +198,7 @@
   - [x] محضر validator الخام منقول داخل doc20.
 - **Validation Method:** مراجعة المالك + حكمه على مرشح-GAP
   - [x] **أحكام المالك المنفذة (إغلاق مشروط منجز)**: صف5/6 COVERED→**COMPOSED** (استشهاد غير كافٍ واستنتاج غير مكتوب) · صف7 → **DEFERRED(خيار ii)** بلا Gate — غير محسومة كcapability مستقلة حتى تصادم فعلي خلال Spec/tests · قاعدة مجمدة: لا Gate لاحتمال نطري قبل عجز/كاونتر-إكزامبل مثبت
-- **Evidence:** [`20-Planning-Coverage-Mapping.md`](file:///c:/tmp/maestro%20engine/20-Planning-Coverage-Mapping.md)
+- **Evidence:** [`20-Planning-Coverage-Mapping.md`](20-Planning-Coverage-Mapping.md)
 
 ---
 
@@ -218,7 +218,7 @@
   - [x] صفر كود/Planner/integration — الإغلاق يتوقف توقفًا كاملًا؛ Spec v0.1 للتخطيط بأمر منفصل.
 - **Validation Method:**
   مراجعة المالك للوثيقة التحليلية (بوابة بلا تشغيل)
-- **Evidence:** [`19-Planning-Semantics-Gate.md`](file:///c:/tmp/maestro%20engine/19-Planning-Semantics-Gate.md)
+- **Evidence:** [`19-Planning-Semantics-Gate.md`](19-Planning-Semantics-Gate.md)
 
 ---
 
@@ -238,7 +238,7 @@
 - **Validation Method:**
   Godot headless run + raw log + مراجعات المالك rev.1–rev.4
 - **Evidence:**
-  [`18-Evaluation-Specification-v01.md`](file:///c:/tmp/maestro%20engine/18-Evaluation-Specification-v01.md)
+  [`18-Evaluation-Specification-v01.md`](18-Evaluation-Specification-v01.md)
   [.ai/evidence/tests/test_e_evaluation_spec.log](file:///.ai/evidence/tests/test_e_evaluation_spec.log)
 
 ---
@@ -258,7 +258,7 @@
   - [x] صفر كود — Specification v0.1 مؤجلة بأمر المالك صراحة.
 - **Validation Method:**
   مراجعة المالك للوثيقة التحليلية (بوابة بلا تشغيل)
-- **Evidence:** [`17-Evaluation-Semantics-Gate.md`](file:///c:/tmp/maestro%20engine/17-Evaluation-Semantics-Gate.md)
+- **Evidence:** [`17-Evaluation-Semantics-Gate.md`](17-Evaluation-Semantics-Gate.md)
 
 ---
 
@@ -282,7 +282,7 @@
 - **Validation Method:**
   Godot headless run واحد + raw log
 - **Evidence:**
-  [`16-Decision-Boundary-Test.md`](file:///c:/tmp/maestro%20engine/16-Decision-Boundary-Test.md)
+  [`16-Decision-Boundary-Test.md`](16-Decision-Boundary-Test.md)
   [.ai/evidence/tests/d1_decision_boundary.log](file:///.ai/evidence/tests/d1_decision_boundary.log)
 
 ---
@@ -300,7 +300,7 @@
   - [x] سجل مراجعة في §4 يوثق دورة PENDING→CLOSED كاملة.
 - **Validation Method:**
   مراجعة المالك + validator
-- **Evidence:** [`15-Decision-Layer-Design-Gate.md`](file:///c:/tmp/maestro%20engine/15-Decision-Layer-Design-Gate.md)
+- **Evidence:** [`15-Decision-Layer-Design-Gate.md`](15-Decision-Layer-Design-Gate.md)
 
 ---
 
@@ -319,7 +319,7 @@
   - [x] المؤجل صراحة (Intent/Threat/Personality/Betweenness...) + بروتوكول التجمد + Test 1′ المقترح الوحيد.
 - **Validation Method:**
   مراجعة صاحب المشروع والمراجع؛ ثم تجميد الصيغ وبناء Test 1′ عند الإشارة
-- **Evidence:** [`10-Strategic-Relevance-Model-v1.md`](file:///c:/tmp/maestro%20engine/10-Strategic-Relevance-Model-v1.md)
+- **Evidence:** [`10-Strategic-Relevance-Model-v1.md`](10-Strategic-Relevance-Model-v1.md)
 
 ---
 
@@ -337,7 +337,7 @@
   - [x] بوابة Model v1 مفتوحة رسميًا كسلسلة Facts→Primitives→Composition→Relevance.
 - **Validation Method:**
   مراجعة صاحب المشروع والمراجع للوثيقة
-- **Evidence:** [`09-Control-Chain-Stress-Test.md`](file:///c:/tmp/maestro%20engine/09-Control-Chain-Stress-Test.md)
+- **Evidence:** [`09-Control-Chain-Stress-Test.md`](09-Control-Chain-Stress-Test.md)
 
 ---
 
@@ -355,7 +355,7 @@
   - [x] رفض مفردة HostileControl بالدليل (S1/S5) + توصية Strategic Control مؤجلة الاعتماد لـ Model v1.
 - **Validation Method:**
   مراجعة صاحب المشروع والمراجع للوثيقة
-- **Evidence:** [`08-Control-Semantics-Stress-Test.md`](file:///c:/tmp/maestro%20engine/08-Control-Semantics-Stress-Test.md)
+- **Evidence:** [`08-Control-Semantics-Stress-Test.md`](08-Control-Semantics-Stress-Test.md)
 
 ---
 
@@ -373,7 +373,7 @@
   - [x] اقتراح Test E واحد غير منفذ + توقف تام عند التقرير.
 - **Validation Method:**
   مراجعة صاحب المشروع والمراجع للوثيقة
-- **Evidence:** [`07-Strategic-Relevance-Model-Discovery.md`](file:///c:/tmp/maestro%20engine/07-Strategic-Relevance-Model-Discovery.md)
+- **Evidence:** [`07-Strategic-Relevance-Model-Discovery.md`](07-Strategic-Relevance-Model-Discovery.md)
 
 ---
 
@@ -431,7 +431,7 @@
   - [x] OS-5 دورة موسمية: ⚪ Open carve-out (Temporal Semantics Gate مستقل)
 - **Validation Method:**
   مراجعة صاحب المشروع والمراجع للوثيقة
-- **Evidence:** [`13-Ontology-Sufficiency-Gate.md`](file:///c:/tmp/maestro%20engine/13-Ontology-Sufficiency-Gate.md)
+- **Evidence:** [`13-Ontology-Sufficiency-Gate.md`](13-Ontology-Sufficiency-Gate.md)
 
 ---
 
@@ -449,7 +449,7 @@
   - [x] **النتيجة: Gate 2 CLOSED — Confirmed Principle** (الاختزال نجح في الخمسة دون primitive مسار) + تسجيل ملاحظة صاحب المشروع: Relevance نصف الطريق، طبقة القرار هي الاختبار الحقيقي للقوانين.
 - **Validation Method:**
   مراجعة صاحب المشروع والمراجع للوثيقة
-- **Evidence:** [`11-Decision-Semantics-Gate2.md`](file:///c:/tmp/maestro%20engine/11-Decision-Semantics-Gate2.md)
+- **Evidence:** [`11-Decision-Semantics-Gate2.md`](11-Decision-Semantics-Gate2.md)
 
 ---
 
@@ -626,7 +626,7 @@
   - [x] تنظيف مخلفات heredoc التاريخية أعلى وأسفل الملف.
   - [x] `validate_memory.py`: PASS.
 - **Validation Method:** مراجعة بنية الملف + `python scripts/validate_memory.py`
-- **Evidence:** [`00-خطة-الطريق.md`](file:///c:/tmp/maestro%20engine/00-خطة-الطريق.md)
+- **Evidence:** [`00-خطة-الطريق.md`](00-خطة-الطريق.md)
 
 ---
 
@@ -733,7 +733,7 @@
   `Godot_console --headless --script scripts/test_phase7_test1.gd`
 - **Evidence:** [.ai/evidence/tests/phase7_test1_derived_importance.log](file:///.ai/evidence/tests/phase7_test1_derived_importance.log) — Exit Code: 1 (FAIL)
 
-> **قرار المراجعة (صدر):** صاحب المشروع صنّف فشل 1.4 تصنيفًا نهائيًا **(ب)** — عيب تصميمي في الصيغة المجمدة ذاتها (مقام normalization عالمي يحقن معلومة العالم كله في حساب كل كيان، مخالفًا لمبدأ O(الروابط ذات الصلة))، لا خطأ تعميم في عدّاء الاختبار. سُجل كسؤال مفتوح في [`04-اسئلة-تصميم-مفتوحة.md` — قسم 7](file:///c:/tmp/maestro%20engine/04-اسئلة-تصميم-مفتوحة.md).
+> **قرار المراجعة (صدر):** صاحب المشروع صنّف فشل 1.4 تصنيفًا نهائيًا **(ب)** — عيب تصميمي في الصيغة المجمدة ذاتها (مقام normalization عالمي يحقن معلومة العالم كله في حساب كل كيان، مخالفًا لمبدأ O(الروابط ذات الصلة))، لا خطأ تعميم في عدّاء الاختبار. سُجل كسؤال مفتوح في [`04-اسئلة-تصميم-مفتوحة.md` — قسم 7](04-اسئلة-تصميم-مفتوحة.md).
 
 ---
 

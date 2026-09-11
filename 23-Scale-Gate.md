@@ -30,11 +30,11 @@
 
 - **بيئة التشغيل:** Godot v4.7.2.stable.official (Console Headless Mode)
 - **معرف الالتزام (Commit Hash):** `4af89243ab0fe0a897c2efa277ccc19d47777f19` (قبل تعديل سكريبت البنشمارك)
-- **ملف السكريبت المعتمد:** [`scripts/test_t2_scale_simulation.gd`](file:///c:/tmp/maestro%20engine/scripts/test_t2_scale_simulation.gd)
+- **ملف السكريبت المعتمد:** [`scripts/test_t2_scale_simulation.gd`](scripts/test_t2_scale_simulation.gd)
   - **SHA256 Checksum (المستقبلي المعالج):** `8885f2b3bd8f79e6fdbf747cafcb9e00fcbf865f1fcf4fda7f6c30688b581938` (بعد تصحيح صيغة الـ R)
   - **SHA256 Checksum (المستخدم للتوليد):** `0b5271ca4e7c1f1b2840907329f02f91e5ee5f8da4f1efac00e5f6f4ffb162b5` (النسخة التي تم توليد الـ log منها فعلياً)
   - *تنويه هام لعدم تطابق الهاش:* تم توليد ملف الأدلة `run01.log` باستخدام نسخة السكريبت ذات الهاش `0b5271ca...` قبل تصحيح الـ shape-check للطباعة. النسخة المحدثة الحالية ذات الهاش `8885f2b3...` هي تصحيح للبنية البرمجية والتشخيص المستقبلي فقط، ولم يُعد تشغيل البنشمارك بها لتوليد بيانات جديدة لعدم الحاجة.
-- **ملف السجل الخام المؤرشف:** [`.ai/evidence/tests/test_t2_scale_simulation_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t2_scale_simulation_run01.log)
+- **ملف السجل الخام المؤرشف:** [`.ai/evidence/tests/test_t2_scale_simulation_run01.log`](.ai/evidence/tests/test_t2_scale_simulation_run01.log)
   - **SHA256 Checksum:** `6c9b09e343f40b750061057e75ff2d0786ca1c708a67b662599ee4beebb1abd7`
   - *سلامة ونزاهة القياسات:* كود جمع الـ tick timing الفعلي وحساب الـ median/min/max (باستخدام `Time.get_ticks_usec()` والـ `raw` array) منفصل بالكامل ومعزول عن سطر حساب الـ flag وطباعة التحذير (`R` الخاطئ). وبالتالي، لم يتأثر قياس الزمن بأي شكل والبيانات الخام في الـ log صحيحة وصالحة 100% ومستقلة تماماً.
   - *تأكيد الأدلة:* تم التحقق يدوياً وآلياً بأن السجل الخام المؤرشف يحتوي على قائمة القياسات الخمسة الخام بالكامل لكل نقطة $N$ بصيغة `raw=[...]` مما يضمن القابلية الكاملة لإعادة الإنتاج ومراجعة التشتت الإحصائي.
@@ -100,7 +100,7 @@ $$R = \frac{T_2 / T_1}{N_2 / N_1}$$
 ## 3-b) التحليل والـ Instrumentation التفصيلي (T4 Breakdown)
 
 للحصول على تفصيل دقيق لمصادر استهلاك الوقت داخل المسار الساخن لـ `evaluate_indexed` عند $N=50,000$ (Profile 3)، تم إجراء قياس تفصيلي (Instrumentation) وحفظ سجله كاملاً:
-- **ملف الأدلة المخصص لـ T4:** [`.ai/evidence/tests/test_t4_instrumentation_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t4_instrumentation_run01.log)
+- **ملف الأدلة المخصص لـ T4:** [`.ai/evidence/tests/test_t4_instrumentation_run01.log`](.ai/evidence/tests/test_t4_instrumentation_run01.log)
   - **SHA256 Checksum:** `b504746f03c4f07644be36fe2ac2c7479bfc92bc8d1eee2845a8e214af851608`
 
 ### النتائج الإحصائية المقاسة (Medians لـ 5 دورات):

@@ -27,7 +27,7 @@
 
 ## Next Recommended Actions
 1. قرار المالك على نتائج الـDiscovery: (أ) تكليف PF-PROBE spec على production semantics، (ب) قرار منفصل مبكر على scoping الـE7 loop، (ج) اعتماد PROVISIONAL للمهام السابقة، (د) غيرها.
-2. ملاحظة بيئية: worktree `siren` على فرع `t040-full-benchmark` يتقدم على master المحلي (الذي يحمل ee98f568 المرفوض كhistory فقط) — دمج master/تنظيفه بقرار المالك.
+2. ملاحظة بيئية (محلولة 2026-09-12): المشروع **موحّد في نسخة واحدة** — `C:/Users/ahmed/orca/workspaces/maestro engine/siren` على فرع `master` فقط (لا worktrees ولا فروع فرعية). التسليم المرفوض ee98f568 محفوظ كتاريخ عبر merge استراتيجية ours (صفر تبنّى محتوى). النسخة القديمة `C:/tmp/maestro engine` حُذفت بالكامل.
 
 ## Known Bugs & Temporary Hacks
 - **تحذيرات الخروج في Godot:** ObjectDB leaks عند خروج السكريبتات المستقلة (سلوك موروث pre-existing baseline، غير مرتبط بـTASK-040).

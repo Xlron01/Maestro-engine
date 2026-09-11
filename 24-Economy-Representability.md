@@ -37,11 +37,11 @@ $$\text{Production} \to \text{Consumption} \to \text{Stock} \to \text{Trade} \to
 بناءً على التنسيق والقرار المشترك، تم الالتزام بصفر تعديل للمنطق الداخلي للـ engine، وتم تسجيل التعديلين التاليين كـ **`ENGINE TOUCH`** صريح ومرئي بالكامل وكلاهما يقع تحت تصنيف **`C1`** (تعديل هيكلي بسيط دون المساس بالنواة):
 
 1. **ENGINE TOUCH #1:**
-   - **الملف:** [`scripts/game_event_handlers.gd`](file:///c:/tmp/maestro%20engine/scripts/game_event_handlers.gd)
+   - **الملف:** [`scripts/game_event_handlers.gd`](scripts/game_event_handlers.gd)
    - **السطور المتأثرة:** إضافة 4 أسطر delegation نقية (Preload للموديول الجديد، إنشاء instance في `setup()`, ودالتي delegation للـ tick والـ event).
    - **السبب المعماري:** دعم الـ engine لـ script واحد فقط للـ dispatch (`handlers_script` في `dispatch.json`).
 2. **ENGINE TOUCH #2:**
-   - **الملف:** [`data/rules/dispatch.json`](file:///c:/tmp/maestro%20engine/data/rules/dispatch.json)
+   - **الملف:** [`data/rules/dispatch.json`](data/rules/dispatch.json)
    - **السطور المتأثرة:** إضافة سطر واحد لتسجيل الـ job الجديد `"economy_tick": { "fn": "job_economy_tick" }` في قائمة الـ `job_handlers`.
    - **السبب المعماري:** منع الـ engine من إسقاط الـ job صامتاً لكونه لا يقبل أي jobs غير مسجلة في الـ dispatch loop.
 
@@ -52,9 +52,9 @@ $$\text{Production} \to \text{Consumption} \to \text{Stock} \to \text{Trade} \to
 ## 4) T3-C: تكلفة التأليف البرمجي وحجم البيانات (Authoring Cost)
 
 تم فصل منطق المحاكاة (Logic LOC) عن حجم البيانات الثابتة (Data Volume):
-- **Logic LOC (الكود الحقيقي):** `115` سطر تنفيذي فاعل في [`economy/economy_event_handlers.gd`](file:///c:/tmp/maestro%20engine/economy/economy_event_handlers.gd) (لا يشمل التعليقات أو السطور الفارغة).
+- **Logic LOC (الكود الحقيقي):** `115` سطر تنفيذي فاعل في [`economy/economy_event_handlers.gd`](economy/economy_event_handlers.gd) (لا يشمل التعليقات أو السطور الفارغة).
   - *الميزانية المستهلكة:* **115 / 500 سطر** (تعد بعيدة جداً عن حد الـ stop البالغ 500 سطر).
-- **Data Volume (حجم البيانات):** `26` سطر في [`economy/economy.json`](file:///c:/tmp/maestro%20engine/economy/economy.json).
+- **Data Volume (حجم البيانات):** `26` سطر في [`economy/economy.json`](economy/economy.json).
 
 ---
 
@@ -69,7 +69,7 @@ $$\text{Production} \to \text{Consumption} \to \text{Stock} \to \text{Trade} \to
 
 ## 6) وثائق الأدلة وموقعها
 
-- **ملف السجل الخام الفعلي للبنشمارك:** [`.ai/evidence/tests/test_t3_economy_phase1_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t3_economy_phase1_run01.log)
+- **ملف السجل الخام الفعلي للبنشمارك:** [`.ai/evidence/tests/test_t3_economy_phase1_run01.log`](.ai/evidence/tests/test_t3_economy_phase1_run01.log)
   - **SHA256 Checksum:** `59757866dda161ce8edcbe37d095a9be94566b6c22ce23c617778d85850d48b9`
 
 ---
@@ -79,9 +79,9 @@ $$\text{Production} \to \text{Consumption} \to \text{Stock} \to \text{Trade} \to
 تم إجراء تدقيق معماري للتسريبات التي ظهرت في تقرير التشغيل الأولي، وخلصنا إلى الآتي:
 1. **تسريب الـ test harness المؤقت (تم حله):**
    - الـ warnings للـ Leaked ObjectDB instances الـ 6 والـ resources الـ 1 كانت ناتجة بالكامل عن عدم تفريغ الـ `_ProxyNode` (الذي يرث من `Node` وتطلّب تفريغاً يدوياً) في نهاية سكريبت الفحص.
-   - تم حل المشكلة نهائياً باستدعاء `proxy.free()` قبل الخروج في [`test_t3_economy_phase1.gd`](file:///c:/tmp/maestro%20engine/scripts/test_t3_economy_phase1.gd).
+   - تم حل المشكلة نهائياً باستدعاء `proxy.free()` قبل الخروج في [`test_t3_economy_phase1.gd`](scripts/test_t3_economy_phase1.gd).
    - النتيجة الآن: **خروج نظيف بالكامل بنسبة 100% (0 memory leaks)**.
-   - **ملف أدلة الـ baseline مسبق الوجود:** [`.ai/evidence/tests/test_baseline_scenariotest_exit_leaks.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_baseline_scenariotest_exit_leaks.log) (SHA256: `f3251a29f577a03f949af29a0a83e0062adb1c38583de2866dc28991ccfac982`).
+   - **ملف أدلة الـ baseline مسبق الوجود:** [`.ai/evidence/tests/test_baseline_scenariotest_exit_leaks.log`](.ai/evidence/tests/test_baseline_scenariotest_exit_leaks.log) (SHA256: `f3251a29f577a03f949af29a0a83e0062adb1c38583de2866dc28991ccfac982`).
    - *تنويه حول اختلاف الأعداد:* التباين في عدد الكائنات المسربة (74 كائناً في ScenarioTest مقابل 6 كائنات فقط في النسخة المبدئية من سكريبت الاقتصاد) متوقع ومنطقي تماماً؛ حيث يقوم ScenarioTest بإنشاء وتشغيل 5 سيناريوهات متتالية ومستقلة تُنشئ عدداً كبيراً من الـ Node stubs والوظائف وتتركها بدون تفريغ، بينما اختبار الاقتصاد (T3) يقتصر على تشغيل سيناريو يتيم وبسيط للغاية.
    - هذا يثبت أن موديول الاقتصاد المكتوب حديثاً (`economy_event_handlers.gd`) حتمي بالكامل، ويعتمد فقط على مراجع من نوع `RefCounted` وجداول بيانات تُنظف تلقائياً دون المساهمة في تسريب الذاكرة مطلقاً.
 

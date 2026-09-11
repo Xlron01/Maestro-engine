@@ -22,8 +22,8 @@
 تُطبّق نفس ضوابط العزل الصارمة من Phase 1:
 - **ملفات النواة الـ 9 المحمية:** ممنوع لمسها نهائياً.
 - **ملفات الـ content المسموح تعديلها كـ Engine Touches (تحت بند C1):**
-  - [`scripts/game_event_handlers.gd`](file:///c:/tmp/maestro%20engine/scripts/game_event_handlers.gd) (لإضافة delegation للـ v2 وللـ feedback).
-  - [`data/rules/dispatch.json`](file:///c:/tmp/maestro%20engine/data/rules/dispatch.json) (لتسجيل الـ ticks الجديدة).
+  - [`scripts/game_event_handlers.gd`](scripts/game_event_handlers.gd) (لإضافة delegation للـ v2 وللـ feedback).
+  - [`data/rules/dispatch.json`](data/rules/dispatch.json) (لتسجيل الـ ticks الجديدة).
 - **مكان كود المنطق الجديد:**
   - `economy/economy_v2_handlers.gd` (للنظام الاقتصادي الثاني).
   - `economy/economy_v2.json` (بيانات النظام الاقتصادي الثاني).
@@ -48,7 +48,7 @@
 2. **اتجاه الكتابة (من الاقتصاد للنواة):**
    - **ممنوع منعاً باتاً** قيام موديول الاقتصاد بالكتابة المباشرة في حقول النواة الأساسية.
    - عند حدوث عجز (Shortage)، يقوم موديول الاقتصاد بدفع حدث اقتصادي مخصص `Economy_Shortage_Occurred` للـ EventQueue التابعة للمحرك.
-   - يتم التقاط هذا الحدث وتحديث الـ `stability` من داخل طبقة المحتوى المعتمدة للـ engine وهي [`scripts/game_event_handlers.gd`](file:///c:/tmp/maestro%20engine/scripts/game_event_handlers.gd) (عبر delegation بسيط)، مما يحافظ على مبدأ "نقطة تعديل واحدة فقط" لـ Core State.
+   - يتم التقاط هذا الحدث وتحديث الـ `stability` من داخل طبقة المحتوى المعتمدة للـ engine وهي [`scripts/game_event_handlers.gd`](scripts/game_event_handlers.gd) (عبر delegation بسيط)، مما يحافظ على مبدأ "نقطة تعديل واحدة فقط" لـ Core State.
 
 ---
 

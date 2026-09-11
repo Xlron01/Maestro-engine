@@ -111,10 +111,10 @@
 
 | artifact | الملف |
 |---|---|
-| baseline (Current) | [`.ai/evidence/tests/test_t5b_current_baseline.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_current_baseline.log) (run04=baseline, run01-03 محاولات أرشيفية) |
-| Bucket | [`.ai/evidence/tests/test_t5b_bucket_run02.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_bucket_run02.log) (run01 ما قبل التصحيح الترتيبي — أُرشف) |
-| Heap | [`.ai/evidence/tests/test_t5b_heap_run01.log`](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_heap_run01.log) + [run02](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_heap_run02.log) (run01 ما قبل التصحيح التسلسلي) |
-| تشخيص الترتيب | [test_t5b_compare_diag.log](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_compare_diag.log) / [_diag2](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_compare_diag2.log) / [_diag3](file:///c:/tmp/maestro%20engine/.ai/evidence/tests/test_t5b_compare_diag3.log) |
+| baseline (Current) | [`.ai/evidence/tests/test_t5b_current_baseline.log`](.ai/evidence/tests/test_t5b_current_baseline.log) (run04=baseline, run01-03 محاولات أرشيفية) |
+| Bucket | [`.ai/evidence/tests/test_t5b_bucket_run02.log`](.ai/evidence/tests/test_t5b_bucket_run02.log) (run01 ما قبل التصحيح الترتيبي — أُرشف) |
+| Heap | [`.ai/evidence/tests/test_t5b_heap_run01.log`](.ai/evidence/tests/test_t5b_heap_run01.log) + [run02](.ai/evidence/tests/test_t5b_heap_run02.log) (run01 ما قبل التصحيح التسلسلي) |
+| تشخيص الترتيب | [test_t5b_compare_diag.log](.ai/evidence/tests/test_t5b_compare_diag.log) / [_diag2](.ai/evidence/tests/test_t5b_compare_diag2.log) / [_diag3](.ai/evidence/tests/test_t5b_compare_diag3.log) |
 
 ### سجل المراجعة
 

@@ -157,7 +157,7 @@ Goal g (محتوى على الكيان)
 
 **التمثيل:** الهدف لا يقيّم الكمية بل **الحصة**: `{share_of_dominant_supplier(cap) ≤ θ}`.
 
-**الفحص الحاسم أولًا — هل الحصة primitive موجودة؟** نعم: `supply_share` في [`scripts/relevance_supply.gd`](file:///c:/tmp/maestro%20engine/scripts/relevance_supply.gd) — `mine / total` — وهي أصلًا تدخل في ExposureSupply/EoR بالمجمد. واصف «حصة المورد المهيمن» = قراءة مباشرة لتركيب قائم. **لا evaluator جديد إطلاقًا.**
+**الفحص الحاسم أولًا — هل الحصة primitive موجودة؟** نعم: `supply_share` في [`scripts/relevance_supply.gd`](scripts/relevance_supply.gd) — `mine / total` — وهي أصلًا تدخل في ExposureSupply/EoR بالمجمد. واصف «حصة المورد المهيمن» = قراءة مباشرة لتركيب قائم. **لا evaluator جديد إطلاقًا.**
 
 **اختبار الاختزال:** القيمة تتحلل إلى واصف نسبي (F3) + عتبة θ معلنة. لاحظ العمق: خفض اعتمادي قد **يزيد** انكشاف الآخرين — والإطار يلتقط ذلك تلقائيًا لأن الحصة صفة عالم-مشتركة زوجية لا «مشاعري». ✔️
 
