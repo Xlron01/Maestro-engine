@@ -1,5 +1,7 @@
 # Maestro Engine
 
+> **TL;DR — what this is, in 30 seconds:** a data-driven **simulation engine core** built from scratch on Godot 4: a deterministic, event-driven kernel (`SimClock` / `EventQueue` / `WorldState`), Utility-AI decisions defined as **data, not code**, and a content contract where scenarios load from validated JSON with zero engine changes. Development runs on a 39-task roadmap with per-task **acceptance tests and benchmarks** (e.g. 100 countries / 1,100 actions / 330µs per action). The grand-strategy genre is the *demonstration domain* — the engineering discipline underneath is the point.
+
 ## English
 
 **Maestro Engine** is a data-driven game engine specialized for **Grand Strategy** games (in the style of Paradox titles like HoI4 / Victoria series), built on **Godot 4** (GDScript).
